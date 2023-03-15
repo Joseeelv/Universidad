@@ -13,7 +13,7 @@ class Fecha{
         //Fecha(const Fecha& f );//constructor de copia "no hay ni punteros ni referencias --> Usamos Predeterminado"
         //Fecha& operator =(const Fecha& f); //operador de asignacion
         Fecha(const char* c);//obtenemos una fecha a partir de una cadena de caracteres
-        operator const char* () const; //Conversor a const *char
+        operator const char* () const ; //Conversor a const *char
         //metodos observadores de la clase
         inline int dia() const{return dd;}
         inline int mes() const{return mm;}
@@ -32,8 +32,8 @@ class Fecha{
         Fecha& operator -=(int n);
 
         //Sobrecarga Operando aritmeticos "
-        Fecha& operator +(int n); //suma
-        Fecha& operator -(int n); //resta
+        Fecha operator +(int n) const; //suma
+        Fecha operator -(int n) const; //resta
         //destructor por defecto
         //~Fecha();
 

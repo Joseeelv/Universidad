@@ -9,11 +9,12 @@ Practica 0 de POO
 //----IMPLEMENTACION DE LOS CONSTRUCTORES----
 //constructor
 Cadena::Cadena(size_t tam, char caracter):s_{new char[tam+1]}, tam_{tam}{
-    while(unsigned i = 0 < tam_){
-        s_[i] = caracter;
-        s_[tam_] = '\0';
-        i++;
+    while(tam-->0){
+        s_[tam] = caracter;
     }
+    s_[tam_] = '\0';
+
+
 }
 //constructor de copia
 Cadena::Cadena(const Cadena& cadena):s_{new char[cadena.tam_+1]},tam_{cadena.tam_}{
@@ -57,11 +58,19 @@ Cadena operator+(const Cadena& a, const Cadena& b){
 
 //----IMPLEMENTACION OPERADORES LÓGICOS----
 bool operator ==(const Cadena& a, const Cadena& b){
-    return (strcmp(a,b)==0);
+    if(a.length()!=b.length()) return false; //si las longs de las cadenas 
+                                             //son difrentes sale falso
+    else{
+        //comprobamos que los caracteres son los mismos
+        for(unsigned i=0; i<a.length() && b.length(); i++){
+            a.at(i)==b.at(i);
+        }
+    }
 }
 bool operator !=(const Cadena& a, const Cadena& b){
-    //si son diferentes devuelve un valor !=0
-    return !(strcmp(a,b));
+    return!(a==b);//a través de la sobrecarga de "==" comprobamos
+                  //que no sean iguales las cadenas
+   
 }
 bool operator <(const Cadena& a, const Cadena& b){
     return a<b;

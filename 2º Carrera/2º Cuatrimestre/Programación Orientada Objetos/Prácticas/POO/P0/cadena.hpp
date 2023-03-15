@@ -21,7 +21,7 @@ class Cadena{
         inline int length()const{return tam_;}
 
         //metodo de conversion a const char*
-        inline operator const char* ()const {return s_;}
+        explicit operator const char* ()const {return s_;}
 
         //sobrecarga de operadores
         Cadena& operator +=(const Cadena& cadena);

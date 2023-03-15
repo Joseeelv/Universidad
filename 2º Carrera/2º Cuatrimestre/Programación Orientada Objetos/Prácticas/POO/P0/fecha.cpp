@@ -1,4 +1,4 @@
-#/*
+/*
 Jose Luis Venega Sánchez
 Practica 0 de POO
 */
@@ -12,12 +12,12 @@ Practica 0 de POO
 void Fecha::comprobarfecha(){ //DIA ERRONEO¿?
     if(dd > ultimo_dia() || dd < 1){
         Fecha::Invalida D_invalido("ERROR: Dia mal introducido");
-        //falta la excepcion
+        //excepcion
         throw D_invalido;
     }
     if(aaaa < Fecha::AnnoMinimo || aaaa>Fecha::AnnoMaximo){
         Fecha::Invalida A_invalido("ERROR: Año mal introducido");
-        //falta la excepcion
+        //excepcion
         throw A_invalido;
     }
 }
@@ -56,7 +56,7 @@ Fecha::Fecha(int dia, int mes, int anno):dd{dia},mm{mes},aaaa{anno}{
 }
 
 Fecha::Fecha(const char* c){ //poder obtner la fecha a partir de una cadena de caracteres
-    if(sscanf(c,"%d%d%d",&dd,&mm,&aaaa) !=3){ //no hemos leido ningun parámetro --> Fecha incorrecta
+    if(sscanf(c,"%d/%d/%d",&dd,&mm,&aaaa) !=3){ //la fecha no tiene 3 parámetros --> Fecha incorrecta
         Fecha::Invalida formato("ERROR: Formato de fecha incorrecto");
         throw formato;
     }
@@ -70,10 +70,10 @@ Fecha::Fecha(const char* c){ //poder obtner la fecha a partir de una cadena de c
     comprobarfecha(); //comprobamos que la fecha es correcta
 }
 
-Fecha::operator const char*() const{
+Fecha::operator const char*()const{
     //Usamos la codificación española "utf-8"
     std::locale::global(std::locale("es_ES.utf8"));
-    char *auxiliar=new char[100]; //creamos con memoria dinamica un vector auxiliar que contendrá la fecha
+    char *auxiliar=new char[45]; //creamos con memoria dinamica un vector auxiliar que contendrá la fecha
 
     //descomponemos la fecha
     std::time_t t_calendario = std::time(nullptr);
@@ -83,7 +83,7 @@ Fecha::operator const char*() const{
     tiempo->tm_year = aaaa-1900;
     mktime(tiempo); //creamos la fecha
     //guardamos la fecha en el vector auxiliar
-    strftime(auxiliar,100,"%dia %e %mes de %año",tiempo);
+    strftime(auxiliar,45,"%A %d de %B de %Y",tiempo);
     return auxiliar; //devolvemos la fecha
 }
 
@@ -92,7 +92,7 @@ Fecha& Fecha::operator++(){
     *this +=1;
     return *this;
 }
-Fecha& Fecha::operator++(int n){ //la variable no se usa es para especificar que es "++fecha"
+Fecha& Fecha::operator++(int){ //la variable no se usa es para especificar que es "++fecha"
     Fecha *fecha = new Fecha(*this); //tenemos que la nueva fecha = *this
     *this+=1;
     return *fecha;
@@ -101,7 +101,7 @@ Fecha& Fecha::operator--(){
     *this-=1;
     return *this;
 }
-Fecha& Fecha::operator--(int n){ //la variable no se usa es para especificar que es "--fecha"
+Fecha& Fecha::operator--(int){ //la variable no se usa es para especificar que es "--fecha"
     Fecha *fecha = new Fecha(*this);
     *this-=1;
     return *fecha;
@@ -126,12 +126,12 @@ Fecha& Fecha::operator-=(int n){
     return *this;
 }
 //----IMPLEMENTACION DE LOS OPERADORES SUMA Y RESTA----
-Fecha& Fecha::operator+(int n){ 
-    Fecha& fecha(*this);
+Fecha Fecha::operator+(int n)const{ 
+    Fecha fecha(*this);
     return fecha +=n;
 }
-Fecha& Fecha::operator -(int n) {
-    Fecha& fecha(*this);
+Fecha Fecha::operator -(int n)const {
+    Fecha fecha(*this);
     return fecha -=n;
 }
 
@@ -144,8 +144,8 @@ bool operator !=(const Fecha& a, const Fecha& b){
     return !(a==b); //mas eficiente así
 }
 bool operator <(const Fecha& a, const Fecha& b){
-        return (a.anno() < b.anno() ||((a.anno() == b.anno() && a.mes() < b.mes())||
-                (a.anno() == b.anno() && a.mes() == b.mes() && a.dia() < b.dia())));
+    return (a.anno() < b.anno() ||((a.anno() == b.anno() && a.mes() < b.mes())||
+        (a.anno() == b.anno() && a.mes() == b.mes() && a.dia() < b.dia())));
 }
 bool operator >(const Fecha& a, const Fecha& b){ 
     // fecha a > fechb <--> b<a
