@@ -58,14 +58,15 @@ Cadena operator+(const Cadena& a, const Cadena& b){
 
 //----IMPLEMENTACION OPERADORES LÓGICOS----
 bool operator ==(const Cadena& a, const Cadena& b){
-    if(a.length()!=b.length()) return false; //si las longs de las cadenas 
-                                             //son difrentes sale falso
-    else{
-        //comprobamos que los caracteres son los mismos
-        for(unsigned i=0; i<a.length() && b.length(); i++){
-            a.at(i)==b.at(i);
-        }
-    }
+    // if(a.length()!= b.length()) return false; //si las longs de las cadenas 
+    //                                          //son difrentes sale falso
+    // else{
+    //     //comprobamos que los caracteres son los mismos
+    //     for(unsigned i=0; i<a.length() && b.length(); i++){
+    //         a.at(i)==b.at(i);
+    //     }
+    // }
+    return (strcmp(&a[0], &b[0])==0); //si las cadenas son iguales devuelve 0
 }
 bool operator !=(const Cadena& a, const Cadena& b){
     return!(a==b);//a través de la sobrecarga de "==" comprobamos
@@ -73,7 +74,7 @@ bool operator !=(const Cadena& a, const Cadena& b){
    
 }
 bool operator <(const Cadena& a, const Cadena& b){
-    return a<b;
+    return (strcmp(&a[0], &b[0])<0);//
 }
 bool operator >(const Cadena& a, const Cadena& b){
     //si a>b <--> b<a
@@ -92,22 +93,25 @@ bool operator >=(const Cadena& a, const Cadena& b){
 //----IMPLEMENTACION METODOS AT---- 
 char& Cadena::at(size_t i){
     //comprobamos que i no se pasa del tamaño
-    if(i>tam_){
-        throw std::out_of_range("ERROR AT(): FUERA DE RANGO");
+    if(i<tam_){
+        return s_[i]; //devuelve el valor del indice
     }
-    else return s_[i]; //devuelve el valor del indice
+    else throw std::out_of_range("ERROR AT(): FUERA DE RANGO");
+
 }
+
 const char& Cadena::at(size_t i)const{
-    if(i>tam_){
-        throw std::out_of_range("ERROR AT(): FUERA DE RANGO");
+    if(i<tam_){
+        return s_[i]; //devuelve el valor del indice
+        
     }
-    else return s_[i]; //devuelve el valor del indice
+    else throw std::out_of_range("ERROR AT(): FUERA DE RANGO");
 }
 
 //----IMPLEMENTACION METODO SUBCADENA----
 Cadena Cadena::substr(size_t i, size_t tam) const{
     //comprobamos que no se sale de rango la cadena
-    if(i+tam > tam_ || tam > tam_ || i > tam_){
+    if(i+tam > tam_|| tam > tam_ || i > tam_){
         throw std::out_of_range("ERROR: EL TAMAÑO Y EL INDICE FUERA DE RANGO");
     }
     else{

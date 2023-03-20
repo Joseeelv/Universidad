@@ -70,10 +70,10 @@ Fecha::Fecha(const char* c){ //poder obtner la fecha a partir de una cadena de c
     comprobarfecha(); //comprobamos que la fecha es correcta
 }
 
-Fecha::operator const char*()const{
+Fecha::operator const char*()const noexcept{
     //Usamos la codificación española "utf-8"
     std::locale::global(std::locale("es_ES.utf8"));
-    char *auxiliar=new char[45]; //creamos con memoria dinamica un vector auxiliar que contendrá la fecha
+    static char *auxiliar= new char[45]; //creamos con memoria dinamica un vector auxiliar que contendrá la fecha
 
     //descomponemos la fecha
     std::time_t t_calendario = std::time(nullptr);
@@ -92,19 +92,20 @@ Fecha& Fecha::operator++(){
     *this +=1;
     return *this;
 }
-Fecha& Fecha::operator++(int){ //la variable no se usa es para especificar que es "++fecha"
-    Fecha *fecha = new Fecha(*this); //tenemos que la nueva fecha = *this
+Fecha Fecha::operator++(int){ //la variable no se usa es para especificar que es "++fecha"
+    //Fecha *fecha = new Fecha(*this); //tenemos que la nueva fecha = *this
+    Fecha fecha(*this); //Ctor copia
     *this+=1;
-    return *fecha;
+    return fecha;
 }
 Fecha& Fecha::operator--(){
     *this-=1;
     return *this;
 }
-Fecha& Fecha::operator--(int){ //la variable no se usa es para especificar que es "--fecha"
-    Fecha *fecha = new Fecha(*this);
+Fecha Fecha::operator--(int){ //la variable no se usa es para especificar que es "--fecha"
+    Fecha fecha(*this);
     *this-=1;
-    return *fecha;
+    return fecha;
 }
 Fecha& Fecha::operator+=(int n){
     //Creamos una estructura con la fecha ya operada y formateada
@@ -136,26 +137,26 @@ Fecha Fecha::operator -(int n)const {
 }
 
 //----IMPLEMENTACION OPERADORES LOGICOS----
-bool operator == (const Fecha& a, const Fecha& b){ //comprobamos que ambas fechas son iguales
+bool operator == (const Fecha& a, const Fecha& b) noexcept{ //comprobamos que ambas fechas son iguales
     return(a.dia() == b.dia() && a.mes() == b.mes() && a.anno() == b.anno());
 }
-bool operator !=(const Fecha& a, const Fecha& b){
+bool operator !=(const Fecha& a, const Fecha& b) noexcept{
     //return(a.dia() != b.dia() && a.mes() != b.mes() && a.anno() != b.anno());
     return !(a==b); //mas eficiente así
 }
-bool operator <(const Fecha& a, const Fecha& b){
+bool operator <(const Fecha& a, const Fecha& b) noexcept{
     return (a.anno() < b.anno() ||((a.anno() == b.anno() && a.mes() < b.mes())||
         (a.anno() == b.anno() && a.mes() == b.mes() && a.dia() < b.dia())));
 }
-bool operator >(const Fecha& a, const Fecha& b){ 
+bool operator >(const Fecha& a, const Fecha& b) noexcept{ 
     // fecha a > fechb <--> b<a
     return (b<a);
 }
-bool operator <=(const Fecha& a, const Fecha& b){
+bool operator <=(const Fecha& a, const Fecha& b)noexcept{
     //fecha a <= fecha b <--> !(b<a)
     return !(b<a);
 }
-bool operator >=(const Fecha& a, const Fecha& b){
+bool operator >=(const Fecha& a, const Fecha& b)noexcept{
     //fecha a >= fecha b <--> !(a<b)
     return !(a<b);
 }
