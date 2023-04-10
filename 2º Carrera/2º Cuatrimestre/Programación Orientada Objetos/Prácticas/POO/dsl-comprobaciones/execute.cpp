@@ -213,7 +213,7 @@ bool execute::existVariable(const VarDecl *foundVariable)
 std::pair<bool, int> isElementInVector(std::string s, const vector<string>& v)
 {
   std::pair<bool, int> res(false,0);
-  for(unsigned i = 0; i < v.size() && !res.first; ++i) {
+  for(size_t i = 0; i < v.size() && !res.first; ++i) {
     res.first=s == v[i];
     res.second=i;
   }

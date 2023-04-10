@@ -8,6 +8,7 @@
 
 using namespace std;
 
+// Variables para el siguiente conjunto de casos de prueba. ¡No tocar!
 namespace {
   const Cadena referencia("1234XYZ");
   const Cadena titulo("Prueba");
@@ -28,8 +29,8 @@ namespace {
   Articulo::Autores autores { &autor };
   Libro articulo1(autores, "111", "The Standard Template Library",
 		  fHoy, 42.10, 200, 50);
-  Cederron articulo2(autores, "110", "Fundamentos de C++",
-		     fHoy, 35.95, 100, 50);
+  Revista articulo2(autores, "110", "Programadores de C++",
+		     fHoy, 11.95, 136, 30, 50);
 #else
   Articulo articulo1("111", "The Standard Template Library", fHoy, 42.10, 50),
     articulo2("110", "Fundamentos de C++", fHoy, 35.95, 50);
@@ -51,6 +52,35 @@ namespace {
   bool bPrimera = true;
 
   using TIPO = Tarjeta::Tipo;
+
+#if defined(P3) || defined(P4)
+  struct Usu_Ped {
+      typedef std::set<Pedido*> Pedidos;
+/*
+      void asocia(Usuario&, Pedido&);
+      void asocia(Pedido&, Usuario&);
+      const Pedidos& pedidos(Usuario&);
+      const Usuario* cliente(Pedido&);
+*/
+      std::map<Usuario*, Pedidos> pedidos_;
+      std::map<Pedido*, Usuario*> cliente_;
+  };
+
+  struct Ped_Art {
+    typedef std::map<Articulo*, LineaPedido, OrdenaArticulos> ItemsPedido; 
+    typedef std::map<Pedido*, LineaPedido, OrdenaPedidos> Pedidos; 
+/*
+    void pedir(Pedido  &, Articulo&, double, unsigned int = 1u) noexcept;
+    void pedir(Articulo&, Pedido  &, double, unsigned int = 1u) noexcept;
+    const ItemsPedido& detalle(Pedido&) const noexcept(false);
+    void mostrarDetallePedidos(std::ostream&) noexcept;
+    Pedidos ventas(Articulo&) const noexcept;
+    void mostrarVentasArticulos(std::ostream&) noexcept;
+*/
+    std::map<Pedido  *, ItemsPedido, OrdenaPedidos  > pedidos_articulos_;
+    std::map<Articulo*, Pedidos    , OrdenaArticulos> articulos_pedidos_;
+  };
+#endif
 }
 
 FCTMF_FIXTURE_SUITE_BGN(test_p3_clases) {
@@ -111,9 +141,8 @@ FCTMF_FIXTURE_SUITE_BGN(test_p3_clases) {
 
   FCT_TEST_BGN(Pedido - carrito vacio) {
     try {
-      Pedido { *pAsocUsuarioPedido, *pAsocPedidoArticulo,
-	  *pU, *pTarjetaU, fHoy };
-      fct_chk(!"Se esperaba una excepción Pedido::Vacio");
+      Pedido {*pAsocUsuarioPedido, *pAsocPedidoArticulo, *pU, *pTarjetaU, fHoy};
+      fct_xchk(false, "Se esperaba una excepción Pedido::Vacio");
     }
     catch(const Pedido::Vacio& ex) {
       fct_chk(&ex.usuario() == pU);
@@ -124,9 +153,8 @@ FCTMF_FIXTURE_SUITE_BGN(test_p3_clases) {
   FCT_TEST_BGN(Pedido - impostor) {
     pU2->compra(articulo1, 3);
     try {
-      Pedido { *pAsocUsuarioPedido, *pAsocPedidoArticulo,
-	  *pU2, *pTarjetaU, fHoy };
-      fct_chk(!"Se esperaba una excepción Pedido::Impostor");
+      Pedido {*pAsocUsuarioPedido, *pAsocPedidoArticulo, *pU2, *pTarjetaU, fHoy};
+      fct_xchk(false, "Se esperaba una excepción Pedido::Impostor");
     }
     catch(const Pedido::Impostor& ex) {
       fct_chk(&ex.usuario() == pU2);
@@ -135,15 +163,63 @@ FCTMF_FIXTURE_SUITE_BGN(test_p3_clases) {
   FCT_TEST_END();
   
   FCT_TEST_BGN(Pedido - sin stock) {
+    Usu_Ped* pU_P = reinterpret_cast<Usu_Ped*>(pAsocUsuarioPedido);
+    Ped_Art* pP_A = reinterpret_cast<Ped_Art*>(pAsocPedidoArticulo);
     pU->compra(articulo1, 9001);
+    pU->compra(articulo2, 5);
     try {
-      Pedido { *pAsocUsuarioPedido, *pAsocPedidoArticulo,
-	  *pU, *pTarjetaU, fHoy };
-      fct_chk(!"Se esperaba una excepción Pedido::SinStock");
+      Pedido {*pAsocUsuarioPedido, *pAsocPedidoArticulo, *pU, *pTarjetaU, fHoy};
+      fct_xchk(false, "Se esperaba una excepción Pedido::SinStock");
     }
     catch (const Pedido::SinStock& ex) {
       fct_chk(&ex.articulo() == &articulo1);
-      fct_chk(pU->compra().empty());
+      fct_xchk(pU->compra().empty(), "Pedido sin stock: carrito no vaciado.");
+      fct_xchk(articulo1.stock() == 50, "Vendido artículo de un pedido sin stock: "
+              "articulo1.stock() == %d != 50", articulo1.stock());
+      fct_xchk(articulo2.stock() == 50, "Vendido artículo de un pedido sin stock: "
+              "articulo2.stock() == %d != 50", articulo2.stock());
+      fct_xchk(pU_P->pedidos_.empty(), "Vendido artículo de un pedido sin stock: "
+              "enlace Usuario-Pedido incorrecto.");
+      fct_xchk(pU_P->cliente_.empty(), "Vendido artículo de un pedido sin stock: "
+              "enlace Pedido-Usuario incorrecto.");
+      fct_xchk(pP_A->pedidos_articulos_.empty(), "Vendido artículo de un pedido sin stock: "
+              "enlace Pedido-Articulo incorrecto.");
+      fct_xchk(pP_A->articulos_pedidos_.empty(), "Vendido artículo de un pedido sin stock: "
+              "enlace Articulo-Pedido incorrecto.");
+      articulo1.stock() = 50;
+      articulo2.stock() = 50;
+      pU_P->pedidos_.clear();
+      pU_P->cliente_.clear();
+      pP_A->pedidos_articulos_.clear();
+      pP_A->articulos_pedidos_.clear();
+    }
+    pU->compra(articulo1, 5);
+    pU->compra(articulo2, 9001);
+    try {
+      Pedido {*pAsocUsuarioPedido, *pAsocPedidoArticulo, *pU, *pTarjetaU, fHoy};
+      fct_xchk(false, "Se esperaba una excepción Pedido::SinStock");
+    }
+    catch (const Pedido::SinStock& ex) {
+      fct_chk(&ex.articulo() == &articulo2);
+      fct_xchk(pU->compra().empty(), "Pedido sin stock: carrito no vaciado.");
+      fct_xchk(articulo1.stock() == 50, "Vendido artículo de un pedido sin stock: "
+              "articulo1.stock() == %d != 50", articulo1.stock());
+      fct_xchk(articulo2.stock() == 50, "Vendido artículo de un pedido sin stock: "
+              "articulo2.stock() == %d != 50", articulo2.stock());
+      fct_xchk(pU_P->pedidos_.empty(), "Vendido artículo de un pedido sin stock: "
+              "enlace Usuario-Pedido incorrecto.");
+      fct_xchk(pU_P->cliente_.empty(), "Vendido artículo de un pedido sin stock: "
+              "enlace Pedido-Usuario incorrecto.");
+      fct_xchk(pP_A->pedidos_articulos_.empty(), "Vendido artículo de un pedido sin stock: "
+              "enlace Pedido-Articulo incorrecto.");
+      fct_xchk(pP_A->articulos_pedidos_.empty(), "Vendido artículo de un pedido sin stock: "
+              "enlace Articulo-Pedido incorrecto.");
+      articulo1.stock() = 50;
+      articulo2.stock() = 50;
+      pU_P->pedidos_.clear();
+      pU_P->cliente_.clear();
+      pP_A->pedidos_articulos_.clear();
+      pP_A->articulos_pedidos_.clear();
     }
   }
   FCT_TEST_END();
@@ -151,9 +227,8 @@ FCTMF_FIXTURE_SUITE_BGN(test_p3_clases) {
   FCT_TEST_BGN(Pedido - tarjeta caducada) {
     pU->compra(articulo1, 4649);
     try {
-      Pedido { *pAsocUsuarioPedido, *pAsocPedidoArticulo,
-	  *pU, *pTarjetaU, fHoy + 30 };
-      fct_chk(!"Se esperaba una excepción Tarjeta::Caducada");
+      Pedido {*pAsocUsuarioPedido, *pAsocPedidoArticulo, *pU, *pTarjetaU, fHoy + 30};
+      fct_xchk(false, "Se esperaba una excepción Tarjeta::Caducada");
     }
     catch (const Tarjeta::Caducada& ex) {
       fct_chk(ex.cuando() == fUnaSemana);
@@ -165,8 +240,7 @@ FCTMF_FIXTURE_SUITE_BGN(test_p3_clases) {
     pU->compra(articulo1, 4649);
     pTarjetaU->activa(false);
     fct_chk_ex(Tarjeta::Desactivada,
-	       Pedido(*pAsocUsuarioPedido, *pAsocPedidoArticulo,
-		      *pU, *pTarjetaU, fHoy));
+	       Pedido(*pAsocUsuarioPedido, *pAsocPedidoArticulo, *pU, *pTarjetaU, fHoy));
   }
   FCT_TEST_END();
   
@@ -175,66 +249,79 @@ FCTMF_FIXTURE_SUITE_BGN(test_p3_clases) {
     pU->compra(articulo1, cantidad);
     pU->compra(articulo2, cantidad);
     const unique_ptr<const Pedido> pPed {
-      new Pedido { *pAsocUsuarioPedido, *pAsocPedidoArticulo,
-	  *pU, *pTarjetaU, fHoy } 
+      new Pedido {*pAsocUsuarioPedido, *pAsocPedidoArticulo, *pU, *pTarjetaU, fHoy} 
     };
     
     // Actualización de carrito y stock
-    fct_chk(pU->compra().empty());
-    fct_chk_eq_int(articulo1.stock(), 49);
-    fct_chk_eq_int(articulo2.stock(), 49);
+    fct_xchk(pU->compra().empty(), "Carrito no vacío tras ralizar pedido.");
+    fct_xchk(articulo1.stock() == 49, "Existencias de articulo no actualizadas: "
+            "articulo1.stock() == %d != 49", articulo1.stock());
+    fct_xchk(articulo2.stock() == 49, "Existencias de articulo no actualizadas: "
+            "articulo2.stock() == %d != 49", articulo2.stock());
     
     // Asociación Usuario-Pedido
-    fct_chk(pAsocUsuarioPedido->cliente(*const_cast<Pedido*>(pPed.get()))
-	    == pU);
+    fct_xchk(pAsocUsuarioPedido->cliente(*const_cast<Pedido*>(pPed.get())) == pU,
+             "El usuario asociado al pedido no es el comprador.");
     if (pAsocUsuarioPedido->pedidos(*pU).size() == 1) {
-      fct_chk(*pAsocUsuarioPedido->pedidos(*pU).begin() == pPed.get());
+      fct_xchk(*pAsocUsuarioPedido->pedidos(*pU).begin() == pPed.get(),
+               "El pedido asociado no corresponde al comprador.");
     }
     else
-      fct_chk(!"Debería asociarse al usuario con el pedido");
+      fct_xchk(false, "El número de pedidos asociados al usuario debe ser 1.");
     
     // Asociación Artículo-Pedido
     const Pedido_Articulo::ItemsPedido itPed {
       pAsocPedidoArticulo->detalle(* const_cast<Pedido*>(pPed.get())) 
-	};
+	  };
     if (itPed.size() == 2) {
       // Los artículos deben ir ordenados por código de referencia
       auto it = itPed.cbegin();
-      fct_chk_eq_int(it->second.cantidad(), cantidad);
-      fct_chk_eq_dbl(it->second.precio_venta(), articulo2.precio());
+      fct_xchk(it->first == &articulo2,
+               "Artículo inesperado o desordenado en pedido.");
+      fct_xchk(it->second.cantidad() == cantidad, "Cantidad incorrecta "
+               "en pedido: %d != %d", it->second.cantidad(), cantidad);
+      fct_xchk(it->second.precio_venta() == articulo2.precio(),
+               "Precio de venta incorrecto en pedido: %f != %f",
+               it->second.precio_venta(), articulo2.precio());
       ++it;
-      fct_chk_eq_int(it->second.cantidad(), cantidad);
-      fct_chk_eq_dbl(it->second.precio_venta(), articulo1.precio());
+      fct_xchk(it->first == &articulo1,
+               "Artículo inesperado o desordenado en pedido.");
+      fct_xchk(it->second.cantidad() == cantidad, "Cantidad incorrecta "
+               "en pedido: %d != %d", it->second.cantidad(), cantidad);
+      fct_xchk(it->second.precio_venta() == articulo1.precio(),
+               "Precio de venta incorrecto en pedido: %f != %f",
+               it->second.precio_venta(), articulo1.precio());
     }
     else
-      fct_chk(!"El pedido debería tener dos artículos");
+      fct_xchk(false, "El pedido debería tener 2 artículos");
   }
   FCT_TEST_END();
   
   FCT_TEST_BGN(Pedido - observadores) {
     pU->compra(articulo1, 1);
     pU->compra(articulo2, 1);
-    const double totalEsperado { articulo1.precio() + articulo2.precio() };
+    const double totalEsperado {articulo1.precio() + articulo2.precio()};
     const unique_ptr<const Pedido> pPed {
-      new Pedido { *pAsocUsuarioPedido, *pAsocPedidoArticulo,
-	  *pU, *pTarjetaU }
+      new Pedido {*pAsocUsuarioPedido, *pAsocPedidoArticulo, *pU, *pTarjetaU}
     };
-    fct_chk_eq_int(pPed->numero(), 2);
-    fct_chk(pPed->tarjeta() == pTarjetaU);
-    fct_chk(pPed->fecha() == fHoy);
-    fct_chk_eq_dbl(pPed->total(), totalEsperado);
+    fct_xchk(pPed->numero() == 2, "Número de artículos en pedido incorrecto: "
+             "pPed->numero() == %d != 2", pPed->numero());
+    fct_xchk(pPed->tarjeta() == pTarjetaU,
+             "La tarjeta asociada al pedido no es la del pago.");
+    fct_xchk(pPed->fecha() == fHoy, "Fecha del pedido incorrecta.");
+    fct_xchk(pPed->total() == totalEsperado, "Importe total de pedido incorrecto: "
+             "pPed->total() == %f != %f", pPed->total(), totalEsperado);
   }
   FCT_TEST_END();
   
   FCT_TEST_BGN(Pedido - insercion en flujo) {
     pU->compra(articulo1, 1);
     pU->compra(articulo2, 1);
-    const double totalEsperado { articulo1.precio() + articulo2.precio() };
+    const double totalEsperado {articulo1.precio() + articulo2.precio()};
     const unique_ptr<const Pedido> pPed {
-      new Pedido { *pAsocUsuarioPedido, *pAsocPedidoArticulo,
-	  *pU, *pTarjetaU }
+      new Pedido {*pAsocUsuarioPedido, *pAsocPedidoArticulo, *pU, *pTarjetaU}
     };
-    const string sPed { toString(*pPed) };
+    const string sPed {toString(*pPed)};
     chk_incl_cstr(sPed, "Núm. pedido:");
     chk_incl_cstr(sPed, "Fecha:"      );
     chk_incl_cstr(sPed, "Pagado con:" );
@@ -249,7 +336,7 @@ FCTMF_FIXTURE_SUITE_BGN(test_p3_clases) {
   
   // Pruebas de la clase de asociación Pedido_Articulo
 
-  FCT_TEST_BGN(Articulo---Pedido - detalle de un pedido) {
+  FCT_TEST_BGN(Pedido---Articulo - detalle de un pedido) {
     pU->compra(articulo1, 1);
     const unique_ptr<const Pedido> pPed {
       new Pedido { *pAsocUsuarioPedido, *pAsocPedidoArticulo,
@@ -270,7 +357,7 @@ FCTMF_FIXTURE_SUITE_BGN(test_p3_clases) {
   }
   FCT_TEST_END();
   
-  FCT_TEST_BGN(Articulo---Pedido - insercion en flujo de ItemsPedido) {
+  FCT_TEST_BGN(Pedido---Articulo - insercion en flujo de ItemsPedido) {
     const unsigned int cantidad { 1u };
     pU->compra(articulo1, cantidad);
     const unique_ptr<const Pedido> pPed {
@@ -324,7 +411,7 @@ FCTMF_FIXTURE_SUITE_BGN(test_p3_informes) {
   }
   FCT_TEARDOWN_END();
 
-  FCT_TEST_BGN(Articulo---Pedido - ventas de un articulo vendido) {
+  FCT_TEST_BGN(Pedido---Articulo - ventas de un articulo vendido) {
     const auto& pedArticulo1 = pAsocPedidoArticulo->ventas(articulo1);
     if (pedArticulo1.size() == 2) {
       auto it = pedArticulo1.find(const_cast<Pedido*>(pPed1));
@@ -339,7 +426,7 @@ FCTMF_FIXTURE_SUITE_BGN(test_p3_informes) {
   }
   FCT_TEST_END();
 
-  FCT_TEST_BGN(Articulo---Pedido - ventas de un articulo no comprado) {
+  FCT_TEST_BGN(Pedido---Articulo - ventas de un articulo no comprado) {
 #ifdef P4
     Autor Hitler("Adolf", "Hitler", "Berlin");
     Articulo::Autores a { &Hitler };
@@ -352,7 +439,7 @@ FCTMF_FIXTURE_SUITE_BGN(test_p3_informes) {
   }
   FCT_TEST_END();
 
-  FCT_TEST_BGN(Articulo---Pedido - insercion en flujo de Pedidos) {
+  FCT_TEST_BGN(Pedido---Articulo - insercion en flujo de Pedidos) {
     const auto& pedArticulo1 = pAsocPedidoArticulo->ventas(articulo1);
     const string sPedidos { toString(pedArticulo1) };
     
@@ -368,7 +455,7 @@ FCTMF_FIXTURE_SUITE_BGN(test_p3_informes) {
   }
   FCT_TEST_END();
   
-  FCT_TEST_BGN(Articulo---Pedido - mostrar detalle pedidos) {
+  FCT_TEST_BGN(Pedido---Articulo - mostrar detalle pedidos) {
     ostringstream os;
     pAsocPedidoArticulo->mostrarDetallePedidos(os);
     const string sDetalle { os.str() };
@@ -385,7 +472,7 @@ FCTMF_FIXTURE_SUITE_BGN(test_p3_informes) {
   }
   FCT_TEST_END();
 
-  FCT_TEST_BGN(Articulo---Pedido - mostrar ventas agrupadas) {
+  FCT_TEST_BGN(Pedido---Articulo - mostrar ventas agrupadas) {
     ostringstream os;
     pAsocPedidoArticulo->mostrarVentasArticulos(os);
     const string sDetalle { os.str() };
@@ -430,7 +517,7 @@ FCTMF_FIXTURE_SUITE_BGN(test_p3_informes) {
   }
   FCT_TEST_END();
   
-  FCT_TEST_BGN(Pedido---Usuario - pedidos de un usuario) {
+  FCT_TEST_BGN(Usuario---Pedido - pedidos de un usuario) {
     const auto& pedidosU2 = pAsocUsuarioPedido->pedidos(*pU2);
     if (pedidosU2.size() == 1)
       fct_chk(*pedidosU2.begin() == pPed2);
@@ -439,7 +526,7 @@ FCTMF_FIXTURE_SUITE_BGN(test_p3_informes) {
   }
   FCT_TEST_END();
 
-  FCT_TEST_BGN(Pedido---Usuario - usuario de los pedidos) {
+  FCT_TEST_BGN(Usuario---Pedido - usuario de los pedidos) {
     fct_chk(pAsocUsuarioPedido->cliente(*const_cast<Pedido*>(pPed1)) == pU );
     fct_chk(pAsocUsuarioPedido->cliente(*const_cast<Pedido*>(pPed2)) == pU2);
   }

@@ -24,18 +24,16 @@ namespace {
   const Fecha  fHoy;
   const Fecha  fUnaSemana = fHoy + 7;
   const Fecha  fSiguienteAnno(1, 1, fHoy.anno() + 1);
-
 #ifdef P4
   Autor autor("Harry", "Potter", "Hogwarts");
   Articulo::Autores autores = crea_autores(autor);
-
   Libro articulo1(autores, "111", "The Standard Template Library",
                   fHoy, 42.10, 200, 50);
-  Cederron articulo2(autores, "110", "Fundamentos de C++",
-                     fHoy, 35.95, 100, 50);
+  Revista articulo2(autores, "110", "Programadores de C++",
+		     fHoy, 11.95, 136, 30, 50);
 #else
   Articulo articulo1("111", "The Standard Template Library", fHoy, 42.10, 200),
-    articulo2("110", "Fundamentos de C++", fHoy, 35.95, 100);
+    articulo2("110", "Programadores de C++", fHoy, 11.95, 100);
 #endif
   Usuario* pU { nullptr };
 
@@ -410,11 +408,23 @@ FCTMF_FIXTURE_SUITE_BGN(test_p2) {
     chk_incl_str(sCarro, os.str());
 
     os.str("");
-    os << "[110] \"Fundamentos de C++\", "
+    os << "[110] \"Programadores de C++\", "
        << articulo2.f_publi().anno()
-       << ". 35,95 €";
+       << ". 11,95 €";
     chk_incl_str(sCarro, os.str());
   }
   FCT_TEST_END();
+
+  FCT_TEST_BGN(Usuario---Articulo - vaciar carro) {
+    pU->compra(articulo1, 3);
+    pU->compra(articulo2, 6);
+    fct_xchk(pU->n_articulos() == 2, "Número de artículos en el carro "
+             "incorrecto: %d != 2", pU->n_articulos());
+    pU->vaciar_carro();
+    fct_xchk(pU->n_articulos() == 0, "Carro no vaciado. Número de "
+             "artículos: %d", pU->n_articulos());
+  }
+  FCT_TEST_END();
+
 }
 FCTMF_FIXTURE_SUITE_END()

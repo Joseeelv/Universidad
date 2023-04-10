@@ -10,10 +10,11 @@ class Fecha{
     public:
         //constructores de la clase
         explicit Fecha(int dd=0 ,int mm = 0,int aaaa=0); //constructor que usa conversiones no implicitas
-        //Fecha(const Fecha& f );//constructor de copia "no hay ni punteros ni referencias --> Usamos Predeterminado"
-        //Fecha& operator =(const Fecha& f); //operador de asignacion
+        Fecha(const Fecha& f ) = default ;//constructor de copia "no hay ni punteros ni referencias --> Usamos Predeterminado"
+        Fecha& operator =(const Fecha& f) = default; //operador de asignacion "predeterminado"
         Fecha(const char* c);//obtenemos una fecha a partir de una cadena de caracteres
-        operator const char* () const noexcept ; //Conversor a const *char
+        const char* cadena() const noexcept ; //Conversor a const *char
+
         //metodos observadores de la clase
         inline int dia() const noexcept{return dd;}
         inline int mes() const noexcept{return mm;}
@@ -59,4 +60,14 @@ bool operator > (const Fecha& a, const Fecha& b)noexcept; //devuelve verdaderoa 
 bool operator <=(const Fecha& a, const Fecha& b)noexcept; //devuelve verdaderos si la fecha a<=b
 bool operator >=(const Fecha& a, const Fecha& b)noexcept; //devuelve verdaderoa si la fehca a>=b
 
+//Creamos la especificación del operador de extraccion
+std::ostream& operator <<(std::ostream& os, const Fecha& f) noexcept; 
+//Creamos la especificacion del operador de inserccion
+std::istream& operator >>(std::istream& is, Fecha& f);
+
 #endif//fecha.cpp
+//ya se realizó todo lo pedido en la P0
+/*
+----PRÁCTICA 1----
+    (✅) Especificar los operadores de extraccion e insercion
+*/

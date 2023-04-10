@@ -256,7 +256,7 @@ fct_switch_std_to_std(FILE *out, int fileno_, int save_handle)
 /* Utility for truncated, safe string copies. The NUM
 should be the length of DST plus the null-terminator. */
 static void
-fctstr_safe_cpy(char *dst, char const *src, unsigned num)
+fctstr_safe_cpy(char *dst, char const *src, size_t num)
 {
     FCT_ASSERT( dst != NULL );
     FCT_ASSERT( src != NULL );
@@ -272,7 +272,7 @@ fctstr_safe_cpy(char *dst, char const *src, unsigned num)
 /* Isolate the vsnprintf implementation */
 static int
 fct_vsnprintf(char *buffer,
-              unsigned buffer_len,
+              size_t buffer_len,
               char const *format,
               va_list args)
 {
@@ -293,7 +293,7 @@ fct_vsnprintf(char *buffer,
 
 /* Isolate the snprintf implementation. */
 static int
-fct_snprintf(char *buffer, unsigned buffer_len, char const *format, ...)
+fct_snprintf(char *buffer, size_t buffer_len, char const *format, ...)
 {
     int count =0;
     va_list args;
@@ -310,7 +310,7 @@ static char*
 fctstr_clone(char const *s)
 {
     char *k =NULL;
-    unsigned klen =0;
+    size_t klen =0;
     FCT_ASSERT( s != NULL && "invalid arg");
     klen = strlen(s)+1;
     k = (char*)malloc(sizeof(char)*klen+1);
@@ -324,8 +324,8 @@ static char*
 fctstr_clone_lower(char const *s)
 {
     char *k =NULL;
-    unsigned klen =0;
-    unsigned i;
+    size_t klen =0;
+    size_t i;
     if ( s == NULL )
     {
         return NULL;
@@ -523,8 +523,8 @@ pass the ends with (a blank string endswith a blank string). */
 static int
 fctstr_endswith(char const *str, char const *check)
 {
-    unsigned check_i;
-    unsigned str_i;
+    size_t check_i;
+    size_t str_i;
     if ( str == NULL && check == NULL )
     {
         return 1;
@@ -555,8 +555,8 @@ fctstr_endswith(char const *str, char const *check)
 static int
 fctstr_iendswith(char const *str, char const *check)
 {
-    unsigned check_i;
-    unsigned str_i;
+    size_t check_i;
+    size_t str_i;
     if ( str == NULL && check == NULL )
     {
         return 1;
@@ -592,11 +592,11 @@ effect. Assumes that the line will be maxwidth in characters. The
 maxwidth can't be greater than FCT_DOTTED_MAX_LEN. */
 #define FCT_DOTTED_MAX_LEN  256
 static void
-fct_dotted_line_start(unsigned maxwidth, char const *startwith)
+fct_dotted_line_start(size_t maxwidth, char const *startwith)
 {
     char line[FCT_DOTTED_MAX_LEN];
-    unsigned len =0;
-    unsigned line_len =0;
+    size_t len =0;
+    size_t line_len =0;
 
     memset(line, '.', sizeof(char)*maxwidth);
     len = strlen(startwith);
@@ -697,8 +697,8 @@ to do something like,
 #define FCT_NLIST_FOREACH_BGN(Type, Var, List)\
 {\
    if ( List != NULL ) {\
-      unsigned item_i##Var;\
-      unsigned num_items##Var = fct_nlist__size(List);\
+      size_t item_i##Var;\
+      size_t num_items##Var = fct_nlist__size(List);\
       for( item_i##Var =0; item_i##Var != num_items##Var; ++item_i##Var )\
       {\
          Type Var = (Type) fct_nlist__at((List), item_i##Var);
@@ -715,10 +715,10 @@ struct _fct_nlist_t
     void **itm_list;
 
     /* Indicates the number of element's in the array. */
-    unsigned avail_itm_num;
+    size_t avail_itm_num;
 
     /* Indicates the number of actually elements in the array. */
-    unsigned used_itm_num;
+    size_t used_itm_num;
 };
 typedef void (*fct_nlist_on_del_t)(void*);
 
@@ -729,7 +729,7 @@ against each list element. */
 static void
 fct_nlist__clear(fct_nlist_t *list, fct_nlist_on_del_t on_del)
 {
-    unsigned itm_i__ =0;
+    size_t itm_i__ =0;
     FCT_ASSERT( list != NULL );
     if ( on_del != NULL )
     {
@@ -754,7 +754,7 @@ fct_nlist__final(fct_nlist_t *list, fct_nlist_on_del_t on_del)
 
 
 static int
-fct_nlist__init2(fct_nlist_t *list, unsigned start_sz)
+fct_nlist__init2(fct_nlist_t *list, size_t start_sz)
 {
     FCT_ASSERT( list != NULL );
     if ( start_sz == 0 )
@@ -786,7 +786,7 @@ Returns 0 if there was an error allocating memory. Returns 1 otherwise. */
 
 
 /* Returns the number of elements within the list. */
-static unsigned
+static size_t
 fct_nlist__size(fct_nlist_t const *list)
 {
     FCT_ASSERT( list != NULL );
@@ -796,7 +796,7 @@ fct_nlist__size(fct_nlist_t const *list)
 
 /* Returns the item at idx, asserts otherwise. */
 static void*
-fct_nlist__at(fct_nlist_t const *list, unsigned idx)
+fct_nlist__at(fct_nlist_t const *list, size_t idx)
 {
     FCT_ASSERT( list != NULL );
     FCT_ASSERT( idx < list->used_itm_num );
@@ -1045,7 +1045,7 @@ fct_test__add(fct_test_t *test, fctchk_t *chk)
 }
 
 /* Returns the number of checks made throughout the test. */
-static unsigned
+static size_t
 fct_test__chk_cnt(fct_test_t const *test)
 {
     FCT_ASSERT( test != NULL );
@@ -1301,7 +1301,7 @@ fct_ts__is_test_cnt(fct_ts_t const *ts, int test_num)
 
 /* Returns the # of tests on the FCT TS object. This is the actual
 # of tests executed. */
-static unsigned
+static size_t
 fct_ts__tst_cnt(fct_ts_t const *ts)
 {
     FCT_ASSERT( ts != NULL );
@@ -1314,10 +1314,10 @@ fct_ts__tst_cnt(fct_ts_t const *ts)
 
 
 /* Returns the # of tests in the TS object that passed. */
-static unsigned
+static size_t
 fct_ts__tst_cnt_passed(fct_ts_t const *ts)
 {
-    unsigned tally =0;
+    size_t tally =0;
 
     FCT_ASSERT( ts != NULL );
     FCT_ASSERT( fct_ts__is_end(ts) );
@@ -1335,10 +1335,10 @@ fct_ts__tst_cnt_passed(fct_ts_t const *ts)
 
 
 /* Returns the # of checks made throughout a test suite. */
-static unsigned
+static size_t
 fct_ts__chk_cnt(fct_ts_t const *ts)
 {
-    unsigned tally =0;
+    size_t tally =0;
 
     FCT_ASSERT( ts != NULL );
 
@@ -1823,7 +1823,7 @@ typedef struct _fct_namespace_t
     int test_num;
 
     /* Set at the end of the test suites. */
-    unsigned num_total_failed;
+    size_t num_total_failed;
 } fct_namespace_t;
 
 
@@ -1879,7 +1879,7 @@ struct _fctkern_t
     fct_nlist_t ts_list;
 
     /* Records what we expect to fail. */
-    unsigned num_expected_failures;
+    size_t num_expected_failures;
 };
 
 
@@ -2009,7 +2009,7 @@ static void
 fctkern__add_prefix_filter(fctkern_t *nk, char const *prefix_filter)
 {
     char *filter =NULL;
-    unsigned filter_len =0;
+    size_t filter_len =0;
     FCT_ASSERT( nk != NULL && "invalid arg" );
     FCT_ASSERT( prefix_filter != NULL && "invalid arg" );
     FCT_ASSERT( strlen(prefix_filter) > 0 && "invalid arg" );
@@ -2123,8 +2123,8 @@ static int
 fctkern__cl_parse(fctkern_t *nk)
 {
     int status =0;
-    unsigned num_params =0;
-    unsigned param_i =0;
+    size_t num_params =0;
+    size_t param_i =0;
     if ( nk == NULL )
     {
         return 0;
@@ -2228,8 +2228,8 @@ this test suite. If there are no filters, we return FCT_TRUE always. */
 static nbool_t
 fctkern__pass_filter(fctkern_t *nk, char const *test_name)
 {
-    unsigned prefix_i =0;
-    unsigned prefix_list_size =0;
+    size_t prefix_i =0;
+    size_t prefix_list_size =0;
     FCT_ASSERT( nk != NULL && "invalid arg");
     FCT_ASSERT( test_name != NULL );
     FCT_ASSERT( strlen(test_name) > 0 );
@@ -2261,10 +2261,10 @@ fctkern__pass_filter(fctkern_t *nk, char const *test_name)
 
 
 /* Returns the number of tests that were performed. */
-static unsigned
+static size_t
 fctkern__tst_cnt(fctkern_t const *nk)
 {
-    unsigned tally =0;
+    size_t tally =0;
     FCT_ASSERT( nk != NULL );
     FCT_NLIST_FOREACH_BGN(fct_ts_t *, ts, &(nk->ts_list))
     {
@@ -2276,10 +2276,10 @@ fctkern__tst_cnt(fctkern_t const *nk)
 
 
 /* Returns the number of tests that passed. */
-static unsigned
+static size_t
 fctkern__tst_cnt_passed(fctkern_t const *nk)
 {
-    unsigned tally =0;
+    size_t tally =0;
     FCT_ASSERT( nk != NULL );
 
     FCT_NLIST_FOREACH_BGN(fct_ts_t*, ts, &(nk->ts_list))
@@ -2299,10 +2299,10 @@ fctkern__tst_cnt_passed(fctkern_t const *nk)
 
 /* Returns the number of checks made throughout the entire test. */
 #if defined(FCT_USE_TEST_COUNT)
-static unsigned
+static size_t
 fctkern__chk_cnt(fctkern_t const *nk)
 {
-    unsigned tally =0;
+    size_t tally =0;
     FCT_ASSERT( nk != NULL );
 
     FCT_NLIST_FOREACH_BGN(fct_ts_t *, ts, &(nk->ts_list))
@@ -2918,8 +2918,8 @@ fct_standard_logger__on_fctx_end(
     fct_standard_logger_t *logger = (fct_standard_logger_t*)logger_;
     nbool_t is_success =1;
     double elasped_time =0;
-    unsigned num_tests =0;
-    unsigned num_passed =0;
+    size_t num_tests =0;
+    size_t num_passed =0;
 
     fct_timer__stop(&(logger->timer));
 

@@ -79,7 +79,7 @@ list<string> headers_read(string file_name, string command)
 
     while (! read_file.eof()) {
       if(s != "") {
-	std::unsigned first = s.find_first_not_of(' ');
+	std::size_t first = s.find_first_not_of(' ');
 	s = s.substr(first);
 	lstr.push_back(string("-isystem" + s));
       }
