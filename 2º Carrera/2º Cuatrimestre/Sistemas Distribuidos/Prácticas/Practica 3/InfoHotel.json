@@ -1,0 +1,41 @@
+{
+    "habitaciones":[{
+        "identificador":1,
+        "capacidad": 4,
+        "equipamiento":["televisor, armario"],
+        "estado":"Libre"
+    },
+    {
+        "identificador":2,
+        "capacidad":2,
+        "equipamiento":["armario", "altavoces"],
+        "estado": "Ocupado"
+    },
+    {
+        "identificador":3,
+        "capacidad":1,
+        "equipamiento":["escritorio"],
+        "estado":"Libre"
+    }],
+    
+    "usuarios":[{
+        "DNI":"123456789A",
+        "Nombre": "Paco",
+        "contraseña": "Paco123"
+    },
+    {
+        "DNI":"234567890B",
+        "Nombre":"Pedro",
+        "contraseña":"pedrito"
+    }],
+
+    "reservas":[{
+        "idreserva":1,
+        "DNIpersona":"123456789A",
+        "habitacion":2,
+        "fechaIni": "2023-1-1",
+        "fechaFin":"2023-1-3",
+        "mensaje_error":"No existe una reserva con el identificador {{idreserva}}",
+        "mensaje_borrado":"Reserva de la habitacion {{habitacion}} eliminada correctamente"
+    }]
+}

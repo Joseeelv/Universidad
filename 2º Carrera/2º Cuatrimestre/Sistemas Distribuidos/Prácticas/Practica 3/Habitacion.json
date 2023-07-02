@@ -1,0 +1,28 @@
+// Atributos de las habitaciones:
+//     Identificador --> numero de la habitacion
+//     Capacidad --> numero de personas que pueden estar
+//     Equipamiento --> cosas que hay dentro de cada habitacion extras
+//     Estado --> Si está o  no ocupado
+
+{
+    "habitaciones":[{
+        "identificador":1,
+        "capacidad": 4,
+        "equipamiento":["televisor, armario"],
+        "estado":"no" //Si / No
+    },
+    {
+        "identificador":2,
+        "capacidad":2,
+        "equipamiento":["armario", "altavoces"],
+        "estado": "si"
+    },
+    {
+        "identificador":3,
+        "capacidad":1,
+        "equipamiento":["escritorio"],
+        "estado":"no"
+    }
+]
+    
+}
