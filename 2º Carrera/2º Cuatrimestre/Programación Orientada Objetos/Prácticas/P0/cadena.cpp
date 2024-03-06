@@ -121,7 +121,23 @@ Cadena::~Cadena(){
 
 //Operadores lógicos
 bool operator == (const Cadena& cadena1, const Cadena& cadena2) {
-    // return (cadena1.length() == cadena2.length()) && 
-    //     (std::strcmp(static_cast<const char*>(cadena1), static_cast<const char*>(cadena2)) == 0);
-    return 
+    return (std::strcmp(static_cast<const char*>(cadena1), static_cast<const char*>(cadena2)) == 0);
+}
+bool operator !=(const Cadena& cadena1, const Cadena& cadena2){
+    return !(cadena1==cadena2);
+}
+
+bool operator <(const Cadena& cadena1, const Cadena& cadena2){
+    return (std::strcmp(static_cast<const char*>(cadena1), static_cast<const char*>(cadena2)) < 0);
+}
+bool operator <=(const Cadena& cadena1, const Cadena& cadena2){
+    return !(cadena2<cadena1);
+}
+
+bool operator > (const Cadena& cadena1, const Cadena& cadena2){
+    return cadena2<cadena1;
+}
+
+bool operator >=(const Cadena& cadena1, const Cadena& cadena2){
+    return !(cadena1<cadena2);
 }
