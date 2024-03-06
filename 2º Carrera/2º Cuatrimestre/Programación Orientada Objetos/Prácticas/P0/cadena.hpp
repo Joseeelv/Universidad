@@ -7,7 +7,7 @@
 class Cadena{
     public:
         //Por defecto, una cadena vacía = contiene el caracter terminador
-        explicit Cadena(size_t tam = 0, char = ' ');
+        explicit Cadena(size_t tam = 0, char c = ' ');
         
         //Tenemos que definir el constructor de copia debido a que estamos haciendo uso de mem dinamica
         Cadena(const Cadena& );
@@ -30,11 +30,11 @@ class Cadena{
         char& at(size_t )const;
 
         //Método de subcadena
-        Cadena& substr(unsigned , size_t);
+        Cadena substr(unsigned , size_t)const;
         //declaramos el destructor de la cadena
         ~Cadena();
         private:
-        const char vacia[1]; //vacia = char [1] = \0;
+        static char vacia[1]; //vacia = char [1] = '\0';
         size_t tam_; //tamaño de la cadena de char (num caracteres de la misma)
         char* s_; //puntero a char
         
