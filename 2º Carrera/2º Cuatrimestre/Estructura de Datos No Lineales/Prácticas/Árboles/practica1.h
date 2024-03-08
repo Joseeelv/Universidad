@@ -1,6 +1,6 @@
 #include <iostream>
-#include "../abin_E-S.h" 
-#include "../abin.h"
+#include "abin_E-S.h" 
+#include "abin.h"
 /*-----EJERCICIO 1-----*/
 template <typename T> size_t cuentanodos(const Abin<T> &A){
   if(A.raiz() == Abin<T>::NODO_NULO) return 0; 
