@@ -6,10 +6,15 @@
 hay elementos repetidos. Dado un elemento x, devuelve el camino que existe entre la
 raíz y el nodo cuyo elemento es x, si existe*/
 template <typename T>
-std::vector<T> busca_elto_rec(typename Abin<T>::nodo n, const Abin<T> A, const T elto,std::vector<T>& vector){
+std::vector<T> busca_elto(const Abin<T>A,const T elto){
+    return busca_elto_rec(A.raiz(),A,elto);:
+}
+template <typename T>
+std::vector<T> busca_elto_rec(typename Abin<T>::nodo n, const Abin<T> A, const T elto){
     if(n != Abin<T>::NODO_NULO){
         if(A.elemento(n)==elto){
         std::stack<T>pila;
+        std::vector<T>vector;
         while(n!=A.raiz()){
             pila.push(A.elemento(n));
             n=A.padre(n);
@@ -19,6 +24,7 @@ std::vector<T> busca_elto_rec(typename Abin<T>::nodo n, const Abin<T> A, const T
             vector.push_back(pila.top());
             pila.pop();
          }
+         return vector;
         }
         else{
             busca_elto_rec(A.hijoIzqdo(n),A,elto);
@@ -41,10 +47,12 @@ bool es_prospero(typename Abin<T>::nodo n, const Abin<T> A){
     if(n != Abin<T>::NODO_NULO){
         if(ascendiente(n,A)&& descendiente(n,A)){
             return true;
+        }else{
+            return false;
         }
     }else{
-        return false;
-    }
+            return false;
+        }
 }
 template <typename T>
 bool ascendiente(typename Abin<T>::nodo n, const Abin<T> A){
@@ -78,8 +86,28 @@ size_t nodos_prosperos_rec(typename Abin<T>::nodo n, Abin<T> A){
         return 0;
     }else{
         if(es_prospero(n)){
-            return 1+A.hijoIzqdo(n)+A.hijoDrcho(n);
+            return 1+nodos_prosperos_rec(A.hijoIzqdo(n),A)+nodos_prosperos_rec(A.hijoDrcho(n),A);
         }
+       // else return 0+nodos_prosperos_rec(A.hijoIzqdo(n),A)+nodos_prosperos_rec(A.hijoDrcho(n),A);
     }
-
+}
+/*Ejercicio 3: Dado un árbol y un nodo podamos el árbol y el propio nodo*/
+template <typename T>
+void poda(typename Abin<T>::nodo n, const Abin<T> A){
+    if(n!=Abin<T>::NODO_NULO){
+        return poda_rec(n,A);
+    }
+    typename Abin<T>::nodo papa;
+    if(n==A.hijoIzqdo(papa)){
+        A.eliminarHijoIzqdo(papa);
+    }else A.eliminarHijoDrcho(papa);
+}
+template <typename T>
+void poda_rec (typename Abin<T>::nodo n, const Abin<T> A){
+    if(!(A.hijoIzqdo(n)==Abin<T>::NODO_NULO && A.hijoDrcho(n)==Abin<T>::NODO_NULO)){
+        poda_rec(A.hijoIzqdo(n),A);
+        poda_rec(A.hijoDrcho(n),A);
+        A.eliminarHijoIzqdo(n);
+        A.eliminarHijoDrcho(n);
+    }
 }
