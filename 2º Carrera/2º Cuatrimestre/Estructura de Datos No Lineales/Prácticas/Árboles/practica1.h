@@ -37,38 +37,40 @@ template <typename T> size_t alturarec(typename Abin<T>::nodo n, const Abin<T> &
 
 /*-----EJERCICIO 3-----*/
 template <typename T> size_t profundidad(typename Abin<T>::nodo n, const Abin<T> &A){
-    if(n== Abin<T>::NODO_NULO)
+	return profundidad_rec(n,A);
+}
+template <typename T> size_t profundidad_rec(typename Abin<T>::nodo n, const Abin<T> &A){
+    if(n== A.raiz())
     {
-        return -1;
+        return 0;
     }
     else{
         return 1+profundidadrec(A.padre(n),A);
     }
 }
-
 /*-----EJERCICIO 4 Suponemos que estamos dentro del TAD con representación vectorial-----*/
-
-template <typename T> size_t alturavecrec(typename Abin<T>::nodo n){
-    if(nodos[n]==Abin<T>::NODO_NULO){
-        return 0;
-    }
-    else{
-        return 1+std::max(alturavecrec(nodos[n].hizqdo)+alturavecrec(nodos[n].hder));
-    }
+//Profundidad
+template <typename T>
+size_t Abin<T>::profundidad_nodo(nodo n) const
+{
+    if (n != 0)
+        return 1 + profundidad_nodo(nodos[n].padre);
 }
 
+//Altura
 template <typename T>
 size_t Abin<T>::altura_nodo(nodo n) const
 {
     if (n == NODO_NULO)
     {
-        return 0;
+        return -1;
     }
     else
     {
         return 1 + std::max(altura_nodo(nodos[n].hizq), altura_nodo(nodos[n].hder));
     }
 }
+
 /*-----EJERCICIO 5 Repetimos el ejercicio anterior pero para celdas enlazadas-----*/
 //ESTAMOS DENTRO DEL TAD ABIN ENLAZADO
 template <typename T>
