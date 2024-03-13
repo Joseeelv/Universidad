@@ -97,7 +97,7 @@ void poda(typename Abin<T>::nodo n, const Abin<T> A){
     if(n!=Abin<T>::NODO_NULO){
         return poda_rec(n,A);
     }
-    typename Abin<T>::nodo papa;
+    typename Abin<T>::nodo papa = A.padre(n);
     if(n==A.hijoIzqdo(papa)){
         A.eliminarHijoIzqdo(papa);
     }else A.eliminarHijoDrcho(papa);
