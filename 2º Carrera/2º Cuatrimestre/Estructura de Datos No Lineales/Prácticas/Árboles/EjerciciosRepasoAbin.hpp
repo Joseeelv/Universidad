@@ -15,7 +15,7 @@ std::vector<T> busca_elto_rec(typename Abin<T>::nodo n, const Abin<T> A, const T
         if(A.elemento(n)==elto){
         std::stack<T>pila;
         std::vector<T>vector;
-        while(n!=A.raiz()){
+        while(n!=A.raiz()){ //Si ponemos n!= A.padre(A.raiz()); Nos podemos olvidar de poner la línea 22 de código;
             pila.push(A.elemento(n));
             n=A.padre(n);
         }
@@ -45,7 +45,7 @@ size_t nodos_prosperos(const Abin<T> A){
 template <typename T>
 bool es_prospero(typename Abin<T>::nodo n, const Abin<T> A){
     if(n != Abin<T>::NODO_NULO){
-        if(ascendiente(n,A)&& descendiente(n,A)){
+        if(ascendiente(n,A)&& descendiente(n,A)){ 
             return true;
         }else{
             return false;
@@ -93,21 +93,32 @@ size_t nodos_prosperos_rec(typename Abin<T>::nodo n, Abin<T> A){
 }
 /*Ejercicio 3: Dado un árbol y un nodo podamos el árbol y el propio nodo*/
 template <typename T>
-void poda(typename Abin<T>::nodo n, const Abin<T> A){
+void poda(typename Abin<T>::nodo n, Abin<T> A){
     if(n!=Abin<T>::NODO_NULO){
         return poda_rec(n,A);
     }
     typename Abin<T>::nodo papa = A.padre(n);
-    if(n==A.hijoIzqdo(papa)){
+    if((papa = A.raiz() && EsHoja(papa,A))){
+            A.eliminarRaiz();
+    }
+    else if(n==A.hijoIzqdo(papa)){
         A.eliminarHijoIzqdo(papa);
     }else A.eliminarHijoDrcho(papa);
+
 }
 template <typename T>
-void poda_rec (typename Abin<T>::nodo n, const Abin<T> A){
-    if(!(A.hijoIzqdo(n)==Abin<T>::NODO_NULO && A.hijoDrcho(n)==Abin<T>::NODO_NULO)){
-        poda_rec(A.hijoIzqdo(n),A);
-        poda_rec(A.hijoDrcho(n),A);
-        A.eliminarHijoIzqdo(n);
-        A.eliminarHijoDrcho(n);
+void poda_rec (typename Abin<T>::nodo n, Abin<T>& A){
+    if(n!=typename Abin<T>::NODO_NULO){
+        if(!EsHoja(n,A)){ //Si no es hoja tiene hijos.
+            poda_rec(A.hijoIzqdo(n),A);
+            poda_rec(A.hijoDrcho(n),A);
+            A.eliminarHijoIzqdo(n);
+            A.eliminarHijoDrcho(n);
+        }
     }
 }
+template <typename T>
+bool EsHoja(typename Abin<T>::nodo n, const Abin<T>& A){
+    return (A.hijoIzqdo(n) == Abin<T>::NODO_NULO && A.hijoDrcho(n) == Abin<T>::NODO_NULO);
+}
+
