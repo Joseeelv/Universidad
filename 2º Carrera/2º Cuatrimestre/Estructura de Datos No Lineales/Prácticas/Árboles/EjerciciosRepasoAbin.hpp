@@ -87,8 +87,7 @@ size_t nodos_prosperos_rec(typename Abin<T>::nodo n, Abin<T> A){
     }else{
         if(es_prospero(n)){
             return 1+nodos_prosperos_rec(A.hijoIzqdo(n),A)+nodos_prosperos_rec(A.hijoDrcho(n),A);
-        }
-       // else return 0+nodos_prosperos_rec(A.hijoIzqdo(n),A)+nodos_prosperos_rec(A.hijoDrcho(n),A);
+        }else return nodos_prosperos_rec(A.hijoIzqdo(n),A)+nodos_prosperos_rec(A.hijoDrcho(n),A);
     }
 }
 /*Ejercicio 3: Dado un árbol y un nodo podamos el árbol y el propio nodo*/
