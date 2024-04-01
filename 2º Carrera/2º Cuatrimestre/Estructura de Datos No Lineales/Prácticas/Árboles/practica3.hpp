@@ -2,41 +2,74 @@
 #include <iostream>
 
 /*-----1. Implementa un subprograma que dado un árbol general nos calcule su grado.-----*/
+template <typename T>
+size_t grado(typename Agen<T>::nodo n, Agen<T> A){
+    return grado_rec(A.raiz(),A);
+}
 
+template <typename T>
+size_t grado_rec(typename Agen<T>::nodo n, Agen<T> A){
+    if(n==Agen<T>::NODO_NULO){
+        return 0;
+    }
+    else{
+        typename Agen<T>::nodo aux = A.hijoIzqdo(n);
+        //Creamos una variable local que devolverá el máximo grado
+        size_t grado = 0;
+        size_t nhijos=0;
+        while(aux){
+            nhijos++;
+            grado = std::max(grado,grado_rec(aux,A));
+            aux = A.hermDrcho(aux);
+        }
+        return std::max(grado,nhijos);
+    }
+}
 
-
-
+/*-----2. Implementa un subprograma que dados un árbol y 
+un nodo dentro de dicho árbol determine la profundidad de 
+éste nodo en el árbol.-----*/
+template <typename T>
+size_t profundidad(typename Agen<T>::nodo n, Agen<T> A){
+    return profundidad_rec(n,A);
+}
+template <typename T>
+size_t profundidad_rec(typename Agen<T>::nodo n, Agen<T> A){
+    if(n==Agen<T>::NODO_NULO){
+        return -1;
+    }
+    else{
+        return 1+profundidad_rec(A.padre(n),A);
+    }
+}
 
 /*-----3. Se define el desequilibrio de un árbol general como la máxima diferencia entre las 
 alturas de los subárboles más bajo y más alto de cada nivel.Implementa un subprograma que 
 calcule el grado de desequilibrio de un árbol general.-----*/
 template <typename T>
-int Altura(typename Agen<T>::nodo n, Agen<T> A){
-    if(n==Agen<T>::NODO_NULO){
+size_t desequilibrio(const Agen<T> &A)
+{
+    return desequilibrio_rec(A.raiz(), A);
+}
+template <typename T>
+size_t desequilibrio_rec(typename Agen<T>::nodo n, const Agen<T> &A)
+{
+    if (n == Agen<T>::NODO_NULO)
         return 0;
-    }
-    else{
-        typename Agen<T>::nodo aux = A.HijoIzqdo(n);
-        int altura= -1;
-        while(aux){
-            altura = max(altura,Altura_rec(aux,A));
+    else
+    {
+        size_t max_desequilibrio = 0;
+        typename Agen<T>::nodo hijo = A.hijoIzqdo(n);
+        while (hijo != Agen<T>::NODO_NULO)
+        {
+            max_desequilibrio = std::max(max_desequilibrio,
+                                std::abs(altura_rec(hijo, A) -
+                                altura_rec(A.hermDrcho(hijo), A)));
+            hijo = A.hermDrcho(hijo);
         }
+        return max_desequilibrio;
     }
 }
-template <typename T>
-int Altura_rec(typename Agen<T>::nodo n, Agen<T> A){
-    
-}
-template <typename T>
-int ramaCorta(){ 
-
-}
-
-template <typename T> //Lo hacemos con el mínimo
-int ramaCorta_rec(){}
-
-desequilibrio -> return Altura_rec - RamaCorta_rec;
-
 
 /*-----4. Dado un árbol general de enteros A y un entero x, implementa un subprograma que 
 realice la poda de A a partir de x. Se asume que no hay elementos repetidos en A.-----*/
