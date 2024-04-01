@@ -18,7 +18,7 @@ Cadena::Cadena(size_t tam, char c):tam_(tam),s_(vacia){
     }
 }
 
-Cadena::Cadena(const Cadena& other):s_(new char[other.tam_+1]), tam_(other.tam_){
+Cadena::Cadena(const Cadena& other):tam_(other.tam_),s_(new char[other.tam_+1]){
     //hacemos uso de strcpy
     strcpy(s_,other.s_);
 }

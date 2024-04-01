@@ -3,6 +3,7 @@
 
 //Incluimos las librerías
 #include <iostream>
+#include <cstring>
 
 class Cadena{
     public:
