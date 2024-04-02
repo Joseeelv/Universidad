@@ -6,22 +6,24 @@
 #include <ctime> //para la fecha del sistema
 #include <utility> //para los operadores lógicos
 #include <stdio.h> //sscanf
+#include <cstring>
+#include <cstdio>
 class Fecha{
     public:
         //Ctor de 3 parámetros.
-        Fecha(int dia =0, int mes=0, int anno=0);
+        explicit Fecha(int dia =0, int mes=0, int anno=0);
         //Ctor a partir de cadena de bajo nivel -> dd/mm/aaaa.
-        Fecha(const char*);
+        Fecha (const char*);
         //operador de conversion de cadena de bajo nivel a fecha
-        operator const char*()const;
+        operator const char*()const noexcept;
         //atributos publicos que definen el rango de años.
         static const int AnnoMinimo = 1902;
         static const int AnnoMaximo=2037;
 
         //observadores de la clase
-        inline int dia()const {return dia_;}
-        inline int mes()const {return mes_;}
-        inline int anno()const{return anno_;}
+        inline int dia()const noexcept{return dia_;}
+        inline int mes()const noexcept{return mes_;}
+        inline int anno()const noexcept{return anno_;}
 
         //Operadores incremento y decremento de la fecha
         Fecha& operator ++();
@@ -47,7 +49,7 @@ class Fecha{
     private:
         //atributos de los objetos clase
         int dia_,mes_,anno_;
-        mutable char crep[30];
+        mutable char crep[45];
         mutable bool actual;
         //métodos privados comprobadores de fecha
         void comprueba_fecha()const; //comprueba que la fecha sea válida

@@ -1,6 +1,5 @@
 
 #include "fecha.hpp"
-
 /*-----Métodos privados de la clase Fecha-----*/
 void Fecha::comprueba_fecha ()const{
     //Comprobamos que el día es correcto
@@ -9,7 +8,7 @@ void Fecha::comprueba_fecha ()const{
         throw D_Invalido;
     }
     if(anno_ < Fecha::AnnoMinimo || anno_ > Fecha::AnnoMaximo){
-        Fecha::Invalida A_Invalido("ERROR: Año introducido es incorrecto");
+        Fecha::Invalida A_Invalido("ERROR: Ano introducido es incorrecto");
         throw A_Invalido;
     }
 }
@@ -43,7 +42,6 @@ void Fecha::actualizar()const{
 }
 
 /*----- Métodos públicos de la clase Fecha*/
-
 //Implementación del constructor
 Fecha::Fecha(int dia, int mes, int anno):dia_(dia),mes_(mes),anno_(anno),actual(false){
     //Si los atributos son 0, vamos a poner la fecha del sistema (ctime)
@@ -74,7 +72,7 @@ Fecha::Fecha(const char* c){
         comprueba_fecha();
 }
 //Implementación del operador de conversion a const char*
-Fecha::operator const char*()const{
+Fecha::operator const char*()const noexcept{
     //Comprobamos que no se haya actualizado la fecha antes
     if(!actual){//se introduce por primera vez
         actualizar();
@@ -85,16 +83,17 @@ Fecha::operator const char*()const{
 
 //Implementación de los operadores de incremento y decremento
 Fecha& Fecha::operator +=(int n){
-    std::tm f{};
-    f.tm_mday = dia_+n;
-    f.tm_mon = mes_ -1;
-    f.tm_year = anno_ -1900;
-    mktime(&f);
+    time_t tiempo_hasta_ahora = time (NULL);
+	struct tm* fecha = localtime(&tiempo_hasta_ahora);
+    fecha->tm_mday = dia_+n;
+    fecha->tm_mon = mes_ -1;
+    fecha->tm_year = anno_ -1900;
+    mktime(fecha);
 
     //modificamos los atributos de esa fecha
-    dia_ = f.tm_mday;
-    mes_ = f.tm_mon+1;
-    anno_ =f.tm_year+1900;
+    dia_ = fecha->tm_mday;
+    mes_ = fecha->tm_mon+1;
+    anno_ =fecha->tm_year+1900;
     
     //Comprobamos que la fecha sea válida
     comprueba_fecha();
@@ -103,13 +102,13 @@ Fecha& Fecha::operator +=(int n){
 Fecha& Fecha::operator -= (int n){return *this += -n;}
 Fecha& Fecha::operator ++(){return *this += 1;}
 Fecha Fecha::operator ++(int){
-    Fecha fecha;
+    Fecha fecha = *this;
     *this +=1;
     return fecha;
 }
 Fecha& Fecha::operator --(){return *this += -1;}
 Fecha Fecha::operator --(int){
-    Fecha fecha;
+    Fecha fecha = *this;
     *this += -1;
     return fecha;
 }
@@ -124,13 +123,14 @@ Fecha Fecha::operator -(int n)const{
 
 //Operadores aritméticos
 bool operator == (const Fecha& f1, const Fecha&f2){
-    return (strcmp(f1,f2)==0);
+    return (f1.anno() == f2.anno() && f1.mes() == f2.mes() && f1.dia()==f2.dia());
 }
 bool operator !=(const Fecha&f1, const Fecha&f2){
     return !(f1==f2);
 }
 bool operator <(const Fecha& f1, const Fecha& f2){
-    return (strcmp(f1,f2)<0);
+    return(f1.anno() < f2.anno() || (f1.anno() == f2.anno() && (f1.mes() < f2.mes()
+        || (f1.mes() == f2.mes() && f1.dia() < f2.dia()))));
 }
 bool operator <=(const Fecha&f1, const Fecha& f2){
     return !(f2<f1);

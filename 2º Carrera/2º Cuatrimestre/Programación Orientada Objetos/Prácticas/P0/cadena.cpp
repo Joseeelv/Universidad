@@ -1,59 +1,73 @@
 #include "cadena.hpp"
 //Definimos la variable estática
-char Cadena::vacia[1] = {'\0'};
+char Cadena::vacia[1]={'\0'};
 
 /*-----Métodos publicos de la clase Cadena-----*/
 //Constructores de la clase cadena
 Cadena::Cadena(size_t tam, char c):tam_(tam),s_(vacia){
-    if(tam_<0){
-        //No podemos crear una cadena con valor negativo
-        throw std::length_error("Tamaño de la cadena no permitido");
-    }
-    //Dependiendo del tamaño introducido, se crea de una manera u otra;
-    else if(tam_>0){
-        char* s_ = new char[tam_];
+    if(tam_>0){
+        s_ = new char[tam_+1];
         for(size_t i=0; i<tam_ ;i++){
             s_[i]=c;
+            
         }
+        s_[tam_] =vacia[0];
     }
 }
 
-Cadena::Cadena(const Cadena& other):tam_(other.tam_),s_(new char[other.tam_+1]){
-    //hacemos uso de strcpy
-    strcpy(s_,other.s_);
+Cadena::Cadena(const Cadena& other):tam_(other.tam_),s_(vacia){
+    if(tam_>0){
+       s_= new char[tam_+1];
+       //hacemos uso de strcpy
+        strcpy(s_,other.s_);
+        s_[tam_] =vacia[0];
+    }
 }
 
-Cadena::Cadena (const char* c):tam_(strlen(c)), s_(new char[tam_+1]){
-    strcpy(s_,c);
+Cadena::Cadena (const char* c):tam_(strlen(c)), s_(vacia){
+    if(tam_>0){
+        s_ = new char[tam_+1];
+        strcpy(s_,c);
+         s_[tam_]=vacia[0];
+    }
 }
 
 //Operadores de asignación por copia
-Cadena& Cadena::operator = (const Cadena& other){
+Cadena& Cadena::operator = (const Cadena& other)noexcept{
     //evitamos autoasignación
     if(this!=&other){
-        delete[] s_;
+        if(tam_ > 0){
+            delete[] s_;
+        }
         tam_ = other.tam_;
+        if(other.tam_ > 0){
         s_ = new char[tam_+1];
         strcpy(s_,other.s_);
+        }else{
+            s_ = vacia;}
     }
     return *this;
 }
-Cadena& Cadena::operator =(const char* c){
+
+
+Cadena& Cadena::operator =(const char* c)noexcept{
     if(*this!=c){
-        delete[]s_;
+        if(tam_ > 0){
+            delete [] s_;
+        }
         tam_ = strlen(c);
-        s_ = new char [tam_+1];
-        strcpy(s_,c);
+        if(strlen(c)>0){
+            s_ = new char [tam_+1];
+            strcpy(s_,c);
+        }
+        else{ s_ = vacia;
+        }
     }
     return *this;
-}
-Cadena::operator const char*(){
-    const char* c = s_;
-    return c;
 }
 
 //Concatenación de cadenas
-Cadena& Cadena::operator +=(const Cadena& other){
+Cadena& Cadena::operator +=(const Cadena& other)noexcept{
     //Creamos una cadena nueva que contedrá las dos cadenas concatenadas
     char* concatenada = new char [tam_+1];
     //Copiamo una de las cadenas
@@ -73,7 +87,7 @@ Cadena& Cadena::operator +=(const Cadena& other){
     return *this;
 }
 
-Cadena operator +(const Cadena&c1, const Cadena& c2){
+Cadena operator +(const Cadena&c1, const Cadena& c2)noexcept{
     //Creamos una cadena nueva -> resultante de la concatenación
     Cadena auxiliar(c1);
     //devolvemos la cadena concatenada
@@ -90,7 +104,7 @@ char& Cadena::at(size_t index){
     }
 }
 char& Cadena::at(size_t index)const{
-    if(index <tam_){
+    if(index < tam_){
         return s_[index];
     }
     else{
@@ -115,29 +129,31 @@ Cadena Cadena::substr(unsigned index, size_t tama)const{
 
 //Destructor de cadena
 Cadena::~Cadena(){
-    delete [] s_;
-    tam_ = 0;
+    if(tam_>0){
+        delete [] s_;
+    }
+    
 }
 
 //Operadores lógicos
-bool operator == (const Cadena& cadena1, const Cadena& cadena2) {
+bool operator == (const Cadena& cadena1, const Cadena& cadena2)noexcept{
     return (std::strcmp(static_cast<const char*>(cadena1), static_cast<const char*>(cadena2)) == 0);
 }
-bool operator !=(const Cadena& cadena1, const Cadena& cadena2){
+bool operator !=(const Cadena& cadena1, const Cadena& cadena2)noexcept{
     return !(cadena1==cadena2);
 }
 
-bool operator <(const Cadena& cadena1, const Cadena& cadena2){
+bool operator <(const Cadena& cadena1, const Cadena& cadena2)noexcept{
     return (std::strcmp(static_cast<const char*>(cadena1), static_cast<const char*>(cadena2)) < 0);
 }
-bool operator <=(const Cadena& cadena1, const Cadena& cadena2){
+bool operator <=(const Cadena& cadena1, const Cadena& cadena2)noexcept{
     return !(cadena2<cadena1);
 }
 
-bool operator > (const Cadena& cadena1, const Cadena& cadena2){
+bool operator > (const Cadena& cadena1, const Cadena& cadena2)noexcept{
     return cadena2<cadena1;
 }
 
-bool operator >=(const Cadena& cadena1, const Cadena& cadena2){
+bool operator >=(const Cadena& cadena1, const Cadena& cadena2)noexcept{
     return !(cadena1<cadena2);
 }

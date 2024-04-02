@@ -16,10 +16,9 @@ public:
     Abb(const Abb &A);            // ctor. de copia
     Abb &operator=(const Abb &A); // asig. árboles
     ~Abb();                       // destructor
-    J.F.Argudo;
-    J.A.Alonso;
-    M.T.García EDNL ABB 17 private : struct arbol
-    {
+    void poda_rec(T e);
+    private: 
+    struct arbol{
         T elto;
         Abb izq, der;
         arbol(const T &e) : elto{e}, izq{}, der{} {}
@@ -27,6 +26,23 @@ public:
     arbol *r; // raíz del árbol
     T borrarMin();
 };
+/*-----1. Implementa una nueva operación del TAD Abb que tomando un elemento 
+del mismo elimine al completo el subárbol que cuelga de él. 
+Ejemplo: Para el árbol binario de búsqueda de la figura se 
+muestra la transformación si la entrada fuera el valor 9.-----*/
+template <typename T>
+void Abb<T>::poda_rec(T e){
+  if(e < r->elto){//subarbol izquierdo
+    r->izq.poda_rec(e);
+    
+  }else if (e > r->elto){//subarbol derecho
+    r->der.poda_rec(e);
+  }else{ //son iguales e = elto
+    eliminar(r);
+    r = nullptr;
+  }
+
+}   
 
 template <typename T>
 inline Abb<T>::Abb() : r{nullptr} {}

@@ -32,9 +32,9 @@
 #include <iostream>		// cin, cout, endl, <<, >>
 #include <stdexcept>		// out_of_range
 #ifndef CADENA
-#include "fecha.hpp"		// Fecha
-#endif
-#ifndef FECHA
+//#include "fecha.hpp"		// Fecha
+//#endif
+//#ifndef FECHA
 #include "cadena.hpp"		// Cadena
 #endif
 
@@ -42,68 +42,68 @@ using namespace std;
 
 int main()
 {
-#ifndef CADENA
-  /******* PRUEBAS DE LA CLASE Fecha **********/
-  // No podemos sobrecargarlas porque tienen la misma signatura.
-  Fecha obtener_fecha_v1(void), obtener_fecha_v2(void);
+// #ifndef CADENA
+//   /******* PRUEBAS DE LA CLASE Fecha **********/
+//   // No podemos sobrecargarlas porque tienen la misma signatura.
+//   Fecha obtener_fecha_v1(void), obtener_fecha_v2(void);
   
-  // Pruebas de constructores
-  Fecha hoy, copia_hoy(hoy);	// Predeterminado, de copia
-  Fecha mi_nacimiento(29, 12, 1958);
-  Fecha mannana = ++hoy;	// pre-incremento
-  Fecha ayer = --copia_hoy;	// pre-decremento
+//   // Pruebas de constructores
+//   Fecha hoy, copia_hoy(hoy);	// Predeterminado, de copia
+//   Fecha mi_nacimiento(29, 12, 1958);
+//   Fecha mannana = ++hoy;	// pre-incremento
+//   Fecha ayer = --copia_hoy;	// pre-decremento
 
-  // P0 - Operador de conversión Fecha -> const char*
-  // P1 - Impresión en un flujo de salida, operador de inserción
-  // Nota: Hay que hacerlo en sentencias separadas.
+//   // P0 - Operador de conversión Fecha -> const char*
+//   // P1 - Impresión en un flujo de salida, operador de inserción
+//   // Nota: Hay que hacerlo en sentencias separadas.
   
-  cout << "Hoy es " << --hoy;	// Impresión, operador de inserción
-  cout << "\nAyer fue " << ayer;
-  cout << ", y mañana será " << mannana << '.' << endl;
+//   cout << "Hoy es " << --hoy;	// Impresión, operador de inserción
+//   cout << "\nAyer fue " << ayer;
+//   cout << ", y mañana será " << mannana << '.' << endl;
 
-  hoy += 7;			// Prueba de suma con asignación
-  cout << "Dentro de una semana será: " << hoy << endl;
-  hoy += 365 * 3;
-  cout << "Dentro de 3 años y 1 semana será: " << hoy << endl;
-  hoy -= 365 * 3 + 7;
-  cout << "Volvemos a hoy: " << hoy << endl;
+//   hoy += 7;			// Prueba de suma con asignación
+//   cout << "Dentro de una semana será: " << hoy << endl;
+//   hoy += 365 * 3;
+//   cout << "Dentro de 3 años y 1 semana será: " << hoy << endl;
+//   hoy -= 365 * 3 + 7;
+//   cout << "Volvemos a hoy: " << hoy << endl;
 
-  // Pruebas de excepciones
-  try {
-    Fecha("20/1/2000");
-    Fecha("31/2/2000");
-  } catch(const Fecha::Invalida &e)
-    {
-      cerr << "EXCEPCIÓN: " << e.por_que() << endl;
-    }
+//   // Pruebas de excepciones
+//   try {
+//     Fecha("20/1/2000");
+//     Fecha("31/2/2000");
+//   } catch(const Fecha::Invalida &e)
+//     {
+//       cerr << "EXCEPCIÓN: " << e.por_que() << endl;
+//     }
 
-  cout << "Yo nací: " << mi_nacimiento;
-  cout << "\nDentro de una semana será: " << hoy + 7;
-  cout << "\nHoy: " << hoy;
-  cout << "\nHace 2 semanas fue: " << hoy - 14
+//   cout << "Yo nací: " << mi_nacimiento;
+//   cout << "\nDentro de una semana será: " << hoy + 7;
+//   cout << "\nHoy: " << hoy;
+//   cout << "\nHace 2 semanas fue: " << hoy - 14
 
-       << "\nEl día después del 28 de febrero de este año es: ";
-  Fecha f(28, 2);		// prueba de constructor de 2 parámetros
-  cout << ++f
-       << "\nY el de después del 28 de febrero de 2000 fue: ";
-  f = Fecha(28, 2, 2000);	// prueba de asignación
-  cout << ++f
-       << "\nTras Año Viejo viene: ";
-  Fecha av(31,12);
-  cout << ++av << "\nY Año Viejo es: ";
-  cout << --av
+//        << "\nEl día después del 28 de febrero de este año es: ";
+//   Fecha f(28, 2);		// prueba de constructor de 2 parámetros
+//   cout << ++f
+//        << "\nY el de después del 28 de febrero de 2000 fue: ";
+//   f = Fecha(28, 2, 2000);	// prueba de asignación
+//   cout << ++f
+//        << "\nTras Año Viejo viene: ";
+//   Fecha av(31,12);
+//   cout << ++av << "\nY Año Viejo es: ";
+//   cout << --av
 
-  // Prueba de constructor "cadena de caracteres"
-       << "\n20/1/2000 está mejor dicho como " << Fecha("20/1/2000") << endl;
+//   // Prueba de constructor "cadena de caracteres"
+//        << "\n20/1/2000 está mejor dicho como " << Fecha("20/1/2000") << endl;
 
-  /* Pruebas de excepciones  */
+//   /* Pruebas de excepciones  */
 
-  Fecha f1 = obtener_fecha_v1(), f2 = obtener_fecha_v2();
-  cout << "La 1ª fecha fue: \"" << f1;
-  cout << "\", y la 2ª: \"" << f2 << "\"." << endl;
-#endif  // ifndef CADENA
+//   Fecha f1 = obtener_fecha_v1(), f2 = obtener_fecha_v2();
+//   cout << "La 1ª fecha fue: \"" << f1;
+//   cout << "\", y la 2ª: \"" << f2 << "\"." << endl;
+// #endif  // ifndef CADENA
 
-#ifndef FECHA
+// #ifndef FECHA
 /*****************************************************************************/
 /*************** PRUEBAS DE LA CLASE Cadena **********************************/
 
@@ -120,6 +120,8 @@ int main()
   // P0: Conversión Cadena -> const char*
   // P1: Inserción en flujo de salida
   cout << "\n";
+      std::cout<<"hola1"<<std::endl;
+
 #ifdef P0
   cout << (const char*)(s);
 #else
@@ -205,56 +207,56 @@ int main()
     cout << *r;
   cout << endl;
 #endif // P1
-#endif // ifndef FECHA
+//#endif // ifndef FECHA
 } // ~
 
 #ifndef CADENA
-// Funciones auxiliares de pruebas de excepciones de Fecha
-Fecha obtener_fecha_v1()
-{
-  while (true)
-    try {
-      cout << "Introduzca una fecha en el formato DD/MM/AAAA, por favor: ";
-#ifdef P0
-      char linea[11];
-      cin.getline(linea, 11);
-      Fecha f(linea);
-#else // P1
-      Fecha f(12, 12, 2012);
-      cin >> f;			// operador de extracción
-#endif
-      return f;      // Fecha correcta: salimos.
-    } catch(const Fecha::Invalida& e) {
-      cerr << e.por_que() 
-	   << "\a\nInténtelo de nuevo.\n" << endl;
-      cin.clear();
-    } // Fin while
-}
+// // Funciones auxiliares de pruebas de excepciones de Fecha
+// Fecha obtener_fecha_v1()
+// {
+//   while (true)
+//     try {
+//       cout << "Introduzca una fecha en el formato DD/MM/AAAA, por favor: ";
+// #ifdef P0
+//       char linea[11];
+//       cin.getline(linea, 11);
+//       Fecha f(linea);
+// #else // P1
+//       Fecha f(12, 12, 2012);
+//       cin >> f;			// operador de extracción
+// #endif
+//       return f;      // Fecha correcta: salimos.
+//     } catch(const Fecha::Invalida& e) {
+//       cerr << e.por_que() 
+// 	   << "\a\nInténtelo de nuevo.\n" << endl;
+//       cin.clear();
+//     } // Fin while
+// }
 
-Fecha obtener_fecha_v2() // Otra alternativa. Tomamos la fecha de hoy
-  try {
-#ifdef P0
-    cout << "Introduzca una fecha. Primero el día del mes: ";
-    int d;
-    cin >> d;
-    cout << "Ahora el mes (numérico): ";
-    int m;
-    cin >> m;
-    cout << "Y por último el año (4 cifras): ";
-    int a;
-    cin >> a;
-    Fecha f(d, m, a);
-#else  // P1
-    cout << "Introduzca una fecha en el formato DD/MM/AAAA, por favor: ";
-    Fecha f(12, 12, 2012);
-    cin >> f;
-#endif
-    return f;
-  }
-  catch(const Fecha::Invalida& e) {
-    cerr << e.por_que() << "\nTom\aamos la fecha de «hoy»." << endl;
-    cin.clear();
-    return Fecha();
-  }
+// Fecha obtener_fecha_v2() // Otra alternativa. Tomamos la fecha de hoy
+//   try {
+// #ifdef P0
+//     cout << "Introduzca una fecha. Primero el día del mes: ";
+//     int d;
+//     cin >> d;
+//     cout << "Ahora el mes (numérico): ";
+//     int m;
+//     cin >> m;
+//     cout << "Y por último el año (4 cifras): ";
+//     int a;
+//     cin >> a;
+//     Fecha f(d, m, a);
+// #else  // P1
+//     cout << "Introduzca una fecha en el formato DD/MM/AAAA, por favor: ";
+//     Fecha f(12, 12, 2012);
+//     cin >> f;
+// #endif
+//     return f;
+//   }
+//   catch(const Fecha::Invalida& e) {
+//     cerr << e.por_que() << "\nTom\aamos la fecha de «hoy»." << endl;
+//     cin.clear();
+//     return Fecha();
+//   }
 #endif // ifndef CADENA
 
