@@ -14,11 +14,11 @@ class Cadena{
         Cadena(const char*);
         Cadena(Cadena&&);
         //Si hacemos ctor de copia debemos de hacer operador de asignación por copia
-        Cadena& operator = (const Cadena& );
-        Cadena& operator =(const char*);
-        Cadena& operator = (Cadena&& );
+        Cadena operator = (const Cadena& );
+        Cadena operator =(const char*);
+        Cadena operator = (Cadena&& );
         //conversion a cadena de bajo nivel (observadora y modificadora)
-        explicit operator const char*() const noexcept{return s_;}
+        explicit operator const char*()const noexcept{return s_;}
         
         //método observador -> devuelve el num de caracteres de una cadena
         size_t length() const noexcept{return tam_;}
@@ -87,6 +87,24 @@ inline Cadena::const_reverse_iterator Cadena::crbegin() const noexcept { return 
 inline Cadena::reverse_iterator Cadena::rend() noexcept { return reverse_iterator(begin()); }
 inline Cadena::const_reverse_iterator Cadena::rend() const noexcept { return const_reverse_iterator(begin()); }
 inline Cadena::const_reverse_iterator Cadena::crend() const noexcept { return const_reverse_iterator(begin()); }
+
+//codigo hash P2
+// Para P2 y ss .
+// Especializaci ón de la plantilla std :: hash<Key> para definir la función hash a usar
+// en contenedores desordenados de Cadena, unordered_[set|map|multiset|multimap].
+namespace std{ //Estaremos dentro del espacio de nombres std
+    template <> // Es una especializaci ón de una plantilla para Cadena.
+    struct hash <Cadena>{
+        size_t operator() (const Cadena& cad) const //el operador funcion
+        {
+            hash<string> hs;
+            auto p{(const char*)(cad)};
+            string s{p};
+            size_t res{hs(s)};
+            return res;
+        }
+    };
+}
 
 #endif // !CADENA_HPP
 /*

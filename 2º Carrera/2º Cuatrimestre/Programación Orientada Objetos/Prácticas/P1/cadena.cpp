@@ -22,43 +22,37 @@ Cadena::Cadena(const Cadena& other):tam_(other.tam_),s_(vacia){
        s_= new char[tam_+1];
        //hacemos uso de strcpy
         strcpy(s_,other.s_);
-        s_[tam_] =vacia[0];
     }
 }
 Cadena::Cadena (const char* c):tam_(strlen(c)), s_(vacia){
     if(tam_>0){
         s_ = new char[tam_+1];
         strcpy(s_,c);
-         s_[tam_]=vacia[0];
     }
 }
 //Constructor de Movimiento
 Cadena::Cadena(Cadena&& other):tam_(other.tam_),s_(other.s_){
     if(tam_ > 0){
     other.tam_ = 0;
-    other.s_ = new char[1];
-    other[0] = '\0';
+    other.s_ = vacia;
     }
 }
 
 //operador de asignación por movimiento
-Cadena& Cadena::operator = (Cadena&& other){
+Cadena Cadena::operator = (Cadena&& other){
     if(this!= &other){
         tam_ = other.tam_;
-        if(tam_ == 0){
-            delete[]s_;            
-        }else{
-            s_ = other.s_;
-        }
+        if(tam_ > 0) delete[] s_;            
+        s_ = other.s_;
         other.tam_ =0;
-        other.s_ = new char[1];
-        other[0]='\0';
+        other.s_ = vacia;
+
     }
     return *this;
 }
 
 //Operadores de asignación por copia
-Cadena& Cadena::operator = (const Cadena& other){
+Cadena Cadena::operator = (const Cadena& other){
     //evitamos autoasignación
     if(this!=&other){
         if(tam_ > 0){
@@ -68,14 +62,13 @@ Cadena& Cadena::operator = (const Cadena& other){
         if(other.tam_ > 0){
         s_ = new char[tam_+1];
         strcpy(s_,other.s_);
-        }else{
-            s_ = vacia;}
+        }else{s_ = vacia;}
     }
     return *this;
 }
 
 
-Cadena& Cadena::operator =(const char* c){
+Cadena Cadena::operator =(const char* c){
     if(*this!=c){
         if(tam_ > 0){
             delete [] s_;
@@ -85,8 +78,7 @@ Cadena& Cadena::operator =(const char* c){
             s_ = new char [tam_+1];
             strcpy(s_,c);
         }
-        else{ s_ = vacia;
-        }
+        else{s_ = vacia;}
     }
     return *this;
 }

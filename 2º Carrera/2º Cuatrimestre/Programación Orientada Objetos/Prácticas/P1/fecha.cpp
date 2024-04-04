@@ -54,22 +54,14 @@ Fecha::Fecha(int dia, int mes, int anno):dia_(dia),mes_(mes),anno_(anno),actual(
     //Comprobamos la fecha
     comprueba_fecha();
 }
-Fecha::Fecha(const char* c){
+Fecha::Fecha(const char* c):actual(false){
     //Introducimos la fecha de la manera dia/mes/año, tenemos que sacar el formato
     // y guardar en cada variable los datos correspondientes
     //Comprobamos el formato
     if(sscanf(c,"%d/%d/%d",&dia_,&mes_,&anno_)!=3){
         Fecha::Invalida F_Invalido("ERROR: Formato de fecha incorrecto");
     }
-        //Formateamos la fecha
-        std::time_t t_sistema = std::time(nullptr);
-        std::tm* t_formato = std::localtime(&t_sistema);
-         //Comprobamos si la fecha introducida está por defecto
-        if(anno_ == 0) anno_ = t_formato -> tm_year+1900;
-        if(mes_ == 0) mes_ = t_formato -> tm_mon +1;
-        if(dia_ == 0) dia_ = t_formato ->tm_mday;
-        //Comprobamos la fecha
-        comprueba_fecha();
+       *this = Fecha(dia_,mes_,anno_);
 }
 // //Implementación del operador de conversion a const char*
 // Fecha::operator const char*()const noexcept{

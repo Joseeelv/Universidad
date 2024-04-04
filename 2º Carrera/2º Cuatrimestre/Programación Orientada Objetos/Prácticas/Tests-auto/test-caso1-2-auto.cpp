@@ -73,7 +73,6 @@ FCTMF_FIXTURE_SUITE_BGN(test_p2) {
     }
   }
   FCT_TEST_END();
-
   FCT_TEST_BGN(Clave - observador y cifrado DES) {
     const Clave c("!.:xA?");
     fct_chk_neq_str(c.clave().operator const char*(), "!.:xA?");
