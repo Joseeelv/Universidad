@@ -38,10 +38,9 @@ void Abb<T>::poda_rec(T e){
   }else if (e > r->elto){//subarbol derecho
     r->der.poda_rec(e);
   }else{ //son iguales e = elto
-    eliminar(r);
+    delete r;
     r = nullptr;
   }
-
 }   
 
 template <typename T>
