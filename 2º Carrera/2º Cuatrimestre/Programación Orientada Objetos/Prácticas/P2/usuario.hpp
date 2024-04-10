@@ -39,8 +39,8 @@ class Clave{
 /*-----Clase Usuario-----*/
 class Usuario{
     public:
-        typedef std::map<Numero,Tarjeta*>Tarjetas;
-        typedef std::unordered_map<Articulo*,unsigned int>Articulos;
+        typedef std::map<Numero,Tarjeta*>Tarjetas; //asociación calificada
+        typedef std::unordered_map<Articulo*,unsigned int>Articulos; //carrito de compra del usuario
 
         Usuario(const Cadena& ,const Cadena& , const Cadena& , const Cadena& , const Clave& );
         //eliminamos el ctor de copia y el operador de asignacion

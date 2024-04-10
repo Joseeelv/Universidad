@@ -74,5 +74,3 @@ void figura_rec(typename Agen<Pixel>::nodo n, Agen<Pixel>& A, std::vector<std::v
         }
     }
 }
-
-
