@@ -54,21 +54,23 @@ typedef struct{
 }Pixel;
 //se devuelve la matriz resultante por referencia.
 template <typename Pixel>
-void figura(typename Agen<Pixel>::nodo n, Agen<Pixel>& A, std::vector<std::vector<Pixel> >& M){
+void figura_rec(typename Agen<Pixel>::nodo n, Agen<Pixel>& A, std::vector<std::vector<Pixel> >& M){
     if(n!= Agen<Pixel>::NODO_NULO){
-        if(A.elemento(n).color ==" "){
+        if(A.elemento(n).color ==" "){ //ausencia de color -> recorremos el árbol
             typename Agen<Pixel>::nodo aux = A.hijoIzqdo(n);
             while(aux){
-                figura(aux,A,M);
+                figura_rec(aux,A,M);
                 aux=A.hermDrcho(aux);
             }
         }
         else{
-            for(auto i = A.elemento(n).x0x1[0]; i<=A.elemento(n).x0x1[1]; i++){
-                for(auto j=A.elemento(n).y0y1[0]; j<=A.elemento(n).y0y1[1]; j++){
-                    M[i][j] = A.elemento(n).color;
+            if(A.elemento(n).color == "B" || A.elemento(n).color == "N"){
+                for(auto i = A.elemento(n).x0x1[0]; i<=A.elemento(n).x0x1[1]; i++){
+                    for(auto j=A.elemento(n).y0y1[0]; j<=A.elemento(n).y0y1[1]; j++){
+                        M[i][j] = A.elemento(n).color;
+                    }
                 }
-            }
+            }   
         }
     }
 }
