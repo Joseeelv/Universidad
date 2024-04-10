@@ -63,7 +63,7 @@ Fecha::Fecha(const char* c):actual(false){
     }
        *this = Fecha(dia_,mes_,anno_);
 }
-// //Implementación del operador de conversion a const char*
+// Implementación del operador de conversion a const char*
 // Fecha::operator const char*()const noexcept{
 //     //Comprobamos que no se haya actualizado la fecha antes
 //     if(!actual){//se introduce por primera vez

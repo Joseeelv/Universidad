@@ -21,9 +21,17 @@ bool operator < (const Numero& a, const Numero& b){
 Cadena Numero::eliminar_espacios(const Cadena& cadena){
     //creamos una cadena nueva como copia de la introducida
     Cadena aux(cadena);
+    const char* original = cadena.operator const char *();
     //hacemos uso del método remove_if de la stl
     //esto lo que hace que elimina si encuentra un espacio, hacemos uso de una funcion lamda
-    std::remove_if(aux.begin(),aux.end()+1,[](char c){return isspace(c);});
+    // std::remove_if(aux.begin(),aux.end()+1,[](char c){return isspace(c);});
+    int j =0;
+    for(auto i =0; i!='\0'; i++){
+        if(!isspace(original[i])){
+            aux[j++] = original[i];
+        }
+    }
+    aux[j] = '\0';
     return Cadena(aux.operator const char *()); //devolvemos la cadena de bajo nivel
 }
 

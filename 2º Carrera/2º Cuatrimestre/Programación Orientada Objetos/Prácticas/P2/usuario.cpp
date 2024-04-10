@@ -10,7 +10,7 @@ Clave:: Clave(const char* c):password_(c){
     }
     else{
         //Encriptamos la clave nueva
-        const char* valores ="abcdefghijklmnopqrstuvwxyz0123456789./";
+        const char* valores ="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789./";
         std::random_device random;
         std::uniform_int_distribution<>distribucion(0,63);
         char cifrado[2]={valores[distribucion(random)],valores[distribucion(random)]};
@@ -24,8 +24,7 @@ Clave:: Clave(const char* c):password_(c){
 }
 bool Clave::verifica(const char* clave)const{
     //compara la encriptación de la clave que hemos metido concuerda con una de las claves
-    return (!strcmp(crypt(clave, password_.operator const char *()),
-    password_.operator const char *()));
+    return !strcmp(crypt(clave,password_.operator const char *()),password_.operator const char *());
 }
 
 /*-----Clase Usuario-----*/
@@ -47,7 +46,7 @@ void Usuario::no_es_titular_de(Tarjeta& t) noexcept{
     tarjetas_.erase(t.numero());
 }
 
-void Usuario::compra( Articulo& art, size_t cantidad) noexcept{
+void Usuario::compra(Articulo& art, size_t cantidad) noexcept{
     //si la cantidad del articulo es > 0 -> se añade; si no se elimina
     if(cantidad > 0)articulos_[&art]=cantidad;
     else articulos_.erase(&art);

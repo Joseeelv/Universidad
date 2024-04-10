@@ -46,6 +46,7 @@ class Usuario{
         //eliminamos el ctor de copia y el operador de asignacion
         Usuario(const Usuario&)=delete;
         Usuario operator = (const Usuario&)=delete;
+
         //métodos observadores
         inline Cadena id()const noexcept{return identificador_;}
         inline Cadena nombre()const noexcept{return nombre_;}
