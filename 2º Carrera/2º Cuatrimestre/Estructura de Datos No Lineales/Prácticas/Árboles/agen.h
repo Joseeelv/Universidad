@@ -40,7 +40,8 @@ private:
 /* Definición del nodo nulo */
 template <typename T>
 const typename Agen<T>::nodo Agen<T>::NODO_NULO(nullptr);
-/*--------------------------------------------------------*/ /* Métodos públicos */ /*--------------------------------------------------------*/ template <typename T>
+/*--------------------------------------------------------*/ /* Métodos públicos */ /*--------------------------------------------------------*/ 
+template <typename T>
 inline Agen<T>::Agen() : r(NODO_NULO) {}
 template <typename T>
 inline void Agen<T>::insertarRaiz(const T &e)
