@@ -26,8 +26,7 @@ size_t grado_rec(typename Agen<T>::nodo n, Agen<T> A){
     }
 }
 
-/*-----2. Implementa un subprograma que dados un árbol y 
-un nodo dentro de dicho árbol determine la profundidad de 
+/*-----2. Implementa un subprograma que dados un árbol y un nodo dentro de dicho árbol determine la profundidad de 
 éste nodo en el árbol.-----*/
 template <typename T>
 size_t profundidad(typename Agen<T>::nodo n, Agen<T> A){

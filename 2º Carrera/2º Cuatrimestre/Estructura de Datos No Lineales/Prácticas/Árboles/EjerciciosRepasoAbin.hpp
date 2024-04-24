@@ -36,7 +36,7 @@ std::vector<T> busca_elto_rec(typename Abin<T>::nodo n, const Abin<T> A, const T
 /*Ejercicio de clase 2: Implementa una función que, dado un árbol , devuelva el número de nodos
 prósperos que existen en él. Se considera que un nodo es próspero si es estrictamente más rico
 que sus ascendientes, pero menos rico que sus descendientes*/
-//1+Hi+Hd
+
 template <typename T>
 size_t nodos_prosperos(const Abin<T> A){
     return nodos_prosperos_rec(A.raiz(),A);
