@@ -10,11 +10,11 @@
 #include <map>
 #include <unordered_map>
 #include <unordered_set>
+#include <iomanip>
 
 //Declaraciones adelantadas
 class Tarjeta;
 class Numero;
-
 
 /*-----Clase Clave-----*/
 class Clave{
@@ -39,14 +39,13 @@ class Clave{
 /*-----Clase Usuario-----*/
 class Usuario{
     public:
-        typedef std::map<Numero,Tarjeta*>Tarjetas; //asociación calificada
-        typedef std::unordered_map<Articulo*,unsigned int>Articulos; //carrito de compra del usuario
+        typedef std::map<Numero,Tarjeta*> Tarjetas;
+        typedef std::unordered_map<Articulo*,unsigned int>Articulos;
 
         Usuario(const Cadena& ,const Cadena& , const Cadena& , const Cadena& , const Clave& );
         //eliminamos el ctor de copia y el operador de asignacion
         Usuario(const Usuario&)=delete;
         Usuario operator = (const Usuario&)=delete;
-
         //métodos observadores
         inline Cadena id()const noexcept{return identificador_;}
         inline Cadena nombre()const noexcept{return nombre_;}

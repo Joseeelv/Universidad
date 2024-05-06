@@ -59,11 +59,11 @@ Fecha::Fecha(const char* c):actual(false){
     // y guardar en cada variable los datos correspondientes
     //Comprobamos el formato
     if(sscanf(c,"%d/%d/%d",&dia_,&mes_,&anno_)!=3){
-        throw Invalida("ERROR: Formato de fecha incorrecto");
+        Fecha::Invalida F_Invalido("ERROR: Formato de fecha incorrecto");
     }
        *this = Fecha(dia_,mes_,anno_);
 }
-// Implementación del operador de conversion a const char*
+// //Implementación del operador de conversion a const char*
 // Fecha::operator const char*()const noexcept{
 //     //Comprobamos que no se haya actualizado la fecha antes
 //     if(!actual){//se introduce por primera vez

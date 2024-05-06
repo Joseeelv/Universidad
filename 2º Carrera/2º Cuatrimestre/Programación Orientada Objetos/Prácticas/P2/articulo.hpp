@@ -14,13 +14,13 @@ class Articulo{
         fpubli_(f_publi),precio_(precio),ejemplares_(ejemplares){}
 
         //Observadores de la clase
-        inline const Cadena& referencia() const{return referencia_;}
-        inline const Cadena& titulo()const{return titulo_;}
-        inline const Fecha& f_publi()const{return fpubli_;}
-        inline double precio()const{return precio_;}
-        inline double& precio(){return precio_;}
-        inline unsigned stock()const{return ejemplares_;}
-        inline unsigned& stock(){return ejemplares_;}
+        inline const Cadena& referencia() const noexcept{return referencia_;}
+        inline const Cadena& titulo()const noexcept{return titulo_;}
+        inline const Fecha& f_publi()const noexcept{return fpubli_;}
+        inline double precio()const noexcept{return precio_;}
+        inline double& precio()noexcept{return precio_;}
+        inline unsigned stock()const noexcept{return ejemplares_;}
+        inline unsigned& stock()noexcept{return ejemplares_;}
 
     private:
         const Cadena referencia_,titulo_;

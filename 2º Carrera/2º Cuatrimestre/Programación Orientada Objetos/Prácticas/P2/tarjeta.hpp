@@ -9,6 +9,7 @@
 #include <set>
 #include <algorithm> //remove_if
 #include <cctype> //isspace
+#include <cstring>
 //declaraciones adelantadas
 class Usuario;
 class Clave;

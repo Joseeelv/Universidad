@@ -16,6 +16,7 @@ Cadena::Cadena(size_t tam, char c):tam_(tam),s_(vacia){
         s_[tam_] =vacia[0];
     }
 }
+
 Cadena::Cadena(const Cadena& other):tam_(other.tam_),s_(vacia){
     if(tam_>0){
        s_= new char[tam_+1];

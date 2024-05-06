@@ -113,8 +113,12 @@ int main(int argc, const char **argv)
   checkCode c2(argc, argv, "tarjeta.cpp", "");
   c2.setCorrectMessage("Verificación correcta de la clase Tarjeta.");
   c2.setIncorrectMessage("REVISA LA CLASE Tarjeta.");
-  
-  if(c2.findClass({"Tarjeta","EsDigito"})) {        
+
+#if defined P3 || defined P4  
+  if(c2.findClass({"Tarjeta","EsDigito"})) {
+#else
+  if(c2.findClass({"Tarjeta"})) {  
+#endif        
     llvm::outs() << "* tarjeta.cpp:\n";
     
     c2.invocationsFromHeaders(functionNames, headerName, true, 
@@ -142,7 +146,11 @@ int main(int argc, const char **argv)
     c2.check();
   }
   else
+#if defined P3 || defined P4
     llvm::outs() << "No se ha encontrado la clase 'Tarjeta' o la clase de objeto función 'EsDigito'.\n";
+#else
+    llvm::outs() << "No se ha encontrado la clase 'Tarjeta'.\n";
+#endif
   
   checkCode c3(argc, argv,"usuario.cpp", "");
   c3.setCorrectMessage("Verificación correcta de la clase Usuario.");

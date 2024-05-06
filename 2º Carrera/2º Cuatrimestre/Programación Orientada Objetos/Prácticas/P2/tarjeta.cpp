@@ -26,7 +26,7 @@ Cadena Numero::eliminar_espacios(const Cadena& cadena){
     //esto lo que hace que elimina si encuentra un espacio, hacemos uso de una funcion lamda
     // std::remove_if(aux.begin(),aux.end()+1,[](char c){return isspace(c);});
     int j =0;
-    for(auto i =0; i!='\0'; i++){
+    for(size_t i =0; i!=strlen(original); i++){
         if(!isspace(original[i])){
             aux[j++] = original[i];
         }
@@ -37,7 +37,7 @@ Cadena Numero::eliminar_espacios(const Cadena& cadena){
 
 Cadena Numero::longitud(const Cadena& cadena){
     //creamos una cadena como copia de la introducida para calcular la longitud sin espacios
-    Cadena aux= eliminar_espacios(cadena);
+    Cadena aux = eliminar_espacios(cadena);
     if(aux.length()>19 || aux.length() < 13 || aux.length() == 0)
         throw Incorrecto(Razon::LONGITUD);
     return aux;
@@ -67,7 +67,7 @@ Tarjeta::Tipo Tarjeta::tipo()const noexcept{
 
 Tarjeta::~Tarjeta(){
     //Para poder eliminar una tarjeta, primero debemos de desvincularla de su titular
-    if(Usuario* user = const_cast<Usuario*>(titular_))user->no_es_titular_de(*this);
+    if(Usuario* user = const_cast<Usuario*>(titular_)) user->no_es_titular_de(*this);
     tarjetas_.erase(numero_); //eliminamos despues de desvincular
 }
 
@@ -85,10 +85,11 @@ std::ostream& operator <<(std::ostream& output, const Tarjeta& t)noexcept{
             nombre_apell[i]=toupper(nombre_apell[i]);
         i++;
     }
-    output<<t.tipo()<<std::endl<<t.numero()<<std::endl<<nombre_apell<<std::endl
-    <<"Caduca: "<<std::setfill('0')<<std::setw(2)<<t.caducidad().mes()
+    output<<std::setw(2)<<std::setfill(' ')<<' '<<t.tipo()
+    <<std::setw(2)<<std::setfill(' ')<<' '<<t.numero()<<"\n"
+    <<std::setw(2)<<std::setfill(' ')<<' '<<nombre_apell<<"\n"
+    <<std::setw(2)<<std::setfill(' ')<<' '<<"Caduca: "<<std::setfill('0')<<std::setw(2)<<t.caducidad().mes()
     <<"/"<<std::setw(2)<<(t.caducidad().anno() % 100)<<std::endl;
-
     return output;
 }
 
