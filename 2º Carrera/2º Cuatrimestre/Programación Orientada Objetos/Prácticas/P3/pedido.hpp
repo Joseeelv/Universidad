@@ -1,5 +1,5 @@
-#ifndef _PEDIDO_HPP
-#define _PEDIDO_HPP
+#ifndef _PEDIDO_HPP_
+#define _PEDIDO_HPP_
 
 //Inclusión de librerias y cabeceras
 #include "tarjeta.hpp"
@@ -7,6 +7,7 @@
 #include "articulo.hpp"
 #include "usuario-pedido.hpp"
 #include "pedido-articulo.hpp"
+
 //Declarcion adelantada
 Tarjeta;
 Usuario_Pedido;
@@ -56,6 +57,6 @@ class Pedido{
 };
 
 //Sobrecarga del operador de flujo
-std::ostream& operator <<(std::ostream& ,const Pedido&) noexcept;
+std::ostream& operator <<(std::ostream& ,const Pedido& )noexcept;
 
 #endif //!PEDIDO.HPP
