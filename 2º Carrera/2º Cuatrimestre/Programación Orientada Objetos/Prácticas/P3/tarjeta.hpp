@@ -10,7 +10,7 @@
 #include <algorithm> //remove_if
 #include <cctype> //isspace
 #include <cstring>
-#include <functional>
+#include <functional> //para comprobar si son digitos
 //declaraciones adelantadas
 class Usuario;
 class Clave;
@@ -33,7 +33,6 @@ class Numero{
                 Incorrecto(const Razon& r):razon_(r){};
                 const Razon& razon()const{return razon_;}
         };
-
     private:
         Cadena numero_;
         //metodos extras para el constructor solo P2
@@ -62,7 +61,7 @@ class Tarjeta{
 
         //destructor de la clase
         ~Tarjeta();
-        //Clase de la excepcion tarjeta caducada
+         //Clase de la excepcion tarjeta caducada
         class Caducada{
             Fecha fecha_;
             public:

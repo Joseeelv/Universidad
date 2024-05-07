@@ -44,14 +44,16 @@ void Fecha::actualizar()const{
 /*----- Métodos públicos de la clase Fecha*/
 //Implementación del constructor
 Fecha::Fecha(int dia, int mes, int anno):dia_(dia),mes_(mes),anno_(anno),actual(false){
-    //Si los atributos son 0, vamos a poner la fecha del sistema (ctime)
+    /*Si la variable toma el valor 0 --> toma la fecha del sistema.
+    Para ello hacemos uso de la libreria ctime.*/
     std::time_t t_sistema = std::time(nullptr);
-    std::tm* t_formato = std::localtime(&t_sistema);
-    //Comprobamos si la fecha introducida está por defecto
-    if(anno_ == 0) anno_ = t_formato -> tm_year+1900;
-    if(mes_ == 0) mes_ = t_formato -> tm_mon +1;
-    if(dia_ == 0) dia_ = t_formato ->tm_mday;
-    //Comprobamos la fecha
+    std::tm* t_sistemacompuesto = std::localtime(&t_sistema);
+
+    //comprobamos si el valor de la variables es 0
+    if(anno_ == 0) anno_ = t_sistemacompuesto-> tm_year + 1900;
+    if(mes_ ==0) mes_ = t_sistemacompuesto -> tm_mon +1;
+    if(dia_ ==0) dia_ = t_sistemacompuesto -> tm_mday;
+    //comprobamos que la fecha es correcta
     comprueba_fecha();
 }
 Fecha::Fecha(const char* c):actual(false){

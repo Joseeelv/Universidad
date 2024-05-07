@@ -3,7 +3,7 @@
 //Implementación de los métodos de la clase de asociación
 
 void Usuario_Pedido::asocia(Usuario& u, Pedido& p)noexcept{
-    usuariopedidos_.insert(std::make_pair(&u,&p));
+    usuariopedidos_[&u].insert(&p);
     pedidousuario_[&p]=&u;
 }
 
@@ -12,17 +12,14 @@ void Usuario_Pedido::asocia(Pedido& p, Usuario& u)noexcept{
     asocia(u,p);
 }
 
-const Usuario_Pedido::Pedidos Usuario_Pedido::pedidos(Usuario& u)const noexcept{
+Usuario_Pedido::Pedidos& Usuario_Pedido::pedidos(Usuario& u) noexcept{
     //comprobamos que existe el usuario
-    auto i = usuariopedidos_.find(&u);
-    if(i!=usuariopedidos_.end()) return i->second;
-    else{
-        Usuario_Pedido::Pedidos pedidovacio;
-        return pedidovacio;
-    }
+    return usuariopedidos_.find(&u)->second;
 }
 
-const Usuario_Pedido::PedidoUsuario& Usuario_Pedido::cliente(Pedido& p)const noexcept{
+Usuario* Usuario_Pedido::cliente(Pedido& p)noexcept{
     //devolvemos el usuario de dicho pedido
-    return pedidousuario_[&p];
+    auto i = pedidousuario_.find(&p);
+    if(i!=pedidousuario_.end())return i->second;
+    else return nullptr;
 }

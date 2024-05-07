@@ -20,12 +20,16 @@ bool luhn(const Cadena& numero);
 // programas de prueba de las prácticas.
 
 //Hacemos los dos objetos a función
-struct EsBlanco{
-    bool operator ()(char caracter){return isspace(caracter);}
+class EsBlanco: public std::unary_function<char,bool>
+{
+    public:
+        bool operator ()(char caracter)const {return isspace(caracter);}
 };
 
-struct EsDigito{
-    bool operator ()(char caracter){return isdigit(caracter);}
+class EsDigito: public std::unary_function<char,bool>
+{
+    public:
+        bool operator ()(char caracter)const {return isdigit(caracter);}
 };
 
 
@@ -42,20 +46,24 @@ Numero::Numero(const Cadena& numero){
     //hacemos uso de los predicados para los algoritmos remove_if, find_if
     //std::remove_if(aux.begin(),aux.end()+1,[](char c){return isspace(c);});
     auto i = std::remove_if(aux.begin(),aux.end(),EsBlanco());
-    if(i!=aux.end()){
-        *i = '\0';
+    if(i != aux.end()){
+        *i = '\0'; //el ultimo caracter será el terminador
         aux=Cadena(aux.operator const char *()); //devolvemos la cadena de bajo nivel
     }
 
-    std::unary_negate<EsDigito>not_Digito(EsDigito());//negamos que sea un digito
-    auto i = std::find_if(numero.begin(),numero.end(),EsDigito());
-    if(i!=numero.end()) throw Incorrecto(Razon::DIGITOS);
+    std::unary_negate<EsDigito>not_EsDigito((EsDigito()));//negamos que sea un digito
+    //buscamos caracteres que no sean digitos
+    auto j = std::find_if(aux.begin(),aux.end(),not_EsDigito);
+    if(j!=aux.end()){throw Incorrecto(Razon::DIGITOS);}
 
-     if(aux.length()>19 || aux.length() < 13 || aux.length() == 0)
+    if(aux.length()>19 || aux.length() < 13 || aux.length() == 0)
         throw Incorrecto(Razon::LONGITUD);
 
     //comprobamos que sea correcto
     if(!luhn(numero_)) throw Incorrecto(Razon::NO_VALIDO);
+
+    //actualizamos el numero
+    numero_ = aux;
 }
 bool operator < (const Numero& a, const Numero& b){
     return strcmp(a,b)<0;
@@ -89,11 +97,15 @@ bool operator < (const Numero& a, const Numero& b){
 
 /*-----Clase Tarjeta-----*/
 Tarjeta::Tarjeta(const Numero& numero,  Usuario& titular, const Fecha& caducidad):
-    numero_(numero),titular_(&titular),caducidad_(caducidad),activa_(true){
-    if(caducidad_ < Fecha())throw Caducada(caducidad_); //caducada¿?
+    numero_(numero),titular_(&titular),caducidad_(caducidad){
+    //Tarjeta caducada
+    //if(caducidad_ < Fecha()) throw Caducada(caducidad_);
+
     //Comprobamos que la tarjeta no está registrada
-    if(!tarjetas_.insert(numero).second)throw Num_duplicado(numero);
+    //if(!tarjetas_.insert(numero_).second) throw Num_duplicado(numero_);
+
     //No caducada y numero correcto -> se asigna al usuario
+    activa_ = true; //activamos la tarjeta
     titular_ -> es_titular_de(*this);
 }
 Tarjeta::Tipo Tarjeta::tipo()const noexcept{

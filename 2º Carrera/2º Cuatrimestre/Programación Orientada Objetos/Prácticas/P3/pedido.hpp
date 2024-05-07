@@ -8,14 +8,14 @@
 #include "usuario-pedido.hpp"
 #include "pedido-articulo.hpp"
 
-//Declarcion adelantada
-Tarjeta;
-Usuario_Pedido;
-Pedido_Articulo;
+//Declaraciones adelantadas
+class Tarjeta;
+class Pedido_Articulo;
+class Usuario_Pedido;
 
 class Pedido{
     public:
-        Pedido(Usuario_Pedido& ,Pedido_Articulo&,Usuario& ,const Tarjeta& ,const Fecha& );
+        Pedido(Usuario_Pedido& ,Pedido_Articulo&,Usuario& ,const Tarjeta& ,const Fecha& f=Fecha());
         
         //Observadores de la clase
         unsigned numero()const noexcept {return num_pedido_;}

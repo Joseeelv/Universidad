@@ -5,9 +5,9 @@
 #include "usuario.hpp"
 #include "pedido.hpp"
 
-//Declaraciones adelantadas
-Usuario;
-Pedido;
+//declaraciones adelantadas
+class Pedido;
+class Usuario;
 
 class Usuario_Pedido{
     public:
@@ -24,9 +24,9 @@ class Usuario_Pedido{
         void asocia(Pedido&,Usuario&)noexcept;
 
         //pedidos recibe un Usuario y devuelve los pedidos que éste ha realizado.
-        const Pedidos pedidos(Usuario& )const noexcept;
+        Pedidos& pedidos(Usuario& )noexcept;
         //cliente recibe un Pedido y devuelve la dirección de memoria del usuario que ha hecho el pedido.
-        const PedidoUsuario& cliente(Pedido& )const noexcept;
+        Usuario* cliente(Pedido& )noexcept;
     private:
         UsuarioPedidos usuariopedidos_;
         PedidoUsuario  pedidousuario_;
