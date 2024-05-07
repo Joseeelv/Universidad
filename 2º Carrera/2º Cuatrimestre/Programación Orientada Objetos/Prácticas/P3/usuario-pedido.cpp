@@ -23,6 +23,6 @@ const Usuario_Pedido::Pedidos Usuario_Pedido::pedidos(Usuario& u)const noexcept{
 }
 
 const Usuario_Pedido::PedidoUsuario& Usuario_Pedido::cliente(Pedido& p)const noexcept{
-    //buscamos el pedido
+    //devolvemos el usuario de dicho pedido
     return pedidousuario_[&p];
 }
