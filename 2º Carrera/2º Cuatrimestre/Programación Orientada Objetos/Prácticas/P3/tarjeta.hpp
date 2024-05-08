@@ -19,7 +19,7 @@ class Clave;
 class Numero{
     public:
         //tipos de excepciones
-        typedef enum {LONGITUD,DIGITOS,NO_VALIDO}Razon;
+        typedef enum{LONGITUD,DIGITOS,NO_VALIDO}Razon;
         Numero(const Cadena&);
 
         //operador de conversion a const char*
@@ -32,6 +32,12 @@ class Numero{
             public:
                 Incorrecto(const Razon& r):razon_(r){};
                 const Razon& razon()const{return razon_;}
+        };
+        //Objeto a función para comprobar si son digitos
+        class EsDigito: public std::unary_function<char,bool>
+        {
+            public:
+            bool operator ()(char caracter)const {return isdigit(caracter);}
         };
     private:
         Cadena numero_;
@@ -79,7 +85,7 @@ class Tarjeta{
         class Desactivada{};
     private:
         const Numero numero_;
-        Usuario* const titular_;
+        const Usuario* titular_;
         const Fecha caducidad_;
         bool activa_;
 

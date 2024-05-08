@@ -18,18 +18,18 @@ class Pedido{
         Pedido(Usuario_Pedido& ,Pedido_Articulo&,Usuario& ,const Tarjeta& ,const Fecha& f=Fecha());
         
         //Observadores de la clase
-        unsigned numero()const noexcept {return num_pedido_;}
-        const Tarjeta* tarjeta()const noexcept{return tarjeta_pago_;}
+        int numero()const noexcept {return num_;}
+        const Tarjeta* tarjeta()const noexcept{return tarjeta_;}
         const Fecha& fecha()const noexcept{return f_pedido_;}
         double total()const noexcept{return importe_Total_;}
-        static unsigned n_total_pedidos() noexcept{return n_pedidos_;}
+        static int n_total_pedidos() noexcept{return n_pedidos_;}
 
         //clase de la excepcion vacio
         class Vacio{
             Usuario* user_;
             public:
                 Vacio(Usuario* user):user_(user){}
-                const Usuario& usuario()const{return *user_;}
+                Usuario& usuario()const{return *user_;}
         };
 
         //clase de la excepción Impostor
@@ -37,7 +37,7 @@ class Pedido{
             Usuario* user_;
             public:
                 Impostor(Usuario* user):user_(user){}
-                const Usuario& usuario()const{return *user_;}
+                Usuario& usuario()const{return *user_;}
         };
 
         //clase de la excepción SinStock
@@ -45,15 +45,15 @@ class Pedido{
             Articulo* articulo_;
             public:
                 SinStock(Articulo* articulo):articulo_(articulo){}
-                const Articulo& articulo()const{return *articulo_;}
+                Articulo& articulo()const{return *articulo_;}
         };
 
     private:
-        unsigned num_pedido_;
-        const Tarjeta* tarjeta_pago_;
+        int num_;
+        const Tarjeta* tarjeta_;
         Fecha f_pedido_;
         double importe_Total_;
-        static unsigned n_pedidos_;
+        static int n_pedidos_;
 };
 
 //Sobrecarga del operador de flujo

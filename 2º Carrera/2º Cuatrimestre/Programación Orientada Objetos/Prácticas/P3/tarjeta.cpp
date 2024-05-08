@@ -20,17 +20,12 @@ bool luhn(const Cadena& numero);
 // programas de prueba de las prácticas.
 
 //Hacemos los dos objetos a función
-class EsBlanco: public std::unary_function<char,bool>
-{
-    public:
-        bool operator ()(char caracter)const {return isspace(caracter);}
-};
 
-class EsDigito: public std::unary_function<char,bool>
-{
-    public:
-        bool operator ()(char caracter)const {return isdigit(caracter);}
-};
+// class EsBlanco: public std::unary_function<char,bool>
+// {
+//     public:
+//         bool operator ()(char caracter)const {return isspace(caracter);}
+// };
 
 
 /*-----Clase Numero----- -> Se incluye la verificación de si hay espacio en blanco
@@ -44,26 +39,33 @@ Numero::Numero(const Cadena& numero){
 
     //Práctica 3
     //hacemos uso de los predicados para los algoritmos remove_if, find_if
-    //std::remove_if(aux.begin(),aux.end()+1,[](char c){return isspace(c);});
-    auto i = std::remove_if(aux.begin(),aux.end(),EsBlanco());
-    if(i != aux.end()){
-        *i = '\0'; //el ultimo caracter será el terminador
-        aux=Cadena(aux.operator const char *()); //devolvemos la cadena de bajo nivel
-    }
+    //Eliminamos los espacios del numero
+    auto quitaespacios = std::remove_if(aux.begin(),aux.end(),[](char c){return isspace(c);});
+    //Modificamos el número fisicamente
+    aux = aux.substr(0, quitaespacios-aux.begin());
+    // auto i = std::remove_if(aux.begin(),aux.end(),EsBlanco());
+    // if(i != aux.end()){
+    //     *i = '\0'; //el ultimo caracter será el terminador
+    //     aux=Cadena(aux.operator const char *()); //devolvemos la cadena de bajo nivel
+    // }
 
-    std::unary_negate<EsDigito>not_EsDigito((EsDigito()));//negamos que sea un digito
-    //buscamos caracteres que no sean digitos
-    auto j = std::find_if(aux.begin(),aux.end(),not_EsDigito);
-    if(j!=aux.end()){throw Incorrecto(Razon::DIGITOS);}
+    //negamos que sea un digito y buscamos caracteres que no sean digitos
+    auto NotDigito = std::not_fn(EsDigito());
+    auto j = std::find_if(aux.begin(),aux.end(),NotDigito);
+
+    if(j!=aux.end()) //si encuentra un caracter no numérico, excepción
+        throw Incorrecto(Razon::DIGITOS); 
 
     if(aux.length()>19 || aux.length() < 13 || aux.length() == 0)
         throw Incorrecto(Razon::LONGITUD);
 
     //comprobamos que sea correcto
-    if(!luhn(numero_)) throw Incorrecto(Razon::NO_VALIDO);
+    if(!luhn(aux))
+        throw Incorrecto(Razon::NO_VALIDO);
 
-    //actualizamos el numero
+    //actualizamos el numero sin espacios ni caracteres no numéricos
     numero_ = aux;
+
 }
 bool operator < (const Numero& a, const Numero& b){
     return strcmp(a,b)<0;
@@ -99,14 +101,14 @@ bool operator < (const Numero& a, const Numero& b){
 Tarjeta::Tarjeta(const Numero& numero,  Usuario& titular, const Fecha& caducidad):
     numero_(numero),titular_(&titular),caducidad_(caducidad){
     //Tarjeta caducada
-    //if(caducidad_ < Fecha()) throw Caducada(caducidad_);
+    if(caducidad_ < Fecha()) throw Caducada(caducidad_);
 
     //Comprobamos que la tarjeta no está registrada
-    //if(!tarjetas_.insert(numero_).second) throw Num_duplicado(numero_);
+    if(!tarjetas_.insert(numero_).second) throw Num_duplicado(numero_);
 
     //No caducada y numero correcto -> se asigna al usuario
     activa_ = true; //activamos la tarjeta
-    titular_ -> es_titular_de(*this);
+    titular.es_titular_de(*this);
 }
 Tarjeta::Tipo Tarjeta::tipo()const noexcept{
     switch (numero_[0]){
@@ -123,7 +125,8 @@ Tarjeta::Tipo Tarjeta::tipo()const noexcept{
 
 Tarjeta::~Tarjeta(){
     //Para poder eliminar una tarjeta, primero debemos de desvincularla de su titular
-    if(Usuario* user = const_cast<Usuario*>(titular_))user->no_es_titular_de(*this);
+    //Por tanto, convertirmos el usuario constante a no constante
+    if(Usuario* user = const_cast<Usuario*>(titular_)) user->no_es_titular_de(*this);
     tarjetas_.erase(numero_); //eliminamos despues de desvincular
 }
 
@@ -151,7 +154,7 @@ std::ostream& operator <<(std::ostream& output, const Tarjeta& t)noexcept{
 
 std::ostream& operator <<(std::ostream&output, const Tarjeta::Tipo& tipo )noexcept{
     switch (tipo){
-    case Tarjeta::Otro: output<<"Otro"<<std::endl; break;
+    case Tarjeta::Otro: output<<"Tipo indeterminado"<<std::endl; break;
     case Tarjeta::VISA: output<<"VISA"<<std::endl; break;
     case Tarjeta::Mastercard: output<<"Mastercard"<<std::endl;break;
     case Tarjeta::Maestro: output<<"Maestro"<<std::endl; break;

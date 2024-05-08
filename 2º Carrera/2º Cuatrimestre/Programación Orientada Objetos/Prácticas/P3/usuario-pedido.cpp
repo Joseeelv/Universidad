@@ -12,14 +12,17 @@ void Usuario_Pedido::asocia(Pedido& p, Usuario& u)noexcept{
     asocia(u,p);
 }
 
-Usuario_Pedido::Pedidos& Usuario_Pedido::pedidos(Usuario& u) noexcept{
+Usuario_Pedido::Pedidos Usuario_Pedido::pedidos(Usuario& u)const noexcept{
     //comprobamos que existe el usuario
-    return usuariopedidos_.find(&u)->second;
+    auto i = usuariopedidos_.find(&u);
+    if(i!=usuariopedidos_.end()) return i->second;
+    else{
+        Usuario_Pedido::Pedidos pedidovacio;
+        return pedidovacio;
+    }
 }
 
-Usuario* Usuario_Pedido::cliente(Pedido& p)noexcept{
+Usuario* Usuario_Pedido::cliente(Pedido& p)const noexcept{
     //devolvemos el usuario de dicho pedido
-    auto i = pedidousuario_.find(&p);
-    if(i!=pedidousuario_.end())return i->second;
-    else return nullptr;
+    return pedidousuario_.find(&p)->second;
 }

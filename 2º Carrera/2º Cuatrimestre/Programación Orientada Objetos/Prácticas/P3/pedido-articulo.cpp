@@ -7,11 +7,11 @@ std::ostream& operator <<(std::ostream& output , const LineaPedido& lp)noexcept{
 }
 
 //Implementación de la clase Pedido_Articulo
-bool OrdenaArticulos::operator()(const Articulo* a1, const Articulo* a2) const{
+bool Pedido_Articulo::OrdenaArticulos::operator()(const Articulo* a1, const Articulo* a2) const{
     return (a1->referencia() < a2->referencia());
 }
 
-bool OrdenaPedidos::operator()(const Pedido* p1, const Pedido* p2)const{
+bool Pedido_Articulo::OrdenaPedidos::operator()(const Pedido* p1, const Pedido* p2)const{
     return (p1->numero() < p2->numero());
 }
 

@@ -24,9 +24,9 @@ class Usuario_Pedido{
         void asocia(Pedido&,Usuario&)noexcept;
 
         //pedidos recibe un Usuario y devuelve los pedidos que éste ha realizado.
-        Pedidos& pedidos(Usuario& )noexcept;
+        Pedidos pedidos(Usuario& )const noexcept;
         //cliente recibe un Pedido y devuelve la dirección de memoria del usuario que ha hecho el pedido.
-        Usuario* cliente(Pedido& )noexcept;
+        Usuario* cliente(Pedido& )const noexcept;
     private:
         UsuarioPedidos usuariopedidos_;
         PedidoUsuario  pedidousuario_;

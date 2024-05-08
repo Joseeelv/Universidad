@@ -9,7 +9,7 @@
 //Contendrá LineaPedido
 class LineaPedido{
     public:
-        explicit LineaPedido(double precio = 0., unsigned cant=1)
+        explicit LineaPedido(double precio = 0.0, unsigned cant=1)
             :precio_venta_(precio),cantidad_venta_(cant){}
         //Métodos observadores de la clase
         double precio_venta()const noexcept{return precio_venta_;}
@@ -35,22 +35,21 @@ std::ostream& operator <<(std::ostream& , const LineaPedido&)noexcept;
 // Pedidos será un tipo público de la clase Pedido_Articulo definido como
 // std::map<Pedido*, LineaPedido, OrdenaPedidos>.
 
-//Clase de asociación entre Pedido - Articulo
 class Pedido;
 class Articulo;
 
-class OrdenaArticulos{
-    public:
-        bool operator () (const Articulo*, const Articulo* )const;
-};
-
-class OrdenaPedidos{
-    public:
-        bool operator()(const Pedido* , const Pedido* )const;
-};
-
+//Clase de asociación entre Pedido - Articulo
 class Pedido_Articulo{
     public:
+    class OrdenaArticulos{
+        public:
+        bool operator () (const Articulo*, const Articulo* )const;
+    };
+
+    class OrdenaPedidos{
+       public:
+        bool operator()(const Pedido* , const Pedido* )const;
+    };
         //Diccionarios
         //ItemsPedido será un tipo público de la clase Pedido_Articulo definido como un diccionario
         //std::map<Articulo*, LineaPedido, OrdenaArticulos>.
