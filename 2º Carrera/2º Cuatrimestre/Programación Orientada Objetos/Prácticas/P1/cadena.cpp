@@ -28,6 +28,7 @@ Cadena::Cadena (const char* c):tam_(strlen(c)), s_(vacia){
     if(tam_>0){
         s_ = new char[tam_+1];
         strcpy(s_,c);
+         s_[tam_]=vacia[0];
     }
 }
 //Constructor de Movimiento
@@ -41,12 +42,12 @@ Cadena::Cadena(Cadena&& other):tam_(other.tam_),s_(other.s_){
 //operador de asignación por movimiento
 Cadena Cadena::operator = (Cadena&& other){
     if(this!= &other){
-        tam_ = other.tam_;
-        if(tam_ > 0) delete[] s_;            
+        if(tam_ != other.tam_){
+            tam_=other.tam_;
+        }
         s_ = other.s_;
-        other.tam_ =0;
-        other.s_ = vacia;
-
+        other.tam_=0;
+        other.s_=vacia;
     }
     return *this;
 }

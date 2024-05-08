@@ -22,9 +22,6 @@ Cadena Numero::eliminar_espacios(const Cadena& cadena){
     //creamos una cadena nueva como copia de la introducida
     Cadena aux(cadena);
     const char* original = cadena.operator const char *();
-    //hacemos uso del método remove_if de la stl
-    //esto lo que hace que elimina si encuentra un espacio, hacemos uso de una funcion lamda
-    // std::remove_if(aux.begin(),aux.end()+1,[](char c){return isspace(c);});
     int j =0;
     for(size_t i =0; i!=strlen(original); i++){
         if(!isspace(original[i])){
@@ -32,13 +29,12 @@ Cadena Numero::eliminar_espacios(const Cadena& cadena){
         }
     }
     aux[j] = '\0';
-    return Cadena(aux.operator const char *()); //devolvemos la cadena de bajo nivel
+    return Cadena(aux.operator const char *());
 }
-
 Cadena Numero::longitud(const Cadena& cadena){
     //creamos una cadena como copia de la introducida para calcular la longitud sin espacios
     Cadena aux = eliminar_espacios(cadena);
-    if(aux.length()>19 || aux.length() < 13 || aux.length() == 0)
+    if(aux.length()> 19 || aux.length() < 13 || aux.length() <= 0)
         throw Incorrecto(Razon::LONGITUD);
     return aux;
 }

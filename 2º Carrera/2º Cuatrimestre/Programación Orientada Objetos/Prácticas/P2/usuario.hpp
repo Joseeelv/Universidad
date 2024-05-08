@@ -5,7 +5,6 @@
 #include "../P1/cadena.hpp"
 #include "tarjeta.hpp"
 #include "articulo.hpp"
-#include <unistd.h> //crypt()
 #include <random>
 #include <map>
 #include <unordered_map>
@@ -13,9 +12,8 @@
 #include <iomanip>
 
 //Declaraciones adelantadas
-class Tarjeta;
 class Numero;
-
+class Tarjeta;
 /*-----Clase Clave-----*/
 class Clave{
     public:

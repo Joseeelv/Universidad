@@ -50,7 +50,7 @@ Numero::Numero(const Cadena& numero){
     // }
 
     //negamos que sea un digito y buscamos caracteres que no sean digitos
-    auto NotDigito = std::not_fn(EsDigito());
+    auto NotDigito = not_fn(EsDigito());
     auto j = std::find_if(aux.begin(),aux.end(),NotDigito);
 
     if(j!=aux.end()) //si encuentra un caracter no numérico, excepción
@@ -79,7 +79,6 @@ bool operator < (const Numero& a, const Numero& b){
 //         // const char* original = cadena.operator const char *();
 //         //hacemos uso del método remove_if de la stl
 //         //esto lo que hace que elimina si encuentra un espacio, hacemos uso de una funcion lamda
-//         // std::remove_if(aux.begin(),aux.end()+1,[](char c){return isspace(c);});
 //         // int j =0;
 //         // for(size_t i =0; i!=strlen(original); i++){
 //         //     if(!isspace(original[i])){

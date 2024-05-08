@@ -243,44 +243,44 @@ FCTMF_SUITE_BGN(test_cadena) {
 // lanzamiento de la excepción std::bad_alloc en las funciones miembro
 // modificadoras que pueden lanzar bad_alloc.
   
-// #ifndef VALGRIND
-//   FCT_TEST_BGN(Cadena - Asignar una copia: memoria no disponible) {
-//     rlimit ant, nuevo{1536 * 1024, 1536 * 1024}; // máx. memoria disponible 1,5 MiB
-//     if (prlimit(0, RLIMIT_DATA, &nuevo, &ant) == 0) {
+#ifndef VALGRIND
+  FCT_TEST_BGN(Cadena - Asignar una copia: memoria no disponible) {
+    rlimit ant, nuevo{1536 * 1024, 1536 * 1024}; // máx. memoria disponible 1,5 MiB
+    if (prlimit(0, RLIMIT_DATA, &nuevo, &ant) == 0) {
 
-//       Cadena c(3, '+');
+      Cadena c(3, '+');
       
-//       const char* d = c.operator const char*();
+      const char* d = c.operator const char*();
       
-//       vector<Cadena> vcad;
+      vector<Cadena> vcad;
   
-//       try {
-//         while(true)
-//         vcad.push_back(Cadena(1023, '@')); //aqui peta -> bucle infinito
-//       } catch (bad_alloc&) {}
+      try {
+        while(true)
+        vcad.push_back(Cadena(1023, '@')); //aqui peta -> bucle infinito
+      } catch (bad_alloc&) {}
 
-//       try {
-//         c = vcad[0];
+      try {
+        c = vcad[0];
 
-//       } catch (bad_alloc&) {
-//         fct_xchk(strcmp(c.operator const char*(), "+++") == 0, 
-//                   "Asignación de copia: memoria insuficiente ('std::bad_alloc'). "
-//                   "La cadena destino no debería cambiar de contenido.");
-//         fct_xchk(c.length() == 3,
-//                   "Asignación de copia: memoria insuficiente ('std::bad_alloc'). "
-//                   "La cadena destino no debería cambiar de longitud.");
-//         fct_xchk(c.operator const char *() == d,
-//                   "Asignación de copia: memoria insuficiente ('std::bad_alloc'). "
-//                   "la dirección del operador const char*() de la "
-//                   "cadena no debería cambiar.");
-//       }
-//       prlimit(0, RLIMIT_DATA, &ant, nullptr);
-//     }    
-//     else
-//       cerr << "\n   Test no realizado: error de limitación de memoria.\n";
-//   }
-//   FCT_TEST_END();
-// #endif
+      } catch (bad_alloc&) {
+        fct_xchk(strcmp(c.operator const char*(), "+++") == 0, 
+                  "Asignación de copia: memoria insuficiente ('std::bad_alloc'). "
+                  "La cadena destino no debería cambiar de contenido.");
+        fct_xchk(c.length() == 3,
+                  "Asignación de copia: memoria insuficiente ('std::bad_alloc'). "
+                  "La cadena destino no debería cambiar de longitud.");
+        fct_xchk(c.operator const char *() == d,
+                  "Asignación de copia: memoria insuficiente ('std::bad_alloc'). "
+                  "la dirección del operador const char*() de la "
+                  "cadena no debería cambiar.");
+      }
+      prlimit(0, RLIMIT_DATA, &ant, nullptr);
+    }    
+    else
+      cerr << "\n   Test no realizado: error de limitación de memoria.\n";
+  }
+  FCT_TEST_END();
+#endif
 
   // Solo en P1, no se pide en P0
 #ifndef P0
@@ -392,38 +392,38 @@ FCTMF_SUITE_BGN(test_cadena) {
 // modificadoras que pueden lanzar bad_alloc.
   
 #ifndef VALGRIND
-  // FCT_TEST_BGN(Cadena - Asignar una cadena de bajo nivel: memoria no disponible) {
-  //   rlimit ant, nuevo{1536 * 1024, 1536 * 1024}; // máx. memoria disponible 1,5 MiB
-  //   if (prlimit(0, RLIMIT_DATA, &nuevo, &ant) == 0) {
-  //     Cadena c(3, '+');
-  //     const char* d = c.operator const char*();
-  //     vector<Cadena> vcad;
-  //     try {
-  //       while(true)
-  //         vcad.push_back(Cadena(1023, '@'));
-  //     } catch (bad_alloc&) {}
-  //     try {
-  //       c = vcad[0].operator const char *();
-  //     } catch (bad_alloc&) {
-  //       fct_xchk(strcmp(c.operator const char*(), "+++") == 0, 
-  //                 "Asignación de cadena de bajo nivel: memoria insuficiente "
-  //                 "('std::bad_alloc'). La cadena destino no debería cambiar de "
-  //                 "contenido.");
-  //       fct_xchk(c.length() == 3,
-  //                 "Asignación de cadena de bajo nivel: memoria insuficiente "
-  //                 "('std::bad_alloc'). La cadena destino no debería cambiar de "
-  //                 "longitud.");
-  //       fct_xchk(c.operator const char *() == d,
-  //                 "Asignación de cadena de bajo nivel: memoria insuficiente "
-  //                 "('std::bad_alloc'). El operador const char*() de la cadena "
-  //                 "destino no debería devolver una dirección diferente.");
-  //     }
-  //     prlimit(0, RLIMIT_DATA, &ant, nullptr);
-  //   }    
-  //   else
-  //     cerr << "\n   Test no realizado: error de limitación de memoria.\n";
-  // }
-  // FCT_TEST_END();
+  FCT_TEST_BGN(Cadena - Asignar una cadena de bajo nivel: memoria no disponible) {
+    rlimit ant, nuevo{1536 * 1024, 1536 * 1024}; // máx. memoria disponible 1,5 MiB
+    if (prlimit(0, RLIMIT_DATA, &nuevo, &ant) == 0) {
+      Cadena c(3, '+');
+      const char* d = c.operator const char*();
+      vector<Cadena> vcad;
+      try {
+        while(true)
+          vcad.push_back(Cadena(1023, '@'));
+      } catch (bad_alloc&) {}
+      try {
+        c = vcad[0].operator const char *();
+      } catch (bad_alloc&) {
+        fct_xchk(strcmp(c.operator const char*(), "+++") == 0, 
+                  "Asignación de cadena de bajo nivel: memoria insuficiente "
+                  "('std::bad_alloc'). La cadena destino no debería cambiar de "
+                  "contenido.");
+        fct_xchk(c.length() == 3,
+                  "Asignación de cadena de bajo nivel: memoria insuficiente "
+                  "('std::bad_alloc'). La cadena destino no debería cambiar de "
+                  "longitud.");
+        fct_xchk(c.operator const char *() == d,
+                  "Asignación de cadena de bajo nivel: memoria insuficiente "
+                  "('std::bad_alloc'). El operador const char*() de la cadena "
+                  "destino no debería devolver una dirección diferente.");
+      }
+      prlimit(0, RLIMIT_DATA, &ant, nullptr);
+    }    
+    else
+      cerr << "\n   Test no realizado: error de limitación de memoria.\n";
+  }
+  FCT_TEST_END();
 #endif
 
   FCT_TEST_BGN(Cadena - Observadora de longitud) {
@@ -481,40 +481,40 @@ FCTMF_SUITE_BGN(test_cadena) {
 // lanzamiento de la excepción std::bad_alloc en las funciones miembro
 // modificadoras que pueden lanzar bad_alloc.
   
-// #ifndef VALGRIND
-//   FCT_TEST_BGN(Cadena - Concatenacion: con += (memoria no disponible)) {
-//     rlimit ant, nuevo{1536 * 1024, 1536 * 1024}; // máx. memoria disponible 1,5 MiB
-//     if (prlimit(0, RLIMIT_DATA, &nuevo, &ant) == 0) {
-//       Cadena a(3);
-//       const char* c = a.operator const char*();
-//       vector<Cadena> vcad;
-//       try {
-//         while(true)
-//           vcad.push_back(Cadena(1023, '@'));
-//       } catch (bad_alloc&) {}
-//       try {
-//         a += vcad[0];
-//       } catch (bad_alloc&) {
-//         fct_xchk(strcmp(a.operator const char*(), "   ") == 0, 
-//                   "Concatenación con +=: memoria insuficiente "
-//                   "('std::bad_alloc'). La cadena destino no debería cambiar de "
-//                   "contenido.");
-//         fct_xchk(a.length() == 3,
-//                   "Concatenación con +=: memoria insuficiente "
-//                   "('std::bad_alloc'). La cadena destino no debería cambiar de "
-//                   "longitud.");
-//         fct_xchk(a.operator const char *() == c,
-//                   "Concatenación con +=: memoria insuficiente "
-//                   "('std::bad_alloc'). El operador const char*() de la cadena "
-//                   "destino no debería devolver una dirección diferente.");
-//       }
-//       prlimit(0, RLIMIT_DATA, &ant, nullptr);
-//     }    
-//     else
-//       cerr << "\n   Test no realizado: error de limitación de memoria.\n";
-//   }
-//   FCT_TEST_END();
-// #endif
+#ifndef VALGRIND
+  FCT_TEST_BGN(Cadena - Concatenacion: con += (memoria no disponible)) {
+    rlimit ant, nuevo{1536 * 1024, 1536 * 1024}; // máx. memoria disponible 1,5 MiB
+    if (prlimit(0, RLIMIT_DATA, &nuevo, &ant) == 0) {
+      Cadena a(3);
+      const char* c = a.operator const char*();
+      vector<Cadena> vcad;
+      try {
+        while(true)
+          vcad.push_back(Cadena(1023, '@'));
+      } catch (bad_alloc&) {}
+      try {
+        a += vcad[0];
+      } catch (bad_alloc&) {
+        fct_xchk(strcmp(a.operator const char*(), "   ") == 0, 
+                  "Concatenación con +=: memoria insuficiente "
+                  "('std::bad_alloc'). La cadena destino no debería cambiar de "
+                  "contenido.");
+        fct_xchk(a.length() == 3,
+                  "Concatenación con +=: memoria insuficiente "
+                  "('std::bad_alloc'). La cadena destino no debería cambiar de "
+                  "longitud.");
+        fct_xchk(a.operator const char *() == c,
+                  "Concatenación con +=: memoria insuficiente "
+                  "('std::bad_alloc'). El operador const char*() de la cadena "
+                  "destino no debería devolver una dirección diferente.");
+      }
+      prlimit(0, RLIMIT_DATA, &ant, nullptr);
+    }    
+    else
+      cerr << "\n   Test no realizado: error de limitación de memoria.\n";
+  }
+  FCT_TEST_END();
+#endif
 
   FCT_TEST_BGN(Cadena - Concatenacion: con +) {
     const Cadena a("Cada cual,"), b(" en su corral");
