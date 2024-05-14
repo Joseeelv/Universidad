@@ -6,7 +6,7 @@ char Cadena::vacia[1]={'\0'};
 
 /*-----Métodos publicos de la clase Cadena-----*/
 //Constructores de la clase cadena
-Cadena::Cadena(size_t tam, char c):tam_(tam),s_(vacia){
+Cadena::Cadena(size_t tam, char c):s_(vacia),tam_(tam){
     if(tam_>0){
         s_ = new char[tam_+1];
         for(size_t i=0; i<tam_ ;i++){
@@ -17,22 +17,23 @@ Cadena::Cadena(size_t tam, char c):tam_(tam),s_(vacia){
     }
 }
 
-Cadena::Cadena(const Cadena& other):tam_(other.tam_),s_(vacia){
-    if(tam_>0){
+Cadena::Cadena(const Cadena& other):s_(vacia),tam_(other.tam_){
+   if(other.tam_>0){
        s_= new char[tam_+1];
        //hacemos uso de strcpy
         strcpy(s_,other.s_);
+        s_[tam_]=vacia[0];
     }
 }
-Cadena::Cadena (const char* c):tam_(strlen(c)), s_(vacia){
+Cadena::Cadena (const char* c):s_(vacia),tam_(strlen(c)){
     if(tam_>0){
         s_ = new char[tam_+1];
         strcpy(s_,c);
-         s_[tam_]=vacia[0];
+        s_[tam_]=vacia[0];
     }
 }
 //Constructor de Movimiento
-Cadena::Cadena(Cadena&& other):tam_(other.tam_),s_(other.s_){
+Cadena::Cadena(Cadena&& other):s_(other.s_),tam_(other.tam_){
     if(tam_ > 0){
     other.tam_ = 0;
     other.s_ = vacia;
@@ -130,7 +131,7 @@ char& Cadena::at(size_t index)const{
     }
 }
 
-Cadena Cadena::substr(unsigned index, size_t tama)const{
+Cadena Cadena::substr(size_t index, size_t tama)const{
     if(index + tama > tam_ || tama > tam_ || index > tam_){
         throw std::out_of_range("ERROR substr(): Los valores dados superan el tamaño maximo de la cadena");
     }
@@ -155,14 +156,14 @@ Cadena::~Cadena(){
 
 //Operadores lógicos
 bool operator == (const Cadena& cadena1, const Cadena& cadena2)noexcept{
-    return (std::strcmp(static_cast<const char*>(cadena1), static_cast<const char*>(cadena2)) == 0);
+    return (strcmp(&cadena1[0],&cadena2[0])==0);
 }
 bool operator !=(const Cadena& cadena1, const Cadena& cadena2)noexcept{
     return !(cadena1==cadena2);
 }
 
 bool operator <(const Cadena& cadena1, const Cadena& cadena2)noexcept{
-    return (std::strcmp(static_cast<const char*>(cadena1), static_cast<const char*>(cadena2)) < 0);
+    return (strcmp(&cadena1[0],&cadena2[0])<0);
 }
 bool operator <=(const Cadena& cadena1, const Cadena& cadena2)noexcept{
     return !(cadena2<cadena1);

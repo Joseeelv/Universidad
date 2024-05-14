@@ -4,6 +4,7 @@
 //Incluimos las librerías
 #include <iostream>
 #include <cstring>
+#include <iterator>
 
 class Cadena{
     public:
@@ -31,7 +32,7 @@ class Cadena{
         char& at(size_t )const;
 
         //Método de subcadena
-        Cadena substr(unsigned , size_t)const;
+        Cadena substr(size_t , size_t)const;
 
         //Iteradores de la clase
 
@@ -57,8 +58,8 @@ class Cadena{
         
         private:
         static char vacia[1]; //vacia = char [1] = '\0';
-        size_t tam_; //tamaño de la cadena de char (num caracteres de la misma)
         char* s_; //puntero a char
+        size_t tam_; //tamaño de la cadena de char (num caracteres de la misma)
         
 };
 Cadena operator + (const Cadena& , const Cadena& )noexcept; //concatenación de cadenas (nueva cadena resultante)
@@ -88,9 +89,8 @@ inline Cadena::reverse_iterator Cadena::rend() noexcept { return reverse_iterato
 inline Cadena::const_reverse_iterator Cadena::rend() const noexcept { return const_reverse_iterator(begin()); }
 inline Cadena::const_reverse_iterator Cadena::crend() const noexcept { return const_reverse_iterator(begin()); }
 
-//codigo hash P2
-// Para P2 y ss .
-// Especializaci ón de la plantilla std :: hash<Key> para definir la función hash a usar
+//codigo hash Para P2 y ss .
+// Especialización de la plantilla std :: hash<Key> para definir la función hash a usar
 // en contenedores desordenados de Cadena, unordered_[set|map|multiset|multimap].
 namespace std{ //Estaremos dentro del espacio de nombres std
     template <> // Es una especializaci ón de una plantilla para Cadena.
@@ -105,7 +105,6 @@ namespace std{ //Estaremos dentro del espacio de nombres std
         }
     };
 }
-
 #endif // !CADENA_HPP
 /*
 Hecho por: Jose Luis Venega Sánchez*/
