@@ -1,4 +1,4 @@
-\chapter{Asociación con Clase Asociación}
+\chapter{ Asociación con Clase Asociación}
 Si en el caso de una relación de asociación con atributo de enlace, este contiene varios atributos estamos ante una clase de asociación.\\
 Esta clase de asociación podemos llevarla a cabo si tenemos una asociación muchos - muchos entre dos clases, tenemos varios atributos de enlace o tenemos varias clases asociadas.
 \subsection{Implementación clase asociación con 3 clases}
@@ -7,7 +7,8 @@ Esta clase de asociación podemos llevarla a cabo si tenemos una asociación muc
     \includegraphics[width=\textwidth]{Imagenes/AClS.png}
     \caption{Asociación con Clase de Asociación}
 \end{figure}
-\begin{lstlisting}[frame=single]
+\begin{center}
+	\begin{lstlisting}[frame=single]
 class Empresa{};
 class Persona{};
 class Salario{};
@@ -17,9 +18,6 @@ class AEE{//clase de asociacion resultante
     void setB(Persona&,Empresa&,Salario&);
     const std::map<Persona*,Salario*>* getB(Empresa&)const;
     const std::map<Empresa*,Salario*>* getA(Persona&)const;
-
-
-
   private:
     typename std::map<Empresa*,std::map<Persona*,Salario*>>AD;
     typename std::map<Persona*,std::map<Empresa*,Salario*>>AI;
@@ -27,18 +25,21 @@ class AEE{//clase de asociacion resultante
     AI ba;
 };
 \end{lstlisting}
+\end{center}
 Si la multiplicidad en una de las dos clases es 0..1, podemos hacer uso de '\texttt{pair}' en vez de \texttt{map}.\\
 En este caso, como empresa es 0..1, hacemos \texttt{std::map<Persona*,std::pair$<$Empresa*,Salario*$>$$>$* AI$;$}
 \subsection{Implementación clase de asociación con 2 clases}
 
-\begin{figure}[h]
+\begin{center}
+	\begin{figure}[h]
 	\includegraphics[width=\textwidth]{Imagenes/AClS2.png}
 	\caption{Asociación muchos - muchos con Clase de Asociación}
 \end{figure}
-
+\end{center}
 También es una alternativa para implementar la asociación entre dos clases, siempre y cuando la multiplicidad sea muchos - muchos o no tengamos el código fuente de ambas clases y no podamos incluir los métodos propios de la asociación.\vspace*{0,2cm}\\
 Podemos crearnos una clase nueva, que representa la relación entre estas dos clases.
-\begin{lstlisting}[frame=single]
+\begin{center}
+	\begin{lstlisting}[frame=single]
 class Persona{};
 class Asignatura{};
 class PersonaAsignatura{
@@ -60,12 +61,15 @@ class PersonaAsignatura{
 	AI inversa;
 };
 \end{lstlisting}
-\newpage
-Para prevenir la inserción múltiple de valores a una clave tenemos dos maneras de hacerlo:
- 1. Si hacemos uso de \texttt{multimap} tenemos que declarar el método \texttt{esta()} para comprobar que dicho valor no está insertado.\vspace*{0,2cm}\\
-2. Podemos hacer uso de un \texttt {set} dentro de un \texttt{map}, haciendo que por cada clave puede haber un único conjunto de valores → \texttt{std::map<A*,std::set$<$B*$>$$>$Nombre$;$}
+\end{center}
+Para prevenir la inserción múltiple de valores a una clave tenemos 2 maneras:
+\begin{enumerate}
+	\item Si hacemos uso de \texttt{multimap} tenemos que declarar el método \texttt{esta()} para comprobar que dicho valor no está insertado.
+	\item Podemos hacer uso de un \texttt {set} dentro de un \texttt{map}, haciendo que por cada clave puede haber un único conjunto de valores → \texttt{std::map<A*,std::set$<$B*$>$$>$Nombre$;$}\\
 
-\begin{lstlisting}[frame=single]
+\end{enumerate}
+\begin{center}
+	\begin{lstlisting}[frame=single]
 bool PersonaAsignatura::esta(Persona& p, Asignatura& a) const{ 
 //std::pair<PersonaImparteAsignatura::ID,
 //         PersonaImparteAsignatura::ID>
@@ -75,11 +79,13 @@ for (PersonaImparteAsignatura::ID i = rango.first; i != rango.second; ++i)
     if (i->second == &a) return true;
   return false;
 }
-\end{lstlisting}\\
+\end{lstlisting}
+\end{center}
 En el método \texttt {esta()} tenemos que buscar todas las ocurrencias de dicha clave, por tnato, \texttt{find} no nos sirve ya que nos devuelve la primera y necesitamos todas. Por tanto, usamos \texttt{equal\_range(&clave)}
  para poder obtener un rango (la primero y última ocurrencia que tiene esa clave).
 Para poder obtener el conjunto de personas o de asignaturas mediante un set dentro de un map:
-\begin{lstlisting}[frame=single]
+\begin{center}
+	\begin{lstlisting}[frame=single]
 std::set<Asignatura*> PersonaAsignatura::getAsignatura(Persona& p)const{
 	auto i = directa.find(&p);
 		if(i!=directa.end())return i->second; //*i.second;
@@ -91,13 +97,15 @@ std:set<Persona*> PersonaAsignatura::getPersona(Asignatura& a)const{
 	if(i!=inversa.end()) return i->second;
 	else return std::set<Persona*>(); //devolvemos conjunto vacío.
 }
-\end{lstlisting}\\
+\end{lstlisting}
+\end{center}
 \begin{quote}
 	\textbf{La devolución del set que es un conjunto vacío lo va a realizar mediante movimiento, el conjunto devuelto normal será una copia.}
 \end{quote}
 \newpage
 \subsection{Clase genérica de asociación con 2 clases}
-\begin{lstlisting}[frame=single]
+\begin{center}
+	\begin{lstlisting}[frame=single]
 template <typename X, typename Y>
 class AsociacionBidireccional{
 public:
@@ -138,9 +146,11 @@ std::set<X*> AsociacionBidireccional<X, Y>::asociados(Y& y) const
   else return std::set<X*>();
 }
 \end{lstlisting}
+\end{center}
 \newpage
 \subsection{Clase genérica de asociación con atributo de enlace}
-\begin{lstlisting}[frame=single]
+\begin{center}
+	\begin{lstlisting}[frame=single]
 template <typename X, typename Y, typename Z> 
 // X e Y: clases asociadas
 // Z: clase de los atributos de enlace
@@ -184,3 +194,4 @@ map<X*,Z*> AsociacionBidireccional<X, Y, Z>::asociados(Y& y) const
   else return map<X*, Z*>();//diccionario vacío por movimiento
 }
 \end{lstlisting}
+\end{center}

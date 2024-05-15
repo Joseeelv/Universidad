@@ -1,4 +1,4 @@
-\chapter{Asociación con Atrib. de Enlace}
+\chapter{Asociación con atributo de\\ Enlace}
 Es una relación de asociación donde encontramos un atributo que se enlaza con la relación de las clases A - B.
 Ese atributo no pertenece ni a la clase A ni a la clase B, si no a la relación.
 \begin{figure}[h]
@@ -14,7 +14,8 @@ En este caso, ambos tienen multiplicidad muchos - muchos, por tanto, ese atribut
 \newpage
 \subsection{Implementación de la relación:}
 
-\begin{lstlisting}[frame=single]
+\begin{center}
+	\begin{lstlisting}[frame=single]
 class Persona{
   public:
     typedef std::map<Asignatura*,tipo_atributo>Bs;
@@ -33,3 +34,4 @@ class Asignatura{
     As as_;
 };
 \end{lstlisting}
+\end{center}

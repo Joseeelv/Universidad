@@ -1,18 +1,20 @@
 \chapter{Asociaciones entre clases}
 
-Se representa mediante una línea continua entre las clases asociadas.\vspace*{0.2cm}
+
+Se representa mediante una línea continua entre las clases asociadas.
 En este caso podemos saber que dado un libro podemos saber sus autores o viceversa.
-Las asociaciones entre clases contienen 3 factores (cardinalidad, navegabilidad y multiplicidad).\vspace*{0.2cm}
-La \textbf{cardinalidad} es el número de clases asociadas, por defecto, son binarias (cardinalidad = 2).\vspace*{0.2cm}
-La \textbf{multiplicidad} indica cuántos objetos de las clases se enlazan, en este caso como mínimo se enlaza 1 y como máximo muchos (1..*). Si no se especifica es 1.\\
-La \textbf{navegabilidad} indica el sentido de la relación, por defecto, son bidireccionales pero pueden existir asociaciones de \textit{A → B} o \textit{A ← B} (unidireccionales, donde el extremo de la flecha es el sentido).\vspace*{0.2cm}
-
+Las asociaciones entre clases contienen 3 factores (cardinalidad, navegabilidad y multiplicidad).
+\begin{itemize}
+	\item La \textbf{cardinalidad} es el número de clases asociadas, por defecto, son binarias (cardinalidad = 2).
+	\item La \textbf{multiplicidad} indica cuántos objetos de las clases se enlazan, en este caso como mínimo se enlaza 1 y como máximo muchos (1..*). Si no se especifica es 1.
+	\item La \textbf{navegabilidad} indica el sentido de la relación, por defecto, son bidireccionales pero pueden existir asociaciones de \textit{A → B} o \textit{A ← B} (unidireccionales, donde el extremo de la flecha es el sentido).
+\end{itemize}
 Estas asociaciones pueden tener algunas dependencias (agregaciones y composiciones).
-
 \subsection{Implementaciones}
 \begin{itemize}
 \subsection{Plantilla Implementación 1-N}
-
+\end{itemize}
+\begin{center}
 \begin{lstlisting}[frame=single]
 class A{ //clase con multiplicidad 1
   public:
@@ -31,6 +33,7 @@ class B{ //clase con multiplicidad N
     A a_;
 };
 \end{lstlisting}
+\end{center}
 \newpage
 \subsection{Implementación 1-1}
 
@@ -39,7 +42,8 @@ class B{ //clase con multiplicidad N
 	\includegraphics[width=\textwidth]{Imagenes/asociacion1.png}
     \caption{Asociación 1-1}
 \end{figure}
-\begin{lstlisting}[frame=single]
+\begin{center}
+	\begin{lstlisting}[frame=single]
 class Persona{
   public:
     //...
@@ -68,6 +72,8 @@ Asignatura& Persona::getB()const{
 }
 //Analogo para obtener Persona
 \end{lstlisting}
+\end{center}
+
 
 \newpage
 \subsection{Implementación N-M}
@@ -77,7 +83,8 @@ Asignatura& Persona::getB()const{
     \caption{Asociación muchos - muchos}
 \end{figure}
 
-\begin{lstlisting}[frame=single]
+\begin{center}
+	\begin{lstlisting}[frame=single]
 class Persona{
     public:
         //...
@@ -104,7 +111,7 @@ void Persona::setB(Asignatura& b){
 const set<Asignatura*>& getA()const{
     return bs_;
 }
-//Análogo para obtener Persona
+//Analogo para obtener Persona
 \end{lstlisting}
-
+\end{center}
 

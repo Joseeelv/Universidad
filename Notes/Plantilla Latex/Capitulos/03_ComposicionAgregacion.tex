@@ -1,26 +1,27 @@
-\chapter{Agregaciones y Composiciones}
+\chapter{Agregación y Composición}
+La diferencia entre agregación (’vacío’, menos restrictiva) y composición (‘relleno’, más restrictiva).
+Véase en Libro y Capítulo, donde un Libro no puede existir si no existen Capítulos (composición).
 
-La diferencia entre agregación ($⬦$ ’vacío’) y composición ($⬥$ ‘relleno’).\\
-Véase en Libro y Capítulo, donde un Libro no puede existir si no existen Capítulos (composición).\\
 La composición es un tipo de agregación donde existe dos restricciones, de \textbf{multiplicidad} (un componente solo puede formar parte de un compuesto) y \textbf{existencia} (la vida del componente depende del compuesto).\\
-Mediante las composiciones también hacemos uso de la reutilización del clases, donde hacemos uso de la clase Capítulo para definir la clase Libro.\\
-\\
+Mediante las composiciones también hacemos uso de la reutilización del clases, donde hacemos uso de la clase Capítulo para definir la clase Libro.
+\vspace{-0.5cm}
 \subsection{Relación de agregación}
 \begin{quote}
 	Es la relación de asociación entre una clase y un agregado (conjunto).
 \end{quote}
 Normalmente, son unidireccionales.
-
+\vspace{-0.5cm}
 \subsection{Relación de Composición}
 \begin{quote}
 	Es la relación de asociación entre un componente y un compuesto, pero es más restrictiva que la relación de agregación.
 \end{quote}
-El atributo que añadimos a la clase compuesta, ya no es un puntero, si no el objeto como tal.\vspace*{0.2cm}
-Si la multiplicidad es 1 → solamente un atributo, si no, tendremos un contenedor del tipo de la clase componente.\vspace*{0.2cm}
+El atributo que añadimos a la clase compuesta, ya no es un puntero, si no el objeto como tal.
+
+Si la multiplicidad es 1 → solamente un atributo, si no, tendremos un contenedor del tipo de la clase componente.
 Podemos hacer uso de estas relaciones para la reutilización de software.
-\newpage
 \subsection{ Implementación de composición}
-\begin{lstlisting}[frame=single]
+\begin{center}
+	\begin{lstlisting}[frame=single]
 class A{ //Compuesto
   public:
   	A(B& ); //A se crea a partir de un objeto de B
@@ -36,4 +37,5 @@ class B{//Componente
   private:
 };
 \end{lstlisting}
-En este tipo de relaciones al tener un \texttt{set} de objetos de la clase \textit{componente} necesitamos definir una manera de ordenar los elementos que componen, por eso sobrecargamos el operador menor que '$<$'
+\end{center}
+En este tipo de relaciones al tener un \texttt{set} de objetos de la clase \textit{componente} necesitamos definir una manera de ordenar los elementos que componen, por eso sobrecargamos el operador menor que '$<$'.
