@@ -55,7 +55,8 @@ const Tarjeta& t,const Fecha& f):num_(n_pedidos_+1),tarjeta_(&t),f_pedido_(f),im
 
     //Si no hay stock del articulo, excepcion.
     //Hacemos la conversión primero y luego comprobamos
-    for(auto& i : u.compra()){//carrito del usuario
+    Usuario::Articulos carrito = u.compra();
+    for(auto i : carrito){//carrito del usuario
         if(ArticuloAlmacenable* AA = dynamic_cast<ArticuloAlmacenable*>(i.first)){//hacemos conversion
             //comprobamos el stock
             if(AA->stock() < i.second){
@@ -63,11 +64,15 @@ const Tarjeta& t,const Fecha& f):num_(n_pedidos_+1),tarjeta_(&t),f_pedido_(f),im
                 throw Pedido::SinStock(AA); 
             }  
         }
+        //DA UN SEGMENTATION FAULT
         else if(LibroDigital* LD = dynamic_cast<LibroDigital*>(i.first)){
-            //Si la fecha de expiración es < a la fecha del pedido, se quita del carrito de la compra
+            //Si la fecha de expiración es < a la fecha del pedido, se añade con cantidad 0
             if(LD->f_expir() < Fecha()){ //Ha expirado
-                u.compra((*i.first),0);//Añadimos al pedido dicho articulo pero con la cantidad a 0
+                u.compra(*LD,0);//Añadimos al pedido dicho articulo pero con la cantidad a 0
             }
+        }
+        else{
+            throw std::logic_error("Pedido::Pedido - Tipo de articulo no conocido");
         }
     }
     //Comprobamos que no se quede vacio el Pedido

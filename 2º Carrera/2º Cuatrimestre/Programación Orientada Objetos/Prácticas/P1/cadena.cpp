@@ -18,30 +18,30 @@ Cadena::Cadena(size_t tam, char c):s_(vacia),tam_(tam){
 }
 
 Cadena::Cadena(const Cadena& other):s_(vacia),tam_(other.tam_){
-   if(other.tam_>0){
+    if(tam_>0){
        s_= new char[tam_+1];
        //hacemos uso de strcpy
         strcpy(s_,other.s_);
-        s_[tam_]=vacia[0];
     }
 }
-Cadena::Cadena (const char* c):s_(vacia),tam_(strlen(c)){
+
+Cadena::Cadena(const char* c):s_(vacia),tam_(strlen(c)){
     if(tam_>0){
-        s_ = new char[tam_+1];
+       s_= new char[tam_+1];
+       //hacemos uso de strcpy
         strcpy(s_,c);
-        s_[tam_]=vacia[0];
     }
 }
 //Constructor de Movimiento
 Cadena::Cadena(Cadena&& other):s_(other.s_),tam_(other.tam_){
     if(tam_ > 0){
-    other.tam_ = 0;
-    other.s_ = vacia;
+        other.tam_ = 0;
+        other.s_ = vacia;
     }
 }
 
 //operador de asignación por movimiento
-Cadena Cadena::operator = (Cadena&& other){
+const Cadena& Cadena::operator = (Cadena&& other)noexcept{
     if(this!= &other){
         if(tam_ != other.tam_){
             tam_=other.tam_;
@@ -54,39 +54,38 @@ Cadena Cadena::operator = (Cadena&& other){
 }
 
 //Operadores de asignación por copia
-Cadena Cadena::operator = (const Cadena& other){
-    //evitamos autoasignación
-    if(this!=&other){
-        if(tam_ > 0){
+const Cadena& Cadena::operator=(const Cadena&other)noexcept{
+    if(this != &other){
+        if(tam_>0){
             delete[] s_;
         }
         tam_ = other.tam_;
-        if(other.tam_ > 0){
-        s_ = new char[tam_+1];
-        strcpy(s_,other.s_);
-        }else{s_ = vacia;}
+        if(other.tam_>0){
+            s_ = new char[tam_ + 1];
+            strcpy(s_, other.s_);
+        } else{s_ = vacia;}
     }
     return *this;
 }
-
-
-Cadena Cadena::operator =(const char* c){
+const Cadena& Cadena:: operator=(const char*c)noexcept{
     if(*this!=c){
-        if(tam_ > 0){
-            delete [] s_;
-        }
-        tam_ = strlen(c);
-        if(strlen(c)>0){
-            s_ = new char [tam_+1];
-            strcpy(s_,c);
-        }
-        else{s_ = vacia;}
+    // Liberar la memoria asignada previamente, si la hay
+    // Obtener la longitud de la cadena c
+    if (tam_ > 0){
+        delete[] s_;
+    }
+    tam_ = strlen(c);
+    if(strlen(c)>0){
+        // Asignar nueva memoria para almacenar la cadena
+        s_ = new char[tam_ + 1]; // +1 para el carácter nulo al final de la cadena
+        // Copiar la cadena c al espacio de memoria asignado
+        strcpy(s_, c);
+    }else{s_= vacia;}
     }
     return *this;
 }
-
 //Concatenación de cadenas
-Cadena& Cadena::operator +=(const Cadena& other)noexcept{
+const Cadena& Cadena::operator +=(const Cadena& other)noexcept{
     //Creamos una cadena nueva que contedrá las dos cadenas concatenadas
     char* concatenada = new char [tam_+1];
     //Copiamo una de las cadenas
@@ -149,9 +148,8 @@ Cadena Cadena::substr(size_t index, size_t tama)const{
 //Destructor de cadena
 Cadena::~Cadena(){
     if(tam_>0){
-        delete [] s_;
+        delete[] s_;
     }
-    
 }
 
 //Operadores lógicos
@@ -190,5 +188,4 @@ std::istream& operator >> (std::istream& input, Cadena& c)noexcept{
     input>>nuevacadena;
     c = nuevacadena;
     return input;
-
 }

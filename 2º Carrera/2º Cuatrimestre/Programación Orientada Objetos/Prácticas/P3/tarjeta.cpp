@@ -42,7 +42,9 @@ Numero::Numero(const Cadena& numero){
     //Eliminamos los espacios del numero
     auto quitaespacios = std::remove_if(aux.begin(),aux.end(),[](char c){return isspace(c);});
     //Modificamos el número fisicamente
-    aux = aux.substr(0, quitaespacios-aux.begin());
+    if(quitaespacios != aux.end()){
+        aux = aux.substr(0, quitaespacios-aux.begin());
+    }
     // auto i = std::remove_if(aux.begin(),aux.end(),EsBlanco());
     // if(i != aux.end()){
     //     *i = '\0'; //el ultimo caracter será el terminador
@@ -50,8 +52,7 @@ Numero::Numero(const Cadena& numero){
     // }
 
     //negamos que sea un digito y buscamos caracteres que no sean digitos
-    auto NotDigito = not_fn(EsDigito());
-    auto j = std::find_if(aux.begin(),aux.end(),NotDigito);
+    auto j = std::find_if(aux.begin(),aux.end(),not_fn(EsDigito()));
 
     if(j!=aux.end()) //si encuentra un caracter no numérico, excepción
         throw Incorrecto(Razon::DIGITOS); 

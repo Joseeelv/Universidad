@@ -69,9 +69,9 @@ std::ostream& operator <<(std::ostream& , const Articulo&)noexcept;
 /*-----Clase Derivada ArticuloAlamacenable-----*/
 class ArticuloAlmacenable : public Articulo{
     public:
-        ArticuloAlmacenable(const Autores& autor, Cadena referencia, Cadena titulo,
+        ArticuloAlmacenable(const Autores& autores, Cadena referencia, Cadena titulo,
             Fecha f_publi,double precio, unsigned stock=0)
-            :Articulo(autor,referencia,titulo,f_publi,precio),stock_(stock){}
+            :Articulo(autores,referencia,titulo,f_publi,precio),stock_(stock){}
 
         //Observadores de la clase
         inline unsigned stock()const noexcept{return stock_;}
@@ -82,11 +82,11 @@ class ArticuloAlmacenable : public Articulo{
 };
 
 /*-----Clase Derivada Libro-----*/
-class Libro: public ArticuloAlmacenable{
+class Libro final: public ArticuloAlmacenable{
     public:
-        Libro(const Autores& autor, Cadena referencia, Cadena titulo,
-            Fecha f_publi,double precio, unsigned stock=0,unsigned paginas=0):
-            ArticuloAlmacenable(autor,referencia,titulo,f_publi,precio,stock),n_pag_(paginas){}
+        Libro(const Autores& autores, Cadena referencia, Cadena titulo,
+            Fecha f_publi,double precio, unsigned paginas=0, unsigned stock=0):
+            ArticuloAlmacenable(autores,referencia,titulo,f_publi,precio,stock),n_pag_(paginas){}
         //Observadores de la clase
         inline const unsigned& n_pag()const noexcept {return n_pag_;}
         //Método virtual heredado
@@ -97,11 +97,11 @@ class Libro: public ArticuloAlmacenable{
 };
 
 /*-----Clase Derivada Revista-----*/
-class Revista: public ArticuloAlmacenable{
+class Revista final: public ArticuloAlmacenable{
     public:
-        Revista(const Autores& autor, Cadena referencia, Cadena titulo,
+        Revista(const Autores& autores, Cadena referencia, Cadena titulo,
             Fecha f_publi,double precio,const unsigned numero, const unsigned f,unsigned stock=0):
-            ArticuloAlmacenable(autor,referencia,titulo,f_publi,precio,stock),numero_(numero),periodicidad_(f){}
+            ArticuloAlmacenable(autores,referencia,titulo,f_publi,precio,stock),numero_(numero),periodicidad_(f){}
         //Observadores de la clase
         inline unsigned numero()const noexcept{return numero_;}
         inline unsigned periodicidad()const noexcept{return periodicidad_;}
@@ -112,16 +112,16 @@ class Revista: public ArticuloAlmacenable{
 };
 
 /*-----Clase Derivada LibroDigital-----*/
-class LibroDigital:public Articulo{
+class LibroDigital final:public Articulo{
     public:
-        LibroDigital(const Autores& autor, Cadena referencia, Cadena titulo ,
+        LibroDigital(const Autores& autores, Cadena referencia, Cadena titulo ,
             Fecha f_publi,double precio,const Fecha& f_expir):
-            Articulo(autor,referencia,titulo,f_publi,precio),f_expir_(f_expir){}
+            Articulo(autores,referencia,titulo,f_publi,precio),f_expir_(f_expir){}
         //Observador de la clase
         inline const Fecha& f_expir()const noexcept{return f_expir_;}
         //Método virtual heredado
         void impresion_especifica(std::ostream&)const override final;
-    private:    
+    private:
         const Fecha f_expir_;
 };
 
