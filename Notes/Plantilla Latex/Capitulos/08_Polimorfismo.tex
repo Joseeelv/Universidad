@@ -141,6 +141,61 @@ La \textit{keyword} \texttt{final} indicamos que es la versión final de la impl
 
 Vemos que Cuadrado es una especialización de Rectángulo pero este no redefine el método \texttt{area()} debido a que se calculan igual, por eso anteriormente la definimos como final.
 
+\section{Clases abstractas}
+
+Son aquellas que al menos uno de sus métodos como \textbf{virtual puro}, haciendo que dicho método se pueda volver a definir en las clases derivadas de ella.
+
+\textbf{\large{Definición de un método virtual puro:}}
+\begin{center}
+	\texttt{virtual void nombre\_metodo() = 0;}
+\end{center}
+
+Su destructor tiene que ser \texttt{virtual} para que se pueda llamar a los destructores de las clases derivadas con el fin de destruir el objeto creado correctamente (destructor de la misma clase del tipo de objeto).
+
+Además con esto hacemos que se enlace en tiempo de ejecución debido a que no sabemos si vamos a tener o no objetos de las clases derivadas.
+
+Haciendo que se llame primero al destructor de la clase derivada y luego al destructor de la clase base.
+
+
+\section{Operadores de conversión}
+Para poder realizar las conversiones correctamente entre la clase base y sus derivadas, es decir, para poder convertir un puntero de tipo base a uno de tipo derivado haremos uso de \texttt{dynamic\_cast} y de \texttt{typeid()}
+
+\subsection{Operador de conversión: Dynamic\_cast}
+La conversión se realiza en tiempo de ejecución a diferencia de \texttt{static\_cast} que se realiza en tiempo de compilación.
+
+\textbf{\large Sintaxis:}
+\begin{center}
+	\texttt{Derivada* pd = dynamic\_cast\textless Derivada*\textgreater(pb)}\\
+	para punteros.\\
+	\texttt{Derivada& d = dynamic\_cast\textless Derivada\&\textgreater(b)}\\
+	para objetos.
+\end{center}
+Esto soluciona el peligro de realizar la conversiones explícitamente de arriba a abajo mediante \texttt{static\_cast}.
+
+\subsubsection{Ejemplo de conversión con dynamic\_cast}
+
+\begin{figure}[h]
+	\begin{minipage}{0.5\textwidth}
+		\includegraphics[width=\textwidth]{Imagenes/poli9.png}
+	\end{minipage}
+\hfill
+	\begin{minipage}{0.5\textwidth}
+		\vspace{-2cm}
+		\includegraphics[width=\textwidth]{Imagenes/poli10.png}	
+	\end{minipage}
+\caption{Ejemplo de conversiones explicitas de un tipo base B a un tipo derivada D.}
+\end{figure}
+
+Vemos que comprueba si la conversión es correcta, si es así lo convierte a tipo indicado, si no, devuelve un puntero nulo (si es conversión entre punteros) o un \texttt{bad\_cast} (si la conversión es entre referencias), en el caso de que sea una referencia.
+
+Cuando trabajamos con clases polimorficas es mucho más seguro trabajar con \texttt{dynamic\_cast} ya que podemos lanzar excepciones cuando la conversión no se puede realizar.
+
+\subsection{Operador de conversión: typeid()}
+
+
+
+
+
 
 
 

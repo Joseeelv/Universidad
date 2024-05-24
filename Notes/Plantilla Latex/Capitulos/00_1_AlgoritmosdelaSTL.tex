@@ -6,14 +6,153 @@ La \textit{STL} (Standard Template Library) de C++ es una parte integral del est
 
 La \textit{STL} fue diseñada para ser flexible, eficiente y fácil de usar.
 
-La \textit{STL} proporciona una amplia gama de algoritmos genéricos que operan con los tipos de datos contenedores como: vectores \texttt{vector}, listas doblemente enlazadas \texttt{list},
-bicolas \texttt{deque}, pilas \texttt{stack} o contenedores que contienen una colección de objetos de un tipo determinado.
-
 En este último caso encontramos \texttt{set} (conjunto de objetos de un tipo determinado) y \texttt{map} (diccionario clave - valor).
 Además encontramos sus variantes donde podemos encontrar valores repetidos como son \texttt{multiset} ó \texttt{multimap} y sus variantes donde el contenido de estos contenedores no están ordenados \texttt{unordered\_set} y \texttt{unordered\_map}, respectivamente.
+
+La \textit{STL} proporciona una amplia gama de algoritmos genéricos que operan con los tipos de datos contenedores como: vectores \texttt{vector}, listas doblemente enlazadas \texttt{list},
+bicolas \texttt{deque}, pilas \texttt{stack} o contenedores que contienen una colección de objetos de un tipo determinado.
 
 \section{Iteradores}
 Mediante los \texttt{iterators} (iteradores) podemos acceder a las posiciones o elementos contenidos en cada tipo de contenedor.
 
 Se recomienda el uso de la \textit{keyword} \texttt{auto}, para que el compilador le asigne el tipo adecuado al iterador.
 \section{Algoritmos de búsqueda y ordenación}
+Para poder buscar elementos en un contenedor podemos hacer uso de \texttt{find}, \texttt{binary\_search}.
+Podemos ordenar los elementos de los contenedores mediante los algoritmos \texttt{sort}.
+\section{Algoritmos de modificación}
+Podemos realizar varias modificaciones en los contenedores mediante varios algoritmos como \texttt{std::copy} (donde hacemos una copia de todos los elementos de un contenedor en otro),
+\texttt{std::fill} (rellenamos el contenedor con elementos), \texttt{std::move} (donde movemos el contenido de un contenedor a otro, se realiza mediante la semántica de movimiento de C++.)
+
+\section{Funciones Lambda y Objetos a Función}
+
+Encontramos varios \textit{algoritmos de la STL} que para su ejecución necesitan que se satisfaga una condición o predicado.
+Estos predicados pueden ser tanto \textbf{funciones lambda} ó \textbf{objetos a función}.
+
+\subsection{Funciones Lambda en C++}
+Permiten definir funciones anónimas de manera concisa y local. Las funciones \textit{Lambda}proporcionan una forma de crear funciones en el lugar donde se necesitan, sin tener que definir una función por separado.
+
+Consiste en tres partes → lista de captura \texttt{[]} , parámetro opcional de captura \texttt{()} y un cuerpo \texttt{\{\}}.
+
+Cuando se evalúa una función \textit{Lambda}, se produce un objeto llamado \textit{closure}. Este objeto ‘\textit{closure}’ no tiene ni nombre ni tipo y es temporal.
+
+\begin{center}
+	\begin{lstlisting}[frame=single]
+auto nombre_funcion = [captura](parametros){
+ //cuerpo de la función
+ // Puede acceder a las variables capturadas y usar parámetros
+ return expresion;
+}
+	\end{lstlisting}
+\end{center}
+
+\textbf{Tipo de retorno} → Especifica el tipo de dato que la función \textit{Lambda}devolverá. Puede ser omitido si esta no devuelve un valor explícitamente.
+
+\textbf{Captura} → Permite a la función lambda acceder a las variables fuera de su alcance local. Puede ser por valor \texttt{[x]} , por referencia \texttt{[&x]} , por valor pero modificable \texttt{[x] mutable} , por referencia (solo lectura) \texttt{[&x]mutable} o capturar todas las variables automáticamente \texttt{[=]} ó \texttt{[&]}.
+
+\textbf{Parámetros} → Los parámetros de la función \textit{Lambda} son similares a los usados en las funciones regulares. Si no tiene parámetros ‘\texttt{()}` ’ estos paréntesis serán omitidos a no ser que se necesites declarar la función \textit{Lambda} como \texttt{mutable}.
+
+\textbf{Cuerpo de la función}→ El ‘\textit{body}’ contiene la lógica de la función \textit{Lambda} (como una función regular).
+
+\textbf{Expresión} → Valor de la función \textit{Lambda} puede devolver (opcional si la función no devuelve nada o si el tipo de retorno es \texttt{void}).
+
+
+\subsubsection{Ejemplo del uso de función Lambda}
+\begin{center}
+	\begin{lstlisting}[frame=single]
+int main(){
+//Funcion Lambda que suma dos numeros
+  auto suma = [](int a, int b){return a+b;}
+//Uso de la funcion Lambda
+  int resultado = suma(5,7);
+  std::cout<<"Resultado: "<<resultado<<std::endl;
+  return 0;
+}
+	\end{lstlisting}
+\end{center}
+Vemos que en este ejemplo, la función Lambda \texttt{suma} toma dos parámetros ‘a’ y ‘b’ de tipo enteros ambos y devuelve el resultado de la suma de ambos.
+La función se almacena en una variable \texttt{auto} y luego se utiliza como cualquier otra función.
+
+\subsubsection{Ejemplo del uso de función Lambda mutable}
+La \textit{keyword} \texttt{mutable} permite que la función Lambda pueda ser modificada, ya que estas por defecto son no modificables \texttt{const}. 
+\begin{center}
+	\begin{lstlisting}[frame=single]
+int main(){
+  int a =0;
+  //Error, operator () es const
+  auto bad_counter = [a](){return a++;} 
+  //Correcto, operator () es mutable
+  auto good_counter = [a]()mutable{return a++;}
+  //Llamamos al método
+  good_counter(); //a=1
+  good_counter(); //a=2;
+  return 0;
+}
+	\end{lstlisting}
+\end{center}
+
+\subsection{Objeto Función en C++}
+Los \textbf{objetos función} o \textbf{funtores}: Son objetos que se comportan como funciones. Es una instancia de una clase que sobrecarga el operador \texttt{operator()}. 
+
+\textbf{Definición mediante clases}: Para crear un objeto función, necesitas definir una clase que tenga el operador de llamada sobrecargado.
+\begin{center}
+	\begin{lstlisting}[frame=single]
+struct Suma{
+  int operator() (int a , int b) const {return a+b;}
+};
+
+int main(){
+  Suma objetoFuncion;
+  //creamos una variable con el resultado de llamar al objeto a funcion
+  int resultado = objetofuncion(3,4);
+  return 0;
+}
+	\end{lstlisting}
+\end{center}
+
+\section{Algoritmos de la STL}
+Mediante lo visto anteriormente podemos hacer uso de algoritmos para poder manipular el contenido de los contenedores de la \textit{STL}.
+Hay algunos algoritmos que haran uso de los \textbf{iteradores}, otros el uso de \textbf{predicados} o ambos.
+
+\subsection{std::count\_if}
+Lo encontramos en la librería \texttt{\textless algorithm\textgreater}.
+Devuelve el número de veces que se repite un elemento en el rango [inicio,fin) de un contenedor.
+\begin{center}
+	\texttt{std::count\_if(iterador\_ini,iterador\_fin,predicado);}
+\end{center}
+
+\subsection{std::remove\_if}
+Lo encontramos en la librería \texttt{\textless algorithm\textgreater}.
+Elimina el elemento que cumple la condición dada por el predicado en el rango [inicio,fin) del contendor.
+\begin{center}
+	\texttt{std::remove\_if(iterador\_ini,iterador\_fin, predicado);}
+\end{center}
+
+\subsection{std::lower\_bound}
+Lo encontramos en la librería \texttt{\textless algorithm\textgreater}.
+Devuelve un iterador apuntando a la primera posición donde el elemento que se le pasa es '\textbf{\textless}' que el siguiente elemento.
+Es muy útil para la inserción o búsqueda de elementos de un contenedor ordenado.
+\begin{center}
+	\texttt{std::lower\_bound(ini\_rango,fin\_rango,const T\& elto);}
+\end{center}
+
+\subsection{std::insert}
+Este método está contenido en todas las librerías de los contenedores de la \textit{STL} como \textbf{vector}, \textbf{map}, \textbf{set} y los demás tipos contenedores excepto \texttt{std::pair}, como este no tiene el método \texttt{insert}, la inserción se hará por asignación.
+Inserta el elemento especificado dado un iterador, es decir, colocará dicho elemento en la posición del contenedor que le especifiquemos.
+\begin{center}
+	\texttt{std::insert(const\_iterator pos, const T\& elto);}
+\end{center}
+
+\subsection{std::erase}
+Este método al igual que \texttt{std::insert} se define en cada contenedor de la \textit{STL}.
+Elimina un elemento específico que se encuentre contenido en un contenedor dando su posición (iterador).
+\begin{center}
+	\texttt{std::erase(const\_iterator pos);}
+\end{center}
+
+\subsection{std::find}
+Se encuentra en la librería \texttt{\textless algorithm\textgreater}.
+Devuelve un iterador al primer elemento del rango [inicio,fin) que satisface un criterio específico.
+Muy útil para buscar elementos contenidos en un tipo contenedor.
+\begin{center}
+	\texttt{auto i = nombre\_contenedor.find(T\& elto);}
+\end{center}
