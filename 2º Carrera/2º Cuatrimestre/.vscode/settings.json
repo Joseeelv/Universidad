@@ -60,6 +60,8 @@
         "execution": "cpp",
         "map": "cpp",
         "regex": "cpp",
-        "set": "cpp"
+        "set": "cpp",
+        "list": "cpp",
+        "unordered_set": "cpp"
     }
 }

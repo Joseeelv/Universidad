@@ -7,37 +7,38 @@
   \end{minipage}
   \begin{minipage}{0.5\textwidth}
       \vspace{-1\baselineskip} % ajusta la posición vertical del texto
-Relación ‘ES-UN’ que existe entre una \textit{superclase} y una \textit{subclase}.\\
+Relación ‘ES-UN’ que existe entre una \textit{superclase} y una \textit{subclase}.
 
-Una subclase contiene las mismas características que la superclase y atributos extras de la misma.\\
+Una subclase contiene las mismas características que la superclase y atributos extras de la misma.
 
 Es lo que en C++ denominamos como herencia, donde la subclase \textit{Emp\_hora}hereda todos los atributos y métodos de la superclase \textit{Empleado} y además estas subclases tendrán métodos propios que no contendrá la superclase.
 
 Las generalizaciones pueden ser \textit{simples} o \textit{múltiples.}
   \end{minipage}
-\\
+\end{figure}
 
 Las subclases se \textbf{generalizan} en una súperclase, al revés la súperclase se \textbf{especializa} en subclases.
-\end{figure}
-\subsection{En cuanto al diseño}
-\subsubsection{Generalización mediante criterios}
+
+\section{En cuanto al diseño}
+\subsection{Generalización mediante criterios}
 \begin{figure}[h]
-\centering
-  \begin{subfigure}[b]{0.45\textwidth} % 0.4 es el tamaño de la imagen
-    \includegraphics[width=\textwidth]{Imagenes/gen2.png} % 0.9 es el tamaño dentro del espacio anterior
-    Podemos generalizar mediante condiciones ‘discriminador’.
-    Donde podemos ver que un \textit{profesor} puede tomar diferentes categorías y diferente dedicación.
-  \end{subfigure}
-  %
-  \begin{subfigure}[b]{0.45\textwidth} %Para incluir una segunda figura
-  \uline{Ejemplo de Generalización múltiple:}\\
-  Vemos que un vehículo puede ser terrestre o acuático y a su vez los terrestres pueden ser un coche o un anfibio, y los acuáticos pueden ser anfibio o barcos.
-    \includegraphics[width=\textwidth]{Imagenes/gen3.png}
-  \end{subfigure}
+	\begin{center}
+		\begin{subfigure}[b]{0.45\textwidth} % 0.4 es el tamaño de la imagen
+			\includegraphics[width=\textwidth]{Imagenes/gen2.png} % 0.9 es el tamaño dentro del espacio anterior
+			Podemos generalizar mediante condiciones ‘discriminador’.
+			Donde podemos ver que un \textit{profesor} puede tomar diferentes categorías y diferente dedicación.
+		\end{subfigure}
+		%
+		\begin{subfigure}[b]{0.45\textwidth} %Para incluir una segunda figura
+		\underbar{Ejemplo de Generalización múltiple:}
+
+		Vemos que un vehículo puede ser terrestre o acuático y a su vez los terrestres pueden ser un coche o un anfibio, y los acuáticos pueden ser anfibio o barcos.
+			\includegraphics[width=\textwidth]{Imagenes/gen3.png}
+		\end{subfigure}
+	\end{center}
 \end{figure}
-\end{center}
 \newpage
-\subsection{En cuando a la implementación}
+\section{En cuando a la implementación}
 La programación Orientada a Objetos nos permiten hacer uso de \textbf{herencia} para poder implementar este tipo de relaciones.\\
 La herencia es una herramienta muy potente, ya que nos permite la reutilización de código, ya que podemos definir nuevas clases a partir de otras ya definidas.\\
 Pero esto puede ser un peligro, ya que podemos confundir una asociación con una \textbf{generalización-especialización}.
@@ -56,10 +57,10 @@ class clase_derivada[final]:
 //Declaracion de los miembros de la clase
 };
 	\end{lstlisting}
-Si ponemos final, estamos indicando que esa clase no se va a poder derivar más.
 \end{minipage}
 \hfill
-\begin{minipage}[t]{0.41\textwidth}
+\begin{minipage}[t]{0.45\textwidth}
+\vspace{-0.05cm}
 Una clase derivada \textbf{NO} hereda:
 	\begin{itemize}
 		\item Constructores
@@ -68,7 +69,9 @@ Una clase derivada \textbf{NO} hereda:
 	\end{itemize}
 \end{minipage}
 
-La accesibilidad puede ser \texttt{public} , \texttt{private} ó \texttt{protected}.\vspace*{0.4cm}
+Si ponemos final, estamos indicando que esa clase no se va a poder derivar más.
+
+La accesibilidad puede ser \texttt{public} , \texttt{private} ó \texttt{protected}.
 
 \begin{minipage}[t]{0.3\textwidth}
 	\begin{lstlisting}[frame=single]
@@ -83,16 +86,18 @@ class C{
 	\end{lstlisting}
 \end{minipage}
 \hfill
-\begin{minipage}[t]{0.6\textwidth}
-	\texttt{Public} → Accesible desde el interior y exterior.\\
-	
-	\texttt{Protected} → Accesible desde el interior, para funciones amigas de C y desde las clases derivadas de C y sus funciones amigas. Sirven para que los atributos sea accesibles a las clases derivadas pero ocultos al exterior.\\
-	
-	\texttt{Private}→ Accesible desde el interior y para las funciones amigas de C.
-\end{minipage}
-\\
+\begin{minipage}[t]{0.7\textwidth}
+	\begin{itemize}
+		\item \texttt{Public} → Accesible desde el interior y exterior.\\
 
-Además \texttt{protected} hace que no se cumpla el principio de ocultación de información y las clases estén acopladas, es decir, que debemos comprobar que las clases funcionan para los mismos tipos de datos.\\
+		\item \texttt{Protected} → Accesible desde el interior, para funciones amigas de C y desde las clases derivadas de C y sus funciones amigas. 
+			Sirven para que los atributos sea accesibles a las clases derivadas pero ocultos al exterior.\\
+
+		\item \texttt{Private}→ Accesible desde el interior y para las funciones amigas de C.\\
+	\end{itemize}
+\end{minipage}
+
+Además \texttt{protected} hace que no se cumpla el principio de ocultación de información y las clases estén acopladas, es decir, que debemos comprobar que las clases funcionan para los mismos tipos de datos.
 
 \newpage
 \begin{center}
@@ -102,17 +107,16 @@ Además \texttt{protected} hace que no se cumpla el principio de ocultación de 
 \end{figure}
 \end{center}
 \vspace*{-1cm}
-\end{center}
-\left \section{Herencia pública}
+\section{Herencia pública}
 
 Nos sirve para implementar las relaciones de especialización/generalización, es decir, las relaciones ES-UN entre clase base y subclases.
 Hereda su comportamiento externo.\\
 
 Esta relación al ser pública, es visible desde el exterior, por tanto, \textit{un objeto de una subclase es también un objeto de la clase base}.
 \textit{Podemos realizar conversiones hacia arriba, un objeto de la clase derivada puede convertirse en uno de la clase base, debido a que la clase derivada contiene la misma información que la clase base}.
-Pero \textbg{no} se \textit{puede convertir un objeto de la clase base en uno de la derivada debido a que a esta le falta información específica de las clases derivadas}.
+Pero \textbf{no} se \textit{puede convertir un objeto de la clase base en uno de la derivada debido a que a esta le falta información específica de las clases derivadas}.
 
-\subsubsection{Ejemplo de Herencia Pública:}
+\subsection{Ejemplo de Herencia Pública:}
 Vemos que un \textit{Doctorando} es una especialización de la \textit{clase Estudiante}.\\
 Donde la clase \textit{Doctorando} tendría 4 atributos (2 propios y 2 heredados de la clase base) y además un método llamado \texttt{mostrar()}.
 
@@ -123,7 +127,7 @@ Si no ponemos los atributos con los que se crea un objeto de la clase base y est
 	\includegraphics[width=\textwidth]{Imagenes/gen5.png}
 	\end{minipage}
 \hfill
-\begin{minipage}[t]{0.7\textwidth}
+\begin{minipage}[t]{0.75\textwidth}
 \vspace*{-8cm}
 	\begin{lstlisting}[frame=single]
 class Estudiante{
@@ -135,8 +139,8 @@ class Estudiante{
     // ...
 };
 
-class Doctorando final:public Estudiante
-{
+class Doctorando final : public Estudiante{ 
+//doctorando no se puede derivar mas
   public:
     Doctorando(string nombre,int dni,
 	  string tutor, int programa);
@@ -157,7 +161,7 @@ Doctorando::Doctorando(string nombre, int dni, string tutor, int programa):Estud
 void Doctorando::mostrar() const{
   // Muestra los datos que posee como estudiante
   Estudiante::mostrar();
-  // Y los especícos de su condición de doctorando
+  // Y los especificos de su condicion de doctorando
   cout << "Programa de doctorado: " << programa << "\n"
        << "Tutor en el programa: " << tutor << endl;
 }
@@ -170,45 +174,46 @@ Si se quiere mostrar la información del \textit{Estudiante} deberíamos de defi
 
 Esto sucede debido a que estamos dentro del ámbito de \textit{Doctorando} y no de \textit{Estudiante}.
 
-Si quitamos el operador de resolución de ámbito, tendríamos una función recursiva.\\
-\begin{center}
-  \begin{figure}[h]
+Si quitamos el operador de resolución de ámbito, tendríamos una función recursiva.
+
+\begin{figure}[h]
+	\begin{center}
 	\begin{lstlisting}[frame=single]
 Estudiante* pe= &e; //puntero a estudiante
-pe->mostrar(); //método mostrar de estudiante
-pe=&d; //conversión hacia arriba de doctorando a estudiante
-pe->mostrar(); //método mostrar de estudiante
+pe->mostrar(); //metodo mostrar de estudiante
+pe=&d; //conversion hacia arriba de doctorando a estudiante
+pe->mostrar(); //metodo mostrar de estudiante
 /*----------------------------------------------------*/
 Doctorando* pd = &d; //puntero a doctorando
-pd->mostrar(); //método mostrar de doctorando
-pd->Estudiante::mostrar(); //me¡étodo mostrar de estudiante (resolución ámbito)
-pd->Doctorando::mostrar(); //método mostrar de doctorando.
+pd->mostrar(); //metodo mostrar de doctorando
+pd->Estudiante::mostrar(); //metodo mostrar de estudiante (resolucion ambito)
+pd->Doctorando::mostrar(); //metodo mostrar de doctorando.
 
 /*-----Conversiones entre punteros-----*/
-pe = &d; //conversión implicita entre punteros hacia arriba
-pd = &e; //Error -> no se puede hacer una conversión implícita hacia abajo
-pd= static_cast<Doctorando>(e);//Conversion en T.Compilación corrige lo anterior
+pe = &d; //conversion implicita entre punteros hacia arriba
+pd = &e; //Error -> no se puede hacer una conversion implicita hacia abajo
+pd= static_cast<Doctorando>(e);//Conversion en T.Compilacion corrige lo anterior
 
 /*-----Conversiones entre objetos-----*/
 e = d; //Objeto d Doctorando se convierte a un tipo Estudiante
 d = e; //Error -> No se puede convertir un objeto e Estudiante (base) a d Doctorando (derivado)
-//Tampoco se puede hacer explicita la conversión hacia abajo entre objetos:
+//Tampoco se puede hacer explicita la conversion hacia abajo entre objetos:
 	d = Doctorando(e); //Error
 	d = static_cast<Doctorando>(e);//Error
 	d = reinterpret_cast<Doctorando>(e);//Error
-	\end{lstlisting}
+		\end{lstlisting}
 	\caption{Ejemplo de herencia pública}\vspace{1cm}
-\textit{No se pueden realizar conversiones implícitas hacia abajo entre punteros, estás deben de ser explicitas}.\\
+	\textit{No se pueden realizar conversiones implícitas hacia abajo entre punteros, estás deben de ser explicitas}.\\
+	\textit{No se pueden realizar conversiones implícitas ni explícitas hacia abajo entre objetos de las clases base y derivada}.
 
-\textit{No se pueden realizar conversiones implícitas ni explícitas hacia abajo entre objetos de las clases base y derivada}.
-	\end{figure}
 \end{center}
+\end{figure}	
 
 \newpage
 \section{Herencia privada}
 \vspace{-0.5cm}
-Sirven para implementar relaciones “Se implementan con”.\\
-Es decir, se hereda la interfaz pública de la base pero en la clase derivada se ocultan debido a que estos pasan a ser \textbf{privados}.\\
+Sirven para implementar relaciones “Se implementan con”.
+Se hereda la interfaz pública de la base pero en la clase derivada se ocultan debido a que estos pasan a ser \textbf{privados}.
 Por tanto, la relación entre ambas clases queda oculta para el usuario.
 
 Se puede usar para implementar una \textbf{\textit{relación de composición 1a1}} entre componente y compuesto.
@@ -218,20 +223,20 @@ Con la \textit{keyword} \texttt{using} hacemos que el método que especifiquemos
 \begin{figure}[h]
 	\centering
 	\texttt {\textbf{using Clase::nombre\_metodo;}}
-	\caption{Declaración de la keyword}
+	\caption{Declaración de using}
 \end{figure}
 \section{Jerarquía de Clases}
 La \textbf{herencia simple} nos permite definir jerarquía entre las clases relacionadas, donde una clase se deriva solamente de una clase base, y la cadena de derivación no es circular.
 
 
 \begin{figure}[h]
-	\begin{minipage}[t]{0.4\textwidth}
+	\begin{minipage}[t]{0.45\textwidth}
 		\includegraphics[width=\textwidth]{Imagenes/gen6.png}
 		\caption{Ejemplo de herencia simple}
 	\end{minipage}
 	\hfill
-	\begin{minipage}[t]{0.55\textwidth}
-\vspace{-4.6cm}
+	\begin{minipage}[t]{0.45\textwidth}
+\vspace{-5cm}
 		\begin{lstlisting}[frame=single]
 class Empleado{//..};
 class Administrador: public Empleado {
@@ -267,36 +272,49 @@ class Asesor final: public Temporal, public Administrador {//...};
 \end{lstlisting}
 \end{center}
 
-\begin{minipage}[t]{0.45\textwidth}
 \subsubsection{Orden de inicialización de los objetos en herencia múltiple}
-1. Constructores de las clases bases en el orden de la lista de derivación.\\
+\begin{enumerate}
+	\item Constructores de las clases bases en el orden de la lista de derivación.
+	\item Constructores de los atributos en el orden declarado dentro de la clase.
+	\item Se ejecuta el constructor de la clase derivada.
+\end{enumerate}
 
-2. Constructores de los atributos en el orden declarado dentro de la clase.\\
-
-3. Se ejecuta el constructor de la clase derivada.
-
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.45\textwidth}
 \subsubsection{Orden de destrucción de los objetos en herencia múltiple}
-1. Se llama al destructor de la clase derivada.\\
-
-2. Se llama al destructor de las clases base en orden inverso al que han sido declarados.
-\end{minipage}
+\begin{enumerate}
+	\item Se llama al destructor de la clase derivada.
+	\item Se llama al destructor de las clases base en orden inverso al que han sido declarados.
+\end{enumerate}
 \newpage
-\section{Ambigüedades al heredar miembros sobrecargados\\ en Herencia múltiple}
+\section{Ambigüedades al heredar miembros sobrecargados\ en Herencia múltiple}
 Si los métodos no están en el mismo ámbito, no hay sobrecargar por tanto el compilador no sabría que método sobrecargado usar.
 
 Cuando tenemos métodos que tienen el mismo nombre pero definidos en ámbitos diferentes, a la hora de llamarlos tenemos ambigüedades, por eso llamamos al operador de resolución de ámbito → hacemos que no haya sobrecarga.
 
 Para que haya sobrecarga, nos llevamos todos esos métodos con el mismo nombre al mismo ámbito mediante la keyword \texttt{using}.
-\begin{center}
-\begin{figure}[h]
-	\includegraphics[width=\textwidth]{Imagenes/gen8.png}
-\end{figure}
-\end{center}
 
-\newpage
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=\textwidth]{Imagenes/gen8.png}
+\end{center}
+Vemos que al hacer uso de la \textit{keyword} \texttt{using}, declaramos como públicos los 
+métodos \texttt{f()} de las clases bases \texttt{B1} y \texttt{B2}, resolviendo así el 
+problema de ambigüedad a la hora de llamar a dicho método.
+\end{figure}
+
+\textbf{\large{Programa de ejemplo:}}
+\begin{center}
+	\begin{lstlisting}[frame=single]
+int main(){
+  D obj;
+  // Llamadas a las funciones f para comprobar ambiguedades
+  obj.f('a'); // Deberia llamar a B1::f(char)
+  obj.f(10); // Deberia llamar a B2::f(int)
+  obj.f(10.5);  // Deberia llamar a D::f(double)
+  obj.f(10.5f); // Deberia llamar a D::f(double) debido a la conversion implicita
+  return 0;
+}
+	\end{lstlisting}
+\end{center}
 
 \section{Herencia virtual}
 \begin{center}
@@ -328,12 +346,13 @@ Por ejemplo, podemos tener una interfaz \texttt{pila} y luego especializaciones 
 
 Para ello, la clase que queremos que sea una interfaz / clase abstracta debe de tener como mínimo un método definido como \textbf{virtual puro}, es decir:
 \begin{center}
-	\texttt{virtual tipo\_metodo nombre\_metodo(parámetros)=0}. 
-
+	\texttt{virtual tipo\_metodo nombre\_metodo(parametros)=0;}
 \end{center} 
+
 Encapsula todos los métodos que serán comunes a las clases especializadas de la misma.
 Tenemos que diferenciar entre \textbf{clase abstracta} e \textbf{interfaz}:
 \begin{itemize}
 	\item Una \textbf{clase abstracta} es aquella que tienen al menos uno de sus métodos como \textbf{virtual puro}. Además puede tener constructores y atributos propios.
 	\item Una \textbf{interfaz} es una clase que tiene todos sus métodos definidos como \textbf{virtuales puros}, no se puede instanciar por lo que no pueden tener constructores ni atributos propios.
 \end{itemize}
+

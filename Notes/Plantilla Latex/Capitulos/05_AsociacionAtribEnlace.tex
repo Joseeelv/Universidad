@@ -1,4 +1,4 @@
-\chapter{Asociación con atributo de\\ Enlace}
+\chapter{Asociación con atributo de Enlace}
 Es una relación de asociación donde encontramos un atributo que se enlaza con la relación de las clases A - B.
 Ese atributo no pertenece ni a la clase A ni a la clase B, si no a la relación.
 \begin{figure}[h]
@@ -6,10 +6,13 @@ Ese atributo no pertenece ni a la clase A ni a la clase B, si no a la relación.
 	\includegraphics[width=\textwidth]{Imagenes/atribenlace.png}
 	\caption{Asociación con atributo de enlace}
 \end{figure}
-\\
-Vemos que una persona imparte asignaturas un número de horas y las asignaturas son impartidas por personas un número de horas.\vspace*{0.2cm}\\
-Dependiendo de la multiplicidad podemos hacer que dicho atributo pertenezca a una de las dos clases (la que tiene mayor multiplicidad).\vspace*{0.2cm}
-Si Asignatura tuviera multiplicidad 1, el atributos \textit{horas} iría en la clase Persona → hacemos uso de un conjunto ‘\texttt{set}’.\vspace*{0.2cm}\\
+
+Vemos que una persona imparte asignaturas un número de horas y las asignaturas son impartidas por personas un número de horas.
+
+Dependiendo de la multiplicidad podemos hacer que dicho atributo pertenezca a una de las dos clases (la que tiene mayor multiplicidad).
+
+Si Asignatura tuviera multiplicidad 1, el atributos \textit{horas} iría en la clase Persona → hacemos uso de un conjunto ‘\texttt{set}’.
+
 En este caso, ambos tienen multiplicidad muchos - muchos, por tanto, ese atributo no puede almacenarse en ninguna de las dos clases → tenemos que hacer uso de un diccionario ‘\texttt{map}’.
 \newpage
 \subsection{Implementación de la relación:}
@@ -33,5 +36,29 @@ class Asignatura{
   private:
     As as_;
 };
+/*----------Implementacion de los metodos----------*/
+void Persona::setA(Asignatura& a, tipo_atributo atributo){
+  //Sin permitir que se modifique la clave si existe en el diccionario.
+  bs_.insert(std::make_pair(&a,atributo));
+
+  //Permite modificar la clave si ya existe en el diccionario.
+  bs_[&a]=atributo;
+}
+
+const Persona::Bs& Persona::getB()const{
+  return bs_; 
+}
+
+void Asignatura::setB(Persona& p, tipo_atributo atributo){
+  //No permite que se modifique la clave si existe en el diccionario.
+  as_.insert(std::make_pair(&p,atributo));
+
+  //Permite modificar la clave si ya existe en el diccionario.
+  as_[&p]=atributo;
+}
+
+const Asignatura::As& getA()const{
+  return as_;
+}
 \end{lstlisting}
 \end{center}

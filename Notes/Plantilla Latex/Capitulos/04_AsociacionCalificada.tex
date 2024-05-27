@@ -15,24 +15,25 @@ Si la multiplicidad no se reduce, significa que dicho calificador no es \textbf{
 \begin{center}
 	\begin{lstlisting}[frame=single]
 class Empresa{
-  public:
-//mediante un calificador, encontramos un objeto de la clase Persona
-    typedef std::map<C,Persona*>Bcalificada; 
-    //métodos de la clase
-    void asocia(Persona&);
-    const Bcalificada& getA()const;
-  private:
-    Bcalificada bc_;
+ public:
+//mediante un calificador, 
+//encontramos un objeto de la clase Persona
+   typedef std::map<C,Persona*>Bcalificada; 
+//metodos de la clase
+   void asocia(Persona&);
+   const Bcalificada& getA()const;
+ private:
+   Bcalificada bc_;
 };
 class Persona{
-  public:
-    //métodos propios de la clase
-    typedef std::set<Empresa*>As;
-    void asocia(Empresa&);
-    const As& getB()const;
-  private:
-    C calificador; //calificador de tipo C
-    As as_;
+ public:
+//metodos propios de la clase
+   typedef std::set<Empresa*>As;
+   void asocia(Empresa&);
+   const As& getB()const;
+ private:
+   C calificador; //calificador de tipo C
+   As as_;
 };
 \end{lstlisting}
 \end{center}

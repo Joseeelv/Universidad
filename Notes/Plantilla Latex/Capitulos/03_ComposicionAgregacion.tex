@@ -1,17 +1,21 @@
 \chapter{Agregación y Composición}
-La diferencia entre agregación (’vacío’, menos restrictiva) y composición (‘relleno’, más restrictiva).
-Véase en Libro y Capítulo, donde un Libro no puede existir si no existen Capítulos (composición).
+La diferencia entre agregación (’diamante vacío’, menos restrictiva) y composición (‘diamante relleno’, más restrictiva).
+Véase en Libro y Capítulo (Introduccion a las relaciones), donde un Libro no puede existir si no existen Capítulos (composición).
 
 La composición es un tipo de agregación donde existe dos restricciones, de \textbf{multiplicidad} (un componente solo puede formar parte de un compuesto) y \textbf{existencia} (la vida del componente depende del compuesto).\\
 Mediante las composiciones también hacemos uso de la reutilización del clases, donde hacemos uso de la clase Capítulo para definir la clase Libro.
 \vspace{-0.5cm}
-\subsection{Relación de agregación}
+\section{Relación de agregación}
 \begin{quote}
 	Es la relación de asociación entre una clase y un agregado (conjunto).
 \end{quote}
-Normalmente, son unidireccionales, la clase componente no conoce nada de la clase compuesta por ella misma.
+Normalmente, son \underbar{unidireccionales}, la clase componente no conoce nada de la clase compuesta por ella misma.
+
+Se implementan como relaciones de \textbf{asociación} pero son unidireccionales donde solamente almacena el contenido
+la clase que es compuesta (la tiene el diamante).
+
 \vspace{-0.5cm}
-\subsection{Relación de Composición}
+\section{Relación de Composición}
 \begin{quote}
 	Es la relación de asociación entre un componente y un compuesto, pero es más restrictiva que la relación de agregación.
 \end{quote}
@@ -23,18 +27,16 @@ Podemos hacer uso de estas relaciones para la reutilización de software.
 \begin{center}
 	\begin{lstlisting}[frame=single]
 class A{ //Compuesto
-  public:
-  	A(B& ); //A se crea a partir de un objeto de B
-    typedef std::set<B> Bs_;
-    friend operator < (const A&, const A&);
-  private:
-    BS bs_;
+ public:
+   A(B& ); //A se crea a partir de un objeto de B
+   typedef std::set<B> Bs_;
+   friend operator < (const A&, const A&);
+ private:
+   BS bs_;
 };
 
 class B{//Componente
-  public:
-    //No recibe nada del compuesto
-  private:
+   //No recibe nada del compuesto
 };
 \end{lstlisting}
 \end{center}

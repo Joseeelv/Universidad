@@ -10,27 +10,31 @@ Las asociaciones entre clases contienen 3 factores (cardinalidad, navegabilidad 
 	\item La \textbf{navegabilidad} indica el sentido de la relación, por defecto, son bidireccionales pero pueden existir asociaciones de \textit{A → B} o \textit{A ← B} (unidireccionales, donde el extremo de la flecha es el sentido).
 \end{itemize}
 Estas asociaciones pueden tener algunas dependencias (agregaciones y composiciones).
-\subsection{Implementaciones}
-\begin{itemize}
+\section{Implementaciones}
+Dependiendo de la multiplicidad que haya en cada extremo de las clases de objetos implemetaremos de una manera u 
+otra las relaciones entre las clases.
+
+Donde las relaciones que tienen una multiplicidad muchos - muchos se harán uso de tipos contendores asociativos o si la 
+multiplicidad es 1 - 1 solamente se almacenará el objeto con el que se enlazan.
+
 \subsection{Plantilla Implementación 1-N}
-\end{itemize}
 \begin{center}
 \begin{lstlisting}[frame=single]
 class A{ //clase con multiplicidad 1
-  public:
-    //...
-    void setB(B&); //enlazamos
-    B& getA() const; //objeto B enlazado con A
-  private:
-    B* b_; //enlace con objeto B
+ public:
+  //...
+  void setB(B&); //enlazamos
+  B& getA() const; //objeto B enlazado con A
+ private:
+  B* b_; //enlace con objeto B
 };
 class B{ //clase con multiplicidad N
-  public:
-    //...
-    void setA(A&);
-    A getB()const;
-  private:
-    A a_;
+ public:
+  //...
+  void setA(A&);
+  A getB()const;
+ private:
+  A a_;
 };
 \end{lstlisting}
 \end{center}
@@ -45,31 +49,27 @@ class B{ //clase con multiplicidad N
 \begin{center}
 	\begin{lstlisting}[frame=single]
 class Persona{
-  public:
-    //...
-    void setB(Asignatura&); //enlazamos
-    
-    //objeto Asignatura enlazado con Persona
-    Asignatura& getA() const; 
-  private:
-    Asignatura* b_; //enlace con objeto Asignatura
+ public:
+  //...
+  void setB(Asignatura&); //enlazamos   
+  //objeto Asignatura enlazado con Persona
+  Asignatura& getA() const; 
+ private:
+  Asignatura* b_; //enlace con objeto Asignatura
 };
 class Asignatura{
-  public:
-    //...
-    void setA(Persona&); //enlazamos
-    Persona& getA()const; //objeto Persona enlazado con Asignatura
-  private:
-    Persona* a_; //enlace con objeto Persona
+ public:
+  //...
+  void setA(Persona&); //enlazamos
+  Persona& getA()const; //objeto Persona enlazado con Asignatura
+ private:
+  Persona* a_; //enlace con objeto Persona
 };
 
-//Implementacion de los metodos
-void Persona::setB(Asignatura& b){
-    b_ = &b;
-}
-Asignatura& Persona::getB()const{
-    return *b_;
-}
+//Implementacion de los metodos, pueden ser inline
+void Persona::setB(Asignatura& b){ b_ = &b;}
+Persona::Asignatura& Persona::getB()const{ return *b_;}
+
 //Analogo para obtener Persona
 \end{lstlisting}
 \end{center}
@@ -86,31 +86,29 @@ Asignatura& Persona::getB()const{
 \begin{center}
 	\begin{lstlisting}[frame=single]
 class Persona{
-    public:
-        //...
-        typedef set<Asignatura*> Bs;
-        void setB(Asignatura&);
-        const Bs& getA()const;
-    private:
-        Bs bs_; 
+ public:
+  //...
+  typedef set<Asignatura*> Bs;
+  void setB(Asignatura&);
+  const Bs& getA()const;
+ private:
+  Bs bs_; 
 };
 
 class Asignatura{
-    public:
-        //...
-        typedef set<Persona*> As;
-        void setA(Persona&);
-        const As& getB()const;
-    private:
-        As as_;
+  public:
+    //...
+    typedef set<Persona*> As;
+    void setA(Persona&);
+    const As& getB()const;
+  private:
+    As as_;
 };
 
-void Persona::setB(Asignatura& b){
-    as_.insert(&b);
-}
-const set<Asignatura*>& getA()const{
-    return bs_;
-}
+//Se pueden hacer inline en la definicion de la clase
+void Persona::setB(Asignatura& b){ as_.insert(&b); }
+const Persona::Bs& getA()const{ return bs_; }
+
 //Analogo para obtener Persona
 \end{lstlisting}
 \end{center}

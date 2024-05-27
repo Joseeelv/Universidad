@@ -14,8 +14,111 @@ bicolas \texttt{deque}, pilas \texttt{stack} o contenedores que contienen una co
 
 \section{Iteradores}
 Mediante los \texttt{iterators} (iteradores) podemos acceder a las posiciones o elementos contenidos en cada tipo de contenedor.
-
 Se recomienda el uso de la \textit{keyword} \texttt{auto}, para que el compilador le asigne el tipo adecuado al iterador.
+
+\underbar{\textbf{\large{Librería}}} → \texttt{<iterator>}
+
+Todos los tipos contendores asociativos pueden hacer uso de estos iteradores, donde encontramos varios métodos de acceso a las posiciones 
+de los contenedores:
+\begin{itemize}
+  \item \texttt{begin()} (puntero a la primera posición) y \texttt{cbegin()}(puntero constante a la primera posición).
+  \item \texttt{end()} (puntero a la siguiente posición del final del contendor) y \texttt{cend()} (puntero constante a la siguiente posición del final del contendor).
+\end{itemize}
+
+\section{Contenedores asociativos de la STL}
+Vamos a ver con un poco más de profundidad los contenedores asociativos que son los que usaremos al implementar las relaciones entre clases de objetos en C++.
+\subsection{Conjunto de objetos: Set}
+El contendor asociativo \texttt{set} es un conjunto de elementos no duplicados de un mismo tipo.
+Pueden estar ordenados (\texttt{set}) ó desordenados (\texttt{unordered\_set}).
+
+\underbar{\textbf{\large{Librería}}} →  \texttt{<set>}, donde se incluye todos los métodos de los que puede hacer uso mediante iteradores.
+\newpage
+\textbf{\large{Sintaxis conjunto valores no repetidos:}}
+\begin{figure}[h]
+  \begin{center}
+    \begin{lstlisting}[frame = single]
+                  typedef std::set<T>Alias;
+    \end{lstlisting}
+\end{center}
+Se hace uso de Alias cuando se define en la parte pública de la clase, si fuera en la privada, ese sería el nombre
+del contenedor.
+\end{figure}
+
+\textbf{\large{Sintaxis conjunto valores repetidos:}}
+\begin{figure}[h]
+  \begin{center}
+    \begin{lstlisting}[frame=single]
+                  typedef std::multiset<T>Alias;
+    \end{lstlisting}
+  \end{center}
+\end{figure}
+
+El tipo \textbf{\texttt{T}} definido en el set puede ser un \textbf{tipo de dato (objeto)} o un \textbf{puntero}. Si el tipo es un objeto tendremos que realizar
+una sobrecarga de un operador de ordenación, ya sea el operador \texttt{<} o el operador \texttt{>} para ordenadar los elementos del conjunto,
+esto es lo que sucede a la hora de implementar la \textbf{relación de composición} entre dos clases.
+
+Si es de \textbf{ tipo puntero}, no hace falta realizar esta sobrecarga para ordenar los elementos.
+
+\subsection{Diccionario clave - valor: Map}
+El contenedor asociativo \texttt{map} es un diccionario de pareja clave única y valores o conjunto de valores.
+Al igual que el contendor asociativo \textit{set}, \texttt{map} también es un contenedor donde las claves se insertan de manera ordenada,
+si no queremos un diccionario ordenado, podemos hacer uso de \texttt{unordered\_map}.\
+
+\underbar{\textbf{\large{Librería}}} → \texttt{<map>}, donde se incluye todos los métodos de los que puede hacer uso mediante iteradores, al igual que \texttt{set}.
+
+\textbf{\large{Sintaxis clave - valor:}}
+
+\begin{figure}[h]
+  \begin{center}
+    \begin{lstlisting}[frame=single]
+                  typedef std::map<T1,T2>Alias;
+    \end{lstlisting}
+  \end{center}
+  Aqui vemos que la declaración se realiza con una clave y un valor que puede tomar cualquier 
+  valor (T1 y T2, si estuvieramos en una plantilla).
+\end{figure}
+
+\textbf{\large{Sintaxis clave - conjunto valores:}}
+
+\begin{center}
+  \begin{lstlisting}[frame=single]
+                typedef std::multimap<T1,T2>Alias;
+  \end{lstlisting}
+\end{center}
+
+
+Este \texttt{multimap} lo podemos implementar de una manera más intuitiva:
+\begin{center}
+  \begin{lstlisting}[frame=single]
+              typedef std::map<T1,conjunto>Alias;
+  \end{lstlisting}
+\end{center}
+
+A la hora de declararlo mediante \underbar{conjunto} de elementos dento de un \texttt{map}, dicho conjunto puede ser un \texttt{set}, \texttt{unordered\_set},
+   \texttt{map}, \texttt{unordered\_map} o \texttt{pair}.
+
+Se hace uso de Alias cuando se define en la parte pública de la clase, si fuera en la privada, ese sería el nombre
+del contenedor.
+
+Mediante los \textbf{iteradores} podemos acceder tanto a la clave (\texttt{first}) como al valor (\texttt{second}).
+
+\subsection{Tupla de dos elementos: Pair}
+Esta es una clase genérica la cual permite crear pareja de valores únicos de cualquier tipo T.
+
+\underbar{\textbf{\large{Librería}}} →  \texttt{<utility>}, una cosa a tener en cuenta es que las parejas de elementos
+no tienen los métodos \texttt{insert()}, \texttt{erase()}, por lo que a la hora de insertar lo haremos mediante asignación.
+
+\textbf{\large{Sintaxis tupla de valores:}}
+\begin{center}
+  \begin{lstlisting}[frame=single]
+                typedef std::pair<T1,T2>Alias;
+  \end{lstlisting}
+  \end{center}
+Siendo T1 y T2 los tipos de los dos elementos que almacena.
+
+Este tipo de tuplas son muy útiles cuando encontramos multiplicidades 1 - muchos en las relaciones entre clases y la
+podemos declarar dentro de los diccionarios \texttt{map}.
+
 \section{Algoritmos de búsqueda y ordenación}
 Para poder buscar elementos en un contenedor podemos hacer uso de \texttt{find}, \texttt{binary\_search}.
 Podemos ordenar los elementos de los contenedores mediante los algoritmos \texttt{sort}.
@@ -29,17 +132,17 @@ Encontramos varios \textit{algoritmos de la STL} que para su ejecución necesita
 Estos predicados pueden ser tanto \textbf{funciones lambda} ó \textbf{objetos a función}.
 
 \subsection{Funciones Lambda en C++}
-Permiten definir funciones anónimas de manera concisa y local. Las funciones \textit{Lambda}proporcionan una forma de crear funciones en el lugar donde se necesitan, sin tener que definir una función por separado.
+Permiten definir funciones anónimas de manera concisa y local. Las funciones \textit{Lambda}proporcionan una forma de crear funciones en el lugar donde se necesitan,
+sin tener que definir una función por separado.
 
 Consiste en tres partes → lista de captura \texttt{[]} , parámetro opcional de captura \texttt{()} y un cuerpo \texttt{\{\}}.
 
 Cuando se evalúa una función \textit{Lambda}, se produce un objeto llamado \textit{closure}. Este objeto ‘\textit{closure}’ no tiene ni nombre ni tipo y es temporal.
-
 \begin{center}
 	\begin{lstlisting}[frame=single]
 auto nombre_funcion = [captura](parametros){
- //cuerpo de la función
- // Puede acceder a las variables capturadas y usar parámetros
+ //cuerpo de la funcion
+ // Puede acceder a las variables capturadas y usar parametros
  return expresion;
 }
 	\end{lstlisting}
@@ -47,7 +150,7 @@ auto nombre_funcion = [captura](parametros){
 
 \textbf{Tipo de retorno} → Especifica el tipo de dato que la función \textit{Lambda}devolverá. Puede ser omitido si esta no devuelve un valor explícitamente.
 
-\textbf{Captura} → Permite a la función lambda acceder a las variables fuera de su alcance local. Puede ser por valor \texttt{[x]} , por referencia \texttt{[&x]} , por valor pero modificable \texttt{[x] mutable} , por referencia (solo lectura) \texttt{[&x]mutable} o capturar todas las variables automáticamente \texttt{[=]} ó \texttt{[&]}.
+\textbf{Captura} → Permite a la función lambda acceder a las variables fuera de su alcance local. Puede ser por valor \texttt{[x]} , por referencia \texttt{[\&x]} , por valor pero modificable \texttt{[x] mutable} , por referencia (solo lectura) \texttt{[\&x]mutable} o capturar todas las variables automáticamente \texttt{[=]} ó \texttt{[\&]}.
 
 \textbf{Parámetros} → Los parámetros de la función \textit{Lambda} son similares a los usados en las funciones regulares. Si no tiene parámetros ‘\texttt{()}` ’ estos paréntesis serán omitidos a no ser que se necesites declarar la función \textit{Lambda} como \texttt{mutable}.
 
@@ -71,7 +174,7 @@ int main(){
 \end{center}
 Vemos que en este ejemplo, la función Lambda \texttt{suma} toma dos parámetros ‘a’ y ‘b’ de tipo enteros ambos y devuelve el resultado de la suma de ambos.
 La función se almacena en una variable \texttt{auto} y luego se utiliza como cualquier otra función.
-
+\newpage
 \subsubsection{Ejemplo del uso de función Lambda mutable}
 La \textit{keyword} \texttt{mutable} permite que la función Lambda pueda ser modificada, ya que estas por defecto son no modificables \texttt{const}. 
 \begin{center}
@@ -82,7 +185,7 @@ int main(){
   auto bad_counter = [a](){return a++;} 
   //Correcto, operator () es mutable
   auto good_counter = [a]()mutable{return a++;}
-  //Llamamos al método
+  //Llamamos al metodo
   good_counter(); //a=1
   good_counter(); //a=2;
   return 0;
@@ -114,21 +217,21 @@ Mediante lo visto anteriormente podemos hacer uso de algoritmos para poder manip
 Hay algunos algoritmos que haran uso de los \textbf{iteradores}, otros el uso de \textbf{predicados} o ambos.
 
 \subsection{std::count\_if}
-Lo encontramos en la librería \texttt{\textless algorithm\textgreater}.
+Lo encontramos en la librería \texttt{<algorithm>}.
 Devuelve el número de veces que se repite un elemento en el rango [inicio,fin) de un contenedor.
 \begin{center}
 	\texttt{std::count\_if(iterador\_ini,iterador\_fin,predicado);}
 \end{center}
 
-\subsection{std::remove\_if}
-Lo encontramos en la librería \texttt{\textless algorithm\textgreater}.
+\subsection{std::remove\_if}Lo encontramos en la librería \texttt{<algorithm>}.
+
 Elimina el elemento que cumple la condición dada por el predicado en el rango [inicio,fin) del contendor.
 \begin{center}
 	\texttt{std::remove\_if(iterador\_ini,iterador\_fin, predicado);}
 \end{center}
 
 \subsection{std::lower\_bound}
-Lo encontramos en la librería \texttt{\textless algorithm\textgreater}.
+Lo encontramos en la librería \texttt{<algorithm>}.
 Devuelve un iterador apuntando a la primera posición donde el elemento que se le pasa es '\textbf{\textless}' que el siguiente elemento.
 Es muy útil para la inserción o búsqueda de elementos de un contenedor ordenado.
 \begin{center}
@@ -150,9 +253,38 @@ Elimina un elemento específico que se encuentre contenido en un contenedor dand
 \end{center}
 
 \subsection{std::find}
-Se encuentra en la librería \texttt{\textless algorithm\textgreater}.
+Se encuentra en la librería \texttt{<algorithm>}.
 Devuelve un iterador al primer elemento del rango [inicio,fin) que satisface un criterio específico.
+
 Muy útil para buscar elementos contenidos en un tipo contenedor.
 \begin{center}
 	\texttt{auto i = nombre\_contenedor.find(T\& elto);}
 \end{center}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
