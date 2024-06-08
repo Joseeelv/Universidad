@@ -1,0 +1,587 @@
+\chapter{Práctica 0}
+En esta primera práctica de la asignatura de Programación Orientada a Objetos, 
+creamos las clases Fecha y Cadena.
+
+Siendo la primera una clase la cual podremos crear Fechas en español (como su propio nombre dice)
+y la segunda como una "copia' a la clase \texttt{string} donde veremos el uso de
+memoria dinámica, el uso de varios constructores .
+
+%------------------Explicación y Códigos de la clase Fecha------------------
+\section{Clase Fecha}
+Esta clase Fecha, va a tener varios constructores:
+\begin{itemize}
+    \item Constructor de 3 parámetros (dia, mes, año):
+        \begin{center}
+            \texttt{Fecha a(18, 7, 1936); // 18 de julio de 1936}
+        \end{center}
+    \item Constructor de 2 parámetros (dia y mes):
+        \begin{center}
+            \texttt{Fecha a(18, 7); // 18 de julio de 2024}
+        \end{center}
+    \item Constructor de 1 parámetro (dia), siendo el mes y año actuales:
+        \begin{center}
+            \texttt{Fecha a(18); // 18 de julio de 2024}
+        \end{center}
+    \item Constructor sin parámetros que tendrá la Fecha del sistema:
+    \begin{center}
+        \texttt{Fecha hoy; //fecha actual del sistema}
+    \end{center}
+    \item Constructor a partir de una cadena de caracteres de bajo nivel (\texttt{const char *}),
+    con el formato  ("dd/mm/aaaa").
+    \begin{center}
+        \texttt{Fecha h("1/01/2000"); // 1 de enero de 2000}
+    \end{center}
+    En este caso, si algún campo fuera 0, por ejemplo (10/0/2010), el mes sería el del sistema.
+    Para hacer esto, haremos uso de la librería \texttt{<ctime>}.
+\end{itemize}
+Estos constructores deben de comprobar que las fechas que se introduzcan sean correctas, es decir, se tiene
+que comprobar que hay 12 meses por año y que cada mes tiene sus dias correspondientes, comprobando si 
+Febrero tiene 28 ó 29 (en caso de que sea año bisiesto).
+Tendremos un rango de años delimitados por las variables globales de la clase (\texttt{static})
+\texttt{Fecha::AnnoMinimo} y \texttt{Fecha::AnnoMaximo}, siendo
+(1902 y 2037) los valores, respectivamente.
+
+En el caso de que a la hora de comprobar las fechas, estas no sean correctas, en los constructores se lanzará una excepción
+del tipo \texttt{Fecha::Invalida}, la cual llevará información sobre por qué ha ocurrido dicha excepción en
+forma de cadena de caracteres de bajo nivel (parámetro al construirla), 
+y que se devolverá con un método público llamado \texttt{por\_que()}.
+
+Vamos a poder convertir una cadena de bajo nivel a un tipo \texttt{Fecha}, por lo que tendremos
+un operador de conversión.
+
+La conversión repetida de una misma fecha en cadena de caracteres conlleva un coste
+en tiempo que podemos reducir si mantenemos una copia de la cadena obtenida en la
+primera conversión, que se devolverá directente en las sucesivas conversiones 
+solicitadas, a menos que la fecha haya cambiado, en cuyo caso se actualizará esta
+copia en la primera petición de conversión que ocurra tras el cambio. Así pues, 
+se añadirán dos atributos a la clase \texttt{Fecha}: uno llamado \texttt{crep} para guardar la 
+fecha en forma de cadena cuando sea convertida por primera vez, de tipo \textbf{vector 
+de char} y longitud fija y suficiente para cualquier fecha; y otro \textbf{booleano} de
+nombre \texttt{actual}, que indicará si la cadena está actualizada. 
+
+La posible actualización de la cadena ha de ser transparente para el usuario 
+de la clase Fecha, de modo que aunque la fecha no debe ser alterada desde el 
+punto de vista lógico (para el usuario será la misma antes y después de la 
+conversión), la cadena almacenada sí que ha de poder ser modificada internamente.
+La incorporación de los dos nuevos atributos implica cambios en algunos de los 
+métodos ya descritos de la clase Fecha, por lo que deben ser revisados para 
+realizar las modificaciones pertinentes.
+
+Podemos incrementar o decrementar fechas en 1 día mediante los operadores de incremento y decremento
+por pre/sufijos. Una fecha tbién podrá incrementarse un número concreto de dias, mediante los
+operadores de suma o resta de Fecha y entero con asignación.
+Al igual que en los constructores habrá que comprobar que la fecha resultante de la
+operación sea válida, ya que podría sobrepasarse el rango de años. 
+
+Podemos asignar Fechas.
+
+Una Fecha poseerá métodos observadores que devolverán los atributos. 
+Estos métodos se llamarán \texttt{dia()}, \texttt{mes()} y \texttt{anno()}.
+
+Podemos comparar dos fechas mediante los operadores lógicos (==, !=, \textless, \textless=, 
+\textgreater, \textgreater=).
+
+Estos operadores obtienen un resultado booleano que refleja si una fecha es menor, mayor, igual, etc., que otra.
+
+\subsection{Fecha.hpp}
+Definición de la clase Fecha:
+\begin{minted}[breaklines]{C++}
+#ifndef FECHA_HPP_
+#define FECHA_HPP_
+//incluimos las librerias
+#include <iostream>
+#include <ctime> //para la fecha del sistema
+#include <utility> //para los operadores lógicos
+#include <stdio.h> //sscanf
+#include <cstring>
+#include <cstdio>
+class Fecha{
+  public:
+    //Ctor de 3 parámetros.
+    explicit Fecha(int dia =0, int mes=0, int anno=0);
+    //Ctor a partir de cadena de bajo nivel -> dd/mm/aaaa.
+    Fecha (const char*);
+    //operador de conversion de cadena de bajo nivel a fecha
+    operator const char*()const noexcept;
+    //atributos publicos que definen el rango de años.
+    static const int AnnoMinimo = 1902;
+    static const int AnnoMaximo=2037;
+
+    //observadores de la clase
+    inline int dia()const noexcept{return dia_;}
+    inline int mes()const noexcept{return mes;}
+    inline int anno()const noexcept{return anno_;}
+
+    //Operadores incremento y decremento de la fecha
+    Fecha& operator ++();
+    Fecha operator ++(int);
+    Fecha& operator --();
+    Fecha operator --(int);
+
+    Fecha operator +(int) const;
+    Fecha operator -(int) const;
+
+    Fecha& operator += (int);
+    Fecha& operator -= (int);
+
+    //clase de la excepcion
+    class Invalida{
+        public:
+            Invalida(const char* c):motivo_(c){}
+            const char* por_que()const {return motivo_;}
+        private:
+            const char* motivo_;
+    };
+  private:
+    //atributos de los objetos clase
+    int dia_,mes,anno_;
+    mutable char crep[45];
+    mutable bool actual;
+    //métodos privados comprobadores de fecha
+    void comprueba_fecha()const; //comprueba que la fecha sea válida
+    int ultimo_dia()const; //devuelve el último dia del mes
+    void actualizar()const;
+};
+//Operadores lógicos de comparación
+bool operator == (const Fecha& , const Fecha&);
+bool operator != (const Fecha&, const Fecha&);
+bool operator < (const Fecha&, const Fecha&);
+bool operator <= (const Fecha&, const Fecha&);
+bool operator > (const Fecha&, const Fecha&);
+bool operator >= (const Fecha&, const Fecha&);
+
+#endif //Fecha.hpp
+\end{minted}
+\subsection{Fecha.cpp}
+Implementación de los métodos definidos en el fichero de cabecera \texttt{fecha.hpp}.
+\begin{minted}[breaklines]{C++}
+#include "fecha.hpp"
+/*-----Métodos privados de la clase Fecha-----*/
+void Fecha::comprueba_fecha ()const{
+    //Comprobamos que el día es correcto
+    if(dia_>ultimo_dia()||dia_ < 1){
+        Fecha::Invalida D_Invalido("ERROR: Dia introducido es incorrecto");
+        throw D_Invalido;
+    }
+    if(anno_ < Fecha::AnnoMinimo || anno_ > Fecha::AnnoMaximo){
+        Fecha::Invalida A_Invalido("ERROR: Ano introducido es incorrecto");
+        throw A_Invalido;
+    }
+}
+int Fecha::ultimo_dia ()const{
+    if(mes==1||mes==3||mes==5||mes==7||mes==8||mes==10||mes==12)return 31;
+        else if(mes==4||mes==6||mes==9||mes==11)return 30;
+        else if(mes == 2){
+            //Comprobamos que sea bisiesto
+            if((anno_%4 == 0 && anno_%100 !=0)||anno_%400==0) return 29;
+            else return 28;
+        }
+    else{
+        Fecha::Invalida M_Invalido("ERROR: Mes introducido es incorrecto");
+        throw M_Invalido;
+    } 
+}
+
+void Fecha::actualizar()const{
+    //Codificación en UTF-8
+    std::locale::global(std::locale("esES.utf8"));
+    //Vamos a pasar la fecha a cadena sin formato
+    //Desformateamos la fecha
+    std::time_t tamsistema = std::time(nullptr);
+    std::tm* tamdesformato = std::localtime(&tamsistema);
+    tamdesformato -> tm_year = anno_-1900;
+    tamdesformato -> tm_mon = mes-1;
+    tamdesformato -> tm_mday = dia_;
+    mktime(tamdesformato);
+    //Ahora guardamos todo en el vector de cadena
+    strftime(crep,sizeof(crep),"%A %d de %B de %Y",tamdesformato);
+}
+
+/*----- Métodos públicos de la clase Fecha*/
+//Implementación del constructor
+Fecha::Fecha(int dia, int mes, int anno):dia_(dia),mes(mes),anno_(anno),actual(false){
+    //Si los atributos son 0, vamos a poner la fecha del sistema (ctime)
+    std::time_t tamsistema = std::time(nullptr);
+    std::tm* tamformato = std::localtime(&tamsistema);
+    //Comprobamos si la fecha introducida está por defecto
+    if(anno_ == 0) anno_ = tamformato -> tm_year+1900;
+    if(mes == 0) mes = tamformato -> tm_mon +1;
+    if(dia_ == 0) dia_ = tamformato ->tm_mday;
+    //Comprobamos la fecha
+    comprueba_fecha();
+}
+Fecha::Fecha(const char* c){
+    //Introducimos la fecha de la manera dia/mes/año, tenemos que sacar el formato
+    // y guardar en cada variable los datos correspondientes
+    //Comprobamos el formato
+    if(sscanf(c,"%d/%d/%d",&dia_,&mes,&anno_)!=3){
+        Fecha::Invalida F_Invalido("ERROR: Formato de fecha incorrecto");
+    }
+        //Formateamos la fecha
+        std::time_t tamsistema = std::time(nullptr);
+        std::tm* tamformato = std::localtime(&tamsistema);
+         //Comprobamos si la fecha introducida está por defecto
+        if(anno_ == 0) anno_ = tamformato -> tm_year+1900;
+        if(mes == 0) mes = tamformato -> tm_mon +1;
+        if(dia_ == 0) dia_ = tamformato ->tm_mday;
+        //Comprobamos la fecha
+        comprueba_fecha();
+}
+//Implementación del operador de conversion a const char*
+Fecha::operator const char*()const noexcept{
+    //Comprobamos que no se haya actualizado la fecha antes
+    if(!actual){//se introduce por primera vez
+        actualizar();
+        actual = true; //actualizada
+    }
+    return crep;
+}
+
+//Implementación de los operadores de incremento y decremento
+Fecha& Fecha::operator +=(int n){
+    time_t tiempo_hasta_ahora = time (NULL);
+	struct tm* fecha = localtime(&tiempo_hasta_ahora);
+    fecha->tm_mday = dia_+n;
+    fecha->tm_mon = mes -1;
+    fecha->tm_year = anno_ -1900;
+    mktime(fecha);
+
+    //modificamos los atributos de esa fecha
+    dia_ = fecha->tm_mday;
+    mes = fecha->tm_mon+1;
+    anno_ =fecha->tm_year+1900;
+    
+    //Comprobamos que la fecha sea válida
+    comprueba_fecha();
+    return *this; //devolvemos la fecha modificada
+}
+Fecha& Fecha::operator -= (int n){return *this += -n;}
+Fecha& Fecha::operator ++(){return *this += 1;}
+Fecha Fecha::operator ++(int){
+    Fecha fecha = *this;
+    *this +=1;
+    return fecha;
+}
+Fecha& Fecha::operator --(){return *this += -1;}
+Fecha Fecha::operator --(int){
+    Fecha fecha = *this;
+    *this += -1;
+    return fecha;
+}
+Fecha Fecha::operator +(int n)const{
+    Fecha fecha=*this;
+    return fecha += n;
+}
+Fecha Fecha::operator -(int n)const{
+    Fecha fecha=*this;
+    return fecha += -n;
+}
+
+
+//Operadores aritméticos
+bool operator == (const Fecha& f1, const Fecha&f2){
+    return (f1.anno() == f2.anno() && f1.mes() == f2.mes() && f1.dia()==f2.dia());
+}
+bool operator !=(const Fecha&f1, const Fecha&f2){
+    return !(f1==f2);
+}
+bool operator <(const Fecha& f1, const Fecha& f2){
+    return(f1.anno() < f2.anno() || (f1.anno() == f2.anno() && (f1.mes() < f2.mes()
+        || (f1.mes() == f2.mes() && f1.dia() < f2.dia()))));
+}
+bool operator <=(const Fecha&f1, const Fecha& f2){
+    return !(f2<f1);
+}
+bool operator >(const Fecha& f1, const Fecha& f2){
+    return f2 < f1;
+}
+bool operator >=(const Fecha& f1, const Fecha& f2){
+    return !(f1<f2);
+}
+
+\end{minted}
+
+%------------------Explicación y Códigos de la clase Cadena------------------
+\section {Clase Cadena}
+Esta clase Cadena será una clase general para trabajar con cadenas de caracteres (char). Por tanto,
+no podemos hacer uso de la clase \texttt{std::string} de la STL.
+
+La clase Cadena tendrá este mismo nombre y contará con dos atributos, estos serán un \textbf{puntero a 
+caracteres de tipo char} y un \textbf{entero sin signo de tipo size\_t} que representará el taño
+de la cadena o número de caracteres en cada momento. 
+
+El puntero antedicho apuntará a una cadena de caracteres acabada en el carácter terminador nulo 
+o ``\verb|\0|'' como las cadenas de C, lo que hace la implementación mucho más fácil, por tanto,
+si vamos a crear la cadena ``hola'' (que tiene 4 caracteres) tendremos que reservar memoria para
+una cadena de 5 caracteres (para el carácter terminador) y sería de la manera ``hola\verb|\0|''.
+
+Si una Cadena está \textbf{vacía} (o sea, su taño es 0), no tendrá asignada memoria dinámica y el 
+puntero a los caracteres apuntará a la misma dirección que un tercer atributo de \texttt{tipo char[1]} 
+cuyo único carácter será el terminador.
+
+Los atributos antedichos deben llamarse \texttt{vacia}, \texttt{t} y \texttt{s} y ser declarados en este mismo orden 
+(primero la cadena formada solo por el terminador, después el entero y por último el puntero).
+
+
+Una Cadena puede construirse:
+\begin{itemize}
+    \item Con 2 parámetros, que serán por este orden: un taño inicial y un carácter de relleno.
+        \begin{center}
+            \texttt{Cadena a(3, 'X'); // taño y relleno: "XXX"}
+        \end{center}
+    \item Con 1 parámetro, que será un taño inicial; en este caso la cadena se rellenará con 
+    espacios. No se permitirá la conversión implícita de un entero a una Cadena.
+        \begin{center}
+            \texttt{Cadena b(5); // taño y espacios: (5 espacios)}
+        \end{center}
+    \item Sin parámetros: se creará una Cadena vacía, de taño 0.
+        \begin{center}
+            \texttt{Cadena c; // Cadena vacía, taño 0: ""}
+        \end{center}
+    \item Por copia a partir de otra cadena
+        \begin{center}
+            \texttt{Cadena d(a); // copia de Cadena: "XXX"}
+        \end{center}
+    \item A partir de una cadena de caracteres de bajo nivel, 
+    permitiéndose las conversiones no explícitas desde const char* a Cadena.
+        \begin{center}
+            \texttt{Cadena f("Hola"); // copia de cadena de C: "Hola"}
+        \end{center}
+\end{itemize}
+
+Podemos asignar una Cadena a otra de tipo Cadena o a una cadena de bajo nivel, por tanto, 
+vamos a realizar una sobrecarga del \texttt{operador =} tanto para \texttt{Cadena} como para \texttt{const char *}.
+
+Una Cadena se puede convertir a una cadena de bajo nivel. Se prohibirán las conversiones
+implícitas para evitar posibles conversiones indeseadas y problemas de ambigüedad.
+
+Tendremos un método observador \texttt{length()} que devolverá el número de caracteres de una Cadena.
+
+Podemos concatenar dos cadenas, añadiéndose esta al final, mediante el operador de suma con 
+asignación (+=). Si no se puede obtener memoria para llevar a cabo la concatenación, 
+la cadena no se debe modificar.
+
+Dos objetos Cadena podrán concatenarse mediante el operador de suma (+), 
+resultando una nueva Cadena que será la concatenación de ambas.
+
+Podemos comparar Cadenas mediante los operadores lógicos (==, !=, \textless, \textless=, 
+\textgreater, \textgreater=), estos devolverán un valor booleano.
+
+Mediante la sobrecarga del operador de índice \texttt{[]} podemos obtener un carácter determinado de una Cadena.
+tbien tendremos un método \texttt{at()} que compueba si el índice pasado se encuentre en el rango (\texttt{0..length()-1}) y 
+devuele el carácter de dicha posición.
+Si esto no es así se lanzará la excepción \texttt{std::out\_of\_range}.
+Estos métodos se pueden aplicar tanto a Cadenas modificables como no modificables.
+
+El método miembto \texttt{substr()} recibirá dos parámetros enteros sin signo: un índice y
+un taño, y devolverá una Cadena formada por tantos caracteres como indique 
+el taño a partir del índice.
+Al igual que en el caso de la función at, el método substr tbién lanzará la excepción
+\texttt{std::out\_of\_range} cuando se proporcione una posición inicial después del 
+último carácter, o cuando la subcadena pedida se salga de los límites de la cadena.
+
+\subsection{Cadena.hpp}
+Definición de la clase Cadena:
+\begin{minted}[breaklines]{C++}
+#ifndef CADENA_HPP_
+#define CADENA_HPP_
+//Incluimos las librerías
+#include <iostream>
+#include <cstring>
+#include <stdexcept>
+class Cadena{
+    public:
+        //Por defecto, una cadena vacía = contiene el caracter terminador
+        explicit Cadena(size_t t = 0, char c = ' ');
+        //Tenemos que definir el constructor de copia debido a que estos haciendo uso de mem dinamica
+        Cadena(const Cadena& );
+        Cadena(const char*);
+        //Si hacemos ctor de copia debemos de hacer operador de asignación por copia
+        Cadena& operator = (const Cadena& )noexcept;
+        Cadena& operator =(const char*)noexcept;
+        //conversion a cadena de bajo nivel (observadora y modificadora)
+        explicit operator const char*()const noexcept{return s;}
+        
+        //método observador -> devuelve el num de caracteres de una cadena
+        size_t length() const noexcept{return tam;}
+        //Operadores aritmeticos
+        Cadena& operator += (const Cadena& )noexcept; //concatenación de cadenas (misma cadena resultante)
+        //operador de indice
+        char& operator [](size_t index)noexcept{return s[index];}
+        char& operator[](size_t index)const noexcept{return s[index];}
+        char& at(size_t );
+        char& at(size_t )const;
+
+        //Método de subcadena
+        Cadena substr(unsigned , size_t)const;
+        //declaramos el destructor de la cadena
+        ~Cadena();
+        
+    private:
+        static char vacia[1]; //vacia = char [1] = '\0';
+        size_t tam; //taño de la cadena de char (num caracteres de la misma)
+        char* s; //puntero a char
+        
+};
+//concatenación de cadenas (nueva cadena resultante)
+Cadena operator + (const Cadena& , const Cadena& )noexcept; 
+
+//Operadores lógicos
+bool operator == (const Cadena& , const Cadena& )noexcept;
+bool operator != (const Cadena& , const Cadena& )noexcept;
+bool operator < (const Cadena& , const Cadena& )noexcept;
+bool operator <= (const Cadena& , const Cadena& )noexcept;
+bool operator > (const Cadena& , const Cadena& )noexcept;
+bool operator >= (const Cadena& , const Cadena& )noexcept;
+
+#endif // !CADENA_HPP
+\end{minted}
+\subsection{Cadena.cpp}
+Implementación de los métodos de la clase Cadena:
+\begin{minted}[breaklines]{C++}
+#include "cadena.hpp"
+//Definimos la variable estática
+char Cadena::vacia[1]={'\0'};
+
+/*-----Métodos publicos de la clase Cadena-----*/
+//Constructores de la clase cadena
+Cadena::Cadena(size_t t, char c):tam(t),s(vacia){
+    if(tam>0){
+        s = new char[tam+1];
+        for(size_t i=0; i<tam ;i++) s[i]=c;
+        s[tam] = vacia[0];
+    }
+}
+
+Cadena::Cadena(const Cadena& other):tam(other.tam),s(vacia){
+    if(tam>0){
+        s= new char[tam+1];
+        //hacemos uso de strcpy
+        strcpy(s,other.s);
+        s[tam] =vacia[0];
+    }
+}
+
+Cadena::Cadena(const char* c):tam(strlen(c)), s(vacia){
+    if(tam>0){
+        s = new char[tam+1];
+        strcpy(s,c);
+        s[tam]=vacia[0];
+    }
+}
+
+//Operadores de asignación por copia
+Cadena& Cadena::operator = (const Cadena& other)noexcept{
+    //evitos autoasignación
+    if(this!=&other){
+        if(tam > 0){
+            delete[] s;}
+        tam = other.tam;
+        if(other.tam > 0){
+        s = new char[tam+1];
+        strcpy(s,other.s);
+        }else{s = vacia;}
+    }
+    return *this;
+}
+
+
+Cadena& Cadena::operator =(const char* c)noexcept{
+    if(*this!=c){
+        if(tam > 0){delete [] s;}
+        tam = strlen(c);
+        if(strlen(c)>0){
+            s = new char [tam+1];
+            strcpy(s,c);
+        }
+        else{s = vacia;}
+    }
+    return *this;
+}
+
+//Concatenación de cadenas
+Cadena& Cadena::operator +=(const Cadena& other)noexcept{
+    //Creamos una cadena nueva que contedrá las dos cadenas concatenadas
+    char* concatenada = new char [tam+1];
+    //Copiamo una de las cadenas
+    strcpy(concatenada,s);
+    //Modificamos el taño
+    tam += other.tam;
+    //destruimos la cadena original y la reemplazamos
+    delete [] s;
+    s = new char[tam+1];
+    //Concatenamos dos cadenas
+    strcpy(s,concatenada);
+    strcat(s,other.s);
+    //eliminamos la cadena auxiliar
+    delete [] concatenada;
+    //devolvemos la cadena final concatenada
+    return *this;
+}
+
+Cadena operator +(const Cadena&c1, const Cadena& c2)noexcept{
+    //Creamos una cadena nueva -> resultante de la concatenación
+    Cadena auxiliar(c1);
+    //devolvemos la cadena concatenada
+    return auxiliar += c2;
+}
+
+//Operadores de índice
+char& Cadena::at(size_t index){
+    if(index<tam)return s[index];
+    else throw std::out_of_range("ERROR at(): El indice supera el taño maximo de la cadena");
+
+}
+char& Cadena::at(size_t index)const{
+    if(index < tam){
+        return s[index];
+    }
+    else{
+        throw std::out_of_range("ERROR at(): El indice supera el taño maximo de la cadena");
+    }
+}
+
+Cadena Cadena::substr(unsigned index, size_t t)const{
+    if(index + t > tam || t > tam || index > tam){
+        throw std::out_of_range("ERROR substr(): Los valores dados superan el taño maximo de la cadena");
+    }
+    else{
+        //Creamos una cadena para imprimir la subcadena
+        Cadena subcadena(t);
+        //Guardamos esa subcadena (indice + t);
+        strncpy(subcadena.s,s+index, t);
+        subcadena.s[t]='\0';
+        //devolvemos la subcadena
+        return subcadena;
+    }
+}
+
+//Destructor de cadena
+Cadena::~Cadena(){
+    if(tam>0){delete [] s;}
+    
+}
+
+//Operadores lógicos
+bool operator == (const Cadena& cadena1, const Cadena& cadena2)noexcept{
+    return (strcmp(&cadena1[0],&cadena2[0])==0);
+}
+bool operator !=(const Cadena& cadena1, const Cadena& cadena2)noexcept{
+    return !(cadena1==cadena2);
+}
+
+bool operator <(const Cadena& cadena1, const Cadena& cadena2)noexcept{
+    return (strcmp(&cadena1[0],&cadena2[0])<0);
+}
+bool operator <=(const Cadena& cadena1, const Cadena& cadena2)noexcept{
+    return !(cadena2<cadena1);
+}
+
+bool operator > (const Cadena& cadena1, const Cadena& cadena2)noexcept{
+    return cadena2<cadena1;
+}
+
+bool operator >=(const Cadena& cadena1, const Cadena& cadena2)noexcept{
+    return !(cadena1<cadena2);
+}
+\end{minted}

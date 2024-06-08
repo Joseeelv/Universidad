@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{Alumno::matriculados\PYGZus{}en}\PYG{p}{(}\PYG{n}{Asignatura}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{asig}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Grupo}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{g}\PYG{p}{)}\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{n}{asignaturas\PYGZus{}}\PYG{p}{.}\PYG{n}{insert}\PYG{p}{(}\PYG{n}{std}\PYG{o}{::}\PYG{n}{make\PYGZus{}pair}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{asig}\PYG{p}{,}\PYG{o}{\PYGZam{}}\PYG{n}{g}\PYG{p}{));}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

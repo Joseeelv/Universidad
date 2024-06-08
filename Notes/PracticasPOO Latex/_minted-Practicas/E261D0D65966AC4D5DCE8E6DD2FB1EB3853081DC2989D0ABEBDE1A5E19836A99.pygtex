@@ -1,0 +1,108 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZdq{}tarjeta.hpp\PYGZdq{}}
+\PYG{c+c1}{//inicialización del conjunto estático de tarjetas}
+\PYG{n}{std}\PYG{o}{::}\PYG{n}{set}\PYG{o}{\PYGZlt{}}\PYG{n}{Numero}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{Tarjeta}\PYG{o}{::}\PYG{n}{tarjetas\PYGZus{}}\PYG{p}{;}
+\PYG{c+c1}{//Hacemos uso del algoritmo de luhn para ver si el numero de la tarjeta es correcto o no}
+\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{n+nf}{luhn}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{numero}\PYG{p}{);}
+\PYG{c+cm}{/*\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}Clase Numero\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}*/}
+\PYG{n}{Numero}\PYG{o}{::}\PYG{n}{Numero}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{numero}\PYG{p}{)}\PYG{o}{:}\PYG{n}{numero\PYGZus{}}\PYG{p}{(}\PYG{n}{longitud}\PYG{p}{(}\PYG{n}{numero}\PYG{p}{))\PYGZob{}}
+\PYG{+w}{    }\PYG{k+kt}{char}\PYG{+w}{ }\PYG{n}{caracteres}\PYG{p}{[]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ./\PYGZdq{}}\PYG{p}{;}
+\PYG{+w}{    }\PYG{c+c1}{//Comprobamos que está en el rango de caracteres}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{strcspn}\PYG{p}{(}\PYG{n}{numero\PYGZus{}}\PYG{p}{.}\PYG{k}{operator}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{k+kt}{char}\PYG{+w}{ }\PYG{o}{*}\PYG{p}{(),}\PYG{n}{caracteres}\PYG{p}{)}\PYG{o}{\PYGZlt{}}\PYG{n}{numero\PYGZus{}}\PYG{p}{.}\PYG{n}{length}\PYG{p}{())}
+\PYG{+w}{        }\PYG{k}{throw}\PYG{+w}{ }\PYG{n}{Incorrecto}\PYG{p}{(}\PYG{n}{Razon}\PYG{o}{::}\PYG{n}{DIGITOS}\PYG{p}{);}
+\PYG{+w}{    }\PYG{c+c1}{//comprobamos que sea correcto}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{o}{!}\PYG{n}{luhn}\PYG{p}{(}\PYG{n}{numero\PYGZus{}}\PYG{p}{))}\PYG{k}{throw}\PYG{+w}{ }\PYG{n}{Incorrecto}\PYG{p}{(}\PYG{n}{Razon}\PYG{o}{::}\PYG{n}{NO\PYGZus{}VALIDO}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{k}{operator}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Numero}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Numero}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{strcmp}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,}\PYG{n}{b}\PYG{p}{)}\PYG{o}{\PYGZlt{}}\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{//metodos privados de la clase}
+\PYG{n}{Cadena}\PYG{+w}{ }\PYG{n}{Numero}\PYG{o}{::}\PYG{n}{eliminar\PYGZus{}espacios}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{cadena}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{    }\PYG{c+c1}{//creamos una cadena nueva como copia de la introducida}
+\PYG{+w}{    }\PYG{n}{Cadena}\PYG{+w}{ }\PYG{n+nf}{aux}\PYG{p}{(}\PYG{n}{cadena}\PYG{p}{);}
+\PYG{+w}{    }\PYG{k}{const}\PYG{+w}{ }\PYG{k+kt}{char}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{original}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{cadena}\PYG{p}{.}\PYG{k}{operator}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{k+kt}{char}\PYG{+w}{ }\PYG{o}{*}\PYG{p}{();}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{j}\PYG{+w}{ }\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{!=}\PYG{n}{strlen}\PYG{p}{(}\PYG{n}{original}\PYG{p}{);}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{if}\PYG{p}{(}\PYG{o}{!}\PYG{n}{isspace}\PYG{p}{(}\PYG{n}{original}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]))\PYGZob{}}
+\PYG{+w}{            }\PYG{n}{aux}\PYG{p}{[}\PYG{n}{j}\PYG{o}{++}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{original}\PYG{p}{[}\PYG{n}{i}\PYG{p}{];}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{n}{aux}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}\PYGZbs{}0\PYGZsq{}}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{p}{(}\PYG{n}{aux}\PYG{p}{.}\PYG{k}{operator}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{k+kt}{char}\PYG{+w}{ }\PYG{o}{*}\PYG{p}{());}
+\PYG{p}{\PYGZcb{}}
+\PYG{n}{Cadena}\PYG{+w}{ }\PYG{n}{Numero}\PYG{o}{::}\PYG{n}{longitud}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{cadena}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{    }\PYG{c+c1}{//creamos una cadena como copia de la introducida para calcular la longitud sin espacios}
+\PYG{+w}{    }\PYG{n}{Cadena}\PYG{+w}{ }\PYG{n}{aux}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{eliminar\PYGZus{}espacios}\PYG{p}{(}\PYG{n}{cadena}\PYG{p}{);}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{aux}\PYG{p}{.}\PYG{n}{length}\PYG{p}{()}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{l+m+mi}{19}\PYG{+w}{ }\PYG{o}{||}\PYG{+w}{ }\PYG{n}{aux}\PYG{p}{.}\PYG{n}{length}\PYG{p}{()}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{l+m+mi}{13}\PYG{+w}{ }\PYG{o}{||}\PYG{+w}{ }\PYG{n}{aux}\PYG{p}{.}\PYG{n}{length}\PYG{p}{()}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{)}
+\PYG{+w}{        }\PYG{k}{throw}\PYG{+w}{ }\PYG{n}{Incorrecto}\PYG{p}{(}\PYG{n}{Razon}\PYG{o}{::}\PYG{n}{LONGITUD}\PYG{p}{);}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{aux}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+cm}{/*\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}Clase Tarjeta\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}*/}
+\PYG{n}{Tarjeta}\PYG{o}{::}\PYG{n}{Tarjeta}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Numero}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{numero}\PYG{p}{,}\PYG{+w}{  }\PYG{n}{Usuario}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{titular}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Fecha}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{caducidad}\PYG{p}{)}\PYG{o}{:}
+\PYG{+w}{    }\PYG{n}{numero\PYGZus{}}\PYG{p}{(}\PYG{n}{numero}\PYG{p}{),}\PYG{n}{titular\PYGZus{}}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{titular}\PYG{p}{),}\PYG{n}{caducidad\PYGZus{}}\PYG{p}{(}\PYG{n}{caducidad}\PYG{p}{),}\PYG{n}{activa\PYGZus{}}\PYG{p}{(}\PYG{n+nb}{true}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{caducidad\PYGZus{}}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{Fecha}\PYG{p}{())}\PYG{k}{throw}\PYG{+w}{ }\PYG{n}{Caducada}\PYG{p}{(}\PYG{n}{caducidad\PYGZus{}}\PYG{p}{);}\PYG{+w}{ }\PYG{c+c1}{//caducada¿?}
+\PYG{+w}{    }\PYG{c+c1}{//Comprobamos que la tarjeta no está registrada}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{o}{!}\PYG{n}{tarjetas\PYGZus{}}\PYG{p}{.}\PYG{n}{insert}\PYG{p}{(}\PYG{n}{numero}\PYG{p}{).}\PYG{n}{second}\PYG{p}{)}\PYG{k}{throw}\PYG{+w}{ }\PYG{n}{Num\PYGZus{}duplicado}\PYG{p}{(}\PYG{n}{numero}\PYG{p}{);}
+\PYG{+w}{    }\PYG{c+c1}{//No caducada y numero correcto \PYGZhy{}\PYGZgt{} se asigna al usuario}
+\PYG{+w}{    }\PYG{n}{titular\PYGZus{}}\PYG{+w}{ }\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{+w}{ }\PYG{n}{es\PYGZus{}titular\PYGZus{}de}\PYG{p}{(}\PYG{o}{*}\PYG{k}{this}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\PYG{n}{Tarjeta}\PYG{o}{::}\PYG{n}{Tipo}\PYG{+w}{ }\PYG{n}{Tarjeta}\PYG{o}{::}\PYG{n}{tipo}\PYG{p}{()}\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{switch}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{numero\PYGZus{}}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{])\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{case}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}3\PYGZsq{}}\PYG{p}{:}
+\PYG{+w}{        }\PYG{k}{if}\PYG{p}{(}\PYG{n}{numero\PYGZus{}}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{==}\PYG{l+s+sc}{\PYGZsq{}4\PYGZsq{}}\PYG{+w}{ }\PYG{o}{||}\PYG{+w}{ }\PYG{n}{numero\PYGZus{}}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{==}\PYG{l+s+sc}{\PYGZsq{}7\PYGZsq{}}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{Tipo}\PYG{o}{::}\PYG{n}{AmericanExpress}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k}{else}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{Tipo}\PYG{o}{::}\PYG{n}{JCB}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k}{break}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{case}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}4\PYGZsq{}}\PYG{p}{:}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{Tipo}\PYG{o}{::}\PYG{n}{VISA}\PYG{p}{;}\PYG{+w}{ }\PYG{k}{break}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{case}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}5\PYGZsq{}}\PYG{p}{:}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{Tipo}\PYG{o}{::}\PYG{n}{Mastercard}\PYG{p}{;}\PYG{+w}{ }\PYG{k}{break}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{case}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}6\PYGZsq{}}\PYG{p}{:}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{Tipo}\PYG{o}{::}\PYG{n}{Maestro}\PYG{p}{;}\PYG{+w}{ }\PYG{k}{break}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{default}\PYG{o}{:}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{Tipo}\PYG{o}{::}\PYG{n}{Otro}\PYG{p}{;}\PYG{+w}{ }\PYG{k}{break}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{n}{Tarjeta}\PYG{o}{::\PYGZti{}}\PYG{n}{Tarjeta}\PYG{p}{()\PYGZob{}}
+\PYG{+w}{    }\PYG{c+c1}{//Para poder eliminar una tarjeta, primero debemos de desvincularla de su titular}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{Usuario}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{user}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{const\PYGZus{}cast}\PYG{o}{\PYGZlt{}}\PYG{n}{Usuario}\PYG{o}{*\PYGZgt{}}\PYG{p}{(}\PYG{n}{titular\PYGZus{}}\PYG{p}{))}\PYG{+w}{ }\PYG{n}{user}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{no\PYGZus{}es\PYGZus{}titular\PYGZus{}de}\PYG{p}{(}\PYG{o}{*}\PYG{k}{this}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{tarjetas\PYGZus{}}\PYG{p}{.}\PYG{n}{erase}\PYG{p}{(}\PYG{n}{numero\PYGZus{}}\PYG{p}{);}\PYG{+w}{ }\PYG{c+c1}{//eliminamos despues de desvincular}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{k}{operator}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Tarjeta}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{,}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Tarjeta}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{.}\PYG{n}{numero}\PYG{p}{()}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{.}\PYG{n}{numero}\PYG{p}{();}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{n}{std}\PYG{o}{::}\PYG{n}{ostream}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{k}{operator}\PYG{+w}{ }\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{p}{(}\PYG{n}{std}\PYG{o}{::}\PYG{n}{ostream}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{output}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Tarjeta}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{t}\PYG{p}{)}\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{c+c1}{//primero tenemos que concatenar el nombre y el apellido del titular}
+\PYG{+w}{    }\PYG{n}{Cadena}\PYG{+w}{ }\PYG{n}{nombre\PYGZus{}apell}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{t}\PYG{p}{.}\PYG{n}{titular}\PYG{p}{()}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{nombre}\PYG{p}{()}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{} \PYGZdq{}}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{t}\PYG{p}{.}\PYG{n}{titular}\PYG{p}{()}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{apellidos}\PYG{p}{();}
+\PYG{+w}{    }\PYG{c+c1}{//las tenemos que imprimir en mayusculas}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{while}\PYG{p}{(}\PYG{n}{nombre\PYGZus{}apell}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{!=}\PYG{l+s+sc}{\PYGZsq{}\PYGZbs{}0\PYGZsq{}}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{if}\PYG{p}{(}\PYG{n}{islower}\PYG{p}{(}\PYG{n}{nombre\PYGZus{}apell}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]))}
+\PYG{+w}{            }\PYG{n}{nombre\PYGZus{}apell}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{=}\PYG{n}{toupper}\PYG{p}{(}\PYG{n}{nombre\PYGZus{}apell}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]);}
+\PYG{+w}{        }\PYG{n}{i}\PYG{o}{++}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{n}{output}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{std}\PYG{o}{::}\PYG{n}{setw}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{std}\PYG{o}{::}\PYG{n}{setfill}\PYG{p}{(}\PYG{l+s+sc}{\PYGZsq{} \PYGZsq{}}\PYG{p}{)}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s+sc}{\PYGZsq{} \PYGZsq{}}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{t}\PYG{p}{.}\PYG{n}{tipo}\PYG{p}{()}
+\PYG{+w}{    }\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{std}\PYG{o}{::}\PYG{n}{setw}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{std}\PYG{o}{::}\PYG{n}{setfill}\PYG{p}{(}\PYG{l+s+sc}{\PYGZsq{} \PYGZsq{}}\PYG{p}{)}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s+sc}{\PYGZsq{} \PYGZsq{}}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{t}\PYG{p}{.}\PYG{n}{numero}\PYG{p}{()}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}
+\PYG{+w}{    }\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{std}\PYG{o}{::}\PYG{n}{setw}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{std}\PYG{o}{::}\PYG{n}{setfill}\PYG{p}{(}\PYG{l+s+sc}{\PYGZsq{} \PYGZsq{}}\PYG{p}{)}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s+sc}{\PYGZsq{} \PYGZsq{}}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{nombre\PYGZus{}apell}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}
+\PYG{+w}{    }\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{std}\PYG{o}{::}\PYG{n}{setw}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{std}\PYG{o}{::}\PYG{n}{setfill}\PYG{p}{(}\PYG{l+s+sc}{\PYGZsq{} \PYGZsq{}}\PYG{p}{)}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s+sc}{\PYGZsq{} \PYGZsq{}}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{}Caduca: \PYGZdq{}}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{std}\PYG{o}{::}\PYG{n}{setfill}\PYG{p}{(}\PYG{l+s+sc}{\PYGZsq{}0\PYGZsq{}}\PYG{p}{)}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{std}\PYG{o}{::}\PYG{n}{setw}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{t}\PYG{p}{.}\PYG{n}{caducidad}\PYG{p}{().}\PYG{n}{mes}\PYG{p}{()}
+\PYG{+w}{    }\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{}/\PYGZdq{}}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{std}\PYG{o}{::}\PYG{n}{setw}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{p}{(}\PYG{n}{t}\PYG{p}{.}\PYG{n}{caducidad}\PYG{p}{().}\PYG{n}{anno}\PYG{p}{()}\PYG{+w}{ }\PYG{o}{\PYGZpc{}}\PYG{+w}{ }\PYG{l+m+mi}{100}\PYG{p}{)}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{std}\PYG{o}{::}\PYG{n}{endl}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{output}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{n}{std}\PYG{o}{::}\PYG{n}{ostream}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{k}{operator}\PYG{+w}{ }\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{p}{(}\PYG{n}{std}\PYG{o}{::}\PYG{n}{ostream}\PYG{o}{\PYGZam{}}\PYG{n}{output}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Tarjeta}\PYG{o}{::}\PYG{n}{Tipo}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{tipo}\PYG{+w}{ }\PYG{p}{)}\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{switch}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{tipo}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{case}\PYG{+w}{ }\PYG{n+no}{Tarjeta}\PYG{o}{::}\PYG{n+no}{Otro}\PYG{p}{:}\PYG{+w}{ }\PYG{n}{output}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{}Otro\PYGZdq{}}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{std}\PYG{o}{::}\PYG{n}{endl}\PYG{p}{;}\PYG{+w}{ }\PYG{k}{break}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{case}\PYG{+w}{ }\PYG{n+no}{Tarjeta}\PYG{o}{::}\PYG{n+no}{VISA}\PYG{p}{:}\PYG{+w}{ }\PYG{n}{output}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{}VISA\PYGZdq{}}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{std}\PYG{o}{::}\PYG{n}{endl}\PYG{p}{;}\PYG{+w}{ }\PYG{k}{break}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{case}\PYG{+w}{ }\PYG{n+no}{Tarjeta}\PYG{o}{::}\PYG{n+no}{Mastercard}\PYG{p}{:}\PYG{+w}{ }\PYG{n}{output}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{}Mastercard\PYGZdq{}}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{std}\PYG{o}{::}\PYG{n}{endl}\PYG{p}{;}\PYG{k}{break}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{case}\PYG{+w}{ }\PYG{n+no}{Tarjeta}\PYG{o}{::}\PYG{n+no}{Maestro}\PYG{p}{:}\PYG{+w}{ }\PYG{n}{output}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{}Maestro\PYGZdq{}}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{std}\PYG{o}{::}\PYG{n}{endl}\PYG{p}{;}\PYG{+w}{ }\PYG{k}{break}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{case}\PYG{+w}{ }\PYG{n+no}{Tarjeta}\PYG{o}{::}\PYG{n+no}{JCB}\PYG{p}{:}\PYG{+w}{ }\PYG{n}{output}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{}JCB\PYGZdq{}}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{std}\PYG{o}{::}\PYG{n}{endl}\PYG{p}{;}\PYG{+w}{ }\PYG{k}{break}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{case}\PYG{+w}{ }\PYG{n+no}{Tarjeta}\PYG{o}{::}\PYG{n+no}{AmericanExpress}\PYG{p}{:}\PYG{+w}{ }\PYG{n}{output}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{}AmericanExpress\PYGZdq{}}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{std}\PYG{o}{::}\PYG{n}{endl}\PYG{p}{;}\PYG{+w}{ }\PYG{k}{break}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{default}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{output}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{}Otra\PYGZdq{}}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{std}\PYG{o}{::}\PYG{n}{endl}\PYG{p}{;}\PYG{k}{break}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{k}{return}\PYG{+w}{ }\PYG{n}{output}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{Tarjeta}\PYG{o}{::}\PYG{n}{anula\PYGZus{}titular}\PYG{p}{()\PYGZob{}}
+\PYG{+w}{    }\PYG{p}{(}\PYG{n}{Usuario}\PYG{o}{*\PYGZam{}}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{titular\PYGZus{}}\PYG{o}{=}\PYG{k}{nullptr}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{activa\PYGZus{}}\PYG{o}{=}\PYG{n+nb}{false}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

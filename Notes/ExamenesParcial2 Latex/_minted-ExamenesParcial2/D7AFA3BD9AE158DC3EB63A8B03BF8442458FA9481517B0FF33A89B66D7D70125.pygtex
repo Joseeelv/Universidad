@@ -1,0 +1,19 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Escena}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{    }\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{set}\PYG{o}{\PYGZlt{}}\PYG{n}{FiguraPlana}\PYG{o}{*\PYGZgt{}}\PYG{n}{Figuras}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{Escena}\PYG{p}{(}\PYG{n}{FiguraPlana}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{f}\PYG{p}{)\PYGZob{}}\PYG{n}{figuras\PYGZus{}}\PYG{p}{.}\PYG{n}{insert}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{f}\PYG{p}{);\PYGZcb{}}
+\PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{dibuja}\PYG{p}{()}\PYG{k}{const}\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{for}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{k}{auto}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{f}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{n}{figuras\PYGZus{}}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{          }\PYG{n}{f}\PYG{+w}{ }\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{+w}{ }\PYG{n}{dibujo}\PYG{p}{();}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{escala}\PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{factor}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{for}\PYG{p}{(}\PYG{k}{auto}\PYG{+w}{ }\PYG{n}{f}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{n}{figuras\PYGZus{}}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{          }\PYG{n}{f}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{escala}\PYG{p}{(}\PYG{n}{factor}\PYG{p}{);}\PYG{c+c1}{//aplicamos la escala a cada figura.}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{k}{private}\PYG{o}{:}
+\PYG{+w}{    }\PYG{n}{Figuras}\PYG{+w}{ }\PYG{n}{figuras\PYGZus{}}\PYG{p}{;}
+\PYG{p}{\PYGZcb{};}
+\end{Verbatim}

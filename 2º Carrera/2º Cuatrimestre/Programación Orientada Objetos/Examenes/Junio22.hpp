@@ -47,10 +47,10 @@ class Cliente{
 
 class Contrato{
     public:
-        Contrato(/*Parámetros propios*/ Cliente& c):cliente_(c){}
-        inline Cliente tiene()const noexcept{return cliente_;}
+        Contrato(/*Parámetros propios*/ Cliente& c):cliente_(&c){}
+        inline Cliente tiene()const noexcept{return *cliente_;}
     private:
-        Cliente cliente_;
+        Cliente* cliente_;
 };
 
 
@@ -74,4 +74,35 @@ class Contrato_Vehiculo{
     //Relaciones entre las clases
     CVD directa_;
     VCD inversa_;
+};
+
+
+template <typename T>
+class MatrizTriangularSuperior{
+public:
+  explicit MatrizTriangularSuperior(size_t n=1) noexcept
+   :n(n), v(n*(n+1)/2){};
+  ~MatrizTriangularSuperior()=default;
+  T operador() (size_t i, size_t j) const{
+    if(i>= n || j>=n)throw out_of_range;
+    return v[i*(2+n-i+1)/2 + j - i];
+  }
+  size_t orden() const noexcept{return n;}
+private:
+  size_t n;
+  std::vector<T>v; //Es la diagonal superior
+};
+
+template<typename T>
+class MatrizSimetrica:private MatrizTriangularSuperior
+{
+    public:
+        MatrizSimetrica(size_t orden = 1):MatrizTriangularSuperior<T>(orden){}
+
+        size_t orden()const noexcept{return this->orden();}
+        T operador() (size_t i, size_t j) const{
+            this->operador();
+        }
+    private:
+        size_t n;
 };

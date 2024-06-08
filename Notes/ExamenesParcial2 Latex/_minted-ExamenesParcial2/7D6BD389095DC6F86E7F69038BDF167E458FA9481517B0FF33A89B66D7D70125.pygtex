@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Ventana}\PYG{p}{\PYGZob{}\PYGZcb{};}
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Barra}\PYG{p}{\PYGZob{}\PYGZcb{};}
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{VentanaBarra}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{    }\PYG{n}{VentanaBarra}\PYG{p}{(}\PYG{n}{Ventana}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{v}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Barra}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{)}\PYG{o}{:}\PYG{n}{ventana\PYGZus{}}\PYG{p}{(}\PYG{n}{v}\PYG{p}{),}\PYG{n}{barras\PYGZus{}}\PYG{p}{(}\PYG{n}{b}\PYG{p}{)\PYGZob{}\PYGZcb{}}
+\PYG{+w}{  }\PYG{k}{private}\PYG{o}{:}
+\PYG{+w}{    }\PYG{n}{Ventana}\PYG{+w}{ }\PYG{n}{ventana\PYGZus{}}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{Barra}\PYG{+w}{ }\PYG{n}{barras\PYGZus{}}\PYG{p}{;}
+\PYG{p}{\PYGZcb{};}
+\end{Verbatim}

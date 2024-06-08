@@ -1,0 +1,147 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZdq{}cadena.hpp\PYGZdq{}}
+\PYG{c+c1}{//Definimos la variable estática}
+\PYG{k+kt}{char}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{o}{::}\PYG{n}{vacia}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{=}\PYG{p}{\PYGZob{}}\PYG{l+s+sc}{\PYGZsq{}\PYGZbs{}0\PYGZsq{}}\PYG{p}{\PYGZcb{};}
+
+\PYG{c+cm}{/*\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}Métodos publicos de la clase Cadena\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}*/}
+\PYG{c+c1}{//Constructores de la clase cadena}
+\PYG{n}{Cadena}\PYG{o}{::}\PYG{n}{Cadena}\PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{t}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{char}\PYG{+w}{ }\PYG{n}{c}\PYG{p}{)}\PYG{o}{:}\PYG{n}{tam}\PYG{p}{(}\PYG{n}{t}\PYG{p}{),}\PYG{n}{s}\PYG{p}{(}\PYG{n}{vacia}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{tam}\PYG{o}{\PYGZgt{}}\PYG{l+m+mi}{0}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{s}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{k+kt}{char}\PYG{p}{[}\PYG{n}{tam}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{];}
+\PYG{+w}{        }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{n}{tam}\PYG{+w}{ }\PYG{p}{;}\PYG{n}{i}\PYG{o}{++}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{s}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{=}\PYG{n}{c}\PYG{p}{;}
+\PYG{+w}{        }\PYG{n}{s}\PYG{p}{[}\PYG{n}{tam}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{vacia}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{];}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{n}{Cadena}\PYG{o}{::}\PYG{n}{Cadena}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{other}\PYG{p}{)}\PYG{o}{:}\PYG{n}{tam}\PYG{p}{(}\PYG{n}{other}\PYG{p}{.}\PYG{n}{tam}\PYG{p}{),}\PYG{n}{s}\PYG{p}{(}\PYG{n}{vacia}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{tam}\PYG{o}{\PYGZgt{}}\PYG{l+m+mi}{0}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{s}\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{k+kt}{char}\PYG{p}{[}\PYG{n}{tam}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{];}
+\PYG{+w}{        }\PYG{c+c1}{//hacemos uso de strcpy}
+\PYG{+w}{        }\PYG{n}{strcpy}\PYG{p}{(}\PYG{n}{s}\PYG{p}{,}\PYG{n}{other}\PYG{p}{.}\PYG{n}{s}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{s}\PYG{p}{[}\PYG{n}{tam}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{n}{vacia}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{];}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{n}{Cadena}\PYG{o}{::}\PYG{n}{Cadena}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{k+kt}{char}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{c}\PYG{p}{)}\PYG{o}{:}\PYG{n}{tam}\PYG{p}{(}\PYG{n}{strlen}\PYG{p}{(}\PYG{n}{c}\PYG{p}{)),}\PYG{+w}{ }\PYG{n}{s}\PYG{p}{(}\PYG{n}{vacia}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{tam}\PYG{o}{\PYGZgt{}}\PYG{l+m+mi}{0}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{s}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{k+kt}{char}\PYG{p}{[}\PYG{n}{tam}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{];}
+\PYG{+w}{        }\PYG{n}{strcpy}\PYG{p}{(}\PYG{n}{s}\PYG{p}{,}\PYG{n}{c}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{s}\PYG{p}{[}\PYG{n}{tam}\PYG{p}{]}\PYG{o}{=}\PYG{n}{vacia}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{];}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{//Operadores de asignación por copia}
+\PYG{n}{Cadena}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{o}{::}\PYG{k}{operator}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{other}\PYG{p}{)}\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{c+c1}{//evitos autoasignación}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{k}{this}\PYG{o}{!=\PYGZam{}}\PYG{n}{other}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{if}\PYG{p}{(}\PYG{n}{tam}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{            }\PYG{k}{delete}\PYG{p}{[]}\PYG{+w}{ }\PYG{n}{s}\PYG{p}{;\PYGZcb{}}
+\PYG{+w}{        }\PYG{n}{tam}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{other}\PYG{p}{.}\PYG{n}{tam}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k}{if}\PYG{p}{(}\PYG{n}{other}\PYG{p}{.}\PYG{n}{tam}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{s}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{k+kt}{char}\PYG{p}{[}\PYG{n}{tam}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{];}
+\PYG{+w}{        }\PYG{n}{strcpy}\PYG{p}{(}\PYG{n}{s}\PYG{p}{,}\PYG{n}{other}\PYG{p}{.}\PYG{n}{s}\PYG{p}{);}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}\PYG{k}{else}\PYG{p}{\PYGZob{}}\PYG{n}{s}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{vacia}\PYG{p}{;\PYGZcb{}}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{o}{*}\PYG{k}{this}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+
+\PYG{n}{Cadena}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{o}{::}\PYG{k}{operator}\PYG{+w}{ }\PYG{o}{=}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{k+kt}{char}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{c}\PYG{p}{)}\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{o}{*}\PYG{k}{this}\PYG{o}{!=}\PYG{n}{c}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{if}\PYG{p}{(}\PYG{n}{tam}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{)\PYGZob{}}\PYG{k}{delete}\PYG{+w}{ }\PYG{p}{[]}\PYG{+w}{ }\PYG{n}{s}\PYG{p}{;\PYGZcb{}}
+\PYG{+w}{        }\PYG{n}{tam}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{strlen}\PYG{p}{(}\PYG{n}{c}\PYG{p}{);}
+\PYG{+w}{        }\PYG{k}{if}\PYG{p}{(}\PYG{n}{strlen}\PYG{p}{(}\PYG{n}{c}\PYG{p}{)}\PYG{o}{\PYGZgt{}}\PYG{l+m+mi}{0}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{            }\PYG{n}{s}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{k+kt}{char}\PYG{+w}{ }\PYG{p}{[}\PYG{n}{tam}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{];}
+\PYG{+w}{            }\PYG{n}{strcpy}\PYG{p}{(}\PYG{n}{s}\PYG{p}{,}\PYG{n}{c}\PYG{p}{);}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{        }\PYG{k}{else}\PYG{p}{\PYGZob{}}\PYG{n}{s}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{vacia}\PYG{p}{;\PYGZcb{}}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{o}{*}\PYG{k}{this}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{//Concatenación de cadenas}
+\PYG{n}{Cadena}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{o}{::}\PYG{k}{operator}\PYG{+w}{ }\PYG{o}{+=}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{other}\PYG{p}{)}\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{c+c1}{//Creamos una cadena nueva que contedrá las dos cadenas concatenadas}
+\PYG{+w}{    }\PYG{k+kt}{char}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{concatenada}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{k+kt}{char}\PYG{+w}{ }\PYG{p}{[}\PYG{n}{tam}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{];}
+\PYG{+w}{    }\PYG{c+c1}{//Copiamo una de las cadenas}
+\PYG{+w}{    }\PYG{n}{strcpy}\PYG{p}{(}\PYG{n}{concatenada}\PYG{p}{,}\PYG{n}{s}\PYG{p}{);}
+\PYG{+w}{    }\PYG{c+c1}{//Modificamos el taño}
+\PYG{+w}{    }\PYG{n}{tam}\PYG{+w}{ }\PYG{o}{+=}\PYG{+w}{ }\PYG{n}{other}\PYG{p}{.}\PYG{n}{tam}\PYG{p}{;}
+\PYG{+w}{    }\PYG{c+c1}{//destruimos la cadena original y la reemplazamos}
+\PYG{+w}{    }\PYG{k}{delete}\PYG{+w}{ }\PYG{p}{[]}\PYG{+w}{ }\PYG{n}{s}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{s}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{k+kt}{char}\PYG{p}{[}\PYG{n}{tam}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{];}
+\PYG{+w}{    }\PYG{c+c1}{//Concatenamos dos cadenas}
+\PYG{+w}{    }\PYG{n}{strcpy}\PYG{p}{(}\PYG{n}{s}\PYG{p}{,}\PYG{n}{concatenada}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{strcat}\PYG{p}{(}\PYG{n}{s}\PYG{p}{,}\PYG{n}{other}\PYG{p}{.}\PYG{n}{s}\PYG{p}{);}
+\PYG{+w}{    }\PYG{c+c1}{//eliminamos la cadena auxiliar}
+\PYG{+w}{    }\PYG{k}{delete}\PYG{+w}{ }\PYG{p}{[]}\PYG{+w}{ }\PYG{n}{concatenada}\PYG{p}{;}
+\PYG{+w}{    }\PYG{c+c1}{//devolvemos la cadena final concatenada}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{o}{*}\PYG{k}{this}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{n}{Cadena}\PYG{+w}{ }\PYG{k}{operator}\PYG{+w}{ }\PYG{o}{+}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{o}{\PYGZam{}}\PYG{n}{c1}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{c2}\PYG{p}{)}\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{c+c1}{//Creamos una cadena nueva \PYGZhy{}\PYGZgt{} resultante de la concatenación}
+\PYG{+w}{    }\PYG{n}{Cadena}\PYG{+w}{ }\PYG{n+nf}{auxiliar}\PYG{p}{(}\PYG{n}{c1}\PYG{p}{);}
+\PYG{+w}{    }\PYG{c+c1}{//devolvemos la cadena concatenada}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{auxiliar}\PYG{+w}{ }\PYG{o}{+=}\PYG{+w}{ }\PYG{n}{c2}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{//Operadores de índice}
+\PYG{k+kt}{char}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{o}{::}\PYG{n}{at}\PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{index}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{index}\PYG{o}{\PYGZlt{}}\PYG{n}{tam}\PYG{p}{)}\PYG{k}{return}\PYG{+w}{ }\PYG{n}{s}\PYG{p}{[}\PYG{n}{index}\PYG{p}{];}
+\PYG{+w}{    }\PYG{k}{else}\PYG{+w}{ }\PYG{k}{throw}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{out\PYGZus{}of\PYGZus{}range}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}ERROR at(): El indice supera el taño maximo de la cadena\PYGZdq{}}\PYG{p}{);}
+
+\PYG{p}{\PYGZcb{}}
+\PYG{k+kt}{char}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{o}{::}\PYG{n}{at}\PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{index}\PYG{p}{)}\PYG{k}{const}\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{index}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{tam}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{s}\PYG{p}{[}\PYG{n}{index}\PYG{p}{];}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{else}\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{throw}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{out\PYGZus{}of\PYGZus{}range}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}ERROR at(): El indice supera el taño maximo de la cadena\PYGZdq{}}\PYG{p}{);}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{n}{Cadena}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{o}{::}\PYG{n}{substr}\PYG{p}{(}\PYG{k+kt}{unsigned}\PYG{+w}{ }\PYG{n}{index}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{t}\PYG{p}{)}\PYG{k}{const}\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{index}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{t}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{tam}\PYG{+w}{ }\PYG{o}{||}\PYG{+w}{ }\PYG{n}{t}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{tam}\PYG{+w}{ }\PYG{o}{||}\PYG{+w}{ }\PYG{n}{index}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{tam}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{throw}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{out\PYGZus{}of\PYGZus{}range}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}ERROR substr(): Los valores dados superan el taño maximo de la cadena\PYGZdq{}}\PYG{p}{);}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{else}\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{c+c1}{//Creamos una cadena para imprimir la subcadena}
+\PYG{+w}{        }\PYG{n}{Cadena}\PYG{+w}{ }\PYG{n+nf}{subcadena}\PYG{p}{(}\PYG{n}{t}\PYG{p}{);}
+\PYG{+w}{        }\PYG{c+c1}{//Guardamos esa subcadena (indice + t);}
+\PYG{+w}{        }\PYG{n}{strncpy}\PYG{p}{(}\PYG{n}{subcadena}\PYG{p}{.}\PYG{n}{s}\PYG{p}{,}\PYG{n}{s}\PYG{o}{+}\PYG{n}{index}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{t}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{subcadena}\PYG{p}{.}\PYG{n}{s}\PYG{p}{[}\PYG{n}{t}\PYG{p}{]}\PYG{o}{=}\PYG{l+s+sc}{\PYGZsq{}\PYGZbs{}0\PYGZsq{}}\PYG{p}{;}
+\PYG{+w}{        }\PYG{c+c1}{//devolvemos la subcadena}
+\PYG{+w}{        }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{subcadena}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{//Destructor de cadena}
+\PYG{n}{Cadena}\PYG{o}{::\PYGZti{}}\PYG{n}{Cadena}\PYG{p}{()\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{tam}\PYG{o}{\PYGZgt{}}\PYG{l+m+mi}{0}\PYG{p}{)\PYGZob{}}\PYG{k}{delete}\PYG{+w}{ }\PYG{p}{[]}\PYG{+w}{ }\PYG{n}{s}\PYG{p}{;\PYGZcb{}}
+
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{//Operadores lógicos}
+\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{k}{operator}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{cadena1}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{cadena2}\PYG{p}{)}\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{strcmp}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{cadena1}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],}\PYG{o}{\PYGZam{}}\PYG{n}{cadena2}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{])}\PYG{o}{==}\PYG{l+m+mi}{0}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{k}{operator}\PYG{+w}{ }\PYG{o}{!=}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{cadena1}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{cadena2}\PYG{p}{)}\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{o}{!}\PYG{p}{(}\PYG{n}{cadena1}\PYG{o}{==}\PYG{n}{cadena2}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{k}{operator}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{cadena1}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{cadena2}\PYG{p}{)}\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{strcmp}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{cadena1}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],}\PYG{o}{\PYGZam{}}\PYG{n}{cadena2}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{])}\PYG{o}{\PYGZlt{}}\PYG{l+m+mi}{0}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{k}{operator}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{cadena1}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{cadena2}\PYG{p}{)}\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{o}{!}\PYG{p}{(}\PYG{n}{cadena2}\PYG{o}{\PYGZlt{}}\PYG{n}{cadena1}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{k}{operator}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{cadena1}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{cadena2}\PYG{p}{)}\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{cadena2}\PYG{o}{\PYGZlt{}}\PYG{n}{cadena1}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{k}{operator}\PYG{+w}{ }\PYG{o}{\PYGZgt{}=}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{cadena1}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{cadena2}\PYG{p}{)}\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{o}{!}\PYG{p}{(}\PYG{n}{cadena1}\PYG{o}{\PYGZlt{}}\PYG{n}{cadena2}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

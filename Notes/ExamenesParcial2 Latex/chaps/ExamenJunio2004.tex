@@ -1,0 +1,159 @@
+\underbar{\textbf{\large Ejercicio 3:}} Las Matemáticas enseñan que una circunferencia es una especie de elipse (degenerada), donde sus dos radios, $r_{x}$ y $r_y$, son iguales. Consideremos este principio para desarrollar, mediante orientación a objetos, una hipotética aplicación en C++. Hay que encontrar una forma conveniente de representar estas figuras geométricas en un modelo de objetos.
+
+Tras un primer análisis se identifican dos clases: Elipse y Circunferencia. La primera dispondrá de dos métodos observadores, \texttt{radio\_x()} y \texttt{radio\_y()}, mientras que la segunda dispondrá de un método observador, \texttt{radio()}. En ambas clases existirá un método \texttt{escala()} que recibirá un factor de escala y modificará los radios en dicho factor. Por último, la clase `Elipse` poseerá una sobrecarga de \texttt{escala()} que recibirá dos factores de escala independientes: uno para $r_x$ y otro para $r_y$.
+
+\begin{enumerate}[label=\alph*)]
+    \item¿Qué relación podemos establecer entre elipses y circunferencias para poder implementar las segundas a partir de las primeras siguiendo el análisis anterior? Escriba todo lo necesario para implementar dicha relación.
+    
+    \item ¿Tras un análisis más profundo, consideramos que las figuras planas son una abstracción útil de las elipses, circunferencias y otras figuras geométricas. Toda figura plana constaría de una operación de escalado para incrementar o disminuir su tamaño sin alterar su aspecto. ¿Qué relación podemos establecer entre figuras planas, elipses y circunferencias? Escriba todo lo necesario para implementar dicha relación.
+\end{enumerate}
+
+Tras completar las figuras planas con una operación de dibujo, nos damos cuenta de que una serie de figuras planas pueden agruparse en una escena que poseería sus propias operaciones de dibujo y escalado, consistentes en aplicar la operación correspondiente a cada una de las figuras que la integran. ¿Qué relación podemos establecer entre escenas y figuras planas? Escriba todo lo necesario para implementar dicha relación.
+
+
+Al ser una circunferencia una elipse degenerada donde el radio\_x y el radio\_y donde ambas son iguales, podemos relacionar las clases mediante una relación de composición o (herencia privada) ya que podemos delegar las operaciones escala y dibujo que se realiza en Elipse.
+
+\begin{minted}[breaklines]{C++}
+class Elipse{
+  public:
+    Elipse(double x, double y):x_(x),y_(y){}
+    inline double radio_x()const noexcept{return x_;}
+    inline double radio_y()const noexcept{return y_;}
+    //Como lo hará uso Circunferencia, lo hacemos virtual, redefinimos
+    inline virtual void escala(size_t factorescala){
+	  x_ *= factorescala;
+	  y_*=factorescala;
+    }
+    inline void escala(size_t factorescalax , size_t factorescalay){
+	  x_ *= factorescalax;
+	  y_ *= factorescalay;
+    }
+    virtual ~Elipse() = default; //al ser polimorifica, virtual
+private:
+    double x_,y_;
+};
+
+
+class Circunferencia: public Elipse{
+  public:
+    Circunferencia(double radio):Elipse(radio,radio), radio_(radio){}
+    inline double radio()const noexcept{return radio_;}
+    //delegamos en el método escala de Elipse, debido a la herencia
+    inline void escala(size_t factorescala)override{
+	Elipse::escala(factorescala);}
+  private:
+    double radio_;
+};
+\end{minted}
+
+Como nos dice que es una abstracción de muchas figuras geométricas, podemos implementar la clase FiguraPlana como una interfaz, donde las clases derivadas haran uso de esos métodos polimórficos.
+
+\begin{minted}[breaklines]{C++}
+class FiguraPlana{
+  public:
+    virtual void escala(size_t) =0;
+    virtual void dibujo()const = 0;
+    virtual ~FiguraPlana()=default; //polimorfica, virtual
+};
+\end{minted}
+
+Una escena va a contener un conjunto de figuras planas, como minimo 1, como máximo muchas, por tanto, una escena no va a existir si no hay figuras planas existentes (Elipse, Circunferencia,..).
+
+Además como FiguraPlana es una clase abastracta, esta no va a poder instanciarse por lo que la opción de composición está descartada y la imlementaremos como una agregación, donde Escena contendrá un conjunto de punteros de tipo FiguraPlana:
+
+\begin{minted}[breaklines]{C++}
+class Escena{
+  public:
+    typedef std::set<FiguraPlana*>Figuras;
+    Escena(FiguraPlana& f){figuras_.insert(&f);}
+    void dibuja()const{
+        for(const auto& f : figuras_){
+          f -> dibujo();
+        }
+    }
+    void escala(size_t factor){
+        for(auto f : figuras_){
+          f->escala(factor);//aplicamos la escala a cada figura.
+        }
+    }
+  private:
+    Figuras figuras_;
+};
+\end{minted}
+
+%------------------------------------------------------------------
+\underbar{\textbf{\large Ejercicio 4:}} Se trata de implementar en C++ una función genérica, \texttt{ordenado()}, que decida si los elementos de un rango de iteradores aparecen en un cierto orden. Para lograr la máxima generalidad, los únicos requisitos que la función impondrá es que los iteradores sean de entrada y que la relación de orden tenga las propiedades de un orden estricto débil. También hay que tratar adecuadamente los rangos vacíos, que se suponen ordenados, ya que no contienen elementos.
+
+\begin{enumerate}[label=\alph*)]
+  \item Escriba una versión que compruebe el orden respecto del operador \texttt{<} del tipo en cuestión.
+\begin{minted}[breaklines]{C++}
+template <typename Iter>
+bool ordenado(Iter inicio, Iter fin)
+{
+  if(inicio == fin) return true; //vacio = ordenado
+  Iter siguiente = inicio;
+  siguiente ++;
+
+  while(siguiente != fin)
+  {
+    if(*siguiente <*inicio) return false; // no ordenado
+    else
+    inicio++;
+    siguiente++;
+      
+  }
+  return true; //ordenado
+}
+  \end{minted}
+  \item Escriba una versión que compruebe el orden respecto de una función de comparación arbitraria.
+\begin{minted}[breaklines]{C++}
+template <typename Iter, typename Comparador>
+bool ordenado(Iter inicio, Iter fin, Comparador comparador)
+{
+  if(inicio == fin)return true; //vacio=ordenado
+  Iter siguiente = inicio;
+  siguiente++;
+
+  while(siguiente!=fin)
+  {
+      if(!comparador(*inicio,*siguiente))
+          return false;
+      inicio++;
+      siguiente++;
+  }
+  return true;
+}
+
+
+
+
+
+
+\end{minted}
+  \item Escriba un fragmento de código que compruebe si un vector de bajo nivel de enteros está en orden ascendente de valores absolutos. Emplee un objeto función.
+Lo haremos mediante un objeto a función:
+\begin{minted}[breaklines]{C++}
+struct ValoresABS{
+  bool operator()(int a, int b){
+    return abs(a) < abs(b);
+  }
+};
+
+int main()
+{
+  //Creamos el vector de enteros
+  std::vector<int>valores = {1, 4, -45, 3};
+  std::vector<int>valores2 = {1,2,-45,100};
+  bool ascendente = ordenado(valores.begin(),valores.end(),ValoresABS());
+  bool ascendente2 = ordenado(valores2.begin(),valores2.end(),ValoresABS());
+
+  if(ascendente2)std::cout<<"Ordenado ascendentemente";
+  else std::cout<<"No ordenado ascendentemente";
+  return 0;
+}
+\end{minted}
+\end{enumerate}
+
+
+
+

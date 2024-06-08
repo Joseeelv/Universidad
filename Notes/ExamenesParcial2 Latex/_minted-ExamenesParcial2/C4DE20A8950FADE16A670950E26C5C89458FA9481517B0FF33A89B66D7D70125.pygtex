@@ -1,0 +1,20 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Articulo}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n}{precio\PYGZus{}}\PYG{p}{;}
+\PYG{p}{\PYGZcb{};}
+
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{ArticuloAlmacenable}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{public}\PYG{+w}{ }\PYG{n}{Articulo}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{stock\PYGZus{}}\PYG{p}{;}
+\PYG{p}{\PYGZcb{};}
+
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{LibroDigital}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{public}\PYG{+w}{ }\PYG{n}{Articulo}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{n}{Fecha}\PYG{+w}{ }\PYG{n}{fech\PYGZus{}exp}\PYG{p}{;}
+\PYG{p}{\PYGZcb{};}
+
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Libro}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{public}\PYG{+w}{ }\PYG{n}{ArticuloAlmacenable}\PYG{p}{\PYGZob{}\PYGZcb{};}
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Revista}\PYG{o}{:}\PYG{+w}{ }\PYG{k}{public}\PYG{+w}{ }\PYG{n}{ArticuloAlmacenable}\PYG{p}{\PYGZob{}\PYGZcb{};}
+\PYG{c+c1}{//Clase nueva que nos piede el ejercicio}
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{LibroDigital}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{public}\PYG{+w}{ }\PYG{n}{Articulo}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{n}{Fecha}\PYG{+w}{ }\PYG{n}{f\PYGZus{}expir}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

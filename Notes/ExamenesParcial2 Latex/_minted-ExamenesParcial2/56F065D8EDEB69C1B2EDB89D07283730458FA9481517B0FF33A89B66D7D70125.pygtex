@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{+w}{  }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{Profesor\PYGZus{}Grupo::imparte}\PYG{p}{(}\PYG{n}{Profesor}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{prof}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Grupo}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{grupo}\PYG{p}{)}\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{directa\PYGZus{}}\PYG{p}{[}\PYG{o}{\PYGZam{}}\PYG{n}{prof}\PYG{p}{].}\PYG{n}{insert}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{grupo}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{inversa\PYGZus{}}\PYG{p}{[}\PYG{o}{\PYGZam{}}\PYG{n}{grupo}\PYG{p}{]}\PYG{o}{=\PYGZam{}}\PYG{n}{prof}\PYG{p}{;}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{Profesor\PYGZus{}Grupo::imparte}\PYG{p}{(}\PYG{n}{Grupo}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{grupo}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Profesor}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{prof}\PYG{p}{)}\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{imparte}\PYG{p}{(}\PYG{n}{prof}\PYG{p}{,}\PYG{n}{grupo}\PYG{p}{);}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

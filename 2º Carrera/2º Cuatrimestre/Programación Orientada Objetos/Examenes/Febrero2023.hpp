@@ -182,3 +182,47 @@ public:
         }
     inline virtual string nombre()const override {return nom_;}
 };
+
+#include <set>
+
+typedef Fecha;
+class Articulo{
+    double precio_;
+  public:
+    Articulo(double p):precio_(p){}
+};
+
+class ArticuloAlmacenable : public Articulo{
+    int stock_;
+  public:
+    ArticuloAlmacenable(int s, double p):Articulo(p),stock_(s){}
+};
+
+class LibroDigital : public Articulo{
+    Fecha fech_exp;
+  public:
+    LibroDigital(Fecha f, double p):Articulo(p),fech_exp(f){}
+};
+
+class Libro : public ArticuloAlmacenable{};
+class Revista: public ArticuloAlmacenable{};
+//Clase nueva que nos piede el ejercicio
+class LibroDigital : public Articulo{
+  Fecha f_expir_;
+public:
+  LibroDigital(Fecha f, double p, Cancion& c):Articulo(p),f_expir_(f){
+    setCanciones(c);
+  }
+  //Alias del conjunto de canciones del disco
+  typedef std::set<Cancion*>Canciones;
+  inline void setCanciones(Cancion&c )noexcept{
+    canciones_.insert(&c);
+  }
+  inline const Canciones& getCanciones()const noexcept{
+    return canciones_;
+  }
+private:
+  Canciones canciones_;
+}
+
+class Cancion{};

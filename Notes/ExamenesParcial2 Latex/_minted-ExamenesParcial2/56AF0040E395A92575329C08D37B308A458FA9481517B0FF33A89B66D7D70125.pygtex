@@ -1,0 +1,26 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{ACV}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{    }\PYG{c+c1}{//Alias de los diccionarios de Cliente y Vehiculo}
+\PYG{+w}{    }\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{map}\PYG{o}{\PYGZlt{}}\PYG{n}{Cliente}\PYG{o}{*}\PYG{p}{,}\PYG{n}{Reserva}\PYG{o}{*\PYGZgt{}}\PYG{+w}{ }\PYG{n}{Clientes}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{map}\PYG{o}{\PYGZlt{}}\PYG{n}{Vehiculo}\PYG{o}{*}\PYG{p}{,}\PYG{n}{Reserva}\PYG{o}{*\PYGZgt{}}\PYG{+w}{ }\PYG{n}{Vehiculos}\PYG{p}{;}
+\PYG{+w}{    }\PYG{c+c1}{//Alias de los diccionarios de las relaciones}
+\PYG{+w}{    }\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{map}\PYG{o}{\PYGZlt{}}\PYG{n}{Cliente}\PYG{o}{*}\PYG{p}{,}\PYG{n}{Vehiculos}\PYG{o}{\PYGZgt{}}\PYG{n}{CVs}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{map}\PYG{o}{\PYGZlt{}}\PYG{n}{Vehiculo}\PYG{o}{*}\PYG{p}{,}\PYG{n}{Clientes}\PYG{o}{\PYGZgt{}}\PYG{n}{VCs}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{c+c1}{//Método que asocian los objetos}
+\PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{setACV}\PYG{p}{(}\PYG{n}{Cliente}\PYG{o}{\PYGZam{}}\PYG{p}{,}\PYG{n}{Vehiculo}\PYG{o}{\PYGZam{}}\PYG{p}{,}\PYG{n}{Reserva}\PYG{o}{\PYGZam{}}\PYG{p}{)}\PYG{k}{noexcept}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{setACV}\PYG{p}{(}\PYG{n}{Vehiculo}\PYG{o}{\PYGZam{}}\PYG{p}{,}\PYG{n}{Cliente}\PYG{o}{\PYGZam{}}\PYG{p}{,}\PYG{n}{Reserva}\PYG{o}{\PYGZam{}}\PYG{p}{)}\PYG{k}{noexcept}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{c+c1}{//Métodos observadores}
+\PYG{+w}{    }\PYG{n}{Clientes}\PYG{+w}{ }\PYG{n+nf}{getClientes}\PYG{p}{(}\PYG{n}{Vehiculo}\PYG{o}{\PYGZam{}}\PYG{p}{)}\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{Vehiculos}\PYG{+w}{ }\PYG{n+nf}{getVehiculos}\PYG{p}{(}\PYG{n}{Cliente}\PYG{o}{\PYGZam{}}\PYG{p}{)}\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k}{private}\PYG{o}{:}
+\PYG{+w}{    }\PYG{n}{CVs}\PYG{+w}{ }\PYG{n}{directa\PYGZus{}}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{VCs}\PYG{+w}{ }\PYG{n}{inversa\PYGZus{}}\PYG{p}{;}
+\PYG{p}{\PYGZcb{};}
+
+\PYG{n}{Ahora}\PYG{+w}{ }\PYG{n}{vamos}\PYG{+w}{ }\PYG{n}{a}\PYG{+w}{ }\PYG{n}{implementar}\PYG{+w}{ }\PYG{n}{los}\PYG{+w}{ }\PYG{n}{métodos}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{no}\PYG{+w}{ }\PYG{n}{nos}\PYG{+w}{ }\PYG{n}{lo}\PYG{+w}{ }\PYG{n}{pide}\PYG{+w}{ }\PYG{n}{el}\PYG{+w}{ }\PYG{n}{enunciado}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{pero}\PYG{+w}{ }\PYG{n}{vamos}\PYG{+w}{ }\PYG{n}{a}\PYG{+w}{ }\PYG{n}{hacerlo}\PYG{+w}{ }\PYG{n}{para}\PYG{+w}{ }\PYG{n}{repasar}\PYG{p}{)}
+\PYG{err}{\PYGZbs{}}\PYG{n}{begin}\PYG{p}{\PYGZob{}}\PYG{n}{minted}\PYG{p}{\PYGZcb{}[}\PYG{n}{breaklines}\PYG{p}{]\PYGZob{}}\PYG{n}{C}\PYG{o}{++}\PYG{p}{\PYGZcb{}}
+
+\end{Verbatim}

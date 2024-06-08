@@ -1,0 +1,18 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{+w}{  }\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Profesor\PYGZus{}Grupo}\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{      }\PYG{c+c1}{//Alias de los diccionarios de la relacion}
+\PYG{+w}{      }\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{set}\PYG{o}{\PYGZlt{}}\PYG{n}{Grupo}\PYG{o}{*\PYGZgt{}}\PYG{n}{Grupos}\PYG{p}{;}
+\PYG{+w}{      }\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{map}\PYG{o}{\PYGZlt{}}\PYG{n}{Profesor}\PYG{o}{*}\PYG{p}{,}\PYG{n}{Grupos}\PYG{o}{\PYGZgt{}}\PYG{n}{Profe\PYGZus{}Grupo}\PYG{p}{;}
+\PYG{+w}{      }\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{map}\PYG{o}{\PYGZlt{}}\PYG{n}{Grupo}\PYG{o}{*}\PYG{p}{,}\PYG{n}{Profesor}\PYG{o}{*\PYGZgt{}}\PYG{n}{Grupo\PYGZus{}Profe}\PYG{p}{;}
+\PYG{+w}{      }\PYG{c+c1}{//relaciona las clases}
+\PYG{+w}{      }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{imparte}\PYG{p}{(}\PYG{n}{Profesor}\PYG{o}{\PYGZam{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Grupo}\PYG{o}{\PYGZam{}}\PYG{p}{)}\PYG{k}{noexcept}\PYG{p}{;}
+\PYG{+w}{      }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{imparte}\PYG{p}{(}\PYG{n}{Grupo}\PYG{o}{\PYGZam{}}\PYG{p}{,}\PYG{n}{Profesor}\PYG{o}{\PYGZam{}}\PYG{p}{)}\PYG{k}{noexcept}\PYG{p}{;}
+\PYG{+w}{      }\PYG{c+c1}{//Observadores de la clase}
+\PYG{+w}{      }\PYG{n}{Grupos}\PYG{+w}{ }\PYG{n+nf}{impartidos}\PYG{p}{(}\PYG{n}{Profesor}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{p}{)}\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{p}{;}
+\PYG{+w}{      }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Profesor}\PYG{o}{*}\PYG{+w}{ }\PYG{n+nf}{impartidos}\PYG{p}{(}\PYG{n}{Grupo}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{p}{)}\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{private}\PYG{o}{:}
+\PYG{+w}{      }\PYG{n}{Profe\PYGZus{}Grupo}\PYG{+w}{ }\PYG{n}{directa\PYGZus{}}\PYG{p}{;}
+\PYG{+w}{      }\PYG{n}{Grupo\PYGZus{}Profe}\PYG{+w}{ }\PYG{n}{inversa\PYGZus{}}\PYG{p}{;}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{};}
+\end{Verbatim}

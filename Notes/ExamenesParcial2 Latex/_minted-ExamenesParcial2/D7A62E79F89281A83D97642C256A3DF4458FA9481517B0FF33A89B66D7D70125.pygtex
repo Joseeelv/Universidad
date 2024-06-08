@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{Profesor::imparte}\PYG{p}{(}\PYG{n}{Grupo}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{g}\PYG{p}{)}\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{n}{grupos\PYGZus{}}\PYG{p}{.}\PYG{n}{insert}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{g}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{Alumno::matriculados\PYGZus{}en}\PYG{p}{(}\PYG{n}{Asignatura}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{asig}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Grupo}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{g}\PYG{p}{)}\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{n}{asignaturas\PYGZus{}}\PYG{p}{.}\PYG{n}{insert}\PYG{p}{(}\PYG{n}{std}\PYG{o}{::}\PYG{n}{make\PYGZus{}pair}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{asig}\PYG{p}{,}\PYG{o}{\PYGZam{}}\PYG{n}{g}\PYG{p}{));}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{err}{\PYGZbs{}}\PYG{n}{end}\PYG{p}{\PYGZob{}}\PYG{n}{itemize}\PYG{p}{\PYGZcb{}}
+
+\PYG{err}{\PYGZbs{}}\PYG{n}{underbar}\PYG{p}{\PYGZob{}}\PYG{err}{\PYGZbs{}}\PYG{n}{textbf}\PYG{p}{\PYGZob{}}\PYG{err}{\PYGZbs{}}\PYG{n}{large}\PYG{+w}{ }\PYG{n}{Ejercicio}\PYG{+w}{ }\PYG{l+m+mi}{4}\PYG{o}{:}\PYG{p}{\PYGZcb{}\PYGZcb{}}
+
+\PYG{err}{\PYGZbs{}}\PYG{n}{underbar}\PYG{p}{\PYGZob{}}\PYG{err}{\PYGZbs{}}\PYG{n}{textbf}\PYG{p}{\PYGZob{}}\PYG{err}{\PYGZbs{}}\PYG{n}{large}\PYG{+w}{ }\PYG{n}{Ejercicio}\PYG{+w}{ }\PYG{l+m+mi}{5}\PYG{o}{:}\PYG{p}{\PYGZcb{}\PYGZcb{}}
+
+\PYG{err}{\PYGZbs{}}\PYG{n}{underbar}\PYG{p}{\PYGZob{}}\PYG{err}{\PYGZbs{}}\PYG{n}{textbf}\PYG{p}{\PYGZob{}}\PYG{err}{\PYGZbs{}}\PYG{n}{large}\PYG{+w}{ }\PYG{n}{Ejercicio}\PYG{+w}{ }\PYG{l+m+mi}{6}\PYG{o}{:}\PYG{p}{\PYGZcb{}\PYGZcb{}}
+
+\PYG{err}{\PYGZbs{}}\PYG{n}{underbar}\PYG{p}{\PYGZob{}}\PYG{err}{\PYGZbs{}}\PYG{n}{textbf}\PYG{p}{\PYGZob{}}\PYG{err}{\PYGZbs{}}\PYG{n}{large}\PYG{+w}{ }\PYG{n}{Ejercicio}\PYG{+w}{ }\PYG{l+m+mi}{7}\PYG{o}{:}\PYG{p}{\PYGZcb{}\PYGZcb{}}
+
+\PYG{err}{\PYGZbs{}}\PYG{n}{underbar}\PYG{p}{\PYGZob{}}\PYG{err}{\PYGZbs{}}\PYG{n}{textbf}\PYG{p}{\PYGZob{}}\PYG{err}{\PYGZbs{}}\PYG{n}{large}\PYG{+w}{ }\PYG{n}{Ejercicio}\PYG{+w}{ }\PYG{l+m+mi}{8}\PYG{o}{:}\PYG{p}{\PYGZcb{}\PYGZcb{}}
+\end{Verbatim}

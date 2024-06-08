@@ -1,0 +1,67 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}ifndef FECHA\PYGZus{}HPP\PYGZus{}}
+\PYG{c+cp}{\PYGZsh{}define FECHA\PYGZus{}HPP\PYGZus{}}
+\PYG{c+c1}{//incluimos las librerias}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}iostream\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}ctime\PYGZgt{}}\PYG{c+c1}{ //para la fecha del sistema}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}utility\PYGZgt{}}\PYG{c+c1}{ //para los operadores lógicos}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}stdio.h\PYGZgt{}}\PYG{c+c1}{ //sscanf}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}cstring\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}cstdio\PYGZgt{}}
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Fecha}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{    }\PYG{c+c1}{//Ctor de 3 parámetros.}
+\PYG{+w}{    }\PYG{k}{explicit}\PYG{+w}{ }\PYG{n}{Fecha}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{dia}\PYG{+w}{ }\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{mes}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{anno}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{);}
+\PYG{+w}{    }\PYG{c+c1}{//Ctor a partir de cadena de bajo nivel \PYGZhy{}\PYGZgt{} dd/mm/aaaa.}
+\PYG{+w}{    }\PYG{n}{Fecha}\PYG{+w}{ }\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{k+kt}{char}\PYG{o}{*}\PYG{p}{);}
+\PYG{+w}{    }\PYG{c+c1}{//operador de conversion de cadena de bajo nivel a fecha}
+\PYG{+w}{    }\PYG{k}{operator}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{k+kt}{char}\PYG{o}{*}\PYG{p}{()}\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{p}{;}
+\PYG{+w}{    }\PYG{c+c1}{//atributos publicos que definen el rango de años.}
+\PYG{+w}{    }\PYG{k}{static}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{AnnoMinimo}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{1902}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{static}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{AnnoMaximo}\PYG{o}{=}\PYG{l+m+mi}{2037}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{c+c1}{//observadores de la clase}
+\PYG{+w}{    }\PYG{k+kr}{inline}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{dia}\PYG{p}{()}\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}\PYG{k}{return}\PYG{+w}{ }\PYG{n}{dia\PYGZus{}}\PYG{p}{;\PYGZcb{}}
+\PYG{+w}{    }\PYG{k+kr}{inline}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{mes}\PYG{p}{()}\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}\PYG{k}{return}\PYG{+w}{ }\PYG{n}{mes}\PYG{p}{;\PYGZcb{}}
+\PYG{+w}{    }\PYG{k+kr}{inline}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{anno}\PYG{p}{()}\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}\PYG{k}{return}\PYG{+w}{ }\PYG{n}{anno\PYGZus{}}\PYG{p}{;\PYGZcb{}}
+
+\PYG{+w}{    }\PYG{c+c1}{//Operadores incremento y decremento de la fecha}
+\PYG{+w}{    }\PYG{n}{Fecha}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{k}{operator}\PYG{+w}{ }\PYG{o}{++}\PYG{p}{();}
+\PYG{+w}{    }\PYG{n}{Fecha}\PYG{+w}{ }\PYG{k}{operator}\PYG{+w}{ }\PYG{o}{++}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{Fecha}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{k}{operator}\PYG{+w}{ }\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{p}{();}
+\PYG{+w}{    }\PYG{n}{Fecha}\PYG{+w}{ }\PYG{k}{operator}\PYG{+w}{ }\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{n}{Fecha}\PYG{+w}{ }\PYG{k}{operator}\PYG{+w}{ }\PYG{o}{+}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{const}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{Fecha}\PYG{+w}{ }\PYG{k}{operator}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{const}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{n}{Fecha}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{k}{operator}\PYG{+w}{ }\PYG{o}{+=}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{Fecha}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{k}{operator}\PYG{+w}{ }\PYG{o}{\PYGZhy{}=}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{c+c1}{//clase de la excepcion}
+\PYG{+w}{    }\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Invalida}\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{            }\PYG{n}{Invalida}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{k+kt}{char}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{c}\PYG{p}{)}\PYG{o}{:}\PYG{n}{motivo\PYGZus{}}\PYG{p}{(}\PYG{n}{c}\PYG{p}{)\PYGZob{}\PYGZcb{}}
+\PYG{+w}{            }\PYG{k}{const}\PYG{+w}{ }\PYG{k+kt}{char}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{por\PYGZus{}que}\PYG{p}{()}\PYG{k}{const}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{k}{return}\PYG{+w}{ }\PYG{n}{motivo\PYGZus{}}\PYG{p}{;\PYGZcb{}}
+\PYG{+w}{        }\PYG{k}{private}\PYG{o}{:}
+\PYG{+w}{            }\PYG{k}{const}\PYG{+w}{ }\PYG{k+kt}{char}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{motivo\PYGZus{}}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{};}
+\PYG{+w}{  }\PYG{k}{private}\PYG{o}{:}
+\PYG{+w}{    }\PYG{c+c1}{//atributos de los objetos clase}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{dia\PYGZus{}}\PYG{p}{,}\PYG{n}{mes}\PYG{p}{,}\PYG{n}{anno\PYGZus{}}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{mutable}\PYG{+w}{ }\PYG{k+kt}{char}\PYG{+w}{ }\PYG{n}{crep}\PYG{p}{[}\PYG{l+m+mi}{45}\PYG{p}{];}
+\PYG{+w}{    }\PYG{k}{mutable}\PYG{+w}{ }\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{n}{actual}\PYG{p}{;}
+\PYG{+w}{    }\PYG{c+c1}{//métodos privados comprobadores de fecha}
+\PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{comprueba\PYGZus{}fecha}\PYG{p}{()}\PYG{k}{const}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//comprueba que la fecha sea válida}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{ultimo\PYGZus{}dia}\PYG{p}{()}\PYG{k}{const}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//devuelve el último dia del mes}
+\PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{actualizar}\PYG{p}{()}\PYG{k}{const}\PYG{p}{;}
+\PYG{p}{\PYGZcb{};}
+\PYG{c+c1}{//Operadores lógicos de comparación}
+\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{k}{operator}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Fecha}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Fecha}\PYG{o}{\PYGZam{}}\PYG{p}{);}
+\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{k}{operator}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Fecha}\PYG{o}{\PYGZam{}}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Fecha}\PYG{o}{\PYGZam{}}\PYG{p}{);}
+\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{k}{operator}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Fecha}\PYG{o}{\PYGZam{}}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Fecha}\PYG{o}{\PYGZam{}}\PYG{p}{);}
+\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{k}{operator}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Fecha}\PYG{o}{\PYGZam{}}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Fecha}\PYG{o}{\PYGZam{}}\PYG{p}{);}
+\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{k}{operator}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Fecha}\PYG{o}{\PYGZam{}}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Fecha}\PYG{o}{\PYGZam{}}\PYG{p}{);}
+\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{k}{operator}\PYG{+w}{ }\PYG{o}{\PYGZgt{}=}\PYG{+w}{ }\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Fecha}\PYG{o}{\PYGZam{}}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Fecha}\PYG{o}{\PYGZam{}}\PYG{p}{);}
+
+\PYG{c+cp}{\PYGZsh{}endif }\PYG{c+c1}{//Fecha.hpp}
+\end{Verbatim}

@@ -1,0 +1,232 @@
+\chapter{Práctica 1}
+
+En esta práctica seguiremos con las clases Fecha y Cadena definidas previamente en la práctica 0,
+ donde en cada una de ellas realizaremos algunas modificaciones e incluiremos nuevos operadores 
+ de inserción y extracción en flujo e iteradores.
+
+\section{Clase Fecha}
+En la clase Fecha vamos a incluir el operador de extracción e inserción en flujo (cin y cout),
+respectivamente.
+\begin{itemize}
+    \item \textbf{\underbar{Operador de extracción (\texttt{>>}):}} Para la extracción (lectura), y 
+    con el fin de simplificar el ejercicio, se seguirá el formato DD/MM/AAAA, donde 
+    se utilizarán 1 o 2 dígitos decimales para el día (DD) y el mes (MM), y 4 para el año (AAAA).
+    
+    \item \textbf{\underbar{Operador de inserción (\texttt{<<}):}} Para la inserción (salida), se utilizará el formato 
+    NDS DD de NM de AAAA, siendo NDS el nombre del día de la semana, DD el día del mes, 
+    NM el nombre del mes y AAAA el año expresado con 4 dígitos decimales.
+\end{itemize}
+
+Para evitar problemas de ambigüedad, se retirará el antiguo operador de conversión implícita a 
+\textbf{const char*}, que pasará a ser un método explícito de conversión a const char* llamado 
+\texttt{Fecha::cadena()}.
+\subsection{Fecha.hpp modificado}
+Definimos los nuevos métodos:
+\begin{minted}[breaklines]{C++}
+class Fecha{
+    public:
+        //código de la P0
+        //Reemplazamos operator const char*()const noexcept por:
+        const char* cadena() const noexcept;
+    private:
+        //...
+};
+//Operadores lógicos
+//...
+//Se incluye fuera de la clase
+std::ostream& operator <<(std::ostream&, const Fecha& )noexcept;
+std::istream& operator >>(std::istream&, Fecha&);
+\end{minted}
+\newpage
+\subsection{Fecha.cpp modificado}
+Implementamos los nuevos métodos:
+\begin{minted}[breaklines]{C++}
+//Métodos de la P0 ya implementados
+
+const char* Fecha::cadena() const noexcept{
+    if(!actual){
+        actualizar();
+        actual = true;
+    }
+    return crep;
+}
+
+//Operadores de flujo
+std::ostream& operator << (std::ostream& output, const Fecha& f)noexcept{
+    return output<<f.cadena();
+}
+std::istream& operator >>(std::istream& input, Fecha& f){
+    //reservamos memoria para la nueva cadena introducida
+    char nuevafecha[12]=""; 
+    //obtenemos lo introducido por teclado+
+    input.width(12);
+    input.getline(nuevafecha,12);
+    //comprobamos que la fecha es válida
+     try {
+        f = nuevafecha; // Se intenta crear la fecha desde la cadena
+    } catch (const Fecha::Invalida& e) {
+        input.setstate(std::ios::failbit); // Se marca el flujo de entrada como fallido
+        throw; // Se relanza la excepción
+    }
+    return input;
+}
+\end{minted}
+
+\newpage
+\section{Clase Cadena}
+Al igual que en la clase Fecha, en la clase Cadena también vamos a realizar varias modificaciones.
+Vamos a definir los operadores de inserción y extracción en flujo:
+\begin{itemize}
+    \item \textbf{\underbar{Operador de inserción (\texttt{<<}):}} La Cadena se insertará en un flujo sin 
+    cambios. Gracias a este operador, deja de ser necesaria la conversión a \textbf{const char*} 
+    para insertar una Cadena en un flujo.
+    \item \textbf{\underbar{Operador de extracción (\texttt{>>}):}} Una Cadena se podrá extraer (leer) de un 
+    flujo. Para ello, se leerá una palabra y se reemplazará con ella el contenido que tuviera 
+    la Cadena hasta ese momento.
+
+    Una \textbf{palabra} será una sucesión de caracteres qu no sea espacios en blancos, para poder
+    comprobar eso, haremos uso de \texttt{isspace()}, que comprueba si el caracter es ó no un espacio
+    en blanco. Si devuelve 0, significa que es un espacio en blanco y por tanto, se acaba la palabra.
+    La Cadena tendrá un tamaño máximo de 32 caracteres, a lo cual habrá que sumar el terminador nulo ``(\verb|\0|)".
+\end{itemize}
+
+Por otro lado, vamos a incluir los iteradores, así como los tipos contendedores de la STL, para hacer
+uso de las funciones relacionadas \texttt{begin()} y \texttt{end()}.
+
+La clase Cadena tendrá los tipos → \texttt{iterator}, \texttt{const iterator},
+ \texttt{reverse\_iterator} y \texttt{const reverse\_iterator}.
+
+La clase Cadena tendrá los métodos miembros → \texttt{begin()}, \texttt{end()}, \texttt{cbegin()}, 
+ \texttt{cend()}, \texttt{rbegin()}, \texttt{rend()}, \texttt{crbegin()}, \texttt{crend()}.
+
+Las funciones \texttt{(r)begin}/\texttt{(r)end} deben estar sobrecargadas para trabajar con 
+objetos de Cadena tanto constantes como modificables.
+
+Tenemos que incluir la librería \texttt{iterator} para poder hacer uso de estos.
+
+Para poder crear los iteradores inversos lo vamos a realizar de esta manera:
+\begin{center}
+\begin{lstlisting}[frame=single]
+typedef std::reverse_iterator<iterator> reverse_iterator;
+typedef std::reverse_iterator<const iterator> const_reverse_iterator;
+   \end{lstlisting}
+\end{center}
+
+Las funciones \texttt{(c)rbegin}/\texttt{(c)rend} se definen creando objetos a partir de los iteradores directos, pero utilizando los del extremo opuesto:
+\begin{center}
+    \begin{lstlisting}[frame=single]
+inline Cadena::reverse_iterator Cadena::rbegin() noexcept{
+    return reverse_iterator(end());
+}
+
+inline Cadena::reverse_iterator Cadena::rend() noexcept{
+    return reverse_iterator(begin());
+}   
+\end{lstlisting}
+\end{center}
+Del mismo modo, se definen las versiones const sobrecargadas y las explícitas con la c delante.
+
+Por último, vamos a realizar la semántica de movimiento donde debe tener en cuenta que la Cadena 
+inicial debe quedar en un estado válido tras la operación. Por ello, la Cadena original pasará a 
+ser la Cadena vacía una vez realizado el movimiento.
+
+\subsection{Cadena.hpp modificada}
+Incluimos los nuevos métodos definimos:
+\begin{minted}[breaklines]{C++}
+class Cadena{
+    public:
+        //Código de la P0
+
+        //Semantica de movimiento
+        Cadena(Cadena&&); //Constructor
+        //Operador asignación movimiento
+        const Cadena& operator = (Cadena&& )noexcept; 
+
+        //Iteradores
+        typedef char* iterator;
+        typedef const char* const_iterator;
+        typedef std::reverse_iterator<iterator> reverse_iterator;
+        typedef std::reverse_iterator<const_iterator> const_reverse_iterator;
+
+        //Podemos implementarlos aqui mediante inline, ya que son funciones muy cortitas
+        inline iterator begin() noexcept { return s_; }
+        inline const_iterator begin() const noexcept { return s_; }
+        inline const_iterator cbegin() const noexcept { return s_; }
+        inline iterator end() noexcept { return s_ + tam_; }
+        inline const_iterator end() const noexcept { return s_ + tam_; }
+        inline const_iterator cend() const noexcept { return s_ + tam_; }
+        inline reverse_iterator rbegin() noexcept{
+            return reverse_iterator(end()); }
+        inline const_reverse_iterator rbegin() const noexcept{
+            return const_reverse_iterator(end()); }
+        inline const_reverse_iterator crbegin() const noexcept{
+            return const_reverse_iterator(end()); }
+        inline reverse_iterator rend() noexcept{
+            return reverse_iterator(begin()); }
+        inline const_reverse_iterator rend() const noexcept{
+            return const_reverse_iterator(begin()); }
+        inline const_reverse_iterator crend() const noexcept{
+            return const_reverse_iterator(begin()); }
+    private:
+        //...
+};
+//Operadores de inserción y extracción de flujo
+std::ostream& operator << (std::ostream& , const Cadena&)noexcept;
+std::istream& operator >>(std::istream&, Cadena&)noexcept;
+
+//Esto lo incluiremos para poder pasar los tests de la P2 en adelante.
+//codigo hash Para P2 y ss .
+// Especialización de la plantilla std :: hash<Key> para definir la función hash a usar
+// en contenedores desordenados de Cadena, unordered_[set|map|multiset|multimap].
+namespace std{ //Estaremos dentro del espacio de nombres std
+    template <> // Es una especializaci ón de una plantilla para Cadena.
+    struct hash <Cadena>{
+        size_t operator() (const Cadena& cad) const //el operador funcion
+        {
+            hash<string> hs;
+            auto p{(const char*)(cad)};
+            string s{p};
+            size_t res{hs(s)};
+            return res;
+        }
+    };
+}
+\end{minted}
+
+\subsection{Cadena.cpp modificada}
+Incluimos la implementación de los nuevos métodos definidos en la P1:
+\begin{minted}[breaklines]{C++}
+//Constructor de Movimiento
+Cadena::Cadena(Cadena&& other):s_(other.s_),tam_(other.tam_){
+    if(tam_ > 0){
+        other.tam_ = 0;
+        other.s_ = vacia;
+    }
+}
+//operador de asignación por movimiento
+const Cadena& Cadena::operator = (Cadena&& other)noexcept{
+    if(this!= &other){
+        if(tam_ != other.tam_){
+            tam_=other.tam_;
+        }
+        s_ = other.s_;
+        other.tam_=0;
+        other.s_=vacia;
+    }
+    return *this;
+}
+//Operadores de inserción y extracción de flujo
+std::ostream& operator << (std::ostream& output, const Cadena& c)noexcept{
+    return output << c.operator const char *();
+
+}
+
+std::istream& operator >> (std::istream& input, Cadena& c)noexcept{
+    //vamos a introducir una nueva cadena
+    char nuevacadena[33]="";
+    input.width(33);
+    input>>nuevacadena;
+    c = nuevacadena;
+    return input;
+}
+\end{minted}
