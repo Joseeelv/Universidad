@@ -1,0 +1,64 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}ifndef \PYGZus{}PEDIDO\PYGZus{}HPP\PYGZus{}}
+\PYG{c+cp}{\PYGZsh{}define \PYGZus{}PEDIDO\PYGZus{}HPP\PYGZus{}}
+
+\PYG{c+c1}{//Inclusión de librerias y cabeceras}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZdq{}tarjeta.hpp\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZdq{}usuario.hpp\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZdq{}articulo.hpp\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZdq{}usuario\PYGZhy{}pedido.hpp\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZdq{}pedido\PYGZhy{}articulo.hpp\PYGZdq{}}
+
+\PYG{c+c1}{//Declaraciones adelantadas}
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Tarjeta}\PYG{p}{;}
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Pedido\PYGZus{}Articulo}\PYG{p}{;}
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Usuario\PYGZus{}Pedido}\PYG{p}{;}
+
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Pedido}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{    }\PYG{n}{Pedido}\PYG{p}{(}\PYG{n}{Usuario\PYGZus{}Pedido}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{p}{,}\PYG{n}{Pedido\PYGZus{}Articulo}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{p}{,}\PYG{n}{Usuario}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{p}{,}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Tarjeta}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{p}{,}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Fecha}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{f}\PYG{o}{=}\PYG{n}{Fecha}\PYG{p}{());}
+
+\PYG{+w}{    }\PYG{c+c1}{//Observadores de la clase}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{numero}\PYG{p}{()}\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{k}{return}\PYG{+w}{ }\PYG{n}{num\PYGZus{}}\PYG{p}{;\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Tarjeta}\PYG{o}{*}\PYG{+w}{ }\PYG{n+nf}{tarjeta}\PYG{p}{()}\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}\PYG{k}{return}\PYG{+w}{ }\PYG{n}{tarjeta\PYGZus{}}\PYG{p}{;\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Fecha}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n+nf}{fecha}\PYG{p}{()}\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}\PYG{k}{return}\PYG{+w}{ }\PYG{n}{f\PYGZus{}pedido\PYGZus{}}\PYG{p}{;\PYGZcb{}}
+\PYG{+w}{    }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n+nf}{total}\PYG{p}{()}\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}\PYG{k}{return}\PYG{+w}{ }\PYG{n}{importe\PYGZus{}Total\PYGZus{}}\PYG{p}{;\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{static}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{n\PYGZus{}total\PYGZus{}pedidos}\PYG{p}{()}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}\PYG{k}{return}\PYG{+w}{ }\PYG{n}{n\PYGZus{}pedidos\PYGZus{}}\PYG{p}{;\PYGZcb{}}
+
+\PYG{+w}{    }\PYG{c+c1}{//clase de la excepcion vacio}
+\PYG{+w}{    }\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Vacio}\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{Usuario}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{user\PYGZus{}}\PYG{p}{;}
+\PYG{+w}{      }\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{        }\PYG{n}{Vacio}\PYG{p}{(}\PYG{n}{Usuario}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{user}\PYG{p}{)}\PYG{o}{:}\PYG{n}{user\PYGZus{}}\PYG{p}{(}\PYG{n}{user}\PYG{p}{)\PYGZob{}\PYGZcb{}}
+\PYG{+w}{        }\PYG{n}{Usuario}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{usuario}\PYG{p}{()}\PYG{k}{const}\PYG{p}{\PYGZob{}}\PYG{k}{return}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{user\PYGZus{}}\PYG{p}{;\PYGZcb{}}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{};}
+
+\PYG{+w}{    }\PYG{c+c1}{//clase de la excepción Impostor}
+\PYG{+w}{    }\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Impostor}\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{Usuario}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{user\PYGZus{}}\PYG{p}{;}
+\PYG{+w}{      }\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{        }\PYG{n}{Impostor}\PYG{p}{(}\PYG{n}{Usuario}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{user}\PYG{p}{)}\PYG{o}{:}\PYG{n}{user\PYGZus{}}\PYG{p}{(}\PYG{n}{user}\PYG{p}{)\PYGZob{}\PYGZcb{}}
+\PYG{+w}{        }\PYG{n}{Usuario}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{usuario}\PYG{p}{()}\PYG{k}{const}\PYG{p}{\PYGZob{}}\PYG{k}{return}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{user\PYGZus{}}\PYG{p}{;\PYGZcb{}}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{};}
+
+\PYG{+w}{    }\PYG{c+c1}{//clase de la excepción SinStock}
+\PYG{+w}{    }\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{SinStock}\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{Articulo}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{articulo\PYGZus{}}\PYG{p}{;}
+\PYG{+w}{      }\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{        }\PYG{n}{SinStock}\PYG{p}{(}\PYG{n}{Articulo}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{articulo}\PYG{p}{)}\PYG{o}{:}\PYG{n}{articulo\PYGZus{}}\PYG{p}{(}\PYG{n}{articulo}\PYG{p}{)\PYGZob{}\PYGZcb{}}
+\PYG{+w}{        }\PYG{n}{Articulo}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{articulo}\PYG{p}{()}\PYG{k}{const}\PYG{p}{\PYGZob{}}\PYG{k}{return}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{articulo\PYGZus{}}\PYG{p}{;\PYGZcb{}}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{};}
+
+\PYG{+w}{  }\PYG{k}{private}\PYG{o}{:}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{num\PYGZus{}}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Tarjeta}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{tarjeta\PYGZus{}}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{Fecha}\PYG{+w}{ }\PYG{n}{f\PYGZus{}pedido\PYGZus{}}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n}{importe\PYGZus{}Total\PYGZus{}}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{static}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{n\PYGZus{}pedidos\PYGZus{}}\PYG{p}{;}
+\PYG{p}{\PYGZcb{};}
+
+\PYG{c+c1}{//Sobrecarga del operador de flujo}
+\PYG{n}{std}\PYG{o}{::}\PYG{n}{ostream}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{k}{operator}\PYG{+w}{ }\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{p}{(}\PYG{n}{std}\PYG{o}{::}\PYG{n}{ostream}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{p}{,}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Pedido}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{p}{)}\PYG{k}{noexcept}\PYG{p}{;}
+
+\PYG{c+cp}{\PYGZsh{}endif }\PYG{c+c1}{//!PEDIDO.HPP}
+\end{Verbatim}

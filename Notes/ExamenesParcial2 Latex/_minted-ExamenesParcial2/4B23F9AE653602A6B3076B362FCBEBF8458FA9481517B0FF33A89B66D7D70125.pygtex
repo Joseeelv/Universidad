@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{+w}{  }\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{byte}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{n}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{256}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{c+c1}{//Apartado 1}
+\PYG{+w}{  }\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Buffer}\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{n}{std}\PYG{o}{::}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}\PYG{n}{buf}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//Apartado 2}
+\PYG{+w}{    }\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{      }\PYG{n}{Buffer}\PYG{p}{()}\PYG{o}{:}\PYG{n}{buf}\PYG{p}{(}\PYG{n}{n}\PYG{p}{)\PYGZob{}\PYGZcb{}}\PYG{+w}{ }\PYG{c+c1}{//Apartado 3}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{};}
+\end{Verbatim}

@@ -1,0 +1,53 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{Pedido}\PYG{o}{::}\PYG{n}{Pedido}\PYG{p}{(}\PYG{n}{Usuario\PYGZus{}Pedido}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{up}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Pedido\PYGZus{}Articulo}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{pa}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Usuario}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{u}\PYG{p}{,}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Tarjeta}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{t}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Fecha}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{f}\PYG{p}{)}
+\PYG{+w}{  }\PYG{o}{:}\PYG{+w}{ }\PYG{n}{num\PYGZus{}}\PYG{p}{(}\PYG{n}{n\PYGZus{}pedidos\PYGZus{}}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{),}\PYG{+w}{ }\PYG{n}{tarjeta\PYGZus{}}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{t}\PYG{p}{),}\PYG{+w}{ }\PYG{n}{f\PYGZus{}pedido\PYGZus{}}\PYG{p}{(}\PYG{n}{f}\PYG{p}{),}\PYG{+w}{ }\PYG{n}{importe\PYGZus{}Total\PYGZus{}}\PYG{p}{(}\PYG{l+m+mf}{0.0}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{  }\PYG{c+c1}{// Vamos a comprobar todas la excepciones del constructor de pedido}
+\PYG{+w}{  }\PYG{c+c1}{// Si el usuario no tiene una compra realizada, el pedido está vacio}
+\PYG{+w}{  }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{u}\PYG{p}{.}\PYG{n}{compra}\PYG{p}{().}\PYG{n}{empty}\PYG{p}{())}\PYG{+w}{ }\PYG{k}{throw}\PYG{+w}{ }\PYG{n}{Pedido}\PYG{o}{::}\PYG{n}{Vacio}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{u}\PYG{p}{);}
+
+\PYG{+w}{  }\PYG{c+c1}{// Si el usuario es otro al que realiza la compra, excepción}
+\PYG{+w}{  }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{t}\PYG{p}{.}\PYG{n}{titular}\PYG{p}{()}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{u}\PYG{p}{)}\PYG{+w}{  }\PYG{k}{throw}\PYG{+w}{ }\PYG{n}{Pedido}\PYG{o}{::}\PYG{n}{Impostor}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{u}\PYG{p}{);}
+
+\PYG{+w}{  }\PYG{c+c1}{// Si la tarjeta está caducada o desactivada, excepción}
+\PYG{+w}{  }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{t}\PYG{p}{.}\PYG{n}{caducidad}\PYG{p}{()}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{f\PYGZus{}pedido\PYGZus{}}\PYG{p}{)}\PYG{+w}{  }\PYG{k}{throw}\PYG{+w}{ }\PYG{n}{Tarjeta}\PYG{o}{::}\PYG{n}{Caducada}\PYG{p}{(}\PYG{n}{t}\PYG{p}{.}\PYG{n}{caducidad}\PYG{p}{());}
+
+\PYG{+w}{  }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{o}{!}\PYG{n}{t}\PYG{p}{.}\PYG{n}{activa}\PYG{p}{())}\PYG{+w}{  }\PYG{k}{throw}\PYG{+w}{ }\PYG{n}{Tarjeta}\PYG{o}{::}\PYG{n}{Desactivada}\PYG{p}{();}
+\PYG{+w}{  }\PYG{c+c1}{// Si no hay stock del articulo, excepcion.}
+\PYG{+w}{  }\PYG{c+c1}{// Hacemos la conversión primero y luego comprobamos}
+\PYG{+w}{  }\PYG{n}{Usuario}\PYG{o}{::}\PYG{n}{Articulos}\PYG{+w}{ }\PYG{n}{carrito}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{u}\PYG{p}{.}\PYG{n}{compra}\PYG{p}{();}
+\PYG{+w}{  }\PYG{k}{for}\PYG{+w}{ }\PYG{p}{(}\PYG{k}{auto}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{n}{carrito}\PYG{p}{)\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{// carrito del usuario}
+\PYG{+w}{    }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{ArticuloAlmacenable}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{AA}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{dynamic\PYGZus{}cast}\PYG{o}{\PYGZlt{}}\PYG{n}{ArticuloAlmacenable}\PYG{+w}{ }\PYG{o}{*\PYGZgt{}}\PYG{p}{(}\PYG{n}{i}\PYG{p}{.}\PYG{n}{first}\PYG{p}{))\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{// hacemos conversion}
+\PYG{+w}{      }\PYG{c+c1}{// comprobamos el stock}
+\PYG{+w}{      }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{AA}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{stock}\PYG{p}{()}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{i}\PYG{p}{.}\PYG{n}{second}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{u}\PYG{p}{.}\PYG{n}{vaciar\PYGZus{}carro}\PYG{p}{();}
+\PYG{+w}{        }\PYG{k}{throw}\PYG{+w}{ }\PYG{n}{Pedido}\PYG{o}{::}\PYG{n}{SinStock}\PYG{p}{(}\PYG{n}{AA}\PYG{p}{);}
+\PYG{+w}{      }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{else}\PYG{+w}{ }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{LibroDigital}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{LD}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{dynamic\PYGZus{}cast}\PYG{o}{\PYGZlt{}}\PYG{n}{LibroDigital}\PYG{+w}{ }\PYG{o}{*\PYGZgt{}}\PYG{p}{(}\PYG{n}{i}\PYG{p}{.}\PYG{n}{first}\PYG{p}{))\PYGZob{}}
+\PYG{+w}{      }\PYG{c+c1}{// Si la fecha de expiración es \PYGZlt{} a la fecha del pedido, se añade con cantidad 0}
+\PYG{+w}{      }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{LD}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{f\PYGZus{}expir}\PYG{p}{()}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{Fecha}\PYG{p}{())\PYGZob{}}\PYG{+w}{                   }\PYG{c+c1}{// Ha expirado}
+\PYG{+w}{        }\PYG{n}{u}\PYG{p}{.}\PYG{n}{compra}\PYG{p}{(}\PYG{o}{*}\PYG{n}{LD}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{);}\PYG{+w}{ }\PYG{c+c1}{// Añadimos al pedido dicho articulo pero con la cantidad a 0}
+\PYG{+w}{      }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{else}\PYG{+w}{ }\PYG{k}{throw}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{logic\PYGZus{}error}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Pedido::Pedido \PYGZhy{} Tipo de articulo no conocido\PYGZdq{}}\PYG{p}{);}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{c+c1}{// Comprobamos que no se quede vacio el Pedido}
+\PYG{+w}{  }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{u}\PYG{p}{.}\PYG{n}{compra}\PYG{p}{().}\PYG{n}{empty}\PYG{p}{())}\PYG{+w}{ }\PYG{k}{throw}\PYG{+w}{ }\PYG{n}{Pedido}\PYG{o}{::}\PYG{n}{Vacio}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{u}\PYG{p}{);}
+\PYG{+w}{  }\PYG{c+c1}{// Realizamos la asociación Usuario \PYGZhy{} Pedido}
+\PYG{+w}{  }\PYG{n}{up}\PYG{p}{.}\PYG{n}{asocia}\PYG{p}{(}\PYG{o}{*}\PYG{k}{this}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{u}\PYG{p}{);}
+
+\PYG{+w}{  }\PYG{c+c1}{// Vamos a pedir el articulo}
+\PYG{+w}{  }\PYG{k}{for}\PYG{+w}{ }\PYG{p}{(}\PYG{k}{auto}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{i}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{n}{u}\PYG{p}{.}\PYG{n}{compra}\PYG{p}{())\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{importe\PYGZus{}Total\PYGZus{}}\PYG{+w}{ }\PYG{o}{+=}\PYG{+w}{ }\PYG{n}{i}\PYG{p}{.}\PYG{n}{first}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{precio}\PYG{p}{()}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{i}\PYG{p}{.}\PYG{n}{second}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{pa}\PYG{p}{.}\PYG{n}{pedir}\PYG{p}{(}\PYG{o}{*}\PYG{k}{this}\PYG{p}{,}\PYG{+w}{ }\PYG{o}{*}\PYG{p}{(}\PYG{n}{i}\PYG{p}{.}\PYG{n}{first}\PYG{p}{),}\PYG{+w}{ }\PYG{n}{i}\PYG{p}{.}\PYG{n}{first}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{precio}\PYG{p}{(),}\PYG{+w}{ }\PYG{n}{i}\PYG{p}{.}\PYG{n}{second}\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{c+c1}{// Ahora para restar el stock de dicho articulo hacemos lo mismo que arriba}
+\PYG{+w}{    }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{ArticuloAlmacenable}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{AA}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{dynamic\PYGZus{}cast}\PYG{o}{\PYGZlt{}}\PYG{n}{ArticuloAlmacenable}\PYG{+w}{ }\PYG{o}{*\PYGZgt{}}\PYG{p}{(}\PYG{n}{i}\PYG{p}{.}\PYG{n}{first}\PYG{p}{))\PYGZob{}}
+\PYG{+w}{      }\PYG{n}{AA}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{stock}\PYG{p}{()}\PYG{+w}{ }\PYG{o}{\PYGZhy{}=}\PYG{+w}{ }\PYG{n}{i}\PYG{p}{.}\PYG{n}{second}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{c+c1}{// Aumentamos el numero de pedidos y vaciamos el carro del usuario}
+\PYG{+w}{  }\PYG{n}{u}\PYG{p}{.}\PYG{n}{vaciar\PYGZus{}carro}\PYG{p}{();}
+\PYG{+w}{  }\PYG{n}{n\PYGZus{}pedidos\PYGZus{}}\PYG{o}{++}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

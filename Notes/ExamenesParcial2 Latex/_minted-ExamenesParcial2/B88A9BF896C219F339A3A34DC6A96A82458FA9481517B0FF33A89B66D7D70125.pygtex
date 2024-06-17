@@ -1,0 +1,80 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Alumno}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//declaración adelantada}
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Grupo}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//declaración adelantada}
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Asignatura}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{    }\PYG{c+c1}{//Relación con la clase Alumno}
+\PYG{+w}{    }\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{map}\PYG{o}{\PYGZlt{}}\PYG{n}{Alumno}\PYG{o}{*}\PYG{p}{,}\PYG{n}{Grupo}\PYG{o}{*\PYGZgt{}}\PYG{n}{Alumnos}\PYG{p}{;}
+\PYG{+w}{    }\PYG{c+c1}{//Como la minima Multiplicidad es 1, lo inicializamos en el constructor}
+\PYG{+w}{    }\PYG{n}{Asignatura}\PYG{p}{(}\PYG{n}{Alumno}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Grupo}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{g}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{      }\PYG{n}{setAlumno}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,}\PYG{n}{g}\PYG{p}{);}
+\PYG{+w}{      }\PYG{n}{setGrupo}\PYG{p}{(}\PYG{n}{g}\PYG{p}{);}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{setAlumno}\PYG{p}{(}\PYG{n}{Alumno}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Grupo}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{g}\PYG{p}{)}\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{n}{alumnos}\PYG{p}{.}\PYG{n}{insert}\PYG{p}{(}\PYG{n}{std}\PYG{o}{::}\PYG{n}{make\PYGZus{}pair}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{a}\PYG{p}{,}\PYG{o}{\PYGZam{}}\PYG{n}{g}\PYG{p}{));}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Alumnos}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{getAlumnos}\PYG{p}{()}\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{alumnos}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+
+
+\PYG{+w}{    }\PYG{c+c1}{//Relación con Grupo}
+\PYG{+w}{    }\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{set}\PYG{o}{\PYGZlt{}}\PYG{n}{Grupo}\PYG{o}{*\PYGZgt{}}\PYG{n}{Grupos}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{setGrupo}\PYG{p}{(}\PYG{n}{Grupo}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{g}\PYG{p}{)}\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{n}{grupos}\PYG{p}{.}\PYG{n}{insert}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{g}\PYG{p}{);}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Grupos}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n+nf}{getGrupos}\PYG{p}{()}\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{grupos}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{k}{private}\PYG{o}{:}
+\PYG{+w}{    }\PYG{n}{Alumnos}\PYG{+w}{ }\PYG{n}{alumnos}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{Grupos}\PYG{+w}{ }\PYG{n}{grupos}\PYG{p}{;}
+\PYG{p}{\PYGZcb{};}
+
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Alumno}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{    }\PYG{c+c1}{//Relación con Asignatura}
+\PYG{+w}{    }\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{map}\PYG{o}{\PYGZlt{}}\PYG{n}{Asignatura}\PYG{o}{*}\PYG{p}{,}\PYG{n}{Grupo}\PYG{o}{*\PYGZgt{}}\PYG{n}{Asignaturas}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{setAsignatura}\PYG{p}{(}\PYG{n}{Asignatura}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Grupo}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{g}\PYG{p}{)}\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{n}{asignaturas}\PYG{p}{.}\PYG{n}{insert}\PYG{p}{(}\PYG{n}{std}\PYG{o}{::}\PYG{n}{make\PYGZus{}pair}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{a}\PYG{p}{,}\PYG{o}{\PYGZam{}}\PYG{n}{g}\PYG{p}{));}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Asignaturas}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n+nf}{getAsignaturas}\PYG{p}{()}\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{asignaturas}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{k}{private}\PYG{o}{:}
+\PYG{+w}{    }\PYG{n}{Asignaturas}\PYG{+w}{ }\PYG{n}{asignaturas}\PYG{p}{;}
+\PYG{p}{\PYGZcb{};}
+
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Profesor}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//declaración adelantada}
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Grupo}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{    }\PYG{c+c1}{//Como la multiplicidad minima es 1, lo inicializamos en el ctor}
+\PYG{+w}{    }\PYG{n}{Grupo}\PYG{p}{(}\PYG{n}{Asignatura}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{,}\PYG{n}{Profesor}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{p}\PYG{p}{)}\PYG{o}{:}\PYG{n}{a\PYGZus{}}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{a}\PYG{p}{),}\PYG{n}{p\PYGZus{}}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{p}\PYG{p}{)\PYGZob{}\PYGZcb{}}
+\PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{setAsignatura}\PYG{p}{(}\PYG{n}{Asignatura}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{)}\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{n}{a\PYGZus{}}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{a}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{setProfesor}\PYG{p}{(}\PYG{n}{Profesor}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{p}\PYG{p}{)}\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{n}{p\PYGZus{}}\PYG{o}{=}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{p}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Asignatura}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{getAsignatura}\PYG{p}{()}\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}\PYG{k}{return}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{a\PYGZus{}}\PYG{p}{;\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Profesor}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{getProfesor}\PYG{p}{()}\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}\PYG{k}{return}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{p\PYGZus{}}\PYG{p}{;\PYGZcb{}}
+\PYG{+w}{  }\PYG{k}{private}\PYG{o}{:}
+\PYG{+w}{    }\PYG{n}{Asignatura}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{a\PYGZus{}}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{Profesor}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{p\PYGZus{}}\PYG{p}{;}
+\PYG{p}{\PYGZcb{};}
+
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Profesor}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{    }\PYG{c+c1}{//Relación con Grupo}
+\PYG{+w}{    }\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{set}\PYG{o}{\PYGZlt{}}\PYG{n}{Grupo}\PYG{o}{*\PYGZgt{}}\PYG{n}{Grupos}\PYG{p}{;}
+\PYG{+w}{    }\PYG{c+c1}{//Como la multiplicidad minima es 1, lo inicializamos en el ctor}
+\PYG{+w}{    }\PYG{n}{Profesor}\PYG{p}{(}\PYG{n}{Grupo}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{g}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{      }\PYG{n}{setGrupo}\PYG{p}{(}\PYG{n}{g}\PYG{p}{);}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{setGrupo}\PYG{p}{(}\PYG{n}{Grupo}\PYG{o}{\PYGZam{}}\PYG{n}{g}\PYG{p}{)}\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}\PYG{n}{grupos\PYGZus{}}\PYG{p}{.}\PYG{n}{insert}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{g}\PYG{p}{);\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Grupos}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{getGrupos}\PYG{p}{()}\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}\PYG{k}{return}\PYG{+w}{ }\PYG{n}{grupos\PYGZus{}}\PYG{p}{;\PYGZcb{}}
+\PYG{+w}{  }\PYG{k}{private}\PYG{o}{:}
+\PYG{+w}{    }\PYG{n}{Grupos}\PYG{+w}{ }\PYG{n}{grupos\PYGZus{}}\PYG{p}{;}
+\PYG{p}{\PYGZcb{};}
+
+\end{Verbatim}

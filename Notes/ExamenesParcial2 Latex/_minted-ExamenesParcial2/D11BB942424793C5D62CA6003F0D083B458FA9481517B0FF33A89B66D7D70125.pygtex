@@ -1,0 +1,30 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Elipse}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{    }\PYG{n}{Elipse}\PYG{p}{(}\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n}{y}\PYG{p}{)}\PYG{o}{:}\PYG{n}{x\PYGZus{}}\PYG{p}{(}\PYG{n}{x}\PYG{p}{),}\PYG{n}{y\PYGZus{}}\PYG{p}{(}\PYG{n}{y}\PYG{p}{)\PYGZob{}\PYGZcb{}}
+\PYG{+w}{    }\PYG{k+kr}{inline}\PYG{+w}{ }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n}{radio\PYGZus{}x}\PYG{p}{()}\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}\PYG{k}{return}\PYG{+w}{ }\PYG{n}{x\PYGZus{}}\PYG{p}{;\PYGZcb{}}
+\PYG{+w}{    }\PYG{k+kr}{inline}\PYG{+w}{ }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n}{radio\PYGZus{}y}\PYG{p}{()}\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}\PYG{k}{return}\PYG{+w}{ }\PYG{n}{y\PYGZus{}}\PYG{p}{;\PYGZcb{}}
+\PYG{+w}{    }\PYG{c+c1}{//Como lo hará uso Circunferencia, lo hacemos virtual, redefinimos}
+\PYG{+w}{    }\PYG{k+kr}{inline}\PYG{+w}{ }\PYG{k}{virtual}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{escala}\PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{factorescala}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{	  }\PYG{n}{x\PYGZus{}}\PYG{+w}{ }\PYG{o}{*=}\PYG{+w}{ }\PYG{n}{factorescala}\PYG{p}{;}
+\PYG{+w}{	  }\PYG{n}{y\PYGZus{}}\PYG{o}{*=}\PYG{n}{factorescala}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k+kr}{inline}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{escala}\PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{factorescalax}\PYG{+w}{ }\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{factorescalay}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{	  }\PYG{n}{x\PYGZus{}}\PYG{+w}{ }\PYG{o}{*=}\PYG{+w}{ }\PYG{n}{factorescalax}\PYG{p}{;}
+\PYG{+w}{	  }\PYG{n}{y\PYGZus{}}\PYG{+w}{ }\PYG{o}{*=}\PYG{+w}{ }\PYG{n}{factorescalay}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{virtual}\PYG{+w}{ }\PYG{o}{\PYGZti{}}\PYG{n}{Elipse}\PYG{p}{()}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{default}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//al ser polimorifica, virtual}
+\PYG{k}{private}\PYG{o}{:}
+\PYG{+w}{    }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n}{x\PYGZus{}}\PYG{p}{,}\PYG{n}{y\PYGZus{}}\PYG{p}{;}
+\PYG{p}{\PYGZcb{};}
+
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Circunferencia}\PYG{o}{:}\PYG{+w}{ }\PYG{k}{private}\PYG{+w}{ }\PYG{n}{Elipse}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{    }\PYG{n}{Circunferencia}\PYG{p}{(}\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n}{radio}\PYG{p}{)}\PYG{o}{:}\PYG{n}{Elipse}\PYG{p}{(}\PYG{n}{radio}\PYG{p}{,}\PYG{n}{radio}\PYG{p}{)\PYGZob{}\PYGZcb{}}
+\PYG{+w}{    }\PYG{k+kr}{inline}\PYG{+w}{ }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n}{radio}\PYG{p}{()}\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}\PYG{k}{return}\PYG{+w}{ }\PYG{n}{Elipse}\PYG{o}{::}\PYG{n}{radio\PYGZus{}x}\PYG{p}{();\PYGZcb{}}
+\PYG{+w}{    }\PYG{c+c1}{//delegamos en el método escala de Elipse, debido a la herencia}
+\PYG{+w}{    }\PYG{k+kr}{inline}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{escala}\PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{factorescala}\PYG{p}{)}\PYG{k}{override}\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{Elipse}\PYG{o}{::}\PYG{n}{escala}\PYG{p}{(}\PYG{n}{factorescala}\PYG{p}{);\PYGZcb{}}
+\PYG{p}{\PYGZcb{};}
+
+\end{Verbatim}

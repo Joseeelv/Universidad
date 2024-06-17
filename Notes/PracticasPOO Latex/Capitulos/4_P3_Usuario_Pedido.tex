@@ -1,0 +1,86 @@
+Si nos fijamos en el diagrama de clases de la práctica vemos que la relación entre las clases Usuario y Pedido es una relación de asociación pero sin atributos de enlace cuya multiplicidad es 1 - N.
+
+Esta clase de asociación va a almacenar dos atributos:
+\begin{itemize}
+  \item Un diccionario de puntero Usuario a un conjunto de elementos Pedidos (set):
+  \begin{center}
+    \begin{verbatim}
+      typedef std::set<Pedido*>Pedidos;
+      typedef std::map<Usuario*,Pedidos>Usuario_Pedido;
+    \end{verbatim}
+  \end{center}
+  \item Un diccionario de puntero Pedido a puntero Usuario.
+  \begin{center}
+    \begin{verbatim}
+      typedef std::map<Pedido*,Usuario*>Pedido_Usuario;
+    \end{verbatim}
+  \end{center}
+\end{itemize}
+
+Vamos a contar con dos métodos llamados \texttt{asocia()} que recibe por parámetro una referencia a Usuario y a Pedido. Debemos de realizar una sobrecarga del método intercambiando el orden de los parámetros.
+
+Por otro lado, tenemos dos métodos observadores:
+\begin{itemize}
+  \item Método llamado \texttt{pedidos()} que recibe como parámetro una referencia a Usuario y devuelve los Pedidos del mismo. Como puede haber un Usuario sin pedidos devolvemos una copia.
+  \item Método llamado \texttt{cliente()} que dado una referencia de un Pedido, este devuelve la dirección de memoria del Usuario que ha hecho el pedido.
+\end{itemize}
+
+\subsection{Usuario\_Pedido.hpp}
+\begin{minted}[breaklines]{C++}
+#ifndef USUARIO_PEDIDO_HPP
+#define USUARIO_PEDIDO_HPP
+// Incluimos cabeceras
+#include "usuario.hpp"
+#include "pedido.hpp"
+
+class Usuario_Pedido{
+public:
+  typedef std::set<Pedido *> Pedidos;
+  typedef std::map<Usuario *, Pedidos> UsuarioPedidos;
+  typedef std::map<Pedido *, Usuario *> PedidoUsuario;
+
+  void asocia(Usuario &, Pedido &) noexcept;
+  void asocia(Pedido &, Usuario &) noexcept;
+
+  // pedidos recibe un Usuario y devuelve los pedidos que éste ha realizado.
+  Pedidos pedidos(Usuario &) const noexcept;
+  // cliente recibe un Pedido y devuelve la dirección de memoria del usuario que ha hecho el pedido.
+  Usuario *cliente(Pedido &) const noexcept;
+
+private:
+  UsuarioPedidos usuariopedidos_;
+  PedidoUsuario pedidousuario_;
+};
+
+#endif //! USUARIO_PEDIDO.HPP
+\end{minted}
+
+\subsection{Usuario\_Pedido.cpp}
+\begin{minted}[breaklines]{C++}
+// Implementación de los métodos de la clase de asociación
+void Usuario_Pedido::asocia(Usuario &u, Pedido &p) noexcept{
+  usuariopedidos_[&u].insert(&p);
+  pedidousuario_[&p] = &u;
+}
+
+void Usuario_Pedido::asocia(Pedido &p, Usuario &u) noexcept{
+  // delegamos en el método anterior
+  asocia(u, p);
+}
+
+Usuario_Pedido::Pedidos Usuario_Pedido::pedidos(Usuario &u) const noexcept{
+  // comprobamos que existe el usuario
+  auto i = usuariopedidos_.find(&u);
+  if (i != usuariopedidos_.end())
+    return i->second;
+  else{
+    Usuario_Pedido::Pedidos pedidovacio;
+    return pedidovacio;
+  }
+}
+
+Usuario *Usuario_Pedido::cliente(Pedido &p) const noexcept{
+  // devolvemos el usuario de dicho pedido
+  return pedidousuario_.find(&p)->second;
+}
+\end{minted}

@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{C}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{;}\PYG{c+c1}{//atributo de enlace}
+\PYG{p}{\PYGZcb{};}
+\end{Verbatim}

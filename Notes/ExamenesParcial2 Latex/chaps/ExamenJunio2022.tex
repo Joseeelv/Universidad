@@ -1,20 +1,18 @@
-\underbar{\textbf{\large Ejercicio 1:}}
+\underbar{\textbf{\large Ejercicio 1:}} Sean las multiplicidades de las relaciones:\\
+Cliente - Vehiculo → N - M; Cliente - Contrato → 1 - N; Contrato - Vehiculo → 1..N - 1..M;
 \begin{figure}[h]
   \begin{center}
-    \includegraphics[width=\textwidth]{assets/Junio2022_1.png}
+    \includegraphics[width=0.5\textwidth]{assets/Junio2022_1.png}
   \end{center}
   \caption{Diagrama de clase del ejercicio}
 \end{figure}
 
-Multiplicidad de las relaciones:
-Cliente - Vehiculo → N - M; Cliente - Contrato → 1 - N; Contrato - Vehiculo → 1..N - 1..M;
-\newpage
 \begin{enumerate}[label =\alph*)]
   \item Crea una clase de asociación entre \textbf{Cliente-Vehículo ACV}.
 
   Implementación de la clase de asociación  \textbf{Cliente-Vehículo ACV}:
 
-  Como vemos es una relación de asignación con una clase de asociación Reserva, como tenemos una multiplicidad N - M pueden haber instancias de cada clase no instanciadas, cosa que tenemos que tener en cuenta los métodos observadores.
+  Como vemos es una relación de asignación con una clase de asociación Reserva, como tenemos una multiplicidad N - M pueden haber instancias de cada clase no relacionadas, cosa que tenemos que tener en cuenta los métodos observadores.
 \begin{minted}[breaklines]{C++}
 class ACV{
   public:
@@ -37,6 +35,7 @@ class ACV{
     VCs inversa_;
 };
 \end{minted}
+\newpage
 Ahora vamos a implementar los métodos (no nos lo pide el enunciado, pero vamos a hacerlo para repasar).
 \begin{minted}[breaklines]{C++}
 void ACV::setACV(Cliente& c, Vehiculo& v, Reserva& r)noexcept{
@@ -71,7 +70,6 @@ ACV::Vehiculos ACV::getVehiculos(Cliente& c)const noexcept{
   }
 }
 \end{minted}
-
   \item Crea la relación \textbf{Cliente-Contrato}.
 
   Implementación de la relación \textbf{Cliente-Contrato}:
@@ -100,7 +98,7 @@ class Contrato{
     Cliente* cliente_;
 };
 \end{minted}
-\newpage
+
 \item Por último, crea la relación \textbf{Vehículo-Contrato}.
   
   Para implementar una relación de asociación donde su multiplicidad es 1..N - 1..M, es decir, muchos - muchos donde siempre va a haber como mínimo un objeto de ambas clases relacionados, esa unión vamos a realizarla mediante un map, como ya lo hicimos mediante una clase de asociación en el apartado a, ahora lo implementaremos modificando las clases Contrato y Vehiculo, con la diferencia de que no hace falta la comprobación de si existe ni devolver un conjunto vacío gracias a la multiplicidad 1 - N, 1 - M, donde en el constructor recibirá un objeto de cada clase por parámetro.
@@ -152,7 +150,7 @@ class Vehiculo{
 \end{minted}
 \end{enumerate}
 \underbar{\textbf{\large Ejercicio 2:}}
-\begin{figure}[h]
+\begin{figure}[ht]
   \begin{center}
     \begin{lstlisting}[frame = single]
   template <typename T>
@@ -177,21 +175,23 @@ class Vehiculo{
 \begin{enumerate}[label=\alph*)]
   \item Como definiría la clase MatrizSimétrica, ¿como una Especialización o como una Composición? y por qué:
 
-  Una matriz MatrizTriangularSuperior es aquella que solo tiene valores distinto a 0 en su diagonal superior, por tanto, una matriz simétrica será aquella que los valores por encima de sus diagonales son iguales. Podemos delegar en las operaciones de la MatrizTriangularSuperior, por lo que vamos a implementarlo mediante una composición (herencia privada), esto hace que la implementación sea más facil y optima.
-
+  Una matriz MatrizTriangularSuperior es aquella que solo tiene valores distinto a 0 en su diagonal superior, por tanto, una matriz simétrica será aquella que los valores por encima de sus diagonales son iguales. Podemos delegar en las operaciones de la MatrizTriangularSuperior, por lo que vamos a implementarlo mediante una composición (objeto), esto hace que la implementación sea más facil y óptima.
+  \newpage
   \item Defina la clase MatrizSimetrica según lo elegido anteriormente.
 
 \begin{minted}[breaklines]{C++}
 template<typename T>
-class MatrizSimetrica:private MatrizTriangularSuperior<T>{
+class MatrizSimetrica{
   public:
-    MatrizSimetrica(size_t orden = 1):MatrizTriangularSuperior<T>(orden){}
-
-    //Delegamos en los métodos de la MatrizTriangularSuperior
-    size_t orden()const noexcept{return this->orden();}
-    T& operator() (size_t i, size_t j) const{
-        return this->operator()(i,j);
+    MatrizSimetrica(size_t orden = 1) : mt(orden) {}
+    size_t orden() const noexcept{
+      return mt.orden();
     }
+    T operator()(size_t i, size_t j)const{
+      return mt.operator()(i,j);
+    }
+private:
+  MatrizTriangularSuperior<T> mt;
 };
 
 \end{minted}
@@ -201,25 +201,53 @@ class MatrizSimetrica:private MatrizTriangularSuperior<T>{
   
 \begin{minted}[breaklines]{C++}
 template <typename T>
-class MatrizCuadrada{
+class MatrizCuadrada {
   public:
-    virtual T& operator()(size_t, size_t)const = 0;
-    virtual size_t orden()const noexcept = 0;
+    //Este método pasa a ser no const, para poder rellenar las matrices.
+    virtual T& operator()(size_t, size_t) = 0;
+    virtual size_t orden() const noexcept = 0;
     virtual ~MatrizCuadrada() = default;
 };
-template <typename T> class MatrizTriangularSuperior : public MatrizCuadrada<T>{};
-template<typename T> class MatrizSimetrica : private MatrizTriangularSuperior<T>, public MatrizCuadrada<T>{};
+template <typename T> class MatrizTriangularSuperior : public MatrizCuadrada<T>{
+public:
+  explicit MatrizTriangularSuperior(size_t n = 1) : n(n), v(n*(n+1)/2) {}
+  ~MatrizTriangularSuperior() = default;
+
+  T& operator()(size_t i, size_t j){
+    if (i >= n || j >= n) throw out_of_range("Fuera de rango");
+    return v[(i * n + j - (i * (i + 1) / 2))];
+  }
+  size_t orden() const noexcept{return n;}
+private:
+  size_t n;
+  std::vector<T> v;
+};
+
+
+
+
+
+
+template<typename T> class MatrizSimetrica : public MatrizCuadrada<T>{
+public:
+  MatrizSimetrica(size_t orden = 1) : mt(orden) {}  
+  size_t orden() const noexcept{return mt.orden();}
+  T& operator()(size_t i, size_t j){
+  return mt.operator()(i,j);
+  }
+private:
+  MatrizTriangularSuperior<T> mt;
+};
 
 \end{minted}
   \item Implementa una función genérica \texttt{rellenar<T,F>()} para matrices de cualquier tipo. Debe de funcionar con ambas matrices. Parámetro tipo F es una función, objeto función o expresión lambda que recibe coordenadas y cuyo resultado se calcula a través de un algoritmo. Usará parámetro F para objetos valor de cada elemento.
-  
 \begin{minted}[breaklines]{C++}
 template <typename T, typename F>
-void rellenar(T& matriz, F funcion){
+void rellenar(MatrizCuadrada<T>& matriz, F funcion) {
   size_t orden = matriz.orden();
-  for(auto i = 0; i < orden; i++){
-    for(auto j = i+1; j < orden; j++){
-      matriz(i,j) = funcion(i,j);
+  for (size_t i = 0; i < orden; i++) {
+    for (size_t j = 0; j < orden; j++) {
+      matriz(i, j) = funcion(i, j);
     }
   }
 }
@@ -239,16 +267,13 @@ struct SumaCoordenadas{
 \end{minted}
   \item Escribe un fragmento de código en la que uses la función \texttt{rellenar<T,F>()} para rellenar dos matrices, una simétrica de tipo int, y otra triangular de tipo double. Para la primera deberás emplear un objeto función mientras que para la segunda deberás de emplear una función lambda.
 \begin{minted}[breaklines]{C++}
-  
 int main(){
   //Creamos las matrices
   MatrizSimetrica<int>MS(5);
   MatrizTriangularSuperior<double>MTS(4);
-
   //Declaramos el objeto a funcion para la primera
   SumaCoordenadas coordenadas;
   rellenar(MS,coordenadas);
-
   //Declaramos la función lambda para la otra matriz
   auto lambda = [](size_t i, size_t j)->double{return 1.0/(i+j+1);};
   rellenar(MTS,lambda);

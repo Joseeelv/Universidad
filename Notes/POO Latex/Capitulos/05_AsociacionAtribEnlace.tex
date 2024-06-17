@@ -19,45 +19,46 @@ En este caso, ambos tienen multiplicidad muchos - muchos, por tanto, ese atribut
 
 \begin{center}
 	\begin{lstlisting}[frame=single]
+class Asignatura;
 class Persona{
   public:
-    typedef std::map<Asignatura*,tipo_atributo>Bs;
-    void setA(Asignatura&, tipo_atributo);
-    const Bs& getB()const;
+    typedef std::map<Asignatura*,int> Bs;
+    void setA(Asignatura&, int) noexcept;
+    const Bs& getB()const noexcept;
   private:
     Bs bs_;
 };
 
 class Asignatura{
   public:
-    typedef std::map<Persona*,tipo_atributo>As;
-    void setB(Persona&, tipo_atributo);
-    const As& getA()const;
+    typedef std::map<Persona*,int> As;
+    void setB(Persona&, int)noexcept;
+    const As& getA()const noexcept;
   private:
     As as_;
 };
 /*----------Implementacion de los metodos----------*/
-void Persona::setA(Asignatura& a, tipo_atributo atributo){
+void Persona::setA(Asignatura& a, int atributo) noexcept{
   //Sin permitir que se modifique la clave si existe en el diccionario.
   bs_.insert(std::make_pair(&a,atributo));
 
   //Permite modificar la clave si ya existe en el diccionario.
-  bs_[&a]=atributo;
+  //bs_[&a]=atributo;
 }
 
-const Persona::Bs& Persona::getB()const{
+const Persona::Bs& Persona::getB()const noexcept{
   return bs_; 
 }
 
-void Asignatura::setB(Persona& p, tipo_atributo atributo){
+void Asignatura::setB(Persona& p, int atributo)noexcept{
   //No permite que se modifique la clave si existe en el diccionario.
   as_.insert(std::make_pair(&p,atributo));
 
   //Permite modificar la clave si ya existe en el diccionario.
-  as_[&p]=atributo;
+  //as_[&p]=atributo;
 }
 
-const Asignatura::As& getA()const{
+const Asignatura::As& Asignatura::getA()const noexcept {
   return as_;
 }
 \end{lstlisting}

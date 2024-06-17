@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{+w}{  }\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Almacenamiento}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{public}\PYG{+w}{ }\PYG{n}{Buffer}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{double}\PYG{p}{,}\PYG{l+m+mi}{128}\PYG{o}{\PYGZgt{}}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{};}
+\end{Verbatim}

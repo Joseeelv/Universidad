@@ -18,7 +18,7 @@ class Empresa{
  public:
 //mediante un calificador, 
 //encontramos un objeto de la clase Persona
-   typedef std::map<C,Persona*>Bcalificada; 
+   typedef std::map<T,Persona*>Bcalificada; 
 //metodos de la clase
    void asocia(Persona&);
    const Bcalificada& getA()const;
@@ -32,7 +32,7 @@ class Persona{
    void asocia(Empresa&);
    const As& getB()const;
  private:
-   C calificador; //calificador de tipo C
+   T calificador; //calificador de tipo T(cualquier tipo de dato)
    As as_;
 };
 \end{lstlisting}

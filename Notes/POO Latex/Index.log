@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.27)  7 JUN 2024 13:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.27)  11 JUN 2024 20:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -824,7 +824,7 @@ LaTeX Font Info:    Font shape `OML/cmr/bx/n' in size <10.95> not available
 (Font)              Font shape `OML/cmm/b/it' tried instead on input line 279.
 ) (./Capitulos/01_Introduccion.tex [11]
 Cap\'{\i }tulo 2.
-<Imagenes/intro1.png, id=486, 390.45876pt x 483.8075pt>
+<Imagenes/intro1.png, id=491, 390.45876pt x 483.8075pt>
 File: Imagenes/intro1.png Graphic file (type png)
 <use Imagenes/intro1.png>
 Package pdftex.def Info: Imagenes/intro1.png  used on input line 8.
@@ -856,16 +856,16 @@ Cap\'{\i }tulo 3.
 [13
 
 ]
-<Imagenes/asociacion1.png, id=517, 597.23125pt x 230.8625pt>
+<Imagenes/asociacion1.png, id=524, 597.23125pt x 230.8625pt>
 File: Imagenes/asociacion1.png Graphic file (type png)
 <use Imagenes/asociacion1.png>
-Package pdftex.def Info: Imagenes/asociacion1.png  used on input line 46.
+Package pdftex.def Info: Imagenes/asociacion1.png  used on input line 48.
 (pdftex.def)             Requested size: 441.01773pt x 170.47977pt.
  [14 <./Imagenes/asociacion1.png>]
-<Imagenes/asociacion2.png, id=548, 559.08875pt x 121.45375pt>
+<Imagenes/asociacion2.png, id=550, 559.08875pt x 121.45375pt>
 File: Imagenes/asociacion2.png Graphic file (type png)
 <use Imagenes/asociacion2.png>
-Package pdftex.def Info: Imagenes/asociacion2.png  used on input line 82.
+Package pdftex.def Info: Imagenes/asociacion2.png  used on input line 79.
 (pdftex.def)             Requested size: 441.01773pt x 95.8084pt.
 ) (./Capitulos/03_ComposicionAgregacion.tex [15 <./Imagenes/asociacion2.png>]
 Cap\'{\i }tulo 4.
@@ -873,7 +873,7 @@ Cap\'{\i }tulo 4.
 
 ]) (./Capitulos/04_AsociacionCalificada.tex [17]
 Cap\'{\i }tulo 5.
-<Imagenes/asc.png, id=613, 574.145pt x 245.91875pt>
+<Imagenes/asc.png, id=623, 574.145pt x 245.91875pt>
 File: Imagenes/asc.png Graphic file (type png)
 <use Imagenes/asc.png>
 Package pdftex.def Info: Imagenes/asc.png  used on input line 5.
@@ -886,7 +886,7 @@ Package hyperref Warning: Difference (2) between bookmark levels is greater
 
  <./Imagenes/asc.png>]) (./Capitulos/05_AsociacionAtribEnlace.tex
 Cap\'{\i }tulo 6.
-<Imagenes/atribenlace.png, id=642, 733.74126pt x 414.54875pt>
+<Imagenes/atribenlace.png, id=652, 733.74126pt x 414.54875pt>
 File: Imagenes/atribenlace.png Graphic file (type png)
 <use Imagenes/atribenlace.png>
 Package pdftex.def Info: Imagenes/atribenlace.png  used on input line 6.
@@ -904,20 +904,19 @@ Cap\'{\i }tulo 7.
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 7.
 
-<Imagenes/AClS.png, id=697, 746.79pt x 483.8075pt>
+<Imagenes/AClS.png, id=708, 746.79pt x 483.8075pt>
 File: Imagenes/AClS.png Graphic file (type png)
 <use Imagenes/AClS.png>
 Package pdftex.def Info: Imagenes/AClS.png  used on input line 10.
-(pdftex.def)             Requested size: 441.01773pt x 285.70972pt.
+(pdftex.def)             Requested size: 264.61333pt x 171.42435pt.
+<Imagenes/AClS2.png, id=709, 561.09625pt x 110.4125pt>
+File: Imagenes/AClS2.png Graphic file (type png)
+<use Imagenes/AClS2.png>
+Package pdftex.def Info: Imagenes/AClS2.png  used on input line 41.
+(pdftex.def)             Requested size: 441.01773pt x 86.7835pt.
 [21
 
  <./Imagenes/AClS.png>]
-<Imagenes/AClS2.png, id=718, 561.09625pt x 110.4125pt>
-File: Imagenes/AClS2.png Graphic file (type png)
-<use Imagenes/AClS2.png>
-Package pdftex.def Info: Imagenes/AClS2.png  used on input line 37.
-(pdftex.def)             Requested size: 441.01773pt x 86.7835pt.
-
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -926,7 +925,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [22 <./Imagenes/AClS2.png>] [23] [24]) (./Capitulos/07_GeneralizacionEspecializacion.tex [25]
 Cap\'{\i }tulo 8.
-<Imagenes/gen1.png, id=887, 775.89874pt x 346.29375pt>
+<Imagenes/gen1.png, id=899, 775.89874pt x 346.29375pt>
 File: Imagenes/gen1.png Graphic file (type png)
 <use Imagenes/gen1.png>
 Package pdftex.def Info: Imagenes/gen1.png  used on input line 5.
@@ -941,12 +940,12 @@ Overfull \hbox (2.43333pt too wide) in paragraph at lines 4--18
 []$[]$ $[]$ 
  []
 
-<Imagenes/gen2.png, id=888, 785.93625pt x 454.69875pt>
+<Imagenes/gen2.png, id=900, 785.93625pt x 454.69875pt>
 File: Imagenes/gen2.png Graphic file (type png)
 <use Imagenes/gen2.png>
 Package pdftex.def Info: Imagenes/gen2.png  used on input line 27.
 (pdftex.def)             Requested size: 198.45662pt x 114.81226pt.
-<Imagenes/gen3.png, id=889, 717.68124pt x 428.60126pt>
+<Imagenes/gen3.png, id=901, 717.68124pt x 428.60126pt>
 File: Imagenes/gen3.png Graphic file (type png)
 <use Imagenes/gen3.png>
 Package pdftex.def Info: Imagenes/gen3.png  used on input line 36.
@@ -974,7 +973,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 76--99
  []
 
 [27]
-<Imagenes/gen4.png, id=917, 582.175pt x 343.2825pt>
+<Imagenes/gen4.png, id=929, 582.175pt x 343.2825pt>
 File: Imagenes/gen4.png Graphic file (type png)
 <use Imagenes/gen4.png>
 Package pdftex.def Info: Imagenes/gen4.png  used on input line 105.
@@ -985,7 +984,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 112--114
  []
 
 [28 <./Imagenes/gen4.png>]
-<Imagenes/gen5.png, id=924, 154.5775pt x 324.21124pt>
+<Imagenes/gen5.png, id=936, 154.5775pt x 324.21124pt>
 File: Imagenes/gen5.png Graphic file (type png)
 <use Imagenes/gen5.png>
 Package pdftex.def Info: Imagenes/gen5.png  used on input line 127.
@@ -999,30 +998,30 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 126--155
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [29 <./Imagenes/gen5.png>]
-<Imagenes/gen6.png, id=962, 442.65375pt x 345.29pt>
+<Imagenes/gen6.png, id=975, 442.65375pt x 345.29pt>
 File: Imagenes/gen6.png Graphic file (type png)
 <use Imagenes/gen6.png>
 Package pdftex.def Info: Imagenes/gen6.png  used on input line 234.
 (pdftex.def)             Requested size: 198.45662pt x 154.80476pt.
  [30]
-<Imagenes/gen7.png, id=994, 662.475pt x 329.23pt>
+<Imagenes/gen7.png, id=1006, 662.475pt x 329.23pt>
 File: Imagenes/gen7.png Graphic file (type png)
 <use Imagenes/gen7.png>
 Package pdftex.def Info: Imagenes/gen7.png  used on input line 257.
 (pdftex.def)             Requested size: 441.01773pt x 219.1713pt.
  [31 <./Imagenes/gen6.png> <./Imagenes/gen7.png>] [32]
-<Imagenes/gen8.png, id=1028, 590.205pt x 382.42876pt>
+<Imagenes/gen8.png, id=1040, 590.205pt x 382.42876pt>
 File: Imagenes/gen8.png Graphic file (type png)
 <use Imagenes/gen8.png>
 Package pdftex.def Info: Imagenes/gen8.png  used on input line 297.
 (pdftex.def)             Requested size: 441.01773pt x 285.76465pt.
-<Imagenes/gen9.png, id=1029, 620.3175pt x 304.13625pt>
+<Imagenes/gen9.png, id=1041, 620.3175pt x 304.13625pt>
 File: Imagenes/gen9.png Graphic file (type png)
 <use Imagenes/gen9.png>
 Package pdftex.def Info: Imagenes/gen9.png  used on input line 322.
 (pdftex.def)             Requested size: 441.01773pt x 216.22597pt.
  [33 <./Imagenes/gen8.png>]
-<Imagenes/gen10.png, id=1046, 298.11375pt x 91.34125pt>
+<Imagenes/gen10.png, id=1058, 298.11375pt x 91.34125pt>
 File: Imagenes/gen10.png Graphic file (type png)
 <use Imagenes/gen10.png>
 Package pdftex.def Info: Imagenes/gen10.png  used on input line 329.
@@ -1034,7 +1033,7 @@ Overfull \hbox (0.96864pt too wide) in paragraph at lines 7--8
 []\OT1/cmr/m/n/10.95 Tenemos un po-li-morf^^S^^Psmo en tiem-po de com-pi-la-ci^^Son, po-li-morf^^S^^Psmo de eje-cu-ci^^Son y po-li-morf^^S^^Psmo
  []
 
-<Imagenes/pol1.png, id=1059, 579.16376pt x 193.72375pt>
+<Imagenes/pol1.png, id=1071, 579.16376pt x 193.72375pt>
 File: Imagenes/pol1.png Graphic file (type png)
 <use Imagenes/pol1.png>
 Package pdftex.def Info: Imagenes/pol1.png  used on input line 26.
@@ -1042,17 +1041,17 @@ Package pdftex.def Info: Imagenes/pol1.png  used on input line 26.
 [36
 
  <./Imagenes/pol1.png>]
-<Imagenes/pol2.png, id=1066, 393.47pt x 168.63pt>
+<Imagenes/pol2.png, id=1078, 393.47pt x 168.63pt>
 File: Imagenes/pol2.png Graphic file (type png)
 <use Imagenes/pol2.png>
 Package pdftex.def Info: Imagenes/pol2.png  used on input line 36.
 (pdftex.def)             Requested size: 441.01773pt x 189.00581pt.
-<Imagenes/pol3.png, id=1067, 487.8225pt x 326.21875pt>
+<Imagenes/pol3.png, id=1079, 487.8225pt x 326.21875pt>
 File: Imagenes/pol3.png Graphic file (type png)
 <use Imagenes/pol3.png>
 Package pdftex.def Info: Imagenes/pol3.png  used on input line 50.
 (pdftex.def)             Requested size: 242.5611pt x 162.20801pt.
-<Imagenes/pol4.png, id=1068, 383.4325pt x 315.1775pt>
+<Imagenes/pol4.png, id=1080, 383.4325pt x 315.1775pt>
 File: Imagenes/pol4.png Graphic file (type png)
 <use Imagenes/pol4.png>
 Package pdftex.def Info: Imagenes/pol4.png  used on input line 55.
@@ -1068,17 +1067,17 @@ Overfull \hbox (6.81033pt too wide) in paragraph at lines 64--65
  []
 
 [38]
-<Imagenes/poli5.png, id=1104, 362.35374pt x 216.81pt>
+<Imagenes/poli5.png, id=1116, 362.35374pt x 216.81pt>
 File: Imagenes/poli5.png Graphic file (type png)
 <use Imagenes/poli5.png>
 Package pdftex.def Info: Imagenes/poli5.png  used on input line 111.
 (pdftex.def)             Requested size: 441.01773pt x 263.88254pt.
-<Imagenes/poli6.png, id=1105, 396.48125pt x 175.65625pt>
+<Imagenes/poli6.png, id=1117, 396.48125pt x 175.65625pt>
 File: Imagenes/poli6.png Graphic file (type png)
 <use Imagenes/poli6.png>
 Package pdftex.def Info: Imagenes/poli6.png  used on input line 122.
 (pdftex.def)             Requested size: 220.50887pt x 97.69406pt.
-<Imagenes/poli7.png, id=1106, 396.48125pt x 172.645pt>
+<Imagenes/poli7.png, id=1118, 396.48125pt x 172.645pt>
 File: Imagenes/poli7.png Graphic file (type png)
 <use Imagenes/poli7.png>
 Package pdftex.def Info: Imagenes/poli7.png  used on input line 126.
@@ -1089,18 +1088,18 @@ Overfull \hbox (2.43333pt too wide) in paragraph at lines 121--128
  []
 
 [39 <./Imagenes/poli5.png> <./Imagenes/poli6.png> <./Imagenes/poli7.png>]
-<Imagenes/poli8.png, id=1116, 380.42125pt x 115.43124pt>
+<Imagenes/poli8.png, id=1128, 380.42125pt x 115.43124pt>
 File: Imagenes/poli8.png Graphic file (type png)
 <use Imagenes/poli8.png>
 Package pdftex.def Info: Imagenes/poli8.png  used on input line 138.
 (pdftex.def)             Requested size: 441.01773pt x 133.82283pt.
  [40 <./Imagenes/poli8.png>]
-<Imagenes/poli9.png, id=1123, 571.13374pt x 431.6125pt>
+<Imagenes/poli9.png, id=1135, 571.13374pt x 431.6125pt>
 File: Imagenes/poli9.png Graphic file (type png)
 <use Imagenes/poli9.png>
 Package pdftex.def Info: Imagenes/poli9.png  used on input line 181.
 (pdftex.def)             Requested size: 220.50887pt x 166.64221pt.
-<Imagenes/poli10.png, id=1124, 512.91624pt x 247.92625pt>
+<Imagenes/poli10.png, id=1136, 512.91624pt x 247.92625pt>
 File: Imagenes/poli10.png Graphic file (type png)
 <use Imagenes/poli10.png>
 Package pdftex.def Info: Imagenes/poli10.png  used on input line 186.
@@ -1110,24 +1109,24 @@ Overfull \hbox (2.43333pt too wide) in paragraph at lines 180--188
 []$[]$  $[]$ 
  []
 
-<Imagenes/poli11.png, id=1125, 438.63875pt x 135.50626pt>
+<Imagenes/poli11.png, id=1137, 438.63875pt x 135.50626pt>
 File: Imagenes/poli11.png Graphic file (type png)
 <use Imagenes/poli11.png>
 Package pdftex.def Info: Imagenes/poli11.png  used on input line 203.
 (pdftex.def)             Requested size: 441.01773pt x 136.24405pt.
 [41 <./Imagenes/poli9.png> <./Imagenes/poli10.png> <./Imagenes/poli11.png>]
-<Imagenes/poli12.png, id=1136, 576.1525pt x 163.61125pt>
+<Imagenes/poli12.png, id=1148, 576.1525pt x 163.61125pt>
 File: Imagenes/poli12.png Graphic file (type png)
 <use Imagenes/poli12.png>
 Package pdftex.def Info: Imagenes/poli12.png  used on input line 232.
 (pdftex.def)             Requested size: 441.01773pt x 125.24208pt.
-<Imagenes/poli13.png, id=1137, 570.13pt x 295.1025pt>
+<Imagenes/poli13.png, id=1149, 570.13pt x 295.1025pt>
 File: Imagenes/poli13.png Graphic file (type png)
 <use Imagenes/poli13.png>
 Package pdftex.def Info: Imagenes/poli13.png  used on input line 248.
 (pdftex.def)             Requested size: 441.01773pt x 228.27428pt.
  [42 <./Imagenes/poli12.png>]
-<Imagenes/poli14.png, id=1144, 531.9875pt x 39.14626pt>
+<Imagenes/poli14.png, id=1156, 531.9875pt x 39.14626pt>
 File: Imagenes/poli14.png Graphic file (type png)
 <use Imagenes/poli14.png>
 Package pdftex.def Info: Imagenes/poli14.png  used on input line 262.
@@ -1152,21 +1151,21 @@ L3 programming layer <2024-02-20>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `Index.out' has not changed.
-(rerunfilecheck)             Checksum: DF14A801684D4EBBEFED05066C3BA785;13381.
+(rerunfilecheck)             Checksum: 91564170EC49A2EA23FBE05514D2F7A8;13746.
  ) 
 Here is how much of TeX's memory you used:
- 28434 strings out of 474116
- 519923 string characters out of 5743682
+ 28443 strings out of 474116
+ 520062 string characters out of 5743682
  2333187 words of memory out of 5000000
- 49649 multiletter control sequences out of 15000+600000
+ 49650 multiletter control sequences out of 15000+600000
  566452 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 104i,9n,104p,1222b,2114s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 104i,9n,104p,1222b,2112s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb>
-Output written on Index.pdf (43 pages, 1956032 bytes).
+Output written on Index.pdf (43 pages, 1957556 bytes).
 PDF statistics:
- 1353 PDF objects out of 1440 (max. 8388607)
- 1207 compressed objects within 13 object streams
- 662 named destinations out of 1000 (max. 500000)
- 696 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1366 PDF objects out of 1440 (max. 8388607)
+ 1220 compressed objects within 13 object streams
+ 670 named destinations out of 1000 (max. 500000)
+ 704 words of extra memory for PDF output out of 10000 (max. 10000000)
 

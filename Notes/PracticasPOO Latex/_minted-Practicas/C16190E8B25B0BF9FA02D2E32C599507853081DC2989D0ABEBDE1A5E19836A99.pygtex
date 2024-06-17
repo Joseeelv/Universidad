@@ -1,0 +1,28 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// Implementación de los métodos de la clase de asociación}
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{Usuario\PYGZus{}Pedido::asocia}\PYG{p}{(}\PYG{n}{Usuario}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{u}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Pedido}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{p}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{n}{usuariopedidos\PYGZus{}}\PYG{p}{[}\PYG{o}{\PYGZam{}}\PYG{n}{u}\PYG{p}{].}\PYG{n}{insert}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{p}\PYG{p}{);}
+\PYG{+w}{  }\PYG{n}{pedidousuario\PYGZus{}}\PYG{p}{[}\PYG{o}{\PYGZam{}}\PYG{n}{p}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{u}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{Usuario\PYGZus{}Pedido::asocia}\PYG{p}{(}\PYG{n}{Pedido}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{p}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Usuario}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{u}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{c+c1}{// delegamos en el método anterior}
+\PYG{+w}{  }\PYG{n}{asocia}\PYG{p}{(}\PYG{n}{u}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{p}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{n}{Usuario\PYGZus{}Pedido}\PYG{o}{::}\PYG{n}{Pedidos}\PYG{+w}{ }\PYG{n+nf}{Usuario\PYGZus{}Pedido::pedidos}\PYG{p}{(}\PYG{n}{Usuario}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{u}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{c+c1}{// comprobamos que existe el usuario}
+\PYG{+w}{  }\PYG{k}{auto}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{usuariopedidos\PYGZus{}}\PYG{p}{.}\PYG{n}{find}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{u}\PYG{p}{);}
+\PYG{+w}{  }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{i}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{usuariopedidos\PYGZus{}}\PYG{p}{.}\PYG{n}{end}\PYG{p}{())}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{second}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k}{else}\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{Usuario\PYGZus{}Pedido}\PYG{o}{::}\PYG{n}{Pedidos}\PYG{+w}{ }\PYG{n}{pedidovacio}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{pedidovacio}\PYG{p}{;}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{n}{Usuario}\PYG{+w}{ }\PYG{o}{*}\PYG{n+nf}{Usuario\PYGZus{}Pedido::cliente}\PYG{p}{(}\PYG{n}{Pedido}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{p}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{c+c1}{// devolvemos el usuario de dicho pedido}
+\PYG{+w}{  }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{pedidousuario\PYGZus{}}\PYG{p}{.}\PYG{n}{find}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{p}\PYG{p}{)}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{second}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

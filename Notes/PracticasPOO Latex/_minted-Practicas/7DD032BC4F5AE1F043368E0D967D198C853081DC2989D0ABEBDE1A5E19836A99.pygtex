@@ -1,0 +1,38 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZdq{}articulo.hpp\PYGZdq{}}
+\PYG{c+cm}{/*\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}Implementación de la clase Articulo\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}*/}
+\PYG{n}{Articulo}\PYG{o}{::}\PYG{n}{Articulo}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Autores}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{autor}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{+w}{ }\PYG{n}{referencia}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{+w}{ }\PYG{n}{titulo}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Fecha}\PYG{+w}{ }\PYG{n}{f\PYGZus{}publi}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n}{precio}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{:}
+\PYG{+w}{   }\PYG{n}{autores\PYGZus{}}\PYG{p}{(}\PYG{n}{autor}\PYG{p}{),}\PYG{+w}{ }\PYG{n}{referencia\PYGZus{}}\PYG{p}{(}\PYG{n}{referencia}\PYG{p}{),}\PYG{+w}{ }\PYG{n}{titulo\PYGZus{}}\PYG{p}{(}\PYG{n}{titulo}\PYG{p}{),}\PYG{+w}{ }\PYG{n}{fpubli\PYGZus{}}\PYG{p}{(}\PYG{n}{f\PYGZus{}publi}\PYG{p}{),}\PYG{+w}{ }\PYG{n}{precio\PYGZus{}}\PYG{p}{(}\PYG{n}{precio}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{  }\PYG{c+c1}{// Lo unico que tenemos que comprobar que dicho articulo tenga como mínimo un autor}
+\PYG{+w}{  }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{autores\PYGZus{}}\PYG{p}{.}\PYG{n}{empty}\PYG{p}{())}\PYG{+w}{ }\PYG{k}{throw}\PYG{+w}{ }\PYG{n}{Autores\PYGZus{}vacios}\PYG{p}{();}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{// Operador de inserción en flujo}
+\PYG{n}{std}\PYG{o}{::}\PYG{n}{ostream}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{k}{operator}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{p}{(}\PYG{n}{std}\PYG{o}{::}\PYG{n}{ostream}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{output}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Articulo}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{art}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{n}{std}\PYG{o}{::}\PYG{n}{locale}\PYG{o}{::}\PYG{n}{global}\PYG{p}{(}\PYG{n}{std}\PYG{o}{::}\PYG{n}{locale}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZdq{}}\PYG{p}{));}
+\PYG{+w}{  }\PYG{n}{output}\PYG{+w}{ }\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}[\PYGZdq{}}\PYG{+w}{ }\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{+w}{ }\PYG{n}{art}\PYG{p}{.}\PYG{n}{referencia}\PYG{p}{()}\PYG{+w}{ }\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}] \PYGZdq{}}\PYG{+w}{ }\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}\PYGZdq{}}\PYG{l+s}{\PYGZdq{}}\PYG{+w}{ }\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{+w}{ }\PYG{n}{art}\PYG{p}{.}\PYG{n}{titulo}\PYG{p}{()}\PYG{+w}{ }\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}\PYGZdq{}}\PYG{l+s}{\PYGZdq{}}\PYG{+w}{ }\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}, de \PYGZdq{}}\PYG{p}{;}
+\PYG{+w}{  }\PYG{c+c1}{// recorremos el conjunto de autores del articulo}
+\PYG{+w}{  }\PYG{k}{auto}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{art}\PYG{p}{.}\PYG{n}{autores}\PYG{p}{().}\PYG{n}{begin}\PYG{p}{();}
+\PYG{+w}{  }\PYG{n}{output}\PYG{+w}{ }\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{+w}{ }\PYG{p}{(}\PYG{o}{*}\PYG{n}{i}\PYG{p}{)}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{apellidos}\PYG{p}{();}
+\PYG{+w}{  }\PYG{k}{for}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{i}\PYG{o}{++}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{art}\PYG{p}{.}\PYG{n}{autores}\PYG{p}{().}\PYG{n}{end}\PYG{p}{();}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{output}\PYG{+w}{ }\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}, \PYGZdq{}}\PYG{+w}{ }\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{+w}{ }\PYG{p}{(}\PYG{o}{*}\PYG{n}{i}\PYG{p}{)}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{apellidos}\PYG{p}{();}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{n}{output}\PYG{+w}{ }\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}. \PYGZdq{}}\PYG{+w}{ }\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{+w}{ }\PYG{n}{art}\PYG{p}{.}\PYG{n}{f\PYGZus{}publi}\PYG{p}{().}\PYG{n}{anno}\PYG{p}{()}\PYG{+w}{ }\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}. \PYGZdq{}}
+\PYG{+w}{         }\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{fixed}\PYG{+w}{ }\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{setprecision}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{+w}{ }\PYG{n}{art}\PYG{p}{.}\PYG{n}{precio}\PYG{p}{()}\PYG{+w}{ }\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{} €\PYGZdq{}}\PYG{+w}{ }\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{endl}
+\PYG{+w}{         }\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}t}\PYG{l+s}{\PYGZdq{}}\PYG{p}{;}
+\PYG{+w}{  }\PYG{c+c1}{// llamamos al método heredado.}
+\PYG{+w}{  }\PYG{n}{art}\PYG{p}{.}\PYG{n}{impresion\PYGZus{}especifica}\PYG{p}{(}\PYG{n}{output}\PYG{p}{);}
+\PYG{+w}{  }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{output}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\PYG{c+cm}{/*\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}Implementación del Método virtual\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}*/}
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{Libro}\PYG{o}{::}\PYG{n}{impresion\PYGZus{}especifica}\PYG{p}{(}\PYG{n}{std}\PYG{o}{::}\PYG{n}{ostream}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{output}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{const}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{n}{output}\PYG{+w}{ }\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{+w}{ }\PYG{n}{n\PYGZus{}pag\PYGZus{}}\PYG{+w}{ }\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{} págs., \PYGZdq{}}\PYG{+w}{ }\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{+w}{ }\PYG{n}{stock\PYGZus{}}\PYG{+w}{ }\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{} unidades.\PYGZdq{}}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{Revista}\PYG{o}{::}\PYG{n}{impresion\PYGZus{}especifica}\PYG{p}{(}\PYG{n}{std}\PYG{o}{::}\PYG{n}{ostream}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{output}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{const}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{n}{output}\PYG{+w}{ }\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}Número: \PYGZdq{}}\PYG{+w}{ }\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{+w}{ }\PYG{n}{numero\PYGZus{}}\PYG{+w}{ }\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}, Periodicidad: \PYGZdq{}}\PYG{+w}{ }\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{+w}{ }\PYG{n}{periodicidad\PYGZus{}}\PYG{+w}{ }\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{} días.\PYGZdq{}}
+\PYG{+w}{    }\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}t}\PYG{l+s}{\PYGZdq{}}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}Próximo número a partir de: \PYGZdq{}}\PYG{+w}{ }\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{+w}{ }\PYG{n}{Fecha}\PYG{p}{(}\PYG{n}{f\PYGZus{}publi}\PYG{p}{()}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{periodicidad\PYGZus{}}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}.\PYGZdq{}}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{LibroDigital}\PYG{o}{::}\PYG{n}{impresion\PYGZus{}especifica}\PYG{p}{(}\PYG{n}{std}\PYG{o}{::}\PYG{n}{ostream}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{output}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{const}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{n}{output}\PYG{+w}{ }\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}A la venta hasta el \PYGZdq{}}\PYG{+w}{ }\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{+w}{ }\PYG{n}{f\PYGZus{}expir\PYGZus{}}\PYG{+w}{ }\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}.\PYGZdq{}}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

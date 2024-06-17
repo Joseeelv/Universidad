@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{+w}{  }\PYG{k}{template}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{p}{,}\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{n}\PYG{o}{\PYGZgt{}}
+\PYG{+w}{  }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{Buffer}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{p}{,}\PYG{n}{n}\PYG{o}{\PYGZgt{}::}\PYG{n}{almacenarDato}\PYG{p}{(}\PYG{n}{T}\PYG{+w}{ }\PYG{n}{dato}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{indice}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{indice}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{buf}\PYG{p}{.}\PYG{n}{size}\PYG{p}{())}
+\PYG{+w}{      }\PYG{n}{buf}\PYG{p}{[}\PYG{n}{indice}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{dato}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{else}
+\PYG{+w}{      }\PYG{k}{throw}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{out\PYGZus{}of\PYGZus{}range}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Almacenar: fuera de rango\PYGZdq{}}\PYG{p}{);}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{k}{template}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{p}{,}\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{n}\PYG{o}{\PYGZgt{}}
+\PYG{+w}{  }\PYG{n}{T}\PYG{+w}{ }\PYG{n}{Buffer}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{p}{,}\PYG{n}{n}\PYG{o}{\PYGZgt{}::}\PYG{n}{recuperarDato}\PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{indice}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{indice}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{buf}\PYG{p}{.}\PYG{n}{size}\PYG{p}{())}
+\PYG{+w}{      }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{buf}\PYG{p}{.}\PYG{n}{at}\PYG{p}{(}\PYG{n}{indice}\PYG{p}{);}
+\PYG{+w}{    }\PYG{k}{else}
+\PYG{+w}{      }\PYG{k}{throw}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{out\PYGZus{}of\PYGZus{}range}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Recuperar: fuera de rango\PYGZdq{}}\PYG{p}{);}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

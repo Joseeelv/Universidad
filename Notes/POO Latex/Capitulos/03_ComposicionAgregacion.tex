@@ -26,16 +26,21 @@ Podemos hacer uso de estas relaciones para la reutilización de software.
 \subsection{ Implementación de composición 1 - 1..N}
 \begin{center}
 	\begin{lstlisting}[frame=single]
+class B; //declaracion adelantada
 class A{ //Compuesto
- public:
-   A(B& ); //A se crea a partir de un objeto de B
-   typedef std::set<B> Bs_;
-   friend operator < (const A&, const A&);
- private:
-   BS bs_;
+  public:
+    //A se crea a partir de un objeto de B
+    A(B& b){ setB(b); }
+    typedef std::set<B> BS;
+    void setB(const B& b)noexcept{bs_.insert(b);}
+      
+  private:
+    BS bs_;
 };
 class B{//Componente
-   //No recibe nada del compuesto
+//No recibe nada del compuesto
+  public:
+    friend bool operator < (const B& a, const B& b) noexcept;
 };
 \end{lstlisting}
 \end{center}
@@ -46,9 +51,22 @@ En este tipo de relaciones al tener un \texttt{set} de objetos de la clase \text
 	\begin{lstlisting}[frame=single]
 class A{ //Compuesto
  public:
-   A(B& ); //A se crea a partir de un objeto de B
+   A(B& b):b_(b){} //A se crea a partir de un objeto de B
  private:
    B b_;
+};
+class B{//Componente
+   //No recibe nada del compuesto
+};
+\end{lstlisting}
+\end{center}
+
+\subsection{Implementación de composición 1 - 1 (herencia privada)}
+\begin{center}
+	\begin{lstlisting}[frame=single]
+class A : private B{ //Compuesto
+ public:
+   A(B& b): B(b){} //A se crea a partir de un objeto de B
 };
 class B{//Componente
    //No recibe nada del compuesto

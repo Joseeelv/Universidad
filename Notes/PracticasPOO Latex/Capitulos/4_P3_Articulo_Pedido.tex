@@ -1,0 +1,250 @@
+Como vemos en el diagrama de clase la asociación entre las clases Articulo y Pedido tiene una clase de asociación llamada LineaPedido.
+
+Esta clase la vamos a incluir en el fichero de cabecera Articulo\_Pedido.hpp y la implementaremos en el fichero Articulo\_Pedido.cpp.
+
+\subsection{Clase LineaPedido}
+La clase LineaPedido va a contener algunos atributos y métodos necesarios para que la relación bidireccional entre Articulo y Pedido se lleve a cabo. Cuenta con los atributos:
+\begin{itemize}
+  \item Un tipo double que es el precio de la venta (precio\_venta).
+  \item Un entero sin signo que almacena la cantidad de ariculos (cantidad\_).
+\end{itemize}
+
+Teniendo claro esto, un objeto de LineaPedido se crea mediante estos dos atributos que se le pasarán como parámetros, los cuales tendrán valores por omisión, (0.0) para el precio de venta y 1 para la cantidad.
+
+Declararemos el constructor como \texttt{explicit} debido a que no se permiten conversiones implícitas.
+
+La clase LineaPedido tendrá un par de métodos observadores llamados \texttt{precio\_venta()} y \texttt{cantidad()}.
+
+Finalmente, declararemos una sobrecarga del operador de inserción en flujo \texttt{operator <<} para imprimir un objeto LineaPedido. \textbf{Ejemplo: 35,20␣€ TAB 3}.
+\newpage
+\subsection{Clase de asociación Articulo\_Pedido}
+Como hemos comentado anteriormente esta clase representará la relación bidireccional entre las clases Articulo y Pedido, por tanto, va a contener todos los métodos imprescindibles para que dicha relación se lleve a cabo.
+
+Si nos fijamos en el diagrama de clases, vemos que la relación entre ambas clases es 1..N - M, por tanto, la clase va a tener dos atributos que serán dos diccionarios:
+\begin{itemize}
+  \item \underbar{Relación Articulo - Pedido:} Este diccionario será del tipo\\ \texttt{std::map<Pedido*,ItemsPedido,OrdenaPedidos>}, donde \textbf{ItemsPedido} es un método público de la clase definido como otro diccionario:\\ \texttt{std::map<Articulo*,LineaPedido,OrdenaArticulos>}. \textbf{OrdenaPedidos} y \textbf{OrdenaArticulos} serán dos  tipos públicos definidos como dos clases anidadas. Se trata de dos clases de objetos función para ordenar ascendentemente los pedidos y artículos por número y referencia, respectivamente, dentro de los diccionarios.
+
+  \item \underbar{Relación Pedido - Articulo:} Se representará por un diccionario del tipo\\ \texttt{std::map<Articulo*,Pedidos,OrdenaArticulos>}, donde Pedidos será un tipo público definido como \texttt{std::map<Pedido*,LineaPedido,OrdenaPedidos>}.
+\end{itemize}
+
+NO es necesario definir los constructores.
+
+Como tenemos varios diccionarios para la creación de estos enlaces vamos a declarar varios métodos para insertar los elementos en los diccionarios correspondientes, para ello contamos con el método \texttt{pedir()} que recibe por parámetro el Articulo, Pedido, el precio y la cantidad (por defecto es 1). Tenemos que realizar una sobrecarga de dicho método invirtiendo el orden del Articulo y Pedido, este método es de tipo void.
+
+Contamos con un observador llamado \texttt{detalle()} que dado un Pedido, nos devuelve el diccionario de los articulos de un pedido, es decir \textbf{ItemsPedido} mediante una referencia constante, ya que la multiplicidad es ``1..N''.
+
+También contamos con un observador que nos devuelve los pedidos \textbf{Pedidos}, que ha realizado un Articulo, este método se llamará \texttt{ventas()}. Aquí devolvemos una copia debido a que la multiplicidad es ``N'' y por tanto, pueden haber objetos que no estén instanciados.
+
+Realizaremos dos sobrecargas del operador de inserción en flujo \texttt{operator <<} para los tipos de datos \textbf{Pedido\_Articulo::ItemsPedido} y\\ \textbf{Pedido\_Articulo::Pedidos}. El primero mostrará los detalles del pedido y, además, el importe total. El segundo mostrará precio, cantidad y fecha de cada venta, así como el importe total de las ventas del artículo y el número de ejemplares vendidos.
+\newpage
+\subsubsection*{Ejemplo de salida de los detalles de un pedido:}
+\begin{center}
+  \begin{verbatim}
+PVP   Cantidad  Artículo
+==================================================================
+35,20 € 2 [100] "Programación Orientada a Objetos"
+29,95 € 1 [110] "Fundamentos de C++"
+==================================================================
+Total 100,35 €
+  \end{verbatim}
+\end{center}
+\subsubsection{Ejemplo de salida de pedidos:}
+\begin{center}
+  \begin{verbatim}
+[Pedidos: 3]
+==================================================================
+PVP   Cantidad  Fecha de venta
+==================================================================
+39,95 € 2 miércoles 19 de abril de 2017
+34,90 € 1 jueves 20 de abril de 2017
+34,90 € 1 lunes 5 de abril de 2010
+==================================================================
+149,70 € 4
+  \end{verbatim}
+\end{center}
+
+También tendremos un método llamado \texttt{mostrarDetallePedidos()} imprimirá en el flujo de salida proporcionado el detalle de todos los pedidos realizados hasta la fecha, así como el importe de todas las ventas.
+\subsubsection*{Ejemplo de salida de mostrarDetallePedidos:}
+\begin{center}
+  \begin{verbatim}
+Pedido núm. 1
+Cliente: lucas Fecha: viernes 10 de marzo de 2017
+
+detalle de ese pedido, como en ejemplo anterior
+Resto de los pedidos ...
+
+TOTAL VENTAS 981,60 €
+  \end{verbatim}
+\end{center}
+
+Por último, un método llamado \texttt{mostrarVentasArticulos()} visualizará en el flujo de salida proporcionado todas las ventas agrupadas por artículos.\subsubsection*{Ejemplo de salida de mostrarVentasArticulos:}
+\begin{center}
+  \begin{verbatim}
+Ventas de [110] "Fundamentos de C++"
+pedidos de ese artículo, como en ejemplo anterior
+Resto de los artículos vendidos ...
+  \end{verbatim}
+\end{center}
+\subsection{Articulo\_Pedido.hpp}
+\begin{minted}[breaklines]{C++}
+#ifndef PEDIDO_ARTICULO_HPP
+#define PEDIDO_ARTICULO_HPP
+
+//Inclusión de librerias y cabeceras
+#include "pedido.hpp"
+#include "articulo.hpp"
+#include <map>
+
+//Contendrá LineaPedido
+class LineaPedido{
+  public:
+    explicit LineaPedido(double precio = 0.0, unsigned cant=1)
+        :precio_venta_(precio),cantidad_venta_(cant){}
+    //Métodos observadores de la clase
+    double precio_venta()const noexcept{return precio_venta_;}
+    unsigned cantidad()const noexcept{return cantidad_venta_;}
+  private:
+    double precio_venta_;
+    unsigned cantidad_venta_;
+};
+//Operador de inserción en flujo de LineaPedido
+std::ostream& operator <<(std::ostream& , const LineaPedido&)noexcept;
+
+//Clase de asociación entre Pedido - Articulo
+class Pedido_Articulo{
+  public:
+  struct OrdenaArticulos{
+    bool operator () (const Articulo*, const Articulo* )const;
+  };
+
+  struct OrdenaPedidos{
+    bool operator()(const Pedido* , const Pedido* )const;
+  };
+    //Diccionarios de la clase Pedido - Articulo
+    typedef std::map<Articulo*,LineaPedido,OrdenaArticulos>ItemsPedido;
+    typedef std::map<Pedido*,ItemsPedido,OrdenaPedidos> PedidoArticulo;
+    //Diccionarios de la clase Articulo - Pedido
+    typedef std::map<Pedido*,LineaPedido,OrdenaPedidos>Pedidos;
+    typedef std::map<Articulo*,Pedidos,OrdenaArticulos> ArticuloPedido;
+    //Creacion de enlaces
+    void pedir(Pedido&,Articulo&,double,unsigned cantidad = 1); //directa
+    void pedir(Articulo&,Pedido&,double,unsigned cantidad = 1); //inversa
+    //observador que devuelve los articulos de un pedido
+    const ItemsPedido& detalle(Pedido& )const;
+    //observador que devuelve los pedidos de un articulo
+    Pedidos ventas(Articulo& )const;
+    //Métodos que imprimen detalles de los pedidos y ventas
+    std::ostream& mostrarDetallePedidos(std::ostream&)const noexcept;
+    std::ostream& mostrarVentasArticulos(std::ostream&)const noexcept;
+  private:
+    //Diccionarios de la clase
+    PedidoArticulo pedido_articulo_; //directa
+    ArticuloPedido articulo_pedido_; //inversa
+};
+
+//Sobrecarga de los operadores de inserción en flujo
+std::ostream& operator << (std::ostream& , const Pedido_Articulo::ItemsPedido&)noexcept;
+std::ostream& operator << (std::ostream& , const Pedido_Articulo::Pedidos&) noexcept;
+#endif // !PEDIDO_ARTICULO_HPP
+
+\end{minted}
+
+\subsection{Articulo\_Pedido.cpp}
+\begin{minted}[breaklines]{C++}
+//Implementación de la clase LineaPedido
+std::ostream& operator <<(std::ostream& output , const LineaPedido& lp)noexcept{
+  return output << std::fixed<<std::setprecision(2)<<lp.precio_venta()<<" €\t" <<lp.cantidad();
+}
+
+//Implementación de la clase Pedido_Articulo
+bool Pedido_Articulo::OrdenaArticulos::operator()(const Articulo* a1, const Articulo* a2) const{ return (a1->referencia() < a2->referencia()); }  
+
+bool Pedido_Articulo::OrdenaPedidos::operator()(const Pedido* p1, const Pedido* p2)const{ return (p1->numero() < p2->numero()); }
+
+void Pedido_Articulo::pedir(Pedido& p, Articulo& a, double precio, unsigned cant){
+    //Creamos una LineaPedido nueva
+    LineaPedido lp(precio,cant);
+    //creamos los enlaces directa e inversamente
+    pedido_articulo_[&p].insert(std::make_pair(&a,lp));
+    articulo_pedido_[&a].insert(std::make_pair(&p,lp));
+}
+
+void Pedido_Articulo::pedir(Articulo& a,Pedido& p,double precio,unsigned cant){
+    pedir(p,a,precio,cant);//Delegamos en el método anterior
+}
+
+const Pedido_Articulo::ItemsPedido& Pedido_Articulo::detalle(Pedido& p)const{
+  //Como siempre habrá como minimo un articulo en el pedido, devolvemos directamente los articulos de dicho pedido.
+  return pedido_articulo_.find(&p)->second;
+}
+
+Pedido_Articulo::Pedidos Pedido_Articulo::ventas(Articulo& a)const{
+    //buscamos el articulo, para ver si tiene un pedido asignado o no
+    auto i = articulo_pedido_.find(&a);
+    if(i!=articulo_pedido_.end())return i->second; //devolvemos pedidos
+    else{//no hay pedido asignado, devolvemos conjunto vacio.
+        Pedido_Articulo::Pedidos PedidoVacio;
+        return PedidoVacio;
+    }
+}
+
+//Implementación de los métodos de inserción en flujo
+std::ostream& operator << (std::ostream& output,const Pedido_Articulo::ItemsPedido& IP)noexcept{
+    //nos creamos una variable local para obtener el precio total
+    double total = 0.;
+    output <<"PVP\t Cantidad\t Artículo"<<std::endl
+    << std::setw(65)<<std::setfill('=')<<' '<<std::endl; //formato
+    //insertamos el pedido
+    for(auto& i :IP){
+        total += i.second.precio_venta()*i.second.cantidad();
+        output<<std::fixed<<std::setprecision(2)<<i.second.precio_venta()<<" € "
+        <<i.second.cantidad()<<"\t"
+        <<"["<<i.first->referencia()<<"] \""<<i.first->titulo()<<"\""<<std::endl;
+    }
+    output <<  std::setw(65)<<std::setfill('=')<<' '<<std::endl
+    <<"Total "<<std::fixed<<std::setprecision(2)<<total<<" €";
+    return output; //devolvemos el flujo de salida
+}
+
+
+
+std::ostream& operator <<(std::ostream& output,const Pedido_Articulo::Pedidos& Ped)noexcept{
+    //Nos creamos una variable local para obtener el precio total y el numero de pedidos
+    double total = 0.;
+    unsigned npedido =1;
+    output<<"[Pedidos: "<<npedido<<"]"<<std::endl
+      <<std::setw(65)<<std::setfill('=')<<" "<<std::endl//formato
+      <<"PVP \t Cantidad \t Fecha de venta"<<std::endl
+      <<std::setw(65)<<std::setfill('=')<<" "<<std::endl;//formato
+    for(auto& i : Ped){
+    //actualizamos el numero de pedido y el total
+      total+=i.second.precio_venta()*i.second.cantidad();
+      npedido++;
+      output<<i.second.precio_venta()<<" €\t"<<i.second.cantidad()<<"\t"
+      <<i.first->fecha()<<std::endl;
+    }
+    output<<std::setw(65)<<std::setfill('=')<<" "<<std::endl//formato
+          <<std::fixed<<std::setprecision(2)<<total<<" €\t "<<npedido<<std::endl;
+    return output;
+}
+std::ostream& Pedido_Articulo::mostrarDetallePedidos(std::ostream& output)const noexcept{
+    //Creamos variables locales para alamecenar el numero de pedido y el total de ventas
+    double total=0.;
+    unsigned npedido=0;
+    for(auto& i : pedido_articulo_){
+      npedido++;
+      output<<"\nPedido núm. "<<npedido<<std::endl
+            <<"Cliente: "<< *i.first->tarjeta()->titular()
+            <<detalle(*i.first)<<std::endl;
+      total += i.first->total();
+    }
+    output<<"TOTAL VENTAS\t "<<std::fixed<<std::setprecision(2)<<total<<" €"<<std::endl;
+    return output;
+}
+std::ostream& Pedido_Articulo::mostrarVentasArticulos(std::ostream& output)const noexcept{
+  for(auto& i : articulo_pedido_){
+    output<<"Ventas de ["<<i.first->referencia()<<"] "<<"\""<<i.first->titulo()<<"\"\n"<<ventas(*i.first)<<std::endl;
+  }
+  return output;
+}
+\end{minted}

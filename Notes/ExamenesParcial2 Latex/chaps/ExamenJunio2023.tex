@@ -1,7 +1,7 @@
 \underbar{\textbf{\large Ejercicio 1:}} Implemente los miembros imprescindibles para que las relaciones se puedan realizar:
 \begin{figure}[h]
   \begin{center}
-    \includegraphics[width=\textwidth]{assets/Junio2023_1.png}
+    \includegraphics[width=0.9\textwidth]{assets/Junio2023_1.png}
   \end{center}
   \caption{Diagrama de clase del ejercicio}
 \end{figure}
@@ -20,8 +20,12 @@ class Cconsorte{
   public:
     //Alias del conjunto de objetos Tramos
     std::set<Tramo*>Tramos;
-    void setTramo(Tramo&)noexcept;
-    const Tramos& getTramos()const noexcept;
+    inline void setTramo(Tramo& t)noexcept{
+      tramos_.insert(&t);
+    }
+    inline const Tramos& getTramos()const noexcept{
+      return tramos_;
+    }
   private:
     Tramos tramos_;
 };
@@ -30,8 +34,12 @@ class Tramo{
   public:
     //Alias del conjunto de objeto Cconsorte
     typedef std::set<Cconsorte*>Cconsortes;
-    void setCconsorte(Cconsorte&)noexcept;
-    const Cconsortes& getCconsortes()const noexcept;
+    inline void setCconsorte(Cconsorte& c)noexcept{
+      cconsortes_.insert(&c)
+    }
+    inline const Cconsortes& getCconsortes()const noexcept{
+      return cconsortes_;
+    }
   private:
     Cconsortes cconsortes_;
 };
@@ -47,14 +55,28 @@ class Carretera{
   public:
     //Alias del conjunto de objetos de Tramos
     std::set<Tramo>Tramos;
-    Carretera(Tramo& );
-    //tenemos que sobrecargar el operador < para poder ordenar las carreteras, ya que al ser un set de objetos y no de punteros no tenemos una implementación de dicho operador por defecto.
-    friend bool operator < (const Carretera& , const Carretera&)noexcept;
+    Carretera(Tramo& t){
+      setTramo(t);
+    }
+    void setTramos(Tramo &t)noexcept{
+      tramos_.insert(t);
+    }
   private:
     Tramos tramos_;
 };
-\end{minted}
 
+class Tramo{
+  //definimos un atributo para ordenar tramos
+  size_t id_;
+  public:
+    //Lo anterior..
+    //tenemos que sobrecargar el operador < para poder ordenar las carreteras, ya que al ser un set de objetos y no de punteros no tenemos una implementación de dicho operador por defecto.
+    friend bool operator < (const Tramo& t1, const Tramo& t2)noexcept{
+      return t1.id_ < t2.id_;
+    }
+};
+\end{minted}
+\newpage
 \textbf{Relación Carretera - TerMunicipal:}
 
 La relación entre las clases Carretera y TerMunicipal es de tipo agregación donde una instancia de Carretera se relaciona con dos instancias de TerMunicipal.
@@ -63,8 +85,12 @@ Las agregaciones se pueden implementar como asociaciones unidireccionales donde 
 \begin{minted}[breaklines]{C++}
 class Carretera{
   public:
-    //Miembros de la relación con la clase Tramo
-    Carretera(Tramo& , TerMunicipal&, TerMunicipal&);
+  //Miembros de la relación con la clase Tramo
+    std::set<Tramo>Tramos;
+    Carretera(Tramo& t, TerMunicipal& ter1, TerMunicipal& ter2):t1(ter1),t2(ter2){
+      setTramos(t);
+    }
+    void setTramos(Tramo &t)noexcept{tramos_.insert(t);}
   private:
     Tramos tramos_;
     TerMunicipal t1, t2; //las dos instancias con las que se relaciona
@@ -87,22 +113,40 @@ class TerMunicipal_Tramo{
     typedef std::map<Tramo*,TerMunicipales>TramosTer;
     typedef std::map<TerMunicipal*,Tramos>TerTramos;
 
-    void setTerMunicipalTramo(TerMunicipal&, Tramo&, int)noexcept;
-    void setTerMunicipalTramo(Tramo&, TerMunicipal&, int)noexcept;
-
+    void setTerMunicipalTramo(TerMunicipal& ter, Tramo& t, int h)noexcept{
+      directa_[&ter].insert(std::make_pair(&t,h));
+      inversa_[&t].insert(std::make_pair(&ter,h));
+    }
+    inline void setTerMunicipalTramo(Tramo& t, TerMunicipal& ter, int h)noexcept{
+      setTerMunicipalTramo(ter,t,h);
+    }
     //observaores: como pueden no haber instancias, devolvemos una copia
-    TerMunicipales getTerMunicipales(Tramo&)const noexcept;
-    Tramos getTramos(TerMunicipal&)const noexcept;
+    TerMunicipales getTerMunicipales(Tramo& t)const noexcept{
+      auto i = inversa_.find(&t);
+      if(i!=inversa_.end()) return i->second;
+      else{
+        TerMunicipal_Tramo::TerMunicipales vacio;
+        return vacio;
+      }
+    }
+    Tramos getTramos(TerMunicipal& ter)const noexcept{
+      auto i = directa_.find(&ter);
+      if(i!=directa_.end()) return i->second;
+      else{
+        TerMunicipal_Tramo::Tramos vacio;
+        return vacio;
+      }
+    }
   private:
-    TerMunicipales directa_;
-    Tramos inversa_;
+    TerTramos directa_;
+    TramosTer inversa_;
 };
 \end{minted}
-\newpage
+
 \underbar{\textbf{\large Ejercicio 2:}} Sea este esquema:
 \begin{figure}[h]
   \begin{center}
-    \includegraphics[width=\textwidth]{assets/Junio2023_2.png}
+    \includegraphics[width=0.8\textwidth]{assets/Junio2023_2.png}
   \end{center}
 \end{figure}
 
@@ -110,15 +154,18 @@ class TerMunicipal_Tramo{
   \item Añade otra clase al esquema llamada DiscoDigital que contiene, al igual que LibroDigital, la fecha de expiración del DiscoDigital. Modifique el diagrama de acuerdo a esto.
 \begin{minted}[breaklines]{C++}
 class Articulo{
-    double precio_;
   public:
     Articulo(double p):precio_(p){}
+  protected:
+    double precio_;
 };
 
 class ArticuloAlmacenable : public Articulo{
-    int stock_;
   public:
     ArticuloAlmacenable(int s, double p):Articulo(p),stock_(s){}
+  
+  protected:
+    size_t stock_;
 };
 
 class LibroDigital : public Articulo{
@@ -130,15 +177,16 @@ class LibroDigital : public Articulo{
 class Libro : public ArticuloAlmacenable{};
 class Revista: public ArticuloAlmacenable{};
 //Clase nueva que nos piede el ejercicio
-class LibroDigital : public Articulo{
+class DiscoDigital : public Articulo{
     Fecha f_expir_;
   public:
-    LibroDigital(Fecha f, double p):Articulo(p),f_expir_(f){}
+    DiscoDigital (Fecha f, double p):Articulo(p),f_expir_(f){}
 }
 \end{minted}
+
   \item En esta nueva clase tenemos canciones. Se requiere saber en todo momento el número de canciones que tiene cada disco con el método observador nCancion()const.
 
-  Un disco va a estar formado por una serie de canciones, como mínimo vamos a tener una canción. Por tanto, como no hay dependencia de existencia podemos implementarlo mediante una asociación a 1..muchos.
+  Un disco va a estar formado por una serie de canciones, como mínimo vamos a tener una canción. Por tanto, como no hay dependencia de existencia podemos implementarlo mediante una composición a 1..muchos.
 \begin{minted}[breaklines]{C++}
   class LibroDigital : public Articulo{
     Fecha f_expir_;
@@ -147,41 +195,43 @@ class LibroDigital : public Articulo{
       setCanciones(c);
     }
     //Alias del conjunto de canciones del disco
-    typedef std::set<Cancion*>Canciones;
-    inline void setCanciones(Cancion&c )noexcept{
-      canciones_.insert(&c);
+    typedef std::set<Cancion>Canciones;
+    void setCanciones(Cancion& c )noexcept{
+      canciones_.insert(c);
     }
-    inline const Canciones& getCanciones()const noexcept{
+    const Canciones& getCanciones()const noexcept{
       return canciones_;
     }
+    size_t nCancion()const noexcept{return canciones_.size();}
   private:
     Canciones canciones_;
 };
 \end{minted}
   \item Implementa la clase Canción sabiendo que una canción pertenece a un solo disco, es necesario saber el número de canciones que tenemos en cada disco.
 
-  Como bien nos dice una canción solo pertenece a un disco, por tanto, vamos a tener una relación de asociación 1 - 1..muchos como hemos comentado anteriormente.
+  Como bien nos dice una canción solo pertenece a un disco, como un Disco Digital se compone de canciones y esta es un tipo de relación unidireccional, vamos a implementar esta relación como una asociación unidireccional a 1 donde solamente guarda información la clase Cancion.
 
 \begin{minted}[breaklines]{C++}
 class Cancion{
   public:
-    inline void setDiscoDigital(DiscoDigital& disco)noexcept{
+    void setDiscoDigital(DiscoDigital& disco)noexcept{
       discodigital_ = &disco;
     }
-    inline const DiscoDigital& getDiscoDigital() const noexcept{
+    const DiscoDigital& getDiscoDigital() const noexcept{
       return discodigital_;
     } 
   private:
-    DiscoDigital discodigital_;
+    DiscoDigital* discodigital_;
 };
 \end{minted}
 \end{enumerate}
-\newpage
+
 \underbar{\textbf{\large Ejercicio 3:}}
 \begin{enumerate}
   \item Para la figura anterior, implementar una función que te permita saber el número de Artículos (Revista, Libro, LibroDigital) que es menor que un precio dado, utilizando una estructura tipo EsBarato:
 
   Este método va a devolver un entero que por defecto será 0, y recibe por parámetros el conjunto de artículos a comprobar junto con el precio mínimo que tienen que superar, además dentro de la clase Articulo vamos a declarar el objeto a función EsBarato.
+
 \begin{minted}[breaklines]{C++}
 class Articulo{
   double precio_;
@@ -190,17 +240,14 @@ class Articulo{
     inline const double getprecio()const noexcept{return precio_;}
     struct EsBarato{
       bool operator () (const Articulo& a, double precio){
-        return a.precio_ < precio;
-      }
+        return a.precio_ < precio; }
     };
 };
-
 size_t ArticulosBaratos(const std::vector<Articulo*>& articulos, double precioMinimo){
   //variable que contendrá el número de articulos que son baratos
   size_t articulosbaratos = 0;
   //Definimos el objeto a funcion
   Articulo::EsBarato esbarato;
-
   //recorremos el conjunto de articulos comprobando si son baratos o no 
   for(const auto& a : articulos){
     if(esbarato(*a,precioMinimo)) articulosbaratos++;
@@ -231,6 +278,7 @@ size_t LibrosBaratos(const std::vector<Articulo*>& articulos, double precioMinim
   return librosbaratos;
 }
 \end{minted}
+
   \item Devolver el lista de articulos que hay que reponer, dado un lista de punteros a Articulo y un stock minimo.
 
   Ahora vamos a crear un método que va a devolver un conjunto (vector) de los articulos que tendrán que ser repuestos, esa comprobación podemos hacerlo o bien con un objeto a función o con una función Lambda que nos comprueben el stock del articulo con el stock minimo dado por parámetro.
@@ -299,9 +347,9 @@ class Matriz{
   public:
     Matriz(T m = 10, T n = 10, T y = 0.0):
       m_(m),n_(n),x_(m*n , y){}
-
+ 
     //Constructor por copia
-    Matriz(const Matriz<T>& other):m_(other.m_),n_(other.n_):x_(other.x_){}
+    Matriz(const Matriz<T>& other):m_(other.m_),n_(other.n_),x_(other.x_){}
 
     //operador de asignación por copia
     Matriz<T>& operator = (const Matriz<T>& other){

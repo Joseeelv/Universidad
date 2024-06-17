@@ -11,7 +11,7 @@ Tras un primer análisis se identifican dos clases: Elipse y Circunferencia. La 
 Tras completar las figuras planas con una operación de dibujo, nos damos cuenta de que una serie de figuras planas pueden agruparse en una escena que poseería sus propias operaciones de dibujo y escalado, consistentes en aplicar la operación correspondiente a cada una de las figuras que la integran. ¿Qué relación podemos establecer entre escenas y figuras planas? Escriba todo lo necesario para implementar dicha relación.
 
 
-Al ser una circunferencia una elipse degenerada donde el radio\_x y el radio\_y donde ambas son iguales, podemos relacionar las clases mediante una relación de composición o (herencia privada) ya que podemos delegar las operaciones escala y dibujo que se realiza en Elipse.
+Al ser una circunferencia una elipse degenerada donde el radio\_x y el radio\_y donde ambas son iguales, podemos relacionar las clases mediante una relación de composición o (herencia privada) ya que podemos delegar las operaciones escala y radio que se realiza en Elipse.
 
 \begin{minted}[breaklines]{C++}
 class Elipse{
@@ -33,17 +33,15 @@ private:
     double x_,y_;
 };
 
-
-class Circunferencia: public Elipse{
+class Circunferencia: private Elipse{
   public:
-    Circunferencia(double radio):Elipse(radio,radio), radio_(radio){}
-    inline double radio()const noexcept{return radio_;}
+    Circunferencia(double radio):Elipse(radio,radio){}
+    inline double radio()const noexcept{return Elipse::radio_x();}
     //delegamos en el método escala de Elipse, debido a la herencia
     inline void escala(size_t factorescala)override{
-	Elipse::escala(factorescala);}
-  private:
-    double radio_;
+      return Elipse::escala(factorescala);}
 };
+
 \end{minted}
 
 Como nos dice que es una abstracción de muchas figuras geométricas, podemos implementar la clase FiguraPlana como una interfaz, donde las clases derivadas haran uso de esos métodos polimórficos.
@@ -51,9 +49,9 @@ Como nos dice que es una abstracción de muchas figuras geométricas, podemos im
 \begin{minted}[breaklines]{C++}
 class FiguraPlana{
   public:
-    virtual void escala(size_t) =0;
+    virtual void escala(size_t) = 0;
     virtual void dibujo()const = 0;
-    virtual ~FiguraPlana()=default; //polimorfica, virtual
+    virtual ~FiguraPlana() = default; //polimorfica, virtual
 };
 \end{minted}
 
@@ -67,9 +65,8 @@ class Escena{
     typedef std::set<FiguraPlana*>Figuras;
     Escena(FiguraPlana& f){figuras_.insert(&f);}
     void dibuja()const{
-        for(const auto& f : figuras_){
-          f -> dibujo();
-        }
+        for(const auto& f : figuras_)
+         f -> dibujo();
     }
     void escala(size_t factor){
         for(auto f : figuras_){
@@ -80,7 +77,6 @@ class Escena{
     Figuras figuras_;
 };
 \end{minted}
-
 %------------------------------------------------------------------
 \underbar{\textbf{\large Ejercicio 4:}} Se trata de implementar en C++ una función genérica, \texttt{ordenado()}, que decida si los elementos de un rango de iteradores aparecen en un cierto orden. Para lograr la máxima generalidad, los únicos requisitos que la función impondrá es que los iteradores sean de entrada y que la relación de orden tenga las propiedades de un orden estricto débil. También hay que tratar adecuadamente los rangos vacíos, que se suponen ordenados, ya que no contienen elementos.
 

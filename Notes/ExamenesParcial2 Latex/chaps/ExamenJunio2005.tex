@@ -1,0 +1,43 @@
+\underbar{\textbf{\large Ejercicio 4:}} Se trata de implementar en C++ una función genérica, \texttt{ordenado()}, que decida si los elementos de un rango de iteradores aparecen en un cierto orden. Para lograr la máxima generalidad, los únicos requisitos que la función impondrá es que los iteradores sean de entrada y que la relación de orden tenga las propiedades de un orden estricto débil. También hay que tratar adecuadamente los rangos vacíos, que se suponen ordenados, ya que no contienen elementos.
+
+\begin{enumerate}[label = \alph*)]
+  \item Escriba una versión que compruebe el orden respecto de una funcion de comparación.
+  \item Escriba un fragmento de código que compruebe si un vector de bajo nivel de enteros está en orden ascendente de valores absolutos. Emplee un objeto función.
+\end{enumerate}
+\begin{minted}[breaklines]{C++}
+  struct Comparador{
+    bool operator ()(size_t a, size_t b) const {return a<b;}
+};
+
+//ordenado (pos1, pos2, funcion());
+template <typename iterador, typename Comparador>
+bool ordenado(iterador inicio, iterador fin, Comparador c){
+    //Comprobamos somos iguales
+    if(inicio == fin) return true;
+    iterador sig = inicio;
+    sig++;
+    if(sig != fin){
+        //Me comparo con el siguiente
+        if(!c(*inicio,*sig)) return false;
+        else{
+            sig ++;
+            inicio ++;
+        }
+    }
+    return true;
+};
+
+int main(){
+  size_t v[] = {1,2,5,33,9,112};
+  //Creamos el objeto a función
+  Comparador compara;
+  for(size_t i = 0 ; i<6; i++){
+      if(ordenado(&v[i],&v[i+2],compara)){
+        cout << "Esta ordenado"<<endl; //devuelve true si está ordenado o no.
+      }else{
+        cout<<"No ordenado"<<endl;
+      }
+  }
+  return 0;
+}
+\end{minted}

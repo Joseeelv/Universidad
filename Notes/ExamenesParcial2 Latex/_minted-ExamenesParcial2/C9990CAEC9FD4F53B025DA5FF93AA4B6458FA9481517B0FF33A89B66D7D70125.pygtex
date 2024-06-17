@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Cancion}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{setDiscoDigital}\PYG{p}{(}\PYG{n}{DiscoDigital}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{disco}\PYG{p}{)}\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{n}{discodigital\PYGZus{}}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{disco}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{DiscoDigital}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{getDiscoDigital}\PYG{p}{()}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{discodigital\PYGZus{}}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{k}{private}\PYG{o}{:}
+\PYG{+w}{    }\PYG{n}{DiscoDigital}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{discodigital\PYGZus{}}\PYG{p}{;}
+\PYG{p}{\PYGZcb{};}
+\end{Verbatim}

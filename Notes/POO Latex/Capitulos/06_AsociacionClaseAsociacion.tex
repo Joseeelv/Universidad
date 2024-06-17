@@ -7,7 +7,7 @@ entre dos clases, tenemos varios atributos de enlace o tenemos varias clases aso
 \subsection{Implementación clase asociación con 3 clases}
 \begin{figure}[h]
     \centering
-    \includegraphics[width=\textwidth]{Imagenes/AClS.png}
+    \includegraphics[width=0.6\textwidth]{Imagenes/AClS.png}
     \caption{Asociación con Clase de Asociación}
 \end{figure}
 \begin{center}
@@ -15,14 +15,15 @@ entre dos clases, tenemos varios atributos de enlace o tenemos varias clases aso
 class Empresa{}; class Persona{}; class Salario{};
 class AEE{//clase de asociacion resultante
   public:
-    typename std::map<Empresa*,std::map<Persona*,Salario*>>AD;
-    typename std::map<Persona*,std::pair<Empresa*,Salario*>>AI;
-    void setA(Empresa&,Persona&,Salario&);
-    void setB(Persona&,Empresa&,Salario&);
-    AD getB(Empresa&)const;
-    AI getA(Persona&)const;
+    typedef std::map<Empresa*,std::map<Persona*,Salario*>>AD;
+    typedef std::map<Persona*,std::pair<Empresa*,Salario*>>AI;
+    void setA(Empresa&,Persona&,Salario&) noexcept;
+    void setB(Persona&,Empresa&,Salario&) noexcept;
+    //devolvemos una copia, ya que pueden no haber instancias relacionadas.
+  const std::map<Persona*,Salario*> getB(Empresa& )const noexcept;
+  const std::pair<Empresa*,Salario*>* getA(Persona &)const noexcept;
   private:
-    AD directa_;
+    AD directa_; 
     AI inversa_;
 };
 \end{lstlisting}
@@ -30,6 +31,9 @@ class AEE{//clase de asociacion resultante
 Si la multiplicidad en una de las dos clases es 0..1, podemos hacer uso de '\texttt{pair}' 
 en vez de \texttt{map}.
 En este caso, como empresa es 0..1, lo implementamos de mediante pair.
+
+Si la clase de asociación tienen multiplicidad 1..N - 1..M en los observadores devolveremos una referencia constante ya que siempre habrá al menos un objeto instanciado.
+
 \subsection{Implementación clase de asociación con 2 clases}
 
 \begin{center}
@@ -72,6 +76,8 @@ Para prevenir la inserción múltiple de valores a una clave tenemos 2 maneras:
 	\item Podemos hacer uso de un \texttt {set} dentro de un \texttt{map}, haciendo que por cada clave puede haber un único conjunto de valores → \texttt{std::map<A*,std::set$<$B*$>$$>$Nombre$;$}
 \end{enumerate}
 
+Para ahorranos tener que escribir la declaración entera del \texttt{set}, podemos crear un alias \texttt{typedef std::set<...>Alias;}
+
 \begin{figure}[h]
   \begin{center}
     \begin{lstlisting}[frame=single]
@@ -96,7 +102,7 @@ Para poder obtener el conjunto de personas o de asignaturas mediante un set dent
     \begin{lstlisting}[frame=single]
 std::set<Asignatura*> PersonaAsignatura::getAsignatura(Persona& p)const{
   auto i = directa.find(&p);
-  if(i!=directa.end())return i->second; //*i.second;
+  if(i!=directa.end())return i->second;
   else return std::set<Asignatura*>();//devolvemos conjunto vacio.
 }
 
@@ -112,8 +118,9 @@ std:set<Persona*> PersonaAsignatura::getPersona(Asignatura& a)const{
   \end{quote}
 \end{figure}
 
-Para ahorranos tener que escribir la declaración entera del \texttt{set}, podemos crear una alias → \texttt{typedef std::set<...>Alias;}
 
+
+\newpage 
 \textbf{\large{Ejemplo:}}
 \begin{center}
 	\begin{lstlisting}[frame=single]

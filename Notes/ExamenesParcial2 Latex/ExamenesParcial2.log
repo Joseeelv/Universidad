@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.27)  7 JUN 2024 18:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.27)  17 JUN 2024 07:52
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -902,14 +902,14 @@ LaTeX Info: Redefining \% on input line 2.
 ]
 Cap\'{\i }tulo 1.
 (./chaps/Seminarios_Seminario3_1.tex
-<assets/Seminario3_1_1.png, id=65, 529.98pt x 357.335pt>
+<assets/Seminario3_1_1.png, id=95, 529.98pt x 357.335pt>
 File: assets/Seminario3_1_1.png Graphic file (type png)
 <use assets/Seminario3_1_1.png>
 Package pdftex.def Info: assets/Seminario3_1_1.png  used on input line 11.
 (pdftex.def)             Requested size: 441.01773pt x 297.35677pt.
 \openout3 = `ExamenesParcial2.pyg'.
 
- (./_minted-ExamenesParcial2/default.pygstyle) (./_minted-ExamenesParcial2/FD2602BC69D8329A808995EC932D0259458FA9481517B0FF33A89B66D7D70125.pygtex
+ (./_minted-ExamenesParcial2/default.pygstyle) (./_minted-ExamenesParcial2/BDC7E240A5DD0FAD9EBF2612CB4AACA6458FA9481517B0FF33A89B66D7D70125.pygtex
 LaTeX Font Info:    Trying to load font information for OT1+zi4 on input line 1.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/inconsolata/ot1zi4.fd
 File: ot1zi4.fd 2018/01/14 OT1/zi4 (Inconsolata)
@@ -920,29 +920,29 @@ LaTeX Font Info:    Font shape `OT1/zi4/b/n' will be
 (Font)              scaled to size 10.95pt on input line 2.
  [3
 
-{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/inconsolata/i4-ot1-0.enc} <./assets/Seminario3_1_1.png>])
-<assets/Seminario3_1_2.png, id=75, 715.67375pt x 319.1925pt>
+{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/inconsolata/i4-ot1-0.enc} <./assets/Seminario3_1_1.png>]
+
+LaTeX Font Warning: Font shape `OT1/zi4/m/it' undefined
+(Font)              using `OT1/zi4/m/n' instead on input line 16.
+
+LaTeX Font Info:    Font shape `OT1/zi4/m/it' will be
+(Font)              scaled to size 10.95pt on input line 16.
+)
+<assets/Seminario3_1_2.png, id=105, 715.67375pt x 319.1925pt>
 File: assets/Seminario3_1_2.png Graphic file (type png)
 <use assets/Seminario3_1_2.png>
-Package pdftex.def Info: assets/Seminario3_1_2.png  used on input line 55.
+Package pdftex.def Info: assets/Seminario3_1_2.png  used on input line 58.
 (pdftex.def)             Requested size: 441.01773pt x 196.69916pt.
 \openout3 = `ExamenesParcial2.pyg'.
 
- (./_minted-ExamenesParcial2/E2627992AA514E5C23DE11ABC87E8B27458FA9481517B0FF33A89B66D7D70125.pygtex
-
-LaTeX Font Warning: Font shape `OT1/zi4/m/it' undefined
-(Font)              using `OT1/zi4/m/n' instead on input line 4.
-
-LaTeX Font Info:    Font shape `OT1/zi4/m/it' will be
-(Font)              scaled to size 10.95pt on input line 4.
-[4 <./assets/Seminario3_1_2.png>]
+ (./_minted-ExamenesParcial2/E2627992AA514E5C23DE11ABC87E8B27458FA9481517B0FF33A89B66D7D70125.pygtex [4 <./assets/Seminario3_1_2.png>]
 LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
 (Font)              scaled to size 6.0pt on input line 28.
 )
 \openout3 = `ExamenesParcial2.pyg'.
 
  (./_minted-ExamenesParcial2/9C866408EC566A77923899BC32BDC3DB458FA9481517B0FF33A89B66D7D70125.pygtex
-Overfull \hbox (5.76578pt too wide) in paragraph at lines 108--1
+Overfull \hbox (5.76578pt too wide) in paragraph at lines 111--1
 []\OT1/cmr/bx/n/10.95 Alumno::matriculado[]en() \OT1/cmr/m/n/10.95 pa-ra ma-tri-cu-lar a un alumno en una asig-na-tu-ra asign^^Sando-
  []
 
@@ -965,7 +965,7 @@ Overfull \hbox (5.76578pt too wide) in paragraph at lines 108--1
 \openout3 = `ExamenesParcial2.pyg'.
 
  (./_minted-ExamenesParcial2/380E03DAB404CAACA0A9C9F05CC13DAF458FA9481517B0FF33A89B66D7D70125.pygtex)) [7] (./chaps/Seminarios_Seminario3_2.tex
-<assets/Seminario3_2_1.png, id=97, 798.985pt x 524.96124pt>
+<assets/Seminario3_2_1.png, id=127, 798.985pt x 524.96124pt>
 File: assets/Seminario3_2_1.png Graphic file (type png)
 <use assets/Seminario3_2_1.png>
 Package pdftex.def Info: assets/Seminario3_2_1.png  used on input line 12.
@@ -973,59 +973,337 @@ Package pdftex.def Info: assets/Seminario3_2_1.png  used on input line 12.
  [8 <./assets/Seminario3_2_1.png>]
 \openout3 = `ExamenesParcial2.pyg'.
 
- (./_minted-ExamenesParcial2/7D6BD389095DC6F86E7F69038BDF167E458FA9481517B0FF33A89B66D7D70125.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 55--65
+ (./_minted-ExamenesParcial2/CAE40F890CB20DF1397281DB4DDC6E9A458FA9481517B0FF33A89B66D7D70125.pygtex)
+Underfull \hbox (badness 1430) in paragraph at lines 52--62
+\OT1/zi4/b/n/10.95 objB = (B)objA;\TS1/cmr/m/n/10.95 ^^Y\OT1/cmr/m/n/10.95 Error, no se pue-den con-ver-tir
+ []
+
+
+Underfull \hbox (badness 1038) in paragraph at lines 52--62
+\OT1/zi4/b/n/10.95 pB = (B*)pA;\TS1/cmr/m/n/10.95 ^^Y \OT1/cmr/m/n/10.95 Co-rrec-ta, con-ver-si^^Son ex-pli-ci-ta de
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 52--62
 
  []
 
-)) (./chaps/Examenes.tex [9{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+[9{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+Underfull \hbox (badness 10000) in paragraph at lines 84--88
+
+ []
+
+) [10] (./chaps/Seminarios_Seminario4_1.tex
+Overfull \hbox (5.02492pt too wide) in paragraph at lines 20--21
+\OT1/zi4/m/it/10.95 a.mostrar(4); 
+ []
+
+
+Overfull \hbox (15.9749pt too wide) in paragraph at lines 20--21
+\OT1/zi4/m/it/10.95 a.mostrar(4.1); 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 20--21
+
+ []
+
+
+Overfull \hbox (5.02492pt too wide) in paragraph at lines 22--23
+\OT1/zi4/m/it/10.95 b.mostrar(4); 
+ []
+
+
+Overfull \hbox (15.9749pt too wide) in paragraph at lines 22--23
+\OT1/zi4/m/it/10.95 b.mostrar(4.1); 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 26--29
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 30--33
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 55--59
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--64
+
+ []
+
+[11]) [12] (./chaps/Seminarios_Seminario4_2.tex
+Underfull \hbox (badness 10000) in paragraph at lines 51--52
+
+ []
+
+[13]
+\openout3 = `ExamenesParcial2.pyg'.
+
+ (./_minted-ExamenesParcial2/D0005DF12C1E106B07DCF550925F8161458FA9481517B0FF33A89B66D7D70125.pygtex)
+\openout3 = `ExamenesParcial2.pyg'.
+
+ (./_minted-ExamenesParcial2/4B23F9AE653602A6B3076B362FCBEBF8458FA9481517B0FF33A89B66D7D70125.pygtex) [14]
+\openout3 = `ExamenesParcial2.pyg'.
+
+ (./_minted-ExamenesParcial2/0154D783A4BC233809C4A5659C7441B7458FA9481517B0FF33A89B66D7D70125.pygtex)
+\openout3 = `ExamenesParcial2.pyg'.
+
+ (./_minted-ExamenesParcial2/2D4CD9EE97B0E8EE167D2DD6530A06F4458FA9481517B0FF33A89B66D7D70125.pygtex [15])
+\openout3 = `ExamenesParcial2.pyg'.
+
+ (./_minted-ExamenesParcial2/534568291C90D4C36E46040EB74F1A63458FA9481517B0FF33A89B66D7D70125.pygtex))) (./chaps/Examenes.tex [16]
 Cap\'{\i }tulo 2.
 (./chaps/ExamenJunio2004.tex
 \openout3 = `ExamenesParcial2.pyg'.
 
- (./_minted-ExamenesParcial2/A4C90E30665AD400FE0996A2C245389E458FA9481517B0FF33A89B66D7D70125.pygtex [10
+ (./_minted-ExamenesParcial2/D11BB942424793C5D62CA6003F0D083B458FA9481517B0FF33A89B66D7D70125.pygtex [17
 
 ])
 \openout3 = `ExamenesParcial2.pyg'.
 
- (./_minted-ExamenesParcial2/F9D30A0A0BD971F463F0CCABF72F41BB458FA9481517B0FF33A89B66D7D70125.pygtex)
+ (./_minted-ExamenesParcial2/1A9EBE62B2A15DE901E8374B298DDDA9458FA9481517B0FF33A89B66D7D70125.pygtex)
 \openout3 = `ExamenesParcial2.pyg'.
 
- (./_minted-ExamenesParcial2/D7AFA3BD9AE158DC3EB63A8B03BF8442458FA9481517B0FF33A89B66D7D70125.pygtex) [11]
+ (./_minted-ExamenesParcial2/E54A8FD66A986D2D862B27017BEEBDAC458FA9481517B0FF33A89B66D7D70125.pygtex [18])
 \openout3 = `ExamenesParcial2.pyg'.
 
  (./_minted-ExamenesParcial2/60FBCA9E5A61FD8083F4EBB4CAF341E4458FA9481517B0FF33A89B66D7D70125.pygtex)
 \openout3 = `ExamenesParcial2.pyg'.
 
- (./_minted-ExamenesParcial2/9F3838A29FAF3BCB2CA083C5A28B65BB458FA9481517B0FF33A89B66D7D70125.pygtex)
+ (./_minted-ExamenesParcial2/9F3838A29FAF3BCB2CA083C5A28B65BB458FA9481517B0FF33A89B66D7D70125.pygtex [19])
 \openout3 = `ExamenesParcial2.pyg'.
 
- (./_minted-ExamenesParcial2/D07778B6393DFB05277D56787332CBFE458FA9481517B0FF33A89B66D7D70125.pygtex [12])) [13] (./chaps/ExamenMayo2008.tex
-<assets/Mayo2008_1.png, id=150, 792.9625pt x 882.29625pt>
+ (./_minted-ExamenesParcial2/D07778B6393DFB05277D56787332CBFE458FA9481517B0FF33A89B66D7D70125.pygtex)) [20] (./chaps/ExamenJunio2005.tex
+\openout3 = `ExamenesParcial2.pyg'.
+
+ (./_minted-ExamenesParcial2/5DF67DB649BDC26F1200AC02C1023B89458FA9481517B0FF33A89B66D7D70125.pygtex)) [21] (./chaps/ExamenMayo2008.tex
+<assets/Mayo2008_1.png, id=351, 792.9625pt x 882.29625pt>
 File: assets/Mayo2008_1.png Graphic file (type png)
 <use assets/Mayo2008_1.png>
 Package pdftex.def Info: assets/Mayo2008_1.png  used on input line 4.
-(pdftex.def)             Requested size: 352.81552pt x 392.57347pt.
+(pdftex.def)             Requested size: 176.40439pt x 196.27327pt.
 \openout3 = `ExamenesParcial2.pyg'.
 
- (./_minted-ExamenesParcial2/AC4A6EA44E944EF1635FDE5E17EF2B17458FA9481517B0FF33A89B66D7D70125.pygtex [14 <./assets/Mayo2008_1.png>]) [15] [16]
-<assets/Mayo2008_2.png, id=199, 237.88875pt x 241.90375pt>
-File: assets/Mayo2008_2.png Graphic file (type png)
-<use assets/Mayo2008_2.png>
-Package pdftex.def Info: assets/Mayo2008_2.png  used on input line 126.
-(pdftex.def)             Requested size: 220.50887pt x 224.241pt.
-) [17 <./assets/Mayo2008_2.png>] (./chaps/ExamenJunio2013.tex
-<assets/Junio2013_1.png, id=223, 605.26125pt x 429.605pt>
+ (./_minted-ExamenesParcial2/A2AB82C16D51F0C235B11D6EEA350EC8458FA9481517B0FF33A89B66D7D70125.pygtex [22 <./assets/Mayo2008_1.png>]) [23]
+<assets/Mayo2008_2_1.jpeg, id=396, 469.755pt x 477.785pt>
+File: assets/Mayo2008_2_1.jpeg Graphic file (type jpg)
+<use assets/Mayo2008_2_1.jpeg>
+Package pdftex.def Info: assets/Mayo2008_2_1.jpeg  used on input line 118.
+(pdftex.def)             Requested size: 220.50887pt x 224.27464pt.
+) [24 <./assets/Mayo2008_2_1.jpeg>] (./chaps/ExamenJunio2008.tex
+<assets/Junio2008_1.png.jpeg, id=419, 1487.5575pt x 628.3475pt>
+File: assets/Junio2008_1.png.jpeg Graphic file (type jpg)
+<use assets/Junio2008_1.png.jpeg>
+Package pdftex.def Info: assets/Junio2008_1.png.jpeg  used on input line 12.
+(pdftex.def)             Requested size: 352.81552pt x 149.02315pt.
+\openout3 = `ExamenesParcial2.pyg'.
+
+ (./_minted-ExamenesParcial2/B88A9BF896C219F339A3A34DC6A96A82458FA9481517B0FF33A89B66D7D70125.pygtex [25 <./assets/Junio2008_1.png.jpeg>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [26])
+\openout3 = `ExamenesParcial2.pyg'.
+
+ (./_minted-ExamenesParcial2/29B552587B1E6C12370E0A9FB7C8A1D8458FA9481517B0FF33A89B66D7D70125.pygtex)
+Underfull \hbox (badness 10000) in paragraph at lines 136--137
+
+ []
+
+\openout3 = `ExamenesParcial2.pyg'.
+
+(./_minted-ExamenesParcial2/936C0677040948AAFDF0DBA875C4DD45458FA9481517B0FF33A89B66D7D70125.pygtex [27])) [28] (./chaps/ExamenSeptiembre2010.tex [29]
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 53.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/base/ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+\openout3 = `ExamenesParcial2.pyg'.
+
+ (./_minted-ExamenesParcial2/3643F39AAE062EC7CD5A09C8D857ACE0458FA9481517B0FF33A89B66D7D70125.pygtex) [30]
+<assets/WhatsApp Image 2024-06-14 at 20.28.31.jpeg, id=490, 1606.0pt x 652.4375pt>
+File: assets/WhatsApp Image 2024-06-14 at 20.28.31.jpeg Graphic file (type jpg)
+<use assets/WhatsApp Image 2024-06-14 at 20.28.31.jpeg>
+Package pdftex.def Info: assets/WhatsApp Image 2024-06-14 at 20.28.31.jpeg  used on input line 97.
+(pdftex.def)             Requested size: 396.91325pt x 161.24731pt.
+\openout3 = `ExamenesParcial2.pyg'.
+
+ (./_minted-ExamenesParcial2/6B59A32CAA1B3817120726647656A7B4458FA9481517B0FF33A89B66D7D70125.pygtex
+Overfull \hbox (46.25656pt too wide) in paragraph at lines 16--16
+[]\OT1/zi4/m/it/10.95 longitud(p1_,p2_)[]+[]longitud(p2_,p3_)[]+[]longitud(p3_,p4_)[]+[]longitud(p4_,p1_);|  
+ []
+
+[31 <./assets/WhatsApp Image 2024-06-14 at 20.28.31.jpeg>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [32])) [33] (./chaps/ExamenJunio2013.tex
+<assets/Junio2013_1.png, id=506, 605.26125pt x 429.605pt>
 File: assets/Junio2013_1.png Graphic file (type png)
 <use assets/Junio2013_1.png>
 Package pdftex.def Info: assets/Junio2013_1.png  used on input line 4.
-(pdftex.def)             Requested size: 396.91325pt x 281.72437pt.
+(pdftex.def)             Requested size: 198.45662pt x 140.8589pt.
 \openout3 = `ExamenesParcial2.pyg'.
 
- (./_minted-ExamenesParcial2/2FE33A3C3D695942F60644F67281B3E0458FA9481517B0FF33A89B66D7D70125.pygtex [18 <./assets/Junio2013_1.png>])
+ (./_minted-ExamenesParcial2/978E30D42A15DF704CFC7AE678C67666458FA9481517B0FF33A89B66D7D70125.pygtex [34 <./assets/Junio2013_1.png>])
 \openout3 = `ExamenesParcial2.pyg'.
 
- (./_minted-ExamenesParcial2/02F9566FB0FCC4E9FEEEFDD9A88B6313458FA9481517B0FF33A89B66D7D70125.pygtex) [19]
+ (./_minted-ExamenesParcial2/E85A39B8EB3CE51EF9F652B0E75ED985458FA9481517B0FF33A89B66D7D70125.pygtex)
 \openout3 = `ExamenesParcial2.pyg'.
 
- 
+ (./_minted-ExamenesParcial2/35BB873E0359C5B80A98AE3DF9CC23C1458FA9481517B0FF33A89B66D7D70125.pygtex) [35]
+\openout3 = `ExamenesParcial2.pyg'.
+
+ (./_minted-ExamenesParcial2/B277996D712F03EAD0828337631FCD22458FA9481517B0FF33A89B66D7D70125.pygtex)
+\openout3 = `ExamenesParcial2.pyg'.
+
+ (./_minted-ExamenesParcial2/11D3394EAF5B40DC335E2B3D046EA932458FA9481517B0FF33A89B66D7D70125.pygtex [36])
+<assets/Junio2013_2.png, id=524, 660.4675pt x 570.13pt>
+File: assets/Junio2013_2.png Graphic file (type png)
+<use assets/Junio2013_2.png>
+Package pdftex.def Info: assets/Junio2013_2.png  used on input line 154.
+(pdftex.def)             Requested size: 291.0733pt x 251.26685pt.
+\openout3 = `ExamenesParcial2.pyg'.
+
+ (./_minted-ExamenesParcial2/F321DEBFF02FDA4D85C03D8083F9CCBE458FA9481517B0FF33A89B66D7D70125.pygtex) [37 <./assets/Junio2013_2.png>] [38]
+\openout3 = `ExamenesParcial2.pyg'.
+
+ (./_minted-ExamenesParcial2/9E7627E605529C34E5A8B86C9CD596B2458FA9481517B0FF33A89B66D7D70125.pygtex)
+\openout3 = `ExamenesParcial2.pyg'.
+
+ (./_minted-ExamenesParcial2/A97E0EFD75C53125BF1B341742EF9C1F458FA9481517B0FF33A89B66D7D70125.pygtex) [39]
+\openout3 = `ExamenesParcial2.pyg'.
+
+ (./_minted-ExamenesParcial2/9FF252DF8BA8AEFE51960E6D952A00B8458FA9481517B0FF33A89B66D7D70125.pygtex)) [40] (./chaps/ExamenAbril2016.tex
+<assets/Junio22_1.png, id=637, 1059.96pt x 550.055pt>
+File: assets/Junio22_1.png Graphic file (type png)
+<use assets/Junio22_1.png>
+Package pdftex.def Info: assets/Junio22_1.png  used on input line 5.
+(pdftex.def)             Requested size: 264.61333pt x 137.32036pt.
+\openout3 = `ExamenesParcial2.pyg'.
+
+ (./_minted-ExamenesParcial2/DC99A0FB2C16A0CC1A81062B0EEDF956458FA9481517B0FF33A89B66D7D70125.pygtex [41 <./assets/Junio22_1.png>]) [42]
+\openout3 = `ExamenesParcial2.pyg'.
+
+ (./_minted-ExamenesParcial2/F3819FD9C9A0E747F02847A5B9BC4A7E458FA9481517B0FF33A89B66D7D70125.pygtex) [43]
+\openout3 = `ExamenesParcial2.pyg'.
+
+ (./_minted-ExamenesParcial2/2B3FD6584F298234BAC1F36F7D3ACE8F458FA9481517B0FF33A89B66D7D70125.pygtex)) [44] (./chaps/ExamenJunio2022.tex
+<assets/Junio2022_1.png, id=663, 1848.9075pt x 1589.94pt>
+File: assets/Junio2022_1.png Graphic file (type png)
+<use assets/Junio2022_1.png>
+Package pdftex.def Info: assets/Junio2022_1.png  used on input line 5.
+(pdftex.def)             Requested size: 220.50887pt x 189.62006pt.
+\openout3 = `ExamenesParcial2.pyg'.
+
+ (./_minted-ExamenesParcial2/9115F02F364084766173B27131F94636458FA9481517B0FF33A89B66D7D70125.pygtex) [45 <./assets/Junio2022_1.png>]
+\openout3 = `ExamenesParcial2.pyg'.
+
+ (./_minted-ExamenesParcial2/4F47E817B4C50A65436B4132C1B68D78458FA9481517B0FF33A89B66D7D70125.pygtex)
+\openout3 = `ExamenesParcial2.pyg'.
+
+ (./_minted-ExamenesParcial2/A8B71822B83AFEC64AA5CB2AA980EE45458FA9481517B0FF33A89B66D7D70125.pygtex [46])
+\openout3 = `ExamenesParcial2.pyg'.
+
+ (./_minted-ExamenesParcial2/31D66861014E4A7744310B5487CAEC68458FA9481517B0FF33A89B66D7D70125.pygtex [47]) [48]
+\openout3 = `ExamenesParcial2.pyg'.
+
+ (./_minted-ExamenesParcial2/44E7DBA50245C621D98DDBE6C63E939E458FA9481517B0FF33A89B66D7D70125.pygtex)
+\openout3 = `ExamenesParcial2.pyg'.
+
+ (./_minted-ExamenesParcial2/708239AB4626D2C21F1C17000F99747D458FA9481517B0FF33A89B66D7D70125.pygtex [49])
+\openout3 = `ExamenesParcial2.pyg'.
+
+ (./_minted-ExamenesParcial2/BC31B09632B47DA1E78232E79C77E181458FA9481517B0FF33A89B66D7D70125.pygtex)
+\openout3 = `ExamenesParcial2.pyg'.
+
+ (./_minted-ExamenesParcial2/89B16FC80C5045F52EDA9D1E4AE493FF458FA9481517B0FF33A89B66D7D70125.pygtex)
+\openout3 = `ExamenesParcial2.pyg'.
+
+ (./_minted-ExamenesParcial2/9303B61E551A94865F183D077A45EAB6458FA9481517B0FF33A89B66D7D70125.pygtex [50])) [51] (./chaps/ExamenJunio2023.tex
+<assets/Junio2023_1.png, id=720, 864.22874pt x 629.35126pt>
+File: assets/Junio2023_1.png Graphic file (type png)
+<use assets/Junio2023_1.png>
+Package pdftex.def Info: assets/Junio2023_1.png  used on input line 4.
+(pdftex.def)             Requested size: 396.91325pt x 289.03453pt.
+\openout3 = `ExamenesParcial2.pyg'.
+
+ (./_minted-ExamenesParcial2/7BDBDE00E48096B5A440F8B5FBE4CC54458FA9481517B0FF33A89B66D7D70125.pygtex [52 <./assets/Junio2023_1.png>])
+\openout3 = `ExamenesParcial2.pyg'.
+
+ (./_minted-ExamenesParcial2/06AE0513079A6488878D26C0E68FE253458FA9481517B0FF33A89B66D7D70125.pygtex) [53]
+\openout3 = `ExamenesParcial2.pyg'.
+
+ (./_minted-ExamenesParcial2/1328C83738BE23592859027EB6295A44458FA9481517B0FF33A89B66D7D70125.pygtex)
+\openout3 = `ExamenesParcial2.pyg'.
+
+ (./_minted-ExamenesParcial2/881BE89780A5CE3A06640F708BAEB443458FA9481517B0FF33A89B66D7D70125.pygtex [54])
+<assets/Junio2023_2.png, id=735, 935.495pt x 522.95375pt>
+File: assets/Junio2023_2.png Graphic file (type png)
+<use assets/Junio2023_2.png>
+Package pdftex.def Info: assets/Junio2023_2.png  used on input line 149.
+(pdftex.def)             Requested size: 352.81552pt x 197.2323pt.
+\openout3 = `ExamenesParcial2.pyg'.
+
+ (./_minted-ExamenesParcial2/ED2CE8C29749D205FD63CD5DCBE6A8C3458FA9481517B0FF33A89B66D7D70125.pygtex [55 <./assets/Junio2023_2.png>])
+\openout3 = `ExamenesParcial2.pyg'.
+
+ (./_minted-ExamenesParcial2/2588427F3EB5E1DC68E825395D75D2C1458FA9481517B0FF33A89B66D7D70125.pygtex)
+\openout3 = `ExamenesParcial2.pyg'.
+
+ (./_minted-ExamenesParcial2/C9990CAEC9FD4F53B025DA5FF93AA4B6458FA9481517B0FF33A89B66D7D70125.pygtex [56])
+\openout3 = `ExamenesParcial2.pyg'.
+
+ (./_minted-ExamenesParcial2/EFC548D2D0524D5BB4B122C8DC299519458FA9481517B0FF33A89B66D7D70125.pygtex)
+\openout3 = `ExamenesParcial2.pyg'.
+
+ (./_minted-ExamenesParcial2/2229DA791863C02B517CF2F73DF07589458FA9481517B0FF33A89B66D7D70125.pygtex [57])
+\openout3 = `ExamenesParcial2.pyg'.
+
+ (./_minted-ExamenesParcial2/AD2899842A33987949BF9603175F4F5D458FA9481517B0FF33A89B66D7D70125.pygtex) [58]
+\openout3 = `ExamenesParcial2.pyg'.
+
+ (./_minted-ExamenesParcial2/B90DF472B69C234DA9E41552E851ECA8458FA9481517B0FF33A89B66D7D70125.pygtex [59])))
+
+Package caption Warning: Unused \captionsetup[table] on input line 34.
+See the caption package documentation for explanation.
+
+[60] (./ExamenesParcial2.aux
+LaTeX Info: Redefining \. on input line 11.
+LaTeX Info: Redefining \% on input line 11.
+LaTeX Info: Redefining \. on input line 12.
+LaTeX Info: Redefining \% on input line 12.
+)
+ ***********
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-02-20>
+ ***********
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+Package rerunfilecheck Info: File `ExamenesParcial2.out' has not changed.
+(rerunfilecheck)             Checksum: FAF2A0EC9B9B9676AE53655F99A6EF4D;2435.
+runsystem(rm ExamenesParcial2.pyg)...executed.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 31822 strings out of 474116
+ 624367 string characters out of 5743682
+ 2186187 words of memory out of 5000000
+ 52964 multiletter control sequences out of 15000+600000
+ 565252 words of font info for 62 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 104i,13n,104p,1242b,1506s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/latxfont/lasy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
+Output written on ExamenesParcial2.pdf (60 pages, 1020290 bytes).
+PDF statistics:
+ 938 PDF objects out of 1000 (max. 8388607)
+ 822 compressed objects within 9 object streams
+ 484 named destinations out of 1000 (max. 500000)
+ 198 words of extra memory for PDF output out of 10000 (max. 10000000)
+

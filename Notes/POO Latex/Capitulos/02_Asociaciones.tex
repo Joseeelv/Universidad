@@ -20,22 +20,24 @@ multiplicidad es 1 - 1 solamente se almacenará el objeto con el que se enlazan.
 \subsection{Plantilla Implementación 1-N}
 \begin{center}
 \begin{lstlisting}[frame=single]
-class A{ //clase con multiplicidad 1
- public:
-  //...
-  void setB(B&); //enlazamos
-  B& getA() const; //objeto B enlazado con A
- private:
-  B* b_; //enlace con objeto B
-};
-class B{ //clase con multiplicidad N
- public:
-  //...
-  void setA(A&);
-  A getB()const;
- private:
-  A a_;
-};
+  class B; //declaracion adelantada
+  class A{ //clase con multiplicidad 1
+  public:
+    //...
+    typedef std::set<B*>Bs;
+    void setB(B& b){bs_.insert(&b);}; //guardamos los elementos en el conjunto
+    const Bs& getA() const{return bs_;}; //objeto B enlazado con A
+  private:
+    Bs bs_; //enlace con objeto B
+  };
+  class B{ //clase con multiplicidad N
+  public:
+    //...
+    void setA(A& a){a_ = a;}
+    const A& getB()const{return a_;}
+  private:
+    A a_;
+  };
 \end{lstlisting}
 \end{center}
 \newpage
@@ -48,29 +50,24 @@ class B{ //clase con multiplicidad N
 \end{figure}
 \begin{center}
 	\begin{lstlisting}[frame=single]
+class Asignatura; //declaracion adelantada
 class Persona{
- public:
+  public:
   //...
-  void setB(Asignatura&); //enlazamos   
+  void setA(Asignatura& a){asig_ = &a;}; //enlazamos   
   //objeto Asignatura enlazado con Persona
-  Asignatura& getA() const; 
- private:
-  Asignatura* b_; //enlace con objeto Asignatura
+  const Asignatura& getA() const noexcept {return *asig_;} 
+  private:
+  Asignatura* asig_; //enlace con objeto Asignatura
 };
 class Asignatura{
- public:
+  public:
   //...
-  void setA(Persona&); //enlazamos
-  Persona& getA()const; //objeto Persona enlazado con Asignatura
- private:
-  Persona* a_; //enlace con objeto Persona
+  void setP(Persona& p)noexcept{persona_ = &p;} //enlazamos
+  const Persona& getP()const noexcept{return *persona_;} //objeto Persona enlazado con Asignatura
+  private:
+  Persona* persona_; //enlace con objeto Persona
 };
-
-//Implementacion de los metodos, pueden ser inline
-void Persona::setB(Asignatura& b){ b_ = &b;}
-Persona::Asignatura& Persona::getB()const{ return *b_;}
-
-//Analogo para obtener Persona
 \end{lstlisting}
 \end{center}
 
@@ -85,31 +82,26 @@ Persona::Asignatura& Persona::getB()const{ return *b_;}
 
 \begin{center}
 	\begin{lstlisting}[frame=single]
+class Asignatura;
 class Persona{
- public:
-  //...
-  typedef set<Asignatura*> Bs;
-  void setB(Asignatura&);
-  const Bs& getA()const;
- private:
-  Bs bs_; 
+  public:
+    //...
+    typedef set<Asignatura*> As;
+    void setB(Asignatura& a)noexcept{as_.insert(&a);}
+    const As& getA()const noexcept{return as_;}
+  private:
+    As as_;   
 };
 
 class Asignatura{
   public:
     //...
-    typedef set<Persona*> As;
-    void setA(Persona&);
-    const As& getB()const;
+    typedef set<Persona*> Ps;
+    void setP(Persona& p)noexcept{ps_.insert(&p);}
+    const Ps& getB()const noexcept{return ps_;}
   private:
-    As as_;
+    Ps ps_;
 };
-
-//Se pueden hacer inline en la definicion de la clase
-void Persona::setB(Asignatura& b){ as_.insert(&b); }
-const Persona::Bs& getA()const{ return bs_; }
-
-//Analogo para obtener Persona
 \end{lstlisting}
 \end{center}
 

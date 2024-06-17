@@ -5,7 +5,7 @@
 \contentsline {section}{\numberline {1.2}Contenedores asociativos de la STL}{5}{section.1.2}%
 \contentsline {subsection}{\numberline {1.2.1}Conjunto de objetos: Set}{5}{subsection.1.2.1}%
 \contentsline {subsubsection}{Operaciones del contenedor asociativo set:}{6}{subsubsection*.4}%
-\contentsline {subsection}{\numberline {1.2.2}Diccionario clave - valor: Map}{7}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.2}Diccionario clave - valor: Map}{6}{subsection.1.2.2}%
 \contentsline {subsubsection}{Operaciones del contenedor asociativo map:}{7}{subsubsection*.6}%
 \contentsline {subsection}{\numberline {1.2.3}Tupla de dos elementos: Pair}{8}{subsection.1.2.3}%
 \contentsline {section}{\numberline {1.3}Algoritmos de búsqueda y ordenación}{8}{section.1.3}%
@@ -33,6 +33,7 @@
 \contentsline {section}{\numberline {4.2}Relación de Composición}{16}{section.4.2}%
 \contentsline {subsection}{\numberline {4.2.1} Implementación de composición 1 - 1..N}{16}{subsection.4.2.1}%
 \contentsline {subsection}{\numberline {4.2.2}Implementación de composición 1 - 1}{17}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Implementación de composición 1 - 1 (herencia privada)}{17}{subsection.4.2.3}%
 \contentsline {chapter}{\numberline {5}Asociación Calificada}{18}{chapter.5}%
 \contentsline {subsection}{\numberline {5.0.1}Implementación de la relacion}{18}{subsection.5.0.1}%
 \contentsline {chapter}{\numberline {6}Asociación con atributo de Enlace}{19}{chapter.6}%

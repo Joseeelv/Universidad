@@ -19,8 +19,7 @@ Implementación de las clases del diagrama de clases:
     public: 
       typedef std::set<Opciones>ConjuntoOpciones;
       Menu(Opciones& opcion){}
-      void setOpciones(Opciones* o)noexcept;
-      friend bool operator < (const Menu& , const Menu& )noexcept;
+      void setOpciones(Opciones& o)noexcept;
     private:
       ConjuntoOpciones opciones_;
   };
@@ -28,6 +27,10 @@ Implementación de las clases del diagrama de clases:
   class Opciones{
     public:
       Opciones(Formularios& f):formulario_(&f){}
+      const Formularios& getFomulario()const noexcept{return *formulario_;}
+
+      //Necesario para la composición
+      friend bool operator < (const Opciones& , const Opciones& )noexcept;
     private:
       Formularios* formulario_;
   };

@@ -1,0 +1,41 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{CD}\PYG{p}{\PYGZob{}}
+\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{  }\PYG{c+c1}{//Alias del conjunto de punteros de tipo D}
+\PYG{+w}{  }\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{+w}{ }\PYG{n}{set}\PYG{o}{\PYGZlt{}}\PYG{n}{D}\PYG{o}{*\PYGZgt{}}\PYG{+w}{ }\PYG{n}{Ds}\PYG{p}{;}
+
+\PYG{+w}{  }\PYG{c+c1}{//Alias de las relaciones}
+\PYG{+w}{  }\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{map}\PYG{o}{\PYGZlt{}}\PYG{n}{C}\PYG{o}{*}\PYG{p}{,}\PYG{n}{Ds}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{CDs}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{map}\PYG{o}{\PYGZlt{}}\PYG{n}{D}\PYG{o}{*}\PYG{p}{,}\PYG{n}{C}\PYG{o}{*\PYGZgt{}}\PYG{+w}{ }\PYG{n}{DC}\PYG{p}{;}
+
+\PYG{+w}{  }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{asocia}\PYG{p}{(}\PYG{n}{C}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{c}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{D}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{d}\PYG{p}{)}\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{c+c1}{//Si D está asociado con otro C, se desvincula y se asocia el que le pasamos por parámetro}
+\PYG{+w}{    }\PYG{k}{auto}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{inversa\PYGZus{}}\PYG{p}{.}\PYG{n}{find}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{d}\PYG{p}{);}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{i}\PYG{o}{!=}\PYG{n}{inversa\PYGZus{}}\PYG{p}{.}\PYG{n}{end}\PYG{p}{())\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{//D está asociado con un C}
+\PYG{+w}{      }\PYG{n}{directa\PYGZus{}}\PYG{p}{[}\PYG{n}{i}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{second}\PYG{p}{].}\PYG{n}{erase}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{d}\PYG{p}{);}\PYG{c+c1}{//eliminamos el antiguo D.}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{n}{inversa\PYGZus{}}\PYG{p}{[}\PYG{o}{\PYGZam{}}\PYG{n}{d}\PYG{p}{]}\PYG{o}{=\PYGZam{}}\PYG{n}{c}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{directa\PYGZus{}}\PYG{p}{[}\PYG{o}{\PYGZam{}}\PYG{n}{c}\PYG{p}{].}\PYG{n}{insert}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{d}\PYG{p}{);}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{asocia}\PYG{p}{(}\PYG{n}{D}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{d}\PYG{p}{,}\PYG{n}{C}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{c}\PYG{p}{)}\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}\PYG{n}{asocia}\PYG{p}{(}\PYG{n}{c}\PYG{p}{,}\PYG{n}{d}\PYG{p}{);\PYGZcb{}}
+
+\PYG{+w}{  }\PYG{n}{Ds}\PYG{+w}{ }\PYG{n+nf}{asociados}\PYG{p}{(}\PYG{n}{C}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{c}\PYG{p}{)}\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{auto}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{directa\PYGZus{}}\PYG{p}{.}\PYG{n}{find}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{c}\PYG{p}{);}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{i}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{directa\PYGZus{}}\PYG{p}{.}\PYG{n}{end}\PYG{p}{())}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{second}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{else}\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{c+c1}{//Devolvemos un conjunto vacio}
+\PYG{+w}{      }\PYG{n}{CD}\PYG{o}{::}\PYG{n}{Ds}\PYG{+w}{ }\PYG{n}{vacio}\PYG{p}{;}
+\PYG{+w}{      }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{vacio}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{  }\PYG{n}{C}\PYG{o}{*}\PYG{+w}{ }\PYG{n+nf}{asociados}\PYG{p}{(}\PYG{n}{D}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{d}\PYG{p}{)}\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{auto}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{inversa\PYGZus{}}\PYG{p}{.}\PYG{n}{find}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{d}\PYG{p}{);}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{i}\PYG{o}{!=}\PYG{n}{inversa\PYGZus{}}\PYG{p}{.}\PYG{n}{end}\PYG{p}{())}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{second}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{k}{nullptr}\PYG{p}{;}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{k}{private}\PYG{o}{:}
+\PYG{+w}{  }\PYG{n}{CDs}\PYG{+w}{ }\PYG{n}{directa\PYGZus{}}\PYG{p}{;}
+\PYG{+w}{  }\PYG{n}{DC}\PYG{+w}{ }\PYG{n}{inversa\PYGZus{}}\PYG{p}{;}
+\PYG{p}{\PYGZcb{};}
+\end{Verbatim}

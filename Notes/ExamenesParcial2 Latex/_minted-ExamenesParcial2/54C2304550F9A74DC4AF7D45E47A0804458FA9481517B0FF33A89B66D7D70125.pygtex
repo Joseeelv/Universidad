@@ -1,0 +1,17 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Carretera}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{    }\PYG{c+c1}{//Alias del conjunto de objetos de Tramos}
+\PYG{+w}{    }\PYG{n}{std}\PYG{o}{::}\PYG{n}{set}\PYG{o}{\PYGZlt{}}\PYG{n}{Tramo}\PYG{o}{\PYGZgt{}}\PYG{n}{Tramos}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{Carretera}\PYG{p}{(}\PYG{n}{Tramo}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{p}{);}
+\PYG{+w}{  }\PYG{k}{private}\PYG{o}{:}
+\PYG{+w}{    }\PYG{n}{Tramos}\PYG{+w}{ }\PYG{n}{tramos\PYGZus{}}\PYG{p}{;}
+\PYG{p}{\PYGZcb{};}
+
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Tramo}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{    }\PYG{c+c1}{//Lo anterior..}
+\PYG{+w}{    }\PYG{c+c1}{//tenemos que sobrecargar el operador \PYGZlt{} para poder ordenar las carreteras, ya que al ser un set de objetos y no de punteros no tenemos una implementación de dicho operador por defecto.}
+\PYG{+w}{    }\PYG{k}{friend}\PYG{+w}{ }\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{k}{operator}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Carretera}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Tramo}\PYG{o}{\PYGZam{}}\PYG{p}{)}\PYG{k}{noexcept}\PYG{p}{;}
+\PYG{p}{\PYGZcb{};}
+\end{Verbatim}

@@ -1,7 +1,7 @@
 \underbar{\textbf{\large Ejercicio 1:}} Dado el siguiente diagrama, defina las clases que aparecen escribiendo los miembros imprescindibles para implementar las relaciones dadas:
 \begin{figure}[h]
   \begin{center}
-    \includegraphics[width=0.8\textwidth]{assets/Mayo2008_1.png}
+    \includegraphics[width=0.4\textwidth]{assets/Mayo2008_1.png}
   \end{center}
   \caption{Diagrama de clases del ejercicio}
 \end{figure}
@@ -9,31 +9,23 @@
 class A{//...};
 class B : public A{
   public:
-    B(/*..*/):A(/*..*/){} //rel1
+    B(A& a):A(a){} //rel1
 };
 class C : private D{}; //rel4, composición 1-1, herencia privada
-
-
-
-
-
-
-
 class D{
   public:
     //relacion rel3 (agregación con B), solo conoce el agregado
-    typedef std::set<B*>Bs;
     void rel3(B&)noexcept;
-    const Bs& getBs()const noexcept;
+    const B& getBs()const noexcept;
   private:
-    Bs bs_; //rel3
+    B bs_; //rel3
 };
 
 class E : public A{ //rel1
   public:
     //Alias de la relacion con D, es unidireccional
     //multiplicidad 1-muchos, la existencia depende
-    E(D& d):A(/*...*/){
+    E(D& d,A& a):A(a){
       ds_.insert(&d);
     }
     typedef std::set<D*>Ds;
@@ -45,10 +37,10 @@ class E : public A{ //rel1
 
 class F : public C, public E{
   public:
-    F(/*...*/):C(/*...*/),E(/*...*/){}
+    F(C& c, E& e):C(c),E(e){}
 };
 \end{minted}
-\newpage
+
 \underbar{\textbf{\large Ejercicio 2:}} Dada las siguientes definiciones de las clases:
 
 \begin{lstlisting}[frame = single]
@@ -104,14 +96,14 @@ int main(){
   A *pa;
   B *pb;
   D d, *pd;
-  
+
   pd = &d; //OK, apuntamos a un objeto del mismo tipo
   pa = &d; //OK, conversion de puntero de A - D implicitamente
-  pa -> f(); //OK, metodo f() de D, pa pasa a ser de tipo D
+  pa -> f(); //OK, metodo f() de A (A no polimorfica, se mira tipo puntero)
   pb = &d; //OK, conversion de puntero de B - D implicitamente
-  pb -> f(); //OK, metodo f() de D, pb pasa a ser de tipo D
-  d= *pa; //ERROR, conversion implicita de arriba hacia abajo.
-  pd = (D*)pb;//OK, conversion correcta explicita de B a D
+  pb -> f(); //OK, metodo f() de B (B no polimorfica, se mira tipo puntero)
+  // d= *pa; //ERROR, conversion implicita de objetos hacia abajo.
+  pd = (D*)pb; //OK, conversion correcta explicita de B - D
   pd -> B::f(); //OK, metodo f() de B (resolucion de ambito)
   d.C::f(); //OK, metodo f() de C (resolucion de ambito)
   return 0;
@@ -123,7 +115,7 @@ Vemos que obtenemos un error en la linea \texttt{d = *pa} ya que estamos haciend
 \textbf{\large Apartado f) Diga lo que imprimiría el programa una vez subsanadas las ambigüedades y los demás errores.}
 \begin{figure}[h]
   \begin{center}
-    \includegraphics[width=0.5\textwidth]{assets/Mayo2008_2.png}
+    \includegraphics[width=0.5\textwidth]{assets/Mayo2008_2_1.jpeg}
   \end{center}
   Esto obtenemos si omitimos el error comentado anteriormente.
 \end{figure}

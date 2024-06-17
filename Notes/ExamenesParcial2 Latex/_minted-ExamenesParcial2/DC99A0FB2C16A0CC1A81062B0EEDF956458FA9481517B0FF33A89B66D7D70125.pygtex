@@ -1,0 +1,46 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{//Como es una relacion calificada, suponemos que el tipo de dato del calificador es un entero.}
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{A}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{    }\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{map}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{C}\PYG{o}{*\PYGZgt{}}\PYG{n}{Calificadas}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{rel1}\PYG{p}{(}\PYG{n}{C}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{c1}\PYG{p}{)}\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}\PYG{n}{calificadas\PYGZus{}}\PYG{p}{.}\PYG{n}{insert}\PYG{p}{(}\PYG{n}{std}\PYG{o}{::}\PYG{n}{make\PYGZus{}pair}\PYG{p}{(}\PYG{n}{c1}\PYG{p}{.}\PYG{n}{getid}\PYG{p}{(),}\PYG{o}{\PYGZam{}}\PYG{n}{c1}\PYG{p}{));\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Calificadas}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n+nf}{getCalificada}\PYG{p}{()}\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}\PYG{k}{return}\PYG{+w}{ }\PYG{n}{calificadas\PYGZus{}}\PYG{p}{;\PYGZcb{}}
+\PYG{+w}{  }\PYG{k}{private}\PYG{o}{:}
+\PYG{+w}{    }\PYG{n}{Calificadas}\PYG{+w}{ }\PYG{n}{calificadas\PYGZus{}}\PYG{p}{;}
+\PYG{p}{\PYGZcb{};}
+
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{C}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{private}\PYG{+w}{ }\PYG{n}{B}\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{//rel2}
+\PYG{+w}{  }\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{    }\PYG{n}{C}\PYG{p}{(}\PYG{n}{B}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{)}\PYG{o}{:}\PYG{n}{B}\PYG{p}{(}\PYG{n}{b}\PYG{p}{)\PYGZob{}\PYGZcb{}}
+\PYG{+w}{    }\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{getid}\PYG{p}{()}\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}\PYG{k}{return}\PYG{+w}{ }\PYG{n}{id\PYGZus{}}\PYG{p}{;\PYGZcb{}}
+
+\PYG{+w}{    }\PYG{c+c1}{//Alias de la relacion con D rel3}
+\PYG{+w}{    }\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{set}\PYG{o}{\PYGZlt{}}\PYG{n}{D}\PYG{o}{*\PYGZgt{}}\PYG{n}{Ds}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{rel4}\PYG{p}{(}\PYG{n}{D}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{d}\PYG{p}{)}\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}\PYG{n}{ds\PYGZus{}}\PYG{p}{.}\PYG{n}{insert}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{d}\PYG{p}{);\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{DS}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n+nf}{getD}\PYG{p}{()}\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}\PYG{k}{return}\PYG{+w}{ }\PYG{n}{ds\PYGZus{}}\PYG{p}{;\PYGZcb{}}
+\PYG{+w}{  }\PYG{k}{private}\PYG{o}{:}
+\PYG{+w}{    }\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{id\PYGZus{}}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//atributo calificador}
+\PYG{+w}{    }\PYG{n}{Ds}\PYG{+w}{ }\PYG{n}{ds\PYGZus{}}\PYG{p}{;}
+\PYG{p}{\PYGZcb{};}
+
+
+
+
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{D}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{rel4}\PYG{p}{(}\PYG{n}{C}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{c}\PYG{p}{)\PYGZob{}}\PYG{n}{c\PYGZus{}}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{c}\PYG{p}{;\PYGZcb{}}
+\PYG{+w}{    }\PYG{n}{C}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{getC}\PYG{p}{()}\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}\PYG{k}{return}\PYG{+w}{ }\PYG{n}{c\PYGZus{}}\PYG{p}{;\PYGZcb{}}
+\PYG{+w}{  }\PYG{k}{private}\PYG{o}{:}
+\PYG{+w}{    }\PYG{n}{C}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{c\PYGZus{}}\PYG{p}{;}
+\PYG{p}{\PYGZcb{};}
+
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{B}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{    }\PYG{c+c1}{//Alias del conjunto de D}
+\PYG{+w}{    }\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{set}\PYG{o}{\PYGZlt{}}\PYG{n}{D}\PYG{o}{*\PYGZgt{}}\PYG{n}{DS}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{rel3}\PYG{p}{(}\PYG{n}{D}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{d}\PYG{p}{)}\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}\PYG{n}{ds}\PYG{p}{.}\PYG{n}{insert}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{d}\PYG{p}{);\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{DS}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n+nf}{getD}\PYG{p}{()}\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}\PYG{k}{return}\PYG{+w}{ }\PYG{n}{ds\PYGZus{}}\PYG{p}{;\PYGZcb{}}
+\PYG{+w}{  }\PYG{k}{private}\PYG{o}{:}
+\PYG{+w}{    }\PYG{n}{DS}\PYG{+w}{ }\PYG{n}{ds\PYGZus{}}\PYG{p}{;}
+\PYG{p}{\PYGZcb{};}
+\end{Verbatim}
