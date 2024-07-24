@@ -1,0 +1,38 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{LineaPedido}\PYG{p}{\PYGZob{}\PYGZcb{};}
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Articulo}\PYG{p}{\PYGZob{}\PYGZcb{};}\PYG{+w}{ }\PYG{c+c1}{//lado 1..M}
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Pedido}\PYG{p}{\PYGZob{}\PYGZcb{};}\PYG{+w}{ }\PYG{c+c1}{//lado N}
+
+\PYG{c+c1}{//Clase de asociación}
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{ArticuloPedido}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{    }\PYG{c+c1}{//Alias de las relaciones Articulo \PYGZhy{} LineaPedido y Pedido\PYGZhy{}LineaPedido}
+\PYG{+w}{    }\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{map}\PYG{o}{\PYGZlt{}}\PYG{n}{Articulo}\PYG{o}{*}\PYG{p}{,}\PYG{n}{LineaPedido}\PYG{o}{*\PYGZgt{}}\PYG{n}{Articulos}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{map}\PYG{o}{\PYGZlt{}}\PYG{n}{Pedido}\PYG{o}{*}\PYG{p}{,}\PYG{n}{LineaPedido}\PYG{o}{*\PYGZgt{}}\PYG{n}{Pedidos}\PYG{p}{;}
+\PYG{+w}{    }\PYG{c+c1}{//Alias de las relaciones Articulo \PYGZhy{} Pedido}
+\PYG{+w}{    }\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{map}\PYG{o}{\PYGZlt{}}\PYG{n}{Articulo}\PYG{o}{*}\PYG{p}{,}\PYG{n}{Pedidos}\PYG{o}{\PYGZgt{}}\PYG{n}{ArticulosPedidos}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{map}\PYG{o}{\PYGZlt{}}\PYG{n}{Pedido}\PYG{o}{*}\PYG{p}{,}\PYG{n}{Articulos}\PYG{o}{\PYGZgt{}}\PYG{n}{PedidosArticulos}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{setArticuloPedido}\PYG{p}{(}\PYG{n}{Articulo}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Pedido}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{p}\PYG{+w}{ }\PYG{p}{,}\PYG{n}{LineaPedido}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{lp}\PYG{p}{)}\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{n}{directa}\PYG{p}{[}\PYG{o}{\PYGZam{}}\PYG{n}{a}\PYG{p}{].}\PYG{n}{insert}\PYG{p}{(}\PYG{n}{std}\PYG{o}{::}\PYG{n}{make\PYGZus{}pair}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{p}\PYG{p}{,}\PYG{o}{\PYGZam{}}\PYG{n}{lp}\PYG{p}{));}
+\PYG{+w}{      }\PYG{n}{inversa}\PYG{p}{[}\PYG{o}{\PYGZam{}}\PYG{n}{p}\PYG{p}{].}\PYG{n}{insert}\PYG{p}{(}\PYG{n}{std}\PYG{o}{::}\PYG{n}{make\PYGZus{}pair}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{a}\PYG{p}{,}\PYG{o}{\PYGZam{}}\PYG{n}{lp}\PYG{p}{));}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{setArticuloPedido}\PYG{p}{(}\PYG{n}{Pedido}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{p}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Articulo}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{LineaPedido}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{lp}\PYG{p}{)}\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{c+c1}{//Delegamos en la anterior}
+\PYG{+w}{      }\PYG{n}{setArticuloPedido}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,}\PYG{n}{p}\PYG{p}{,}\PYG{n}{lp}\PYG{p}{);}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{    }\PYG{n}{Articulos}\PYG{+w}{ }\PYG{n+nf}{getArticulos}\PYG{p}{(}\PYG{n}{Pedido}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{p}\PYG{p}{)}\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{k}{auto}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{inversa}\PYG{p}{.}\PYG{n}{find}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{p}\PYG{p}{);}
+\PYG{+w}{      }\PYG{k}{if}\PYG{p}{(}\PYG{n}{i}\PYG{o}{!=}\PYG{n}{inversa}\PYG{p}{.}\PYG{n}{end}\PYG{p}{())}\PYG{k}{return}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{second}\PYG{p}{;}
+\PYG{+w}{      }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{map}\PYG{o}{\PYGZlt{}}\PYG{n}{Articulo}\PYG{o}{*}\PYG{p}{,}\PYG{n}{LineaPedido}\PYG{o}{*\PYGZgt{}}\PYG{p}{();}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Pedidos}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n+nf}{getPedidos}\PYG{p}{(}\PYG{n}{Articulo}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{)}\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}
+
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{  }\PYG{k}{private}\PYG{o}{:}
+\PYG{+w}{    }\PYG{n}{ArticulosPedidos}\PYG{+w}{ }\PYG{n}{directa}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{PedidosArticulos}\PYG{+w}{ }\PYG{n}{inversa}\PYG{p}{;}
+\PYG{p}{\PYGZcb{};}
+\end{Verbatim}

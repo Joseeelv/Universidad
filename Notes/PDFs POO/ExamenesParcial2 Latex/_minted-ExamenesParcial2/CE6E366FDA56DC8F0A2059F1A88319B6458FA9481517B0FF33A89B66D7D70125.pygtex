@@ -1,0 +1,32 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Articulo}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{    }\PYG{c+c1}{//Métodos propios de la clase}
+\PYG{+w}{    }\PYG{c+c1}{//Alias del diccionario que recibe de la relacion con Pedido}
+\PYG{+w}{    }\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{map}\PYG{o}{\PYGZlt{}}\PYG{n}{Pedido}\PYG{o}{*}\PYG{p}{,}\PYG{n}{LineaPedido}\PYG{o}{*\PYGZgt{}}\PYG{n}{Pedidos}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{setPedido}\PYG{p}{(}\PYG{n}{Pedido}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{p}\PYG{p}{,}\PYG{n}{LineaPedido}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{lp}\PYG{p}{)}\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{n}{pedidos\PYGZus{}}\PYG{p}{.}\PYG{n}{insert}\PYG{p}{(}\PYG{n}{std}\PYG{o}{::}\PYG{n}{make\PYGZus{}pair}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{p}\PYG{p}{,}\PYG{o}{\PYGZam{}}\PYG{n}{lp}\PYG{p}{));}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Pedidos}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n+nf}{getPedidos}\PYG{p}{()}\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}\PYG{k}{return}\PYG{+w}{ }\PYG{n}{pedidos\PYGZus{}}\PYG{p}{;\PYGZcb{}}
+\PYG{+w}{  }\PYG{k}{private}\PYG{o}{:}
+\PYG{+w}{    }\PYG{c+c1}{//Atributos propios de la clase}
+\PYG{+w}{    }\PYG{n}{Pedidos}\PYG{+w}{ }\PYG{n}{pedidos\PYGZus{}}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//nombre del diccionario.}
+\PYG{p}{\PYGZcb{};}
+
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Pedido}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{    }\PYG{c+c1}{//Método propios de la clase}
+\PYG{+w}{    }\PYG{c+c1}{//Alias del diccionario que recibe de la relación con Articulo.}
+\PYG{+w}{    }\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{map}\PYG{o}{\PYGZlt{}}\PYG{n}{Articulo}\PYG{o}{*}\PYG{p}{,}\PYG{n}{LineaPedido}\PYG{o}{*\PYGZgt{}}\PYG{n}{Articulos}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{Pedido}\PYG{p}{(}\PYG{n}{Articulo}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{LineaPedido}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{lp}\PYG{p}{,}\PYG{c+cm}{/*Atributos de la clase*/}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{n}{setArticulo}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,}\PYG{n}{lp}\PYG{p}{);}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{setArticulo}\PYG{p}{(}\PYG{n}{Articulo}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{,}\PYG{n}{LineaPedido}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{lp}\PYG{p}{)}\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{n}{articulos\PYGZus{}}\PYG{p}{.}\PYG{n}{insert}\PYG{p}{(}\PYG{n}{std}\PYG{o}{::}\PYG{n}{make\PYGZus{}pair}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{a}\PYG{p}{,}\PYG{o}{\PYGZam{}}\PYG{n}{lp}\PYG{p}{));}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Articulos}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{getArticulo}\PYG{p}{()}\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}\PYG{k}{return}\PYG{+w}{ }\PYG{n}{articulos\PYGZus{}}\PYG{p}{;\PYGZcb{}}
+\PYG{+w}{  }\PYG{k}{private}\PYG{o}{:}
+\PYG{+w}{    }\PYG{c+c1}{//Atributos propios de la clase}
+\PYG{+w}{    }\PYG{n}{Articulos}\PYG{+w}{ }\PYG{n}{articulos\PYGZus{}}\PYG{p}{;}
+\PYG{p}{\PYGZcb{};}
+\end{Verbatim}

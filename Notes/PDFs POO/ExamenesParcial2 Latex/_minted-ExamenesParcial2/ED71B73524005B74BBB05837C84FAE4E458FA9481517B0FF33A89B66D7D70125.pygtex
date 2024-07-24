@@ -1,0 +1,21 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n+nf}{LibrosBaratos}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{Articulo}\PYG{o}{*\PYGZgt{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{articulos}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n}{precioMinimo}\PYG{p}{)}
+\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{c+c1}{//Definimos la variable}
+\PYG{+w}{  }\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{librosbaratos}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{+w}{  }\PYG{c+c1}{//Creamos la función Lambda}
+\PYG{+w}{  }\PYG{k}{auto}\PYG{+w}{ }\PYG{n}{EsBarato}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{[}\PYG{n}{precioMinimo}\PYG{p}{](}\PYG{n}{Articuxlo}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{    }\PYG{c+c1}{//solo contamos los libros}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{Libro}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{l}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{dynamic\PYGZus{}cast}\PYG{o}{\PYGZlt{}}\PYG{n}{Libro}\PYG{o}{*\PYGZgt{}}\PYG{p}{(}\PYG{n}{a}\PYG{p}{))\PYGZob{}}
+\PYG{+w}{      }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{l}\PYG{o}{!=}\PYG{k}{nullptr}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{l}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{getprecio}\PYG{p}{()}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{precioMinimo}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{else}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{n+nb}{false}\PYG{p}{;}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{c+c1}{//recorremos el vector de articulos}
+\PYG{+w}{  }\PYG{k}{for}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{k}{auto}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{a}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{n}{articulos}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{    }\PYG{c+c1}{//comprobamos si es barato o no}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{EsBarato}\PYG{p}{(}\PYG{n}{a}\PYG{p}{))}\PYG{n}{librosbaratos}\PYG{o}{++}\PYG{p}{;}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{librosbaratos}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

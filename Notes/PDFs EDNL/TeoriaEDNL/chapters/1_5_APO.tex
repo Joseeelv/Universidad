@@ -1,0 +1,21 @@
+\chapter{Árboles parcialmente ordenados}
+Un \textbf{árbol parcialmente ordenado} o \textbf{APO}, es un árbol completo (árbol que tiene todos sus niveles llenos menos el último que faltan nodos por la derecha) en el que el \textit{valor de cualquier nodo es menor o igual que el de todos sus descendientes}. 
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=0.7\textwidth]{assets/apo1.png}
+  \end{center}
+\end{figure}
+\section{Operaciones básicas}
+Cuando trabajamos con APOs podemos realizar varias operaciones como \textbf{acceso al mínimo valor}, \textbf{inserción} y \textbf{eliminación}.
+\begin{itemize}
+  \item El mínimo valor se puede obtener en un tiempo de\(O(1)\), debido a que el mínimo valor siempre será la \textbf{raíz} del propio árbol.
+  \item Encontramos la \textbf{propiedad de completitud} que implica que la altura menor posible del APO de \(n\) nodos es de \(h = log_{2}\ n\).
+  \item También existe la \textbf{propiedad de orden} del APO que permite efectuar inserciones y eliminaciones en el mismo en un tiempo \(O(h)\) (en el peor caso), y en un tiempo \(O(log_{2}\ n)\) en el mejor y caso promedio.
+\end{itemize}
+
+\section{Especificación del TAD árbol parcialmente ordenado}
+\input{chapters/1_5_EspecificacionAPO.tex}
+\section{Implementación del TAD árbol parcialmente ordenado}
+\input{chapters/ImplementacionAPO.tex}
+
+Finalmente, como conclusión sacamos de que un \textbf{APO} no es un \textbf{AVL}, ya que ambos tienen propositos diferentes, siendo el objetivo principal de los AVLs la búsqueda de elementos lo más rapido posible y en los APOs su uso en algoritmos de ordenación y en el uso de colas con prioridad.

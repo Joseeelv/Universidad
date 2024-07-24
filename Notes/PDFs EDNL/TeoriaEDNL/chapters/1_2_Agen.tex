@@ -1,0 +1,21 @@
+\chapter{Árboles Generales}
+Un árbol general es aquel que cuyos nodos son de cualquier grado, es decir, pueden tener un número cualquiera de hijos, a diferencia de los árboles binarios que son de grado (0,1 ó 2).
+
+Otra gran diferencia de los árboles generales frente a los árboles binarios es que en nuestro TAD no hablamos de hijos derechos, si no de hermanos derechos de un nodo, por tanto, tendremos nodos que son padre, hijo izquierdo y hermanos derechos, véase en\\ (\textit{Figura 3.1: Estructura de un árbol general}).
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=\textwidth]{assets/Agen1.png}
+  \end{center}
+  \caption[short]{Estructura de un árbol general}
+\end{figure}
+
+La creación de un árbol general es igual que en los árboles binarios, partimos de un árbol general vacío e insertamos la raíz y a partir de ahí construimos el árbol insertando hijos izquierdos y hermanos derechos de esos nodos.
+
+Al igual que en el caso de los árboles binarios vamos a ver cuales son y que hacen las operaciones mediante la \textbf{especificación del TAD árbol general}.
+\section{Especificación del TAD árbol general}
+\input{chapters/1_2_EspecificacionAgen.tex}
+\section{Implementaciones del TAD árbol general}
+\input{chapters/ImplementacionAgenVec.tex}
+\input{chapters/ImplementacionAgenEnla.tex}
+

@@ -1,0 +1,133 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{+w}{  }\PYG{c+cp}{\PYGZsh{}ifndef ARTICULO\PYGZus{}HPP}
+\PYG{c+cp}{\PYGZsh{}define ARTICULO\PYGZus{}HPP}
+
+\PYG{c+c1}{// Inclusión de librerías}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZdq{}../P1/fecha.hpp\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZdq{}../P1/cadena.hpp\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}iostream\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}iomanip\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}locale.h\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}set\PYGZgt{}}
+
+\PYG{c+cm}{/*\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}Clase Autor de la P4\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}*/}
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Autor}\PYG{p}{\PYGZob{}}
+\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{  }\PYG{c+c1}{// No definimos la relación con Articulo aqui ya que no}
+\PYG{+w}{  }\PYG{c+c1}{// nos hace falta.}
+\PYG{+w}{  }\PYG{n}{Autor}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{nombre}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{apellido}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{direccion}\PYG{p}{)}
+\PYG{+w}{      }\PYG{o}{:}\PYG{+w}{ }\PYG{n}{nom\PYGZus{}}\PYG{p}{(}\PYG{n}{nombre}\PYG{p}{),}\PYG{+w}{ }\PYG{n}{apell\PYGZus{}}\PYG{p}{(}\PYG{n}{apellido}\PYG{p}{),}\PYG{+w}{ }\PYG{n}{dir\PYGZus{}}\PYG{p}{(}\PYG{n}{direccion}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}\PYGZcb{}}
+\PYG{+w}{  }\PYG{c+c1}{// Consultores de la clase}
+\PYG{+w}{  }\PYG{k+kr}{inline}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{nombre}\PYG{p}{()}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{nom\PYGZus{}}\PYG{p}{;}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{k+kr}{inline}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{apellidos}\PYG{p}{()}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{apell\PYGZus{}}\PYG{p}{;}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{k+kr}{inline}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{direccion}\PYG{p}{()}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{dir\PYGZus{}}\PYG{p}{;}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+
+\PYG{k}{private}\PYG{o}{:}
+\PYG{+w}{  }\PYG{n}{Cadena}\PYG{+w}{ }\PYG{n}{nom\PYGZus{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{apell\PYGZus{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{dir\PYGZus{}}\PYG{p}{;}
+\PYG{p}{\PYGZcb{};}
+
+\PYG{c+cm}{/*\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}Clase Aticulo de la P4\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}*/}
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Articulo}\PYG{p}{\PYGZob{}}
+\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{  }\PYG{c+cm}{/*\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}Relación entre Articulo \PYGZhy{} Autor\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}*/}
+\PYG{+w}{  }\PYG{c+c1}{// podemos definirlo como una asociación o agregación, que cada Articulo contendrá}
+\PYG{+w}{  }\PYG{c+c1}{// un conjunto de Autores.}
+\PYG{+w}{  }\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{set}\PYG{o}{\PYGZlt{}}\PYG{n}{Autor}\PYG{+w}{ }\PYG{o}{*\PYGZgt{}}\PYG{+w}{ }\PYG{n}{Autores}\PYG{p}{;}
+
+\PYG{+w}{  }\PYG{c+c1}{// Como un Articulo puede tener como mínimo 1 autor y además sin autor no hay articulo}
+\PYG{+w}{  }\PYG{n}{Articulo}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Autores}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{autores}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{+w}{ }\PYG{n}{referencia}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{+w}{ }\PYG{n}{titulo}\PYG{p}{,}
+\PYG{+w}{           }\PYG{n}{Fecha}\PYG{+w}{ }\PYG{n}{f\PYGZus{}publi}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n}{precio}\PYG{p}{);}
+
+\PYG{+w}{  }\PYG{c+c1}{// Observadores de la clase}
+\PYG{+w}{  }\PYG{k+kr}{inline}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n+nf}{referencia}\PYG{p}{()}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{referencia\PYGZus{}}\PYG{p}{;}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{k+kr}{inline}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n+nf}{titulo}\PYG{p}{()}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{titulo\PYGZus{}}\PYG{p}{;}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{k+kr}{inline}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Fecha}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n+nf}{f\PYGZus{}publi}\PYG{p}{()}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{fpubli\PYGZus{}}\PYG{p}{;}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{k+kr}{inline}\PYG{+w}{ }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n+nf}{precio}\PYG{p}{()}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{precio\PYGZus{}}\PYG{p}{;}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{k+kr}{inline}\PYG{+w}{ }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n+nf}{precio}\PYG{p}{()}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{precio\PYGZus{}}\PYG{p}{;}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{c+c1}{// Desaparece en esta práctica}
+\PYG{+w}{  }\PYG{c+c1}{//  inline unsigned stock()const noexcept\PYGZob{}return stock\PYGZus{};\PYGZcb{}}
+\PYG{+w}{  }\PYG{c+c1}{//  inline unsigned\PYGZam{} stock()noexcept\PYGZob{}return stock\PYGZus{};\PYGZcb{}}
+\PYG{+w}{  }\PYG{k+kr}{inline}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Autores}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n+nf}{autores}\PYG{p}{()}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{autores\PYGZus{}}\PYG{p}{;}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{c+c1}{// Exepcion de la clase}
+\PYG{+w}{  }\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Autores\PYGZus{}vacios}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{};}
+
+\PYG{+w}{  }\PYG{c+c1}{// Nuevo operador de inserción en flujo}
+\PYG{+w}{  }\PYG{k}{virtual}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{impresion\PYGZus{}especifica}\PYG{p}{(}\PYG{n}{std}\PYG{o}{::}\PYG{n}{ostream}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+
+\PYG{+w}{  }\PYG{c+c1}{// Como esta clase se va a especializar en otras su destructor debe de ser}
+\PYG{+w}{  }\PYG{c+c1}{// virtual para que puedan llamarse a los destructores de las clases derivadas}
+\PYG{+w}{  }\PYG{k}{virtual}\PYG{+w}{ }\PYG{o}{\PYGZti{}}\PYG{n}{Articulo}\PYG{p}{()}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{default}\PYG{p}{;}
+
+\PYG{k}{private}\PYG{o}{:}
+\PYG{+w}{  }\PYG{n}{Autores}\PYG{+w}{ }\PYG{n}{autores\PYGZus{}}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// relación de las clases Articulo \PYGZhy{} Autor}
+\PYG{+w}{  }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{+w}{ }\PYG{n}{referencia\PYGZus{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{titulo\PYGZus{}}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Fecha}\PYG{+w}{ }\PYG{n}{fpubli\PYGZus{}}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n}{precio\PYGZus{}}\PYG{p}{;}
+\PYG{+w}{  }\PYG{c+c1}{// unsigned stock\PYGZus{}; Desaparece en esta práctica}
+\PYG{p}{\PYGZcb{};}
+
+\PYG{c+c1}{// Operador de inserción en flujo}
+\PYG{n}{std}\PYG{o}{::}\PYG{n}{ostream}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{k}{operator}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{p}{(}\PYG{n}{std}\PYG{o}{::}\PYG{n}{ostream}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Articulo}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{p}{;}
+
+\PYG{c+cm}{/*\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}Clase Derivada ArticuloAlamacenable\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}*/}
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{ArticuloAlmacenable}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{public}\PYG{+w}{ }\PYG{n}{Articulo}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{    }\PYG{n}{ArticuloAlmacenable}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Autores}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{autores}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{+w}{ }\PYG{n}{referencia}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{+w}{ }\PYG{n}{titulo}\PYG{p}{,}\PYG{n}{Fecha}\PYG{+w}{ }\PYG{n}{f\PYGZus{}publi}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n}{precio}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{unsigned}\PYG{+w}{ }\PYG{n}{stock}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{)}
+\PYG{+w}{        }\PYG{o}{:}\PYG{+w}{ }\PYG{n}{Articulo}\PYG{p}{(}\PYG{n}{autores}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{referencia}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{titulo}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{f\PYGZus{}publi}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{precio}\PYG{p}{),}\PYG{+w}{ }\PYG{n}{stock\PYGZus{}}\PYG{p}{(}\PYG{n}{stock}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}\PYGZcb{}}
+
+\PYG{+w}{    }\PYG{c+c1}{// Observadores de la clase}
+\PYG{+w}{    }\PYG{k+kr}{inline}\PYG{+w}{ }\PYG{k+kt}{unsigned}\PYG{+w}{ }\PYG{n}{stock}\PYG{p}{()}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{stock\PYGZus{}}\PYG{p}{;}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k+kr}{inline}\PYG{+w}{ }\PYG{k+kt}{unsigned}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{stock}\PYG{p}{()}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{stock\PYGZus{}}\PYG{p}{;}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{  }\PYG{k}{protected}\PYG{o}{:}\PYG{+w}{ }\PYG{c+c1}{// se pone protected para que las clases derivadas de esta puedan hacer uso del atributo}
+\PYG{+w}{    }\PYG{c+c1}{// Atributo de la clase Articulo que lo define}
+\PYG{+w}{    }\PYG{k+kt}{unsigned}\PYG{+w}{ }\PYG{n}{stock\PYGZus{}}\PYG{p}{;}
+\PYG{p}{\PYGZcb{};}
+
+\PYG{c+cm}{/*\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}Clase Derivada Libro\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}*/}
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Libro}\PYG{+w}{ }\PYG{k}{final}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{public}\PYG{+w}{ }\PYG{n}{ArticuloAlmacenable}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{    }\PYG{n}{Libro}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Autores}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{autores}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{+w}{ }\PYG{n}{referencia}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{+w}{ }\PYG{n}{titulo}\PYG{p}{,}
+\PYG{+w}{          }\PYG{n}{Fecha}\PYG{+w}{ }\PYG{n}{f\PYGZus{}publi}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n}{precio}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{unsigned}\PYG{+w}{ }\PYG{n}{paginas}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{unsigned}\PYG{+w}{ }\PYG{n}{stock}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{n}{ArticuloAlmacenable}\PYG{p}{(}\PYG{n}{autores}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{referencia}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{titulo}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{f\PYGZus{}publi}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{precio}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{stock}\PYG{p}{),}\PYG{+w}{ }\PYG{n}{n\PYGZus{}pag\PYGZus{}}\PYG{p}{(}\PYG{n}{paginas}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}\PYGZcb{}}
+\PYG{+w}{    }\PYG{c+c1}{// Observadores de la clase}
+\PYG{+w}{    }\PYG{k+kr}{inline}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{k+kt}{unsigned}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{n\PYGZus{}pag}\PYG{p}{()}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{n\PYGZus{}pag\PYGZus{}}\PYG{p}{;}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{c+c1}{// Método virtual heredado}
+\PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{impresion\PYGZus{}especifica}\PYG{p}{(}\PYG{n}{std}\PYG{o}{::}\PYG{n}{ostream}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{k}{override}\PYG{+w}{ }\PYG{k}{final}\PYG{p}{;}
+
+\PYG{+w}{  }\PYG{k}{private}\PYG{o}{:}
+\PYG{+w}{    }\PYG{c+c1}{// Atributo de la clase que lo define}
+\PYG{+w}{    }\PYG{k}{const}\PYG{+w}{ }\PYG{k+kt}{unsigned}\PYG{+w}{ }\PYG{n}{n\PYGZus{}pag\PYGZus{}}\PYG{p}{;}
+\PYG{p}{\PYGZcb{};}
+
+\PYG{c+cm}{/*\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}Clase Derivada Revista\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}*/}
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Revista}\PYG{+w}{ }\PYG{k}{final}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{public}\PYG{+w}{ }\PYG{n}{ArticuloAlmacenable}\PYG{p}{\PYGZob{}}
+\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{    }\PYG{n}{Revista}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Autores}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{autores}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{+w}{ }\PYG{n}{referencia}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{+w}{ }\PYG{n}{titulo}\PYG{p}{,}
+\PYG{+w}{            }\PYG{n}{Fecha}\PYG{+w}{ }\PYG{n}{f\PYGZus{}publi}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n}{precio}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{k+kt}{unsigned}\PYG{+w}{ }\PYG{n}{numero}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{k+kt}{unsigned}\PYG{+w}{ }\PYG{n}{f}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{unsigned}\PYG{+w}{ }\PYG{n}{stock}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{n}{ArticuloAlmacenable}\PYG{p}{(}\PYG{n}{autores}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{referencia}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{titulo}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{f\PYGZus{}publi}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{precio}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{stock}\PYG{p}{),}\PYG{+w}{ }\PYG{n}{numero\PYGZus{}}\PYG{p}{(}\PYG{n}{numero}\PYG{p}{),}\PYG{+w}{ }\PYG{n}{periodicidad\PYGZus{}}\PYG{p}{(}\PYG{n}{f}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}\PYGZcb{}}
+\PYG{+w}{    }\PYG{c+c1}{// Observadores de la clase}
+\PYG{+w}{    }\PYG{k+kr}{inline}\PYG{+w}{ }\PYG{k+kt}{unsigned}\PYG{+w}{ }\PYG{n}{numero}\PYG{p}{()}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{numero\PYGZus{}}\PYG{p}{;}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k+kr}{inline}\PYG{+w}{ }\PYG{k+kt}{unsigned}\PYG{+w}{ }\PYG{n}{periodicidad}\PYG{p}{()}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{periodicidad\PYGZus{}}\PYG{p}{;}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{c+c1}{// Método virtual heredado}
+\PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{impresion\PYGZus{}especifica}\PYG{p}{(}\PYG{n}{std}\PYG{o}{::}\PYG{n}{ostream}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{k}{override}\PYG{+w}{ }\PYG{k}{final}\PYG{p}{;}
+
+\PYG{+w}{  }\PYG{k}{private}\PYG{o}{:}
+\PYG{+w}{    }\PYG{k}{const}\PYG{+w}{ }\PYG{k+kt}{unsigned}\PYG{+w}{ }\PYG{n}{numero\PYGZus{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{periodicidad\PYGZus{}}\PYG{p}{;}
+\PYG{p}{\PYGZcb{};}
+
+\PYG{c+cm}{/*\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}Clase Derivada LibroDigital\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}*/}
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{LibroDigital}\PYG{+w}{ }\PYG{k}{final}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{public}\PYG{+w}{ }\PYG{n}{Articulo}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{    }\PYG{n}{LibroDigital}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Autores}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{autores}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{+w}{ }\PYG{n}{referencia}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Cadena}\PYG{+w}{ }\PYG{n}{titulo}\PYG{p}{,}
+\PYG{+w}{                }\PYG{n}{Fecha}\PYG{+w}{ }\PYG{n}{f\PYGZus{}publi}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n}{precio}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Fecha}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{f\PYGZus{}expir}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{n}{Articulo}\PYG{p}{(}\PYG{n}{autores}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{referencia}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{titulo}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{f\PYGZus{}publi}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{precio}\PYG{p}{),}\PYG{+w}{ }\PYG{n}{f\PYGZus{}expir\PYGZus{}}\PYG{p}{(}\PYG{n}{f\PYGZus{}expir}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}\PYGZcb{}}
+\PYG{+w}{    }\PYG{c+c1}{// Observador de la clase}
+\PYG{+w}{    }\PYG{k+kr}{inline}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Fecha}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{f\PYGZus{}expir}\PYG{p}{()}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{f\PYGZus{}expir\PYGZus{}}\PYG{p}{;}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{c+c1}{// Método virtual heredado}
+\PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{impresion\PYGZus{}especifica}\PYG{p}{(}\PYG{n}{std}\PYG{o}{::}\PYG{n}{ostream}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{k}{override}\PYG{+w}{ }\PYG{k}{final}\PYG{p}{;}
+
+\PYG{+w}{  }\PYG{k}{private}\PYG{o}{:}
+\PYG{+w}{    }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Fecha}\PYG{+w}{ }\PYG{n}{f\PYGZus{}expir\PYGZus{}}\PYG{p}{;}
+\PYG{p}{\PYGZcb{};}
+
+\PYG{c+cp}{\PYGZsh{}endif }\PYG{c+c1}{// !ARTICULO\PYGZus{}HPP}
+\end{Verbatim}

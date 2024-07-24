@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{+w}{  }\PYG{k}{template}\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{o}{\PYGZgt{}}
+\PYG{+w}{  }\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{ListaOrdenada}\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{        }\PYG{k}{typedef}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{list}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{const\PYGZus{}iterator}\PYG{+w}{ }\PYG{n}{iterator}\PYG{p}{;}
+\PYG{+w}{        }\PYG{n}{ListaOrdenada}\PYG{p}{()}\PYG{o}{:}\PYG{n}{list}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}\PYG{p}{()\PYGZob{}\PYGZcb{}}
+\PYG{+w}{        }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{insertar}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{T}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{e}\PYG{p}{);}
+\PYG{+w}{        }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{eliminar}\PYG{p}{(}\PYG{n}{iterator}\PYG{+w}{ }\PYG{n}{p}\PYG{p}{);}
+
+\PYG{+w}{        }\PYG{n}{iterator}\PYG{+w}{ }\PYG{n+nf}{begin}\PYG{p}{();}
+\PYG{+w}{        }\PYG{n}{iterator}\PYG{+w}{ }\PYG{n+nf}{end}\PYG{p}{();}
+\PYG{+w}{    }\PYG{k}{private}\PYG{o}{:}
+\PYG{+w}{      }\PYG{n}{list}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}\PYG{n}{listaordenada\PYGZus{}}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//objeto de tipo list}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{};}
+\end{Verbatim}

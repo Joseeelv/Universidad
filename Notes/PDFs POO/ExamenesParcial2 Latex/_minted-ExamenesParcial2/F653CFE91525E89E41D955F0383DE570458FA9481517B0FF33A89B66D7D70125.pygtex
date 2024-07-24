@@ -1,0 +1,40 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Instrumento}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{    }\PYG{n}{Instrumento}\PYG{p}{(}\PYG{n}{string}\PYG{+w}{ }\PYG{n}{nom}\PYG{p}{)}\PYG{o}{:}\PYG{n}{nombre\PYGZus{}}\PYG{p}{(}\PYG{n}{nom}\PYG{p}{)\PYGZob{}\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{virtual}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{tocar}\PYG{p}{()}\PYG{k}{const}\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{n}{cout}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{}Soy un \PYGZdq{}}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{nombre}\PYG{p}{()}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{} y pertenezco a Instrumento\PYGZdq{}}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{endl}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{n}{string}\PYG{+w}{ }\PYG{n}{nombre}\PYG{p}{()}\PYG{+w}{ }\PYG{k}{const}\PYG{p}{\PYGZob{}}\PYG{k}{return}\PYG{+w}{ }\PYG{n}{nombre\PYGZus{}}\PYG{p}{;\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{virtual}\PYG{+w}{ }\PYG{o}{\PYGZti{}}\PYG{n}{Instrumento}\PYG{p}{()}\PYG{+w}{ }\PYG{o}{=}\PYG{k}{default}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//Es polimorfica, destructor virtual.}
+\PYG{+w}{  }\PYG{k}{protected}\PYG{o}{:}
+\PYG{+w}{    }\PYG{n}{string}\PYG{+w}{ }\PYG{n}{nombre\PYGZus{}}\PYG{p}{;}
+\PYG{p}{\PYGZcb{};}
+
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Percusion}\PYG{o}{:}\PYG{k}{public}\PYG{+w}{ }\PYG{n}{Instrumento}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{    }\PYG{n}{Percusion}\PYG{p}{(}\PYG{n}{string}\PYG{+w}{ }\PYG{n}{n}\PYG{p}{)}\PYG{o}{:}\PYG{n}{Instrumento}\PYG{p}{(}\PYG{n}{n}\PYG{p}{)\PYGZob{}\PYGZcb{}}
+\PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{tocar}\PYG{p}{()}\PYG{k}{const}\PYG{+w}{ }\PYG{k}{override}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{n}{cout}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{}Soy un \PYGZdq{}}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{nombre}\PYG{p}{()}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{} y pertenezco a Tambor\PYGZdq{}}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{endl}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{n}{string}\PYG{+w}{ }\PYG{n}{nombre}\PYG{p}{()}\PYG{k}{const}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{k}{return}\PYG{+w}{ }\PYG{n}{nombre\PYGZus{}}\PYG{p}{;\PYGZcb{}}
+\PYG{p}{\PYGZcb{};}
+
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Cuerda}\PYG{o}{:}\PYG{+w}{ }\PYG{k}{public}\PYG{+w}{ }\PYG{n}{Instrumento}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{    }\PYG{n}{Cuerda}\PYG{p}{(}\PYG{n}{string}\PYG{+w}{ }\PYG{n}{n}\PYG{p}{)}\PYG{o}{:}\PYG{n}{Instrumento}\PYG{p}{(}\PYG{n}{n}\PYG{p}{)\PYGZob{}\PYGZcb{}}
+\PYG{+w}{     }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{tocar}\PYG{p}{()}\PYG{k}{const}\PYG{+w}{ }\PYG{k}{override}\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{n}{cout}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{}Soy un \PYGZdq{}}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{nombre}\PYG{p}{()}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{} y pertenezco a Cuerda\PYGZdq{}}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{endl}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{n}{string}\PYG{+w}{ }\PYG{n}{nombre}\PYG{p}{()}\PYG{k}{const}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{k}{return}\PYG{+w}{ }\PYG{n}{nombre\PYGZus{}}\PYG{p}{;\PYGZcb{}}
+\PYG{p}{\PYGZcb{};}
+
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Viento}\PYG{o}{:}\PYG{+w}{ }\PYG{k}{public}\PYG{+w}{ }\PYG{n}{Instrumento}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{    }\PYG{n}{Viento}\PYG{p}{(}\PYG{n}{string}\PYG{+w}{ }\PYG{n}{n}\PYG{p}{)}\PYG{o}{:}\PYG{n}{Instrumento}\PYG{p}{(}\PYG{n}{n}\PYG{p}{)\PYGZob{}\PYGZcb{}}
+\PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{tocar}\PYG{p}{()}\PYG{k}{const}\PYG{+w}{ }\PYG{k}{override}\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{n}{cout}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{}Soy un \PYGZdq{}}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{nombre}\PYG{p}{()}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{} y pertenezco a Viento\PYGZdq{}}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{endl}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{n}{string}\PYG{+w}{ }\PYG{n}{nombre}\PYG{p}{()}\PYG{k}{const}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{k}{return}\PYG{+w}{ }\PYG{n}{nombre\PYGZus{}}\PYG{p}{;\PYGZcb{}}
+\PYG{p}{\PYGZcb{};}
+\end{Verbatim}

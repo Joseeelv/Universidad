@@ -1,0 +1,52 @@
+\chapter{Árboles Binario de Búsqueda}
+Un \textbf{Árbol Binario de Búsqueda} o \textbf{ABB} es aquel que los nodos del subárbol izquierdo contiene elementos menores a su padre y el subárbol derecho contiene elementos mayores a su padre (\textit{Figura 4.1: Representación de un árbol binario de búsqueda}).
+
+Es importante saber que no pueden haber valores repetidos en este tipo de árboles, debido a que si no, no podremos comparar si esos elementos son menores o mayores (estrictos).
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=0.7\textwidth]{assets/ABB1.png}
+  \end{center}
+  \caption{Representación de un árbol binario de búsqueda}
+  Vemos que para un elemento `e' (18), el subárbol izquierdo va a contener elementos menores a él (9,3,6) y el derecho elementos mayores (25,21,28).
+\end{figure}
+
+Ahora, al saber que vamos a tener elementos `ordenados' por su valor a la hora de buscar un elemento en el árbol pasamos de un coste \textbf{\(O(n)\)} a un coste \textbf{\(O(log_{2}\ n)\)} debido a que al buscar un elemento (comparando si es mayor o menor que el padre) nos quitamos todo el subárbol que no cumple esa condición, es decir, o vamos por el hijo izquierdo o por el hijo derecho de ese padre, por los dos no.
+
+\section{Ejemplo de búsqueda de un elemento en un ABB}
+\begin{figure}[h]
+  \hspace{-0.5cm}
+  \begin{minipage}{.45\textwidth}
+    \includegraphics[width=\textwidth]{assets/Abb2.png}
+  \end{minipage}
+  \hspace{-0.5cm}
+  \begin{minipage}{.5\textwidth}
+  Queremos buscar el nodo cuyo elemento es `51', para ello hacemos:\\
+  51 $>$ 30 → Hijo derecho de 30 → subárbol derecho\\
+  51 $>$ 45 → Hijo derecho de 45 → subárbol derecho\\
+  51 $<$ 57 → Hijo izquierdo de 57 → subárbol izquierdo\\
+  51 $=$ 51 → hemos encontrado el nodo cuyo elemento es 51.
+  \end{minipage}
+\end{figure}
+\newpage
+\begin{minipage}{0.75\textwidth}
+  Es importante saber que el tiempo de búsqueda depende de la estructura de ramificación del propio árbol. En este ejemplo, vemos que es un coste de \(O(log_{2}\ n)\), pero se puede dar el caso que el ABB es una lista de elementos por tanto, el coste sería \(O(n)\).
+  \\
+
+  En este caso, vemos que tenemos un árbol cuya ramificación se asemeja a una lista de elementos, por tanto, al no poder descartar ningún subárbol a la hora de buscar (por ejemplo el nodo con elemento 18) tendremos que recorrer toda la rama hasta llegar a ese nodo.
+\end{minipage}
+\vspace*{-5cm}
+\begin{figure}[h]
+  \begin{center}
+    \hspace*{11.5cm}
+    \includegraphics[width=.15\textwidth]{assets/abb3.png}
+  \end{center}
+  \caption{Ejemplo de ABB de coste \(O(n)\)}.
+\end{figure}
+
+\section{Especificación del TAD árbol binario de búsqueda}
+\input{chapters/1_3_EspecificacionABB.tex}
+\section{Implementación del TAD árbol binario de búsqueda}
+\input{chapters/ImplementacionABBRec.tex}
+
+

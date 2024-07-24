@@ -1,0 +1,21 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Carretera}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{  }\PYG{c+c1}{//Miembros de la relación con la clase Tramo}
+\PYG{+w}{    }\PYG{n}{std}\PYG{o}{::}\PYG{n}{set}\PYG{o}{\PYGZlt{}}\PYG{n}{Tramo}\PYG{o}{\PYGZgt{}}\PYG{n}{Tramos}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{Carretera}\PYG{p}{(}\PYG{n}{Tramo}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{t}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{TerMunicipal}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{ter1}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{TerMunicipal}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{ter2}\PYG{p}{)}\PYG{o}{:}\PYG{n}{t1}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{ter1}\PYG{p}{),}\PYG{n}{t2}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{ter2}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{      }\PYG{n}{setTramos}\PYG{p}{(}\PYG{n}{t}\PYG{p}{);}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{setTramos}\PYG{p}{(}\PYG{n}{Tramo}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{t}\PYG{p}{)}\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}\PYG{n}{tramos\PYGZus{}}\PYG{p}{.}\PYG{n}{insert}\PYG{p}{(}\PYG{n}{t}\PYG{p}{);\PYGZcb{}}
+\PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{setTerMunicipal}\PYG{p}{(}\PYG{n}{TerMunicipal}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{ter1}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{TerMunicipal}\PYG{o}{\PYGZam{}}\PYG{n}{ter2}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{      }\PYG{n}{t1}\PYG{+w}{ }\PYG{o}{=\PYGZam{}}\PYG{n}{ter1}\PYG{o}{:}
+\PYG{+w}{      }\PYG{n}{t2}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{ter2}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{TerMunicipal}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{getTer1}\PYG{p}{()}\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}\PYG{k}{return}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{t1}\PYG{p}{;\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{TerMunicipal}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{getTer2}\PYG{p}{()}\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{p}{\PYGZob{}}\PYG{k}{return}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{t2}\PYG{p}{;\PYGZcb{}}
+\PYG{+w}{  }\PYG{k}{private}\PYG{o}{:}
+\PYG{+w}{    }\PYG{n}{Tramos}\PYG{+w}{ }\PYG{n}{tramos\PYGZus{}}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{TerMunicipal}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{t1}\PYG{p}{,}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{t2}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//las dos instancias con las que se relaciona}
+
+\PYG{p}{\PYGZcb{};}
+\end{Verbatim}

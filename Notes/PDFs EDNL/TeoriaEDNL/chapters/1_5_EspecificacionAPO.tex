@@ -1,0 +1,56 @@
+En los árboles parcialmente ordenados vamos a encontrar dos métodos \texttt{hundir()} y \texttt{flotar()}.
+
+\subsection*{Constructor del árbol parcialmente ordenado}
+\underbar{\textit{Precondición:}} maxNodos $>$ 0\\
+\underbar{\textit{Postcondición:}} Crea y devuelve un APO de tamaño MaxNodos vacío.\\
+\verb|  Apo(size_t maxNodos);|
+
+\subsection*{Inserción de elementos en el APO}
+\underbar{\textit{Precondición:}} APO no lleno.\\
+\underbar{\textit{Postcondición:}} Inserta el elemento en su posición correcta.\\
+\verb|  void insertar(const T& e);|
+\subsection*{Eliminación de elementos en el APO}
+\underbar{\textit{Precondición:}} APO no vacío.\\
+\underbar{\textit{Postcondición:}} Elimina la raíz reordenando el APO.
+\verb|  void suprimir();|
+\subsection*{Métodos observadores de un APO}
+\begin{itemize}
+  \item \underbar{\large\textbf{Obtener la raíz}}:\\
+  \underbar{\textit{Precondición:}} APO no vacío.\\
+  \underbar{\textit{Postcondición:}} Devuelve el elemento que está en la raíz.\\
+  \verb|  const T& cima()const;|
+  \item \underbar{\large\textbf{Obtener estado del árbol}}:\\
+  \underbar{\textit{Postcondición:}} Devuelve \texttt{True} si el árbol está vacío, si no, \texttt{False}.
+  \verb|  bool vacio()const;|
+  \item \underbar{\large\textbf{Obtener el padre}}:\\
+  \underbar{\textit{Precondición:}} APO no vacío.\\
+  \underbar{\textit{Postcondición:}} Devuelve el padre del nodo n.\\
+  \verb|nodo padre(nodo n)const;|
+  \item \underbar{\large\textbf{Obtener el hijo izquierdo}}:\\
+  \underbar{\textit{Precondición:}} APO no vacío.\\
+  \underbar{\textit{Postcondición:}} Devuelve el hijo izquierdo del nodo \(n\).\\
+  \verb|nodo hIzq(nodo n)const;|
+  \item \underbar{\large\textbf{Obtener el hijo derecho}}:\\
+  \underbar{\textit{Precondición:}} APO no vacío.\\
+  \underbar{\textit{Postcondición:}} Devuelve el hijo derecho del nodo \(n\).\\
+  \verb|  nodo hDer(nodo n)const;|
+\end{itemize}
+
+
+\subsection*{Métodos hundir y flotar de un APO}
+\begin{itemize}
+  \item \underbar{\large\textbf{Hundir un nodo}}:\\
+  Este método irá de la mano a la hora de eliminar el nodo raíz, reordenando el árbol hasta que dicho nodo sea una hoja y lo podamos eliminar.
+
+  Podemos tener 3 casos a la hora de eliminar la raíz del APO:
+  \begin{itemize}
+    \item \textbf{Caso 1: Un nodo} → Al tener un solo nodo (raíz), si la eliminamos el árbol quedará \textbf{vacío}.
+    \item \textbf{Caso 2: Dos nodo} → Ahora tenemos tanto la raíz como su hijo izquierdo, por tanto, si eliminamos la raíz, su hijo izquierdo pasará a ser la nueva raíz del APO.
+    \item \textbf{Caso 3: Más de dos nodo} → Si queremos eliminar una raíz que tiene más de dos nodos, el último nodo insertado será el que ocupe la posición del raíz y luego hundimos dicho nodo para poder cumplir la propiedad de orden.
+  \end{itemize}
+  \verb|  void hundir(nodo n);|
+  \item \underbar{\large\textbf{Flotar un nodo}}:\\
+  A la hora de insertar un nodo, éste se añade a la última posición del vector y luego para que se cumpla la propiedad de orden tenemos que ir `subiendo' dicho nodo hasta que encuentre su sitio.
+
+  \verb|  void flotar(nodo n);|
+\end{itemize}
