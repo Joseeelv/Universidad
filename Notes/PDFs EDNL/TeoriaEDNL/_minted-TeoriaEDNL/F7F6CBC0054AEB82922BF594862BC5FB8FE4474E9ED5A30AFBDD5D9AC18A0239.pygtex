@@ -1,0 +1,17 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Apo}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{    }\PYG{c+c1}{//Métodos vistos en la Especificación del TAD.}
+\PYG{+w}{  }\PYG{k}{private}\PYG{o}{:}
+\PYG{+w}{    }\PYG{k}{typedef}\PYG{+w}{ }\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{nodo}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//Indice del vector.}
+\PYG{+w}{    }\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{maxNodos}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//Tamaño del vector (árbol).}
+\PYG{+w}{    }\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{numNodos}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//Número de nodos (último nodo del árbol)}
+\PYG{+w}{    }\PYG{n}{T}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{nodos}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//Vector de nodos}
+\PYG{+w}{    }\PYG{c+c1}{//Métodos privados de la clase}
+\PYG{+w}{    }\PYG{n}{nodo}\PYG{+w}{ }\PYG{n+nf}{padre}\PYG{p}{(}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{n}\PYG{p}{)}\PYG{k}{const}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{nodo}\PYG{+w}{ }\PYG{n+nf}{hIzq}\PYG{p}{(}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{n}\PYG{p}{)}\PYG{k}{const}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{nodo}\PYG{+w}{ }\PYG{n+nf}{hDer}\PYG{p}{(}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{n}\PYG{p}{)}\PYG{k}{const}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{hundir}\PYG{p}{(}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{n}\PYG{p}{);}
+\PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{floar}\PYG{p}{(}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{n}\PYG{p}{);}
+\PYG{p}{\PYGZcb{};}
+\end{Verbatim}

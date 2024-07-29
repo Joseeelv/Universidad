@@ -9,7 +9,7 @@ En la implementación vectorial mediante una lista de hijos, cada nodo tiene alm
 \end{figure}
 
 En la parte privada de la implementación de dicho TAD vamos a encontrar el elementos que se almacena, el nodo padre y la lista de los diferentes hijos de cada nodo, todo almacenado en celdas:
-\begin{verbatim}
+\begin{minted}[breaklines]{C++}
 template <typename T> class Agen{
   public:
     //Métodos vistos en la especificación del TAD
@@ -23,5 +23,5 @@ template <typename T> class Agen{
     size_t maxNodos; //Tamaño de vector (árbol)
     size_t numNodos; //Número de nodos en el árbol
 };
-\end{verbatim}
+\end{minted}
 

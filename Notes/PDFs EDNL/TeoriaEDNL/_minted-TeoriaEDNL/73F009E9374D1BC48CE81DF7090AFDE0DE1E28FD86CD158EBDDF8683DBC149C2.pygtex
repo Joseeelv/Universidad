@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{tCoste}\PYG{o}{\PYGZgt{}}
+\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{tCoste}\PYG{o}{\PYGZgt{}}
+\PYG{+w}{  }\PYG{n}{Dijkstra}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{n}{tCoste}\PYG{o}{\PYGZgt{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{G}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{n}{tCoste}\PYG{o}{\PYGZgt{}::}\PYG{n}{vertice}\PYG{+w}{ }\PYG{n}{origen}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{n}{tCoste}\PYG{o}{\PYGZgt{}::}\PYG{n}{vertice}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{P}\PYG{p}{);}
+\end{Verbatim}

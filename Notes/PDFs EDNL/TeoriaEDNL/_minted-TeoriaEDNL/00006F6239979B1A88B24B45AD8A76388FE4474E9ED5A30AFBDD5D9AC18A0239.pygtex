@@ -1,0 +1,27 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{tCoste}\PYG{o}{\PYGZgt{}}
+\PYG{n}{matriz}\PYG{o}{\PYGZlt{}}\PYG{n}{tCoste}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{Floyd}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{n}{tCoste}\PYG{o}{\PYGZgt{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{G}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{matriz}\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{n}{tCoste}\PYG{o}{\PYGZgt{}::}\PYG{n}{vertice}\PYG{o}{\PYGZgt{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{P}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{typedef}\PYG{+w}{ }\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{n}{tCoste}\PYG{o}{\PYGZgt{}::}\PYG{n}{vertice}\PYG{+w}{ }\PYG{n}{vertice}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k}{const}\PYG{+w}{ }\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{n}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{G}\PYG{p}{.}\PYG{n}{numVert}\PYG{p}{();}
+\PYG{+w}{  }\PYG{n}{matriz}\PYG{o}{\PYGZlt{}}\PYG{n}{tCoste}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{A}\PYG{p}{(}\PYG{n}{n}\PYG{p}{);}\PYG{+w}{ }\PYG{c+c1}{//matriz de costes mínimos}
+\PYG{c+c1}{//Iniciamos A y P con caminos directos entre cada par de vértices}
+\PYG{+w}{  }\PYG{n}{P}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{matriz}\PYG{o}{\PYGZlt{}}\PYG{n}{vertice}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{n}{n}\PYG{p}{);}\PYG{+w}{ }\PYG{c+c1}{//creamos una matriz de vertices}
+\PYG{+w}{  }\PYG{k}{for}\PYG{p}{(}\PYG{n}{vertice}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{n}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{+w}{ }\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{A}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{G}\PYG{p}{[}\PYG{n}{i}\PYG{p}{];}\PYG{+w}{ }\PYG{c+c1}{//copiamos los costes del grafo}
+\PYG{+w}{    }\PYG{n}{A}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{i}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//diagonal principal a 0.}
+\PYG{+w}{    }\PYG{n}{P}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{vertice}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{n}{n}\PYG{p}{,}\PYG{n}{i}\PYG{p}{);}\PYG{+w}{ }\PYG{c+c1}{//caminos directos}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{c+c1}{//Calcular costes minimos y caminos correspondientes}
+\PYG{c+c1}{//entre cualquier par de vértices i, j}
+\PYG{+w}{  }\PYG{k}{for}\PYG{p}{(}\PYG{n}{vertice}\PYG{+w}{ }\PYG{n}{k}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{k}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{n}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{k}\PYG{o}{++}\PYG{p}{)}
+\PYG{+w}{    }\PYG{k}{for}\PYG{p}{(}\PYG{n}{vertice}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{n}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+\PYG{+w}{      }\PYG{k}{for}\PYG{p}{(}\PYG{n}{vertice}\PYG{+w}{ }\PYG{n}{j}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{j}\PYG{o}{\PYGZlt{}=}\PYG{n}{n}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{j}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{tCoste}\PYG{+w}{ }\PYG{n}{ikj}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{suma}\PYG{p}{(}\PYG{n}{A}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{k}\PYG{p}{],}\PYG{+w}{ }\PYG{n}{A}\PYG{p}{[}\PYG{n}{k}\PYG{p}{][}\PYG{n}{j}\PYG{p}{]);}
+\PYG{+w}{        }\PYG{k}{if}\PYG{p}{(}\PYG{n}{ikj}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{A}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{])\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{//optimización de los costes minimos}
+\PYG{+w}{          }\PYG{n}{A}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{ikj}\PYG{p}{;}
+\PYG{+w}{          }\PYG{n}{P}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{k}\PYG{p}{;}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{      }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{A}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//devolvemos la matriz de costes}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

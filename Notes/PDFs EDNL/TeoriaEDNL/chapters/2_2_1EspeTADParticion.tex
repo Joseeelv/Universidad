@@ -1,0 +1,25 @@
+Operaciones del TAD partición:
+
+\textbf{Constructor de la partición}
+
+\underbar{\textit{Postcondición:}} Crea una partición de subconjuntos unitarios en el intervalo de enteros \(0, n-1\).
+\begin{center}
+  \verb|Partición (int n);|
+\end{center}
+
+\textbf{Unir subconjuntos}
+
+\underbar{\textit{Precondición:}} \(0 \leq a\), \(b \leq n-1\), a y b son los representantes de sus clases y \(a \neq b\).\\
+\underbar{\textit{Postcondición:}}Une el subconjunto del elemento a y b en uno de los dos subconjuntos. La partición queda con un miembro menos.
+\begin{center}
+  \verb|void unir(int a, int b);|
+\end{center}
+
+\textbf{Buscar el representante de una partición}
+
+\underbar{\textit{Precondición:}} \(0 \leq x \leq n-1\).\\
+\underbar{\textit{Postcondición:}}Devuelve el representante del subconjunto al que pertenece \(x\).
+\begin{center}
+  \verb|int encontrar(int x) const;|
+\end{center}
+

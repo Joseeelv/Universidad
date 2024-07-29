@@ -1,7 +1,7 @@
 Vamos a hacer uso de la implementación mediante un \textbf{vector de posiciones relativas} ya que estos son muy útiles y eficientes cuando trabajamos con árboles completos.
 
 La parte privada del TAD quedaría:
-\begin{verbatim}
+\begin{minted}[breaklines]{C++}
 template <typename T> class Apo{
   public:
     //Métodos vistos en la Especificación del TAD.
@@ -17,7 +17,7 @@ template <typename T> class Apo{
     void hundir(nodo n);
     void floar(nodo n);
 };
-\end{verbatim}
+\end{minted}
 \newpage
 \subsection*{Inserción de elementos en un APO}
 \begin{figure}[h]
@@ -37,9 +37,8 @@ Tenemos como resultado que el nodo con valor `5' es el nuevo hijo izquierdo del 
 \subsubsection*{Código de Inserción y Flotar}
 
 \underbar{Código de insertar:}
-  \begin{verbatim}
-template <typename T> 
-void Apo<T>::insertar(const T& e){
+\begin{minted}[breaklines]{C++}
+template <typename T> void Apo<T>::insertar(const T& e){
   assert(numNodos < maxNodos);
   //insertamos en la última posición.
   nodos[numNodos] = e; 
@@ -47,11 +46,10 @@ void Apo<T>::insertar(const T& e){
   if(numNodos > 1)
     flotar(numNodos-1);
 }
-  \end{verbatim}
+  \end{minted}
 \underbar{Código de flotar:}
-\begin{verbatim}
-template <typename T>
-void Apo<T>::flotar(nodo n){
+\begin{minted}[breaklines]{C++}
+template <typename T> void Apo<T>::flotar(nodo n){
   //Guardamos el contenido del nodo
   T e = nodos[n];
   //recorremos los nodos intercambiandolos
@@ -61,7 +59,7 @@ void Apo<T>::flotar(nodo n){
   }
   nodos[n] = e;
 }
-\end{verbatim}
+\end{minted}
 
 \subsection*{Eliminación de elementos en un APO}
 \begin{figure}[h]
@@ -80,9 +78,8 @@ Vemos que queremos realizar la eliminación del nodo raíz con contenido `3', po
 COmo resultado tenemos que el nodo con valor `21' ahora es padre del nodo con valor `25' y el nuevo nodo raíz es el nodo con valor `5' que previamente era el hijo izquierdo del nodo con valor `3' (la raíz anterior).
 
 \underbar{Código de suprimir:}
-\begin{verbatim}
-template <typename T>
-void Apo<T>::suprimir(){
+\begin{minted}[breaklines]{C++}
+template <typename T> void Apo<T>::suprimir(){
   assert(numNodos > 0);
   if(--numNodos > 0){
     nodos[0]=nodos[numNodos];
@@ -90,27 +87,26 @@ void Apo<T>::suprimir(){
       hundir(0);
   }
 }
-\end{verbatim}
+\end{minted}
 \underbar{Código de hundir:}\\
-\begin{verbatim}
-template <typename T>
-void Apo<T>::hundir(nodo n){
-	bool fin = false;
-	T e = nodos[i];
-	while (hIzq(i) < numNodos && !fin){
-	nodo hMin;
-	if (hDer(i) < numNodos && nodos[hDer(i)] 
-      < nodos[hIzq(i)])
-	hMin = hDer(i);
-	else
-	hMin = hIzq(i);
-	if (nodos[hMin] < e){
-	nodos[i] = nodos[hMin];
-	i = hMin;
+\begin{minted}[breaklines]{C++}
+template <typename T> void Apo<T>::hundir(nodo n){
+  bool fin = false;
+  T e = nodos[i];
+  while (hIzq(i) < numNodos && !fin){
+    nodo hMin;
+    if (hDer(i) < numNodos && nodos[hDer(i)] 
+        < nodos[hIzq(i)])
+    hMin = hDer(i);
+    else
+      hMin = hIzq(i);
+      if (nodos[hMin] < e){
+        nodos[i] = nodos[hMin];
+        i = hMin;
+      }
+    else
+      fin = true;
+  }
+  nodos[i] = e;
 }
-	else
-	  fin = true;
-}
-	nodos[i] = e;
-}
-\end{verbatim}
+\end{minted}

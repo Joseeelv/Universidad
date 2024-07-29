@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{tCoste}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{n}{tCoste}\PYG{o}{\PYGZgt{}::}\PYG{n}{tCamino}\PYG{+w}{ }\PYG{n}{camino}\PYG{p}{(}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{n}{tCoste}\PYG{o}{\PYGZgt{}::}\PYG{n}{vertice}\PYG{+w}{ }\PYG{n}{orig}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{n}{tCoste}\PYG{o}{\PYGZgt{}::}\PYG{n}{vertice}\PYG{+w}{ }\PYG{n}{v}\PYG{p}{,}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{n}{tCoste}\PYG{o}{\PYGZgt{}::}\PYG{n}{vertice}\PYG{o}{\PYGZgt{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{P}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{n}{tCoste}\PYG{o}{\PYGZgt{}::}\PYG{n}{tCamino}\PYG{+w}{ }\PYG{n}{C}\PYG{p}{;}
+\PYG{+w}{  }\PYG{n}{C}\PYG{p}{.}\PYG{n}{insertar}\PYG{p}{(}\PYG{n}{v}\PYG{p}{,}\PYG{n}{C}\PYG{p}{.}\PYG{n}{primera}\PYG{p}{());}
+\PYG{+w}{  }\PYG{k}{do}\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{C}\PYG{p}{.}\PYG{n}{insertar}\PYG{p}{(}\PYG{n}{P}\PYG{p}{[}\PYG{n}{v}\PYG{p}{],}\PYG{+w}{ }\PYG{n}{C}\PYG{p}{.}\PYG{n}{primera}\PYG{p}{());}
+\PYG{+w}{    }\PYG{n}{v}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{P}\PYG{p}{[}\PYG{n}{v}\PYG{p}{];}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}\PYG{k}{while}\PYG{p}{(}\PYG{n}{v}\PYG{o}{!=}\PYG{n}{orig}\PYG{p}{);}
+\PYG{+w}{  }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{C}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

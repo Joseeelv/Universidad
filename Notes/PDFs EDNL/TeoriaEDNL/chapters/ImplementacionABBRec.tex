@@ -9,7 +9,7 @@
 Vamos a hacer uso de esta implementación debido a que el método más `importante' de este TAD es el método \texttt{buscar()} (que nos devuelve el subárbol donde el elemento `e' es la raíz). Este método se realiza mediante llamadas recursiva y veremos como lo hace.
 
 En la parte privada de TAD vamos a tener que almacenar el elemento y los dos subárboles (izquierdo y derecho).
-\begin{verbatim}
+\begin{minted}[breaklines]{C++}
 template <typename T> class Abb{
   public:
     //Métodos vistos en la especificación del TAD
@@ -21,10 +21,10 @@ template <typename T> class Abb{
     };
     arbol *r;
 };
-\end{verbatim}
+\end{minted}
 \subsubsection*{Implementación de la obtención del subárbol}
 Ahora, vamos a ver como se implementa y que hace el método \texttt{buscar()}, mencionado anteriormente.
-\begin{verbatim}
+\begin{minted}[breaklines]{C++}
 template <typename T>
 const Abb<T>& Abb<T>::buscar(const T& e)const{
   if(r == nullptr)
@@ -36,7 +36,7 @@ const Abb<T>& Abb<T>::buscar(const T& e)const{
   else 
     return *this; //encontrado en la raiz
 }
-\end{verbatim}
+\end{minted}
 
 \subsubsection*{Inserción de un elemento en un ABB}
 \begin{figure}[h]
@@ -46,7 +46,7 @@ const Abb<T>& Abb<T>::buscar(const T& e)const{
   \end{minipage}
   \hfill
   \begin{minipage}{0.5\textwidth}
-    \begin{verbatim}
+    \begin{minted}[breaklines]{C++}
 template <typename T>
 void Abb<T>::insertar(const T& e){
   if(r==nullptr) //árbol vacio
@@ -58,7 +58,7 @@ void Abb<T>::insertar(const T& e){
   else if(r->elto < e)
       r->der.insertar(e);
 }
-    \end{verbatim}
+    \end{minted}
   \end{minipage}
 \end{figure}
 
@@ -90,7 +90,7 @@ A la hora de eliminar un elemento de un ABB no tenemos como precondición que el
     25 $<$ 28 → Hijo derecho de 25 → subárbol derecho.\\
     Como 28 = 28, lo eliminamos.
     \end{minipage}
-    \underbar{Como resultado quaría:}
+    \underbar{Como resultado quedaría:}
   \begin{center}
     \includegraphics[width=.4\textwidth]{assets/abb11.png}
   \end{center}
@@ -108,7 +108,7 @@ A la hora de eliminar un elemento de un ABB no tenemos como precondición que el
   Como 9 = 9, lo eliminamos y su hijo pasa a ser el nuevo hijo izquierdo del `padre de 9', es decir el nodo con valor `18'.
   \end{minipage}
 
-  \underbar{Como resultado quaría:}
+  \underbar{Como resultado quedaría:}
   \begin{center}
     \includegraphics[width=.4\textwidth]{assets/abb10.png}
   \end{center}
@@ -127,14 +127,14 @@ A la hora de eliminar un elemento de un ABB no tenemos como precondición que el
 
   Hemos escogido el nodo con menor valor del subárbol derecho que es `39', pero este tiene un hijo derecho `42' que pasará a ser hijo izquierdo del nodo con valor `45'.
   \end{minipage}
-  \underbar{Como resultado quaría:}
+  \underbar{Como resultado quedaría:}
   \begin{center}
     \includegraphics[width=.4\textwidth]{assets/abb9.png}
   \end{center}
 \end{itemize}
 
 \textbf{Código de la eliminación de elementos de un ABB:}
-\begin{verbatim}
+\begin{minted}[breaklines]{C++}
 template <typename T> void Abb<T>::eliminar(const T& e){
   if(r!=nullptr){ //Caso 1: es hoja
     if(e < r->elto)
@@ -158,4 +158,4 @@ template <typename T> void Abb<T>::eliminar(const T& e){
   else //Caso 3: Tiene ambos hijos
     r->elto = r->der.borrarMin();
 }
-\end{verbatim}
+\end{minted}

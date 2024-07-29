@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{tCoste}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{tCoste}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{Dijkstra}\PYG{+w}{ }\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{n}{tCoste}\PYG{o}{\PYGZgt{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{G}\PYG{p}{,}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{n}{tCoste}\PYG{o}{\PYGZgt{}::}\PYG{n}{vertice}\PYG{+w}{ }\PYG{n}{origen}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{n}{tCoste}\PYG{o}{\PYGZgt{}::}\PYG{n}{vertice}\PYG{o}{\PYGZgt{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{vertice}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{typedef}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{n}{tCoste}\PYG{o}{\PYGZgt{}::}\PYG{n}{vertice}\PYG{+w}{ }\PYG{n}{vertice}\PYG{p}{;}
+\PYG{+w}{  }\PYG{n}{vertice}\PYG{+w}{ }\PYG{n}{v}\PYG{p}{,}\PYG{n}{w}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k}{const}\PYG{+w}{ }\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{n}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{G}\PYG{p}{.}\PYG{n}{numVert}\PYG{p}{();}\PYG{+w}{ }\PYG{c+c1}{//guardamos el numero de vertices}
+\PYG{+w}{  }\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{bool}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{S}\PYG{p}{(}\PYG{n}{n}\PYG{p}{,}\PYG{n+nb}{false}\PYG{p}{);}\PYG{+w}{ }\PYG{c+c1}{//vector de booleanos inicializado a falso}
+\PYG{+w}{  }\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{tCoste}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{D}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//Costes minimos}
+\PYG{+w}{  }\PYG{c+c1}{//Inicializamos D y P}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

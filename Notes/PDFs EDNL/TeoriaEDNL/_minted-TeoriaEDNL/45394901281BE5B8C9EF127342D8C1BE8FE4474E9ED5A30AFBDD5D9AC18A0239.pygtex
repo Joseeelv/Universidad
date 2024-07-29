@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{Apo}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{flotar}\PYG{p}{(}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{n}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{  }\PYG{c+c1}{//Guardamos el contenido del nodo}
+\PYG{+w}{  }\PYG{n}{T}\PYG{+w}{ }\PYG{n}{e}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{n}\PYG{p}{];}
+\PYG{+w}{  }\PYG{c+c1}{//recorremos los nodos intercambiandolos}
+\PYG{+w}{  }\PYG{k}{while}\PYG{p}{(}\PYG{n}{n}\PYG{o}{\PYGZgt{}}\PYG{l+m+mi}{0}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{e}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{padre}\PYG{p}{(}\PYG{n}{n}\PYG{p}{)])\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{n}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{padre}\PYG{p}{(}\PYG{n}{n}\PYG{p}{)];}
+\PYG{+w}{    }\PYG{n}{n}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{padre}\PYG{p}{(}\PYG{n}{n}\PYG{p}{);}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{n}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{e}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

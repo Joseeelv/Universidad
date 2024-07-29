@@ -1,0 +1,26 @@
+Una \textbf{partición} es de un conjunto de enteros \(C = \{0,1,...,n-1\}\) es un conjunto de subconjuntos disjuntos, cuya unión es el conjunto total \(C\).
+
+Encontramos la \textbf{enumeración de elementos} \(\rightarrow\) Definimos una aplicación \textit{biyectiva} (1a1) de un conjunto \(C\) en un rango de enteros \([0,n-1]\), tal que \(n\) es el cardinal de \(C\), mediante dos funciones:
+
+\begin{figure}[h]
+  \begin{minipage}{.4\textwidth}
+    \begin{center}
+      \verb|int IndiceElto(tElemento x);|
+    \end{center}
+    \underbar{\textit{Precondición:}} x \(\in\ C\).\\
+    \underbar{\textit{Postcondición:}} Devuelve el índice del elemento x, en el rango \([0,n-1]\).
+  \end{minipage}
+  \hfill
+  \begin{minipage}{.4\textwidth}
+    \begin{center}
+      \verb|tElemento NombreElto(int i);|
+    \end{center}
+    \underbar{\textit{Precondición:}} \(0 \leq i \leq n-1\).\\
+    \underbar{\textit{Postcondición:}} Devuelve el elemento de \(C\) cuyo índice es i.
+  \end{minipage}
+\end{figure}
+\newpage
+\subsection{Especificación del TAD Partición}
+\input{chapters/2_2_1EspeTADParticion.tex}
+\subsection{Implementación del TAD Partición}
+\input{chapters/2_2_2ImpleTADParticion.tex}

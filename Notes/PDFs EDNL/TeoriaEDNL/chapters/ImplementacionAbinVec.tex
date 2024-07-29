@@ -15,7 +15,7 @@ Para que la eliminación de nodos sea de coste unitario debemos de mover el últ
 \subsubsection*{Implementación de Inserción y Eliminación de los nodos}
 \begin{itemize}
   \item \underbar{\large\textbf{Inserción}}: En la inserción de un nodo tenemos que tener en cuenta el número actual de nodos que hay en el árbol ya que este tiene que ser menor a \texttt{maxNodos}, esto nos ayudará a que la inserción sea de coste unitario, ya que accedemos a la última posición del vector (sin tener que recorrer todo el árbol):
-  \begin{verbatim}
+  \begin{minted}[breaklines]{C++}
 template <typename T>
 inline void Abin<T>::insertarHijoIzqdo(nodo n, const T& e){
   //Precondiciones
@@ -29,9 +29,9 @@ inline void Abin<T>::insertarHijoIzqdo(nodo n, const T& e){
   nodo[numNodos].hder= NODO_NULO; //no tiene hijo derecho
   numNodos ++; //incrementamos el número de nodos actuales en el vector.
 }
-  \end{verbatim}
+  \end{minted}
   \item \underbar{\large\textbf{Eliminación}}: La eliminación de un nodo siempre va a ser de coste unitario, debido a que se elimina el hijo de un nodo n `padre' (el cual tenemos acceso directo).
-  \begin{verbatim}
+  \begin{minted}[breaklines]{C++}
 template <typename T> inline void Abin<T>::eliminarHijoIzqdo(nodo n){
   nodo hizqdo; //creamos un nodo auxiliar
   //Precondiciones
@@ -61,7 +61,7 @@ template <typename T> inline void Abin<T>::eliminarHijoIzqdo(nodo n){
   nodos[n].hizq = NODO_NULO;
   --numNodos;
 }
-  \end{verbatim}
+  \end{minted}
 \end{itemize}
 Es decir, movemos el último nodo insertado a la posición del nodo que vamos a eliminar para que podamos insertar siempre por el final (última posición del vector) haciendo que sea de coste unitario.\\
 \textit{NOTA}: Análogamente para el hijo derecho.

@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{tCoste}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{n}{tCoste}\PYG{o}{\PYGZgt{}::}\PYG{n}{tCamino}\PYG{+w}{ }\PYG{n}{caminoAux}\PYG{p}{(}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{n}{tCoste}\PYG{o}{\PYGZgt{}}\PYG{p}{)}
+\end{Verbatim}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.27)  24 JUL 2024 11:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.27)  29 JUL 2024 16:06
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -412,45 +412,146 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-)) (/usr/local/texlive/2024/texmf-dist/tex/latex/natbib/natbib.sty
+)) (/usr/local/texlive/2024/texmf-dist/tex/latex/minted/minted.sty
+Package: minted 2023/12/18 v2.9 Yet another Pygments shim for LaTeX
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/fvextra/fvextra.sty
+Package: fvextra 2023/11/28 v1.6.1 fvextra - extensions and patches for fancyvrb
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+Package: fancyvrb 2024/01/20 4.5c verbatim text (tvz,hv)
+\FV@CodeLineNo=\count315
+\FV@InFile=\read3
+\FV@TabBox=\box104
+\c@FancyVerbLine=\count316
+\FV@StepNumber=\count317
+\FV@OutFile=\write3
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/upquote/upquote.sty
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verbatim
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/lineno/lineno.sty
+Package: lineno 2023/05/20 line numbers on paragraphs v5.3
+\linenopenalty=\count318
+\output=\toks32
+\linenoprevgraf=\count319
+\linenumbersep=\dimen183
+\linenumberwidth=\dimen184
+\c@linenumber=\count320
+\c@pagewiselinenumber=\count321
+\c@LN@truepage=\count322
+\c@internallinenumber=\count323
+\c@internallinenumbers=\count324
+\quotelinenumbersep=\dimen185
+\bframerule=\dimen186
+\bframesep=\dimen187
+\bframebox=\box105
+\linenoamsmath@ams@eqpen=\count325
+LaTeX Info: Redefining \\ on input line 3180.
+)
+\c@FancyVerbWriteLine=\count326
+\c@FancyVerbBufferIndex=\count327
+\c@FancyVerbBufferLength=\count328
+\c@FancyVerbBufferLine=\count329
+\c@FV@oldbufferlength=\count330
+\c@FV@TrueTabGroupLevel=\count331
+\c@FV@TrueTabCounter=\count332
+\FV@TabBox@Group=\box106
+\FV@TmpLength=\skip58
+\c@FV@HighlightLinesStart=\count333
+\c@FV@HighlightLinesStop=\count334
+\FV@LoopCount=\count335
+\FV@NCharsBox=\box107
+\FV@BreakIndent=\dimen188
+\FV@BreakIndentNChars=\count336
+\FV@BreakSymbolSepLeft=\dimen189
+\FV@BreakSymbolSepLeftNChars=\count337
+\FV@BreakSymbolSepRight=\dimen190
+\FV@BreakSymbolSepRightNChars=\count338
+\FV@BreakSymbolIndentLeft=\dimen191
+\FV@BreakSymbolIndentLeftNChars=\count339
+\FV@BreakSymbolIndentRight=\dimen192
+\FV@BreakSymbolIndentRightNChars=\count340
+\c@FancyVerbLineBreakLast=\count341
+\FV@LineBox=\box108
+\FV@LineIndentBox=\box109
+\c@FV@BreakBufferDepth=\count342
+\FV@LineWidth=\dimen193
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tools/shellesc.sty
+Package: shellesc 2023/07/08 v1.0d unified shell escape interface for LaTeX
+Package shellesc Info: Unrestricted shell escape enabled on input line 75.
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/ifplatform/ifplatform.sty
+Package: ifplatform 2017/10/13 v0.4a Testing for the operating system
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/catchfile/catchfile.sty
+Package: catchfile 2019/12/09 v1.8 Catch the contents of a file (HO)
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+)) (/usr/local/texlive/2024/texmf-dist/tex/generic/iftex/ifluatex.sty
+Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
+)
+runsystem(uname -s > "TeoriaEDNL.w18")...executed.
+
+ (./TeoriaEDNL.w18)
+runsystem(rm -- "TeoriaEDNL.w18")...executed.
+
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/xstring/xstring.sty (/usr/local/texlive/2024/texmf-dist/tex/generic/xstring/xstring.tex
+\xs_counta=\count343
+\xs_countb=\count344
+)
+Package: xstring 2023/08/22 v1.86 String manipulations (CT)
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/framed/framed.sty
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip59
+\fb@frw=\dimen194
+\fb@frh=\dimen195
+\FrameRule=\dimen196
+\FrameSep=\dimen197
+)
+\minted@appexistsfile=\read4
+\minted@bgbox=\box110
+\minted@code=\write4
+\c@minted@FancyVerbLineTemp=\count345
+\c@minted@pygmentizecounter=\count346
+\@float@every@listing=\toks33
+\c@listing=\count347
+)
+runsystem(mkdir -p _minted-TeoriaEDNL)...executed.
+
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip58
-\bibsep=\skip59
+\bibhang=\skip60
+\bibsep=\skip61
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count315
+\c@NAT@ctr=\count348
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
  (/usr/local/texlive/2024/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count316
-\Gm@cntv=\count317
-\c@Gm@tempcnt=\count318
-\Gm@bindingoffset=\dimen183
-\Gm@wd@mp=\dimen184
-\Gm@odd@mp=\dimen185
-\Gm@even@mp=\dimen186
-\Gm@layoutwidth=\dimen187
-\Gm@layoutheight=\dimen188
-\Gm@layouthoffset=\dimen189
-\Gm@layoutvoffset=\dimen190
-\Gm@dimlist=\toks32
+\Gm@cnth=\count349
+\Gm@cntv=\count350
+\c@Gm@tempcnt=\count351
+\Gm@bindingoffset=\dimen198
+\Gm@wd@mp=\dimen199
+\Gm@odd@mp=\dimen256
+\Gm@even@mp=\dimen257
+\Gm@layoutwidth=\dimen258
+\Gm@layoutheight=\dimen259
+\Gm@layouthoffset=\dimen260
+\Gm@layoutvoffset=\dimen261
+\Gm@dimlist=\toks34
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/parskip/parskip.sty
 Package: parskip 2021-03-14 v2.0h non-zero parskip adjustments
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/eurosym/eurosym.sty
 Package: eurosym 1998/08/06 v1.1 European currency symbol ``Euro''
-\@eurobox=\box104
+\@eurobox=\box111
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/todonotes/todonotes.sty
 Package: todonotes 2024/01/05 v1.1.7 Todonotes source and documentation.
 Package: todonotes 2024/01/05
- (/usr/local/texlive/2024/texmf-dist/tex/latex/base/ifthen.sty
-Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
-) (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
-\pgfutil@everybye=\toks33
-\pgfutil@tempdima=\dimen191
-\pgfutil@tempdimb=\dimen192
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
+\pgfutil@everybye=\toks35
+\pgfutil@tempdima=\dimen262
+\pgfutil@tempdimb=\dimen263
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
-\pgfutil@abb=\box105
+\pgfutil@abb=\box112
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/pgf.revision.tex)
 Package: pgfrcs 2023-01-15 v3.1.10 (3.1.10)
 ))
@@ -458,31 +559,31 @@ Package: pgf 2023-01-15 v3.1.10 (3.1.10)
  (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
 Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks34
-\pgfkeys@temptoks=\toks35
+\pgfkeys@pathtoks=\toks36
+\pgfkeys@temptoks=\toks37
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.tex
-\pgfkeys@tmptoks=\toks36
+\pgfkeys@tmptoks=\toks38
 ))
-\pgf@x=\dimen193
-\pgf@y=\dimen194
-\pgf@xa=\dimen195
-\pgf@ya=\dimen196
-\pgf@xb=\dimen197
-\pgf@yb=\dimen198
-\pgf@xc=\dimen199
-\pgf@yc=\dimen256
-\pgf@xd=\dimen257
-\pgf@yd=\dimen258
-\w@pgf@writea=\write3
-\r@pgf@reada=\read3
-\c@pgf@counta=\count319
-\c@pgf@countb=\count320
-\c@pgf@countc=\count321
-\c@pgf@countd=\count322
-\t@pgf@toka=\toks37
-\t@pgf@tokb=\toks38
-\t@pgf@tokc=\toks39
-\pgf@sys@id@count=\count323
+\pgf@x=\dimen264
+\pgf@y=\dimen265
+\pgf@xa=\dimen266
+\pgf@ya=\dimen267
+\pgf@xb=\dimen268
+\pgf@yb=\dimen269
+\pgf@xc=\dimen270
+\pgf@yc=\dimen271
+\pgf@xd=\dimen272
+\pgf@yd=\dimen273
+\w@pgf@writea=\write5
+\r@pgf@reada=\read5
+\c@pgf@counta=\count352
+\c@pgf@countb=\count353
+\c@pgf@countc=\count354
+\c@pgf@countd=\count355
+\t@pgf@toka=\toks39
+\t@pgf@tokb=\toks40
+\t@pgf@tokc=\toks41
+\pgf@sys@id@count=\count356
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
 )
@@ -493,59 +594,59 @@ File: pgfsys-pdftex.def 2023-01-15 v3.1.10 (3.1.10)
 File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
 ))) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfsyssoftpath@smallbuffer@items=\count324
-\pgfsyssoftpath@bigbuffer@items=\count325
+\pgfsyssoftpath@smallbuffer@items=\count357
+\pgfsyssoftpath@bigbuffer@items=\count358
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
 Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
-\pgfmath@dimen=\dimen259
-\pgfmath@count=\count326
-\pgfmath@box=\box106
-\pgfmath@toks=\toks40
-\pgfmath@stack@operand=\toks41
-\pgfmath@stack@operation=\toks42
+\pgfmath@dimen=\dimen274
+\pgfmath@count=\count359
+\pgfmath@box=\box113
+\pgfmath@toks=\toks42
+\pgfmath@stack@operand=\toks43
+\pgfmath@stack@operation=\toks44
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count327
+\c@pgfmathroundto@lastzeros=\count360
 )) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfint.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
 File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@picminx=\dimen260
-\pgf@picmaxx=\dimen261
-\pgf@picminy=\dimen262
-\pgf@picmaxy=\dimen263
-\pgf@pathminx=\dimen264
-\pgf@pathmaxx=\dimen265
-\pgf@pathminy=\dimen266
-\pgf@pathmaxy=\dimen267
-\pgf@xx=\dimen268
-\pgf@xy=\dimen269
-\pgf@yx=\dimen270
-\pgf@yy=\dimen271
-\pgf@zx=\dimen272
-\pgf@zy=\dimen273
+\pgf@picminx=\dimen275
+\pgf@picmaxx=\dimen276
+\pgf@picminy=\dimen277
+\pgf@picmaxy=\dimen278
+\pgf@pathminx=\dimen279
+\pgf@pathmaxx=\dimen280
+\pgf@pathminy=\dimen281
+\pgf@pathmaxy=\dimen282
+\pgf@xx=\dimen283
+\pgf@xy=\dimen284
+\pgf@yx=\dimen285
+\pgf@yy=\dimen286
+\pgf@zx=\dimen287
+\pgf@zy=\dimen288
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
 File: pgfcorepathconstruct.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@path@lastx=\dimen274
-\pgf@path@lasty=\dimen275
+\pgf@path@lastx=\dimen289
+\pgf@path@lasty=\dimen290
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
 File: pgfcorepathusage.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@shorten@end@additional=\dimen276
-\pgf@shorten@start@additional=\dimen277
+\pgf@shorten@end@additional=\dimen291
+\pgf@shorten@start@additional=\dimen292
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
 File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfpic=\box107
-\pgf@hbox=\box108
-\pgf@layerbox@main=\box109
-\pgf@picture@serial@count=\count328
+\pgfpic=\box114
+\pgf@hbox=\box115
+\pgf@layerbox@main=\box116
+\pgf@picture@serial@count=\count361
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgflinewidth=\dimen278
+\pgflinewidth=\dimen293
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex
 File: pgfcoretransformations.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@pt@x=\dimen279
-\pgf@pt@y=\dimen280
-\pgf@pt@temp=\dimen281
+\pgf@pt@x=\dimen294
+\pgf@pt@y=\dimen295
+\pgf@pt@temp=\dimen296
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
 File: pgfcorequick.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex
@@ -554,17 +655,17 @@ File: pgfcoreobjects.code.tex 2023-01-15 v3.1.10 (3.1.10)
 File: pgfcorepathprocessing.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
 File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfarrowsep=\dimen282
+\pgfarrowsep=\dimen297
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@max=\dimen283
-\pgf@sys@shading@range@num=\count329
-\pgf@shadingcount=\count330
+\pgf@max=\dimen298
+\pgf@sys@shading@range@num=\count362
+\pgf@shadingcount=\count363
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
 File: pgfcoreexternal.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfexternal@startupbox=\box110
+\pgfexternal@startupbox=\box117
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
 File: pgfcorelayers.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex
@@ -575,78 +676,78 @@ File: pgfcorepatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
 File: pgfcorerdf.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ))) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
 File: pgfmoduleshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfnodeparttextbox=\box111
+\pgfnodeparttextbox=\box118
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
 File: pgfmoduleplot.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
 Package: pgfcomp-version-0-65 2023-01-15 v3.1.10 (3.1.10)
-\pgf@nodesepstart=\dimen284
-\pgf@nodesepend=\dimen285
+\pgf@nodesepstart=\dimen299
+\pgf@nodesepend=\dimen300
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
 Package: pgfcomp-version-1-18 2023-01-15 v3.1.10 (3.1.10)
 )) (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/utilities/pgffor.sty (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)) (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/math/pgfmath.sty (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
 Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
-\pgffor@iter=\dimen286
-\pgffor@skip=\dimen287
-\pgffor@stack=\toks43
-\pgffor@toks=\toks44
+\pgffor@iter=\dimen301
+\pgffor@skip=\dimen302
+\pgffor@stack=\toks45
+\pgffor@toks=\toks46
 )) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
 Package: tikz 2023-01-15 v3.1.10 (3.1.10)
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@plot@mark@count=\count331
-\pgfplotmarksize=\dimen288
+\pgf@plot@mark@count=\count364
+\pgfplotmarksize=\dimen303
 )
-\tikz@lastx=\dimen289
-\tikz@lasty=\dimen290
-\tikz@lastxsaved=\dimen291
-\tikz@lastysaved=\dimen292
-\tikz@lastmovetox=\dimen293
-\tikz@lastmovetoy=\dimen294
-\tikzleveldistance=\dimen295
-\tikzsiblingdistance=\dimen296
-\tikz@figbox=\box112
-\tikz@figbox@bg=\box113
-\tikz@tempbox=\box114
-\tikz@tempbox@bg=\box115
-\tikztreelevel=\count332
-\tikznumberofchildren=\count333
-\tikznumberofcurrentchild=\count334
-\tikz@fig@count=\count335
+\tikz@lastx=\dimen304
+\tikz@lasty=\dimen305
+\tikz@lastxsaved=\dimen306
+\tikz@lastysaved=\dimen307
+\tikz@lastmovetox=\dimen308
+\tikz@lastmovetoy=\dimen309
+\tikzleveldistance=\dimen310
+\tikzsiblingdistance=\dimen311
+\tikz@figbox=\box119
+\tikz@figbox@bg=\box120
+\tikz@tempbox=\box121
+\tikz@tempbox@bg=\box122
+\tikztreelevel=\count365
+\tikznumberofchildren=\count366
+\tikznumberofcurrentchild=\count367
+\tikz@fig@count=\count368
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfmatrixcurrentrow=\count336
-\pgfmatrixcurrentcolumn=\count337
-\pgf@matrix@numberofcolumns=\count338
+\pgfmatrixcurrentrow=\count369
+\pgfmatrixcurrentcolumn=\count370
+\pgf@matrix@numberofcolumns=\count371
 )
-\tikz@expandcount=\count339
+\tikz@expandcount=\count372
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ))) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
 File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2023/07/08 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count340
-\calc@Bcount=\count341
-\calc@Adimen=\dimen297
-\calc@Bdimen=\dimen298
-\calc@Askip=\skip60
-\calc@Bskip=\skip61
+\calc@Acount=\count373
+\calc@Bcount=\count374
+\calc@Adimen=\dimen312
+\calc@Bdimen=\dimen313
+\calc@Askip=\skip62
+\calc@Bskip=\skip63
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count342
-\calc@Cskip=\skip62
+\calc@Ccount=\count375
+\calc@Cskip=\skip64
 )
-\c@@todonotes@numberoftodonotes=\count343
+\c@@todonotes@numberoftodonotes=\count376
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/csquotes/csquotes.sty
 Package: csquotes 2022-09-14 v5.2n context-sensitive quotations (JAW)
-\csq@reset=\count344
-\csq@gtype=\count345
-\csq@glevel=\count346
-\csq@qlevel=\count347
-\csq@maxlvl=\count348
-\csq@tshold=\count349
-\csq@ltx@everypar=\toks45
+\csq@reset=\count377
+\csq@gtype=\count378
+\csq@glevel=\count379
+\csq@qlevel=\count380
+\csq@maxlvl=\count381
+\csq@tshold=\count382
+\csq@ltx@everypar=\toks47
  (/usr/local/texlive/2024/texmf-dist/tex/latex/csquotes/csquotes.def
 File: csquotes.def 2022-09-14 v5.2n csquotes generic definitions (JAW)
 )
@@ -658,30 +759,34 @@ File: csquotes.cfg
 Package: expl3 2024-02-20 L3 programming layer (loader) 
  (/usr/local/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-02-20 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count350
-\l__pdf_internal_box=\box116
+\l__color_backend_stack_int=\count383
+\l__pdf_internal_box=\box123
 ))
 Package: l3keys2e 2024-02-18 LaTeX2e option processing using LaTeX3 keys
 )
 Package: lipsum 2021-09-20 v2.7 150 paragraphs of Lorem Ipsum dummy text
-\g__lipsum_par_int=\count351
-\l__lipsum_a_int=\count352
-\l__lipsum_b_int=\count353
+\g__lipsum_par_int=\count384
+\l__lipsum_a_int=\count385
+\l__lipsum_b_int=\count386
  (/usr/local/texlive/2024/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex)) (/usr/local/texlive/2024/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
-\multirow@colwidth=\skip63
-\multirow@cntb=\count354
-\multirow@dima=\skip64
-\bigstrutjot=\dimen299
+\multirow@colwidth=\skip65
+\multirow@cntb=\count387
+\multirow@dima=\skip66
+\bigstrutjot=\dimen314
 )
-LaTeX Info: Redefining \. on input line 33.
-LaTeX Info: Redefining \% on input line 33.
+LaTeX Info: Redefining \. on input line 36.
+LaTeX Info: Redefining \% on input line 36.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/appendix/appendix.sty
 Package: appendix 2020/02/08 v1.2c extra appendix facilities
-\c@@pps=\count355
-\c@@ppsavesec=\count356
-\c@@ppsaveapp=\count357
+\c@@pps=\count388
+\c@@ppsavesec=\count389
+\c@@ppsaveapp=\count390
 )) (./configuracion/estilos.tex)
+runsystem(command -v pygmentize && touch TeoriaEDNL.aex)...executed.
+
+runsystem(rm TeoriaEDNL.aex)...executed.
+
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
@@ -719,17 +824,17 @@ Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
  (/usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count358
-\scratchdimen=\dimen300
-\scratchbox=\box117
-\nofMPsegments=\count359
-\nofMParguments=\count360
-\everyMPshowfont=\toks46
-\MPscratchCnt=\count361
-\MPscratchDim=\dimen301
-\MPnumerator=\count362
-\makeMPintoPDFobject=\count363
-\everyMPtoPDFconversion=\toks47
+\scratchcounter=\count391
+\scratchdimen=\dimen315
+\scratchbox=\box124
+\nofMPsegments=\count392
+\nofMParguments=\count393
+\everyMPshowfont=\toks48
+\MPscratchCnt=\count394
+\MPscratchDim=\dimen316
+\MPnumerator=\count395
+\makeMPintoPDFobject=\count396
+\everyMPtoPDFconversion=\toks49
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -740,13 +845,11 @@ LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
 Package hyperref Info: Link coloring ON on input line 8.
  (./TeoriaEDNL.out) (./TeoriaEDNL.out)
-\@outlinefile=\write4
-\openout4 = `TeoriaEDNL.out'.
+\@outlinefile=\write6
+\openout6 = `TeoriaEDNL.out'.
 
-\c@lstlisting=\count364
- (/usr/local/texlive/2024/texmf-dist/tex/latex/upquote/upquote.sty
-Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verbatim
-)
+\c@lstlisting=\count397
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -797,20 +900,20 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Trying to load font information for U+msb on input line 4.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-))
-\tf@toc=\write5
-\openout5 = `TeoriaEDNL.toc'.
+) [2
 
- (./chapters/1_0_IntroduccionArboles.tex [2
+])
+\tf@toc=\write7
+\openout7 = `TeoriaEDNL.toc'.
 
-]
+ (./chapters/1_0_IntroduccionArboles.tex [3]
 Cap\'{\i }tulo 1.
-<assets/IntroArboles1.png, id=221, 1375.1375pt x 771.88374pt>
+<assets/IntroArboles1.png, id=310, 1375.1375pt x 771.88374pt>
 File: assets/IntroArboles1.png Graphic file (type png)
 <use assets/IntroArboles1.png>
 Package pdftex.def Info: assets/IntroArboles1.png  used on input line 20.
 (pdftex.def)             Requested size: 441.01773pt x 247.54962pt.
-[3
+[4
 
  <./assets/IntroArboles1.png>]
 LaTeX Font Info:    Trying to load font information for OT1+zi4 on input line 30.
@@ -819,166 +922,215 @@ File: ot1zi4.fd 2018/01/14 OT1/zi4 (Inconsolata)
 )
 LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
 (Font)              scaled to size 10.95pt on input line 30.
-<assets/IntroArboles2.png, id=231, 1425.325pt x 565.11125pt>
+<assets/IntroArboles2.png, id=320, 1425.325pt x 565.11125pt>
 File: assets/IntroArboles2.png Graphic file (type png)
 <use assets/IntroArboles2.png>
 Package pdftex.def Info: assets/IntroArboles2.png  used on input line 36.
 (pdftex.def)             Requested size: 441.01773pt x 174.855pt.
-<assets/IntroArboles3.png, id=232, 1171.37625pt x 794.97pt>
+<assets/IntroArboles3.png, id=321, 1171.37625pt x 794.97pt>
 File: assets/IntroArboles3.png Graphic file (type png)
 <use assets/IntroArboles3.png>
 Package pdftex.def Info: assets/IntroArboles3.png  used on input line 48.
 (pdftex.def)             Requested size: 264.61333pt x 179.57622pt.
- [4{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/inconsolata/i4-ot1-0.enc} <./assets/IntroArboles2.png> <./assets/IntroArboles3.png>]
-<assets/IntroArboles4.png, id=244, 1144.275pt x 799.98875pt>
+ [5{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/inconsolata/i4-ot1-0.enc} <./assets/IntroArboles2.png> <./assets/IntroArboles3.png>]
+<assets/IntroArboles4.png, id=333, 1144.275pt x 799.98875pt>
 File: assets/IntroArboles4.png Graphic file (type png)
 <use assets/IntroArboles4.png>
 Package pdftex.def Info: assets/IntroArboles4.png  used on input line 60.
 (pdftex.def)             Requested size: 264.61333pt x 184.99449pt.
-<assets/IntroArboles5.png, id=245, 1136.245pt x 789.95125pt>
+<assets/IntroArboles5.png, id=334, 1136.245pt x 789.95125pt>
 File: assets/IntroArboles5.png Graphic file (type png)
 <use assets/IntroArboles5.png>
 Package pdftex.def Info: assets/IntroArboles5.png  used on input line 72.
 (pdftex.def)             Requested size: 264.61333pt x 183.9631pt.
- [5 <./assets/IntroArboles4.png> <./assets/IntroArboles5.png>]
-<assets/IntroArboles6.png, id=254, 2028.57875pt x 1166.3575pt>
+ [6 <./assets/IntroArboles4.png> <./assets/IntroArboles5.png>]
+<assets/IntroArboles6.png, id=344, 2028.57875pt x 1166.3575pt>
 File: assets/IntroArboles6.png Graphic file (type png)
 <use assets/IntroArboles6.png>
 Package pdftex.def Info: assets/IntroArboles6.png  used on input line 92.
 (pdftex.def)             Requested size: 441.01773pt x 253.55612pt.
- [6 <./assets/IntroArboles6.png>]
-<assets/IntroArboles7.png, id=262, 1336.995pt x 796.9775pt>
+ [7 <./assets/IntroArboles6.png>]
+<assets/IntroArboles7.png, id=353, 1336.995pt x 796.9775pt>
 File: assets/IntroArboles7.png Graphic file (type png)
 <use assets/IntroArboles7.png>
 Package pdftex.def Info: assets/IntroArboles7.png  used on input line 110.
 (pdftex.def)             Requested size: 220.50887pt x 131.4348pt.
-) (./chapters/1_1_Abin.tex [7 <./assets/IntroArboles7.png>]
+) (./chapters/1_1_Abin.tex [8 <./assets/IntroArboles7.png>]
 Cap\'{\i }tulo 2.
-(./chapters/1_1_EspecificacionAbin.tex [8
+(./chapters/1_1_EspecificacionAbin.tex [9
 
-]) [9] (./chapters/ImplementacionAbinCE.tex
-<assets/ICE1.png, id=278, 1180.41pt x 576.1525pt>
+]) [10] (./chapters/ImplementacionAbinCE.tex
+<assets/ICE1.png, id=368, 1180.41pt x 576.1525pt>
 File: assets/ICE1.png Graphic file (type png)
 <use assets/ICE1.png>
 Package pdftex.def Info: assets/ICE1.png  used on input line 7.
 (pdftex.def)             Requested size: 194.0496pt x 94.7094pt.
-<assets/ICE2.png, id=279, 1225.57875pt x 579.16376pt>
+<assets/ICE2.png, id=369, 1225.57875pt x 579.16376pt>
 File: assets/ICE2.png Graphic file (type png)
 <use assets/ICE2.png>
 Package pdftex.def Info: assets/ICE2.png  used on input line 17.
 (pdftex.def)             Requested size: 194.0496pt x 91.69598pt.
-<assets/ICE3.png, id=280, 1259.70625pt x 677.53125pt>
+<assets/ICE3.png, id=370, 1259.70625pt x 677.53125pt>
 File: assets/ICE3.png Graphic file (type png)
 <use assets/ICE3.png>
 Package pdftex.def Info: assets/ICE3.png  used on input line 28.
 (pdftex.def)             Requested size: 352.81552pt x 189.75914pt.
- [10 <./assets/ICE1.png> <./assets/ICE2.png> <./assets/ICE3.png>] [11] [12]) (./chapters/ImplementacionAbinVec.tex
-<assets/IVEC1.png, id=299, 975.645pt x 658.46pt>
+\openout3 = `TeoriaEDNL.pyg'.
+
+ (./_minted-TeoriaEDNL/default.pygstyle) (./_minted-TeoriaEDNL/2D92B7BBB262BB3A988AB0B925E6AF008FE4474E9ED5A30AFBDD5D9AC18A0239.pygtex [11 <./assets/ICE1.png> <./assets/ICE2.png> <./assets/ICE3.png>]
+LaTeX Font Info:    Font shape `OT1/zi4/b/n' will be
+(Font)              scaled to size 10.95pt on input line 2.
+
+
+LaTeX Font Warning: Font shape `OT1/zi4/m/it' undefined
+(Font)              using `OT1/zi4/m/n' instead on input line 4.
+
+LaTeX Font Info:    Font shape `OT1/zi4/m/it' will be
+(Font)              scaled to size 10.95pt on input line 4.
+)
+\openout3 = `TeoriaEDNL.pyg'.
+
+ (./_minted-TeoriaEDNL/ADE7767D27924F3E3BCC89D4BED2355D8FE4474E9ED5A30AFBDD5D9AC18A0239.pygtex)
+\openout3 = `TeoriaEDNL.pyg'.
+
+ (./_minted-TeoriaEDNL/90887012667FE8E4D2C26017024E46838FE4474E9ED5A30AFBDD5D9AC18A0239.pygtex)
+\openout3 = `TeoriaEDNL.pyg'.
+
+ (./_minted-TeoriaEDNL/8A92A491B5D1477BA4DE982EB2B9E8868FE4474E9ED5A30AFBDD5D9AC18A0239.pygtex [12])
+\openout3 = `TeoriaEDNL.pyg'.
+
+ (./_minted-TeoriaEDNL/D99AD3FE2BFBA72622E52295744B45328FE4474E9ED5A30AFBDD5D9AC18A0239.pygtex)
+\openout3 = `TeoriaEDNL.pyg'.
+
+ (./_minted-TeoriaEDNL/7BD3AF9C94BF7A2390E509E0B41A8FA58FE4474E9ED5A30AFBDD5D9AC18A0239.pygtex)
+\openout3 = `TeoriaEDNL.pyg'.
+
+ (./_minted-TeoriaEDNL/A92FFE849BA7F10614870ACCCEC6219C8FE4474E9ED5A30AFBDD5D9AC18A0239.pygtex [13])) (./chapters/ImplementacionAbinVec.tex
+<assets/IVEC1.png, id=391, 975.645pt x 658.46pt>
 File: assets/IVEC1.png Graphic file (type png)
 <use assets/IVEC1.png>
 Package pdftex.def Info: assets/IVEC1.png  used on input line 6.
 (pdftex.def)             Requested size: 441.01773pt x 297.64055pt.
- [13{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <./assets/IVEC1.png>]) (./chapters/ImplementacionAbinVecRel.tex [14]
-<assets/IVPR.png, id=314, 652.4375pt x 298.11375pt>
+\openout3 = `TeoriaEDNL.pyg'.
+
+ (./_minted-TeoriaEDNL/E3615B00C41BB8953441EF520F7486948FE4474E9ED5A30AFBDD5D9AC18A0239.pygtex [14{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <./assets/IVEC1.png>])
+\openout3 = `TeoriaEDNL.pyg'.
+
+ (./_minted-TeoriaEDNL/5FC2CCEA8E369C18F1D18EDADB2FBA598FE4474E9ED5A30AFBDD5D9AC18A0239.pygtex)) (./chapters/ImplementacionAbinVecRel.tex
+Underfull \vbox (badness 2671) has occurred while \output is active []
+
+ [15]
+<assets/IVPR.png, id=405, 652.4375pt x 298.11375pt>
 File: assets/IVPR.png Graphic file (type png)
 <use assets/IVPR.png>
 Package pdftex.def Info: assets/IVPR.png  used on input line 20.
 (pdftex.def)             Requested size: 171.99664pt x 78.59036pt.
-<assets/IVPR2.png, id=315, 1168.365pt x 93.34875pt>
+<assets/IVPR2.png, id=406, 1168.365pt x 93.34875pt>
 File: assets/IVPR2.png Graphic file (type png)
 <use assets/IVPR2.png>
 Package pdftex.def Info: assets/IVPR2.png  used on input line 24.
 (pdftex.def)             Requested size: 264.61333pt x 21.14072pt.
-<assets/IVPR3.png, id=316, 636.3775pt x 412.54124pt>
+<assets/IVPR3.png, id=407, 636.3775pt x 412.54124pt>
 File: assets/IVPR3.png Graphic file (type png)
 <use assets/IVPR3.png>
 Package pdftex.def Info: assets/IVPR3.png  used on input line 36.
 (pdftex.def)             Requested size: 171.99664pt x 111.49463pt.
-<assets/IVPR4.png, id=317, 1193.45876pt x 106.3975pt>
+<assets/IVPR4.png, id=408, 1193.45876pt x 106.3975pt>
 File: assets/IVPR4.png Graphic file (type png)
 <use assets/IVPR4.png>
 Package pdftex.def Info: assets/IVPR4.png  used on input line 40.
 (pdftex.def)             Requested size: 264.61333pt x 23.58934pt.
- [15 <./assets/IVPR.png> <./assets/IVPR2.png> <./assets/IVPR3.png> <./assets/IVPR4.png>]
-<assets/IVPR5.png, id=332, 1172.38pt x 436.63126pt>
+ [16 <./assets/IVPR.png> <./assets/IVPR2.png> <./assets/IVPR3.png> <./assets/IVPR4.png>]
+<assets/IVPR5.png, id=423, 1172.38pt x 436.63126pt>
 File: assets/IVPR5.png Graphic file (type png)
 <use assets/IVPR5.png>
 Package pdftex.def Info: assets/IVPR5.png  used on input line 49.
 (pdftex.def)             Requested size: 171.99664pt x 64.05276pt.
-<assets/IVPR6.png, id=333, 1216.545pt x 114.4275pt>
+<assets/IVPR6.png, id=424, 1216.545pt x 114.4275pt>
 File: assets/IVPR6.png Graphic file (type png)
 <use assets/IVPR6.png>
 Package pdftex.def Info: assets/IVPR6.png  used on input line 53.
 (pdftex.def)             Requested size: 264.61333pt x 24.88951pt.
-<assets/IVPR7.png, id=335, 709.65125pt x 87.32625pt>
+<assets/IVPR7.png, id=426, 709.65125pt x 87.32625pt>
 File: assets/IVPR7.png Graphic file (type png)
 <use assets/IVPR7.png>
 Package pdftex.def Info: assets/IVPR7.png  used on input line 61.
 (pdftex.def)             Requested size: 441.01773pt x 54.27097pt.
-)) (./chapters/1_2_Agen.tex [16 <./assets/IVPR5.png> <./assets/IVPR6.png> <./assets/IVPR7.png>]
+)) (./chapters/1_2_Agen.tex [17 <./assets/IVPR5.png> <./assets/IVPR6.png> <./assets/IVPR7.png>]
 Cap\'{\i }tulo 3.
-<assets/Agen1.png, id=349, 1055.945pt x 375.4025pt>
+<assets/Agen1.png, id=439, 1055.945pt x 375.4025pt>
 File: assets/Agen1.png Graphic file (type png)
 <use assets/Agen1.png>
 Package pdftex.def Info: assets/Agen1.png  used on input line 8.
 (pdftex.def)             Requested size: 441.01773pt x 156.78583pt.
-(./chapters/1_2_EspecificacionAgen.tex [17
+(./chapters/1_2_EspecificacionAgen.tex [18
 
- <./assets/Agen1.png>] [18]) (./chapters/ImplementacionAgenVec.tex
-<assets/AgenVec1.png, id=360, 629.35126pt x 362.35374pt>
+ <./assets/Agen1.png>] [19]) (./chapters/ImplementacionAgenVec.tex
+<assets/AgenVec1.png, id=451, 629.35126pt x 362.35374pt>
 File: assets/AgenVec1.png Graphic file (type png)
 <use assets/AgenVec1.png>
 Package pdftex.def Info: assets/AgenVec1.png  used on input line 6.
 (pdftex.def)             Requested size: 330.76329pt x 190.4376pt.
-) (./chapters/ImplementacionAgenEnla.tex [19 <./assets/AgenVec1.png>]
-<assets/AgenEnla.png, id=368, 950.55125pt x 392.46625pt>
+\openout3 = `TeoriaEDNL.pyg'.
+
+ (./_minted-TeoriaEDNL/6A56B9E426C9B70033173D3C80CFC46B8FE4474E9ED5A30AFBDD5D9AC18A0239.pygtex)) (./chapters/ImplementacionAgenEnla.tex [20 <./assets/AgenVec1.png>]
+<assets/AgenEnla.png, id=458, 950.55125pt x 392.46625pt>
 File: assets/AgenEnla.png Graphic file (type png)
 <use assets/AgenEnla.png>
 Package pdftex.def Info: assets/AgenEnla.png  used on input line 6.
 (pdftex.def)             Requested size: 308.71106pt x 127.46017pt.
-)) (./chapters/1_3_ABB.tex [20 <./assets/AgenEnla.png>]
+\openout3 = `TeoriaEDNL.pyg'.
+
+ (./_minted-TeoriaEDNL/663BC98BBCB7CB59957326C4072C3ACE8FE4474E9ED5A30AFBDD5D9AC18A0239.pygtex))) (./chapters/1_3_ABB.tex [21 <./assets/AgenEnla.png>]
 Cap\'{\i }tulo 4.
-<assets/ABB1.png, id=375, 1140.26pt x 442.65375pt>
+<assets/ABB1.png, id=465, 1140.26pt x 442.65375pt>
 File: assets/ABB1.png Graphic file (type png)
 <use assets/ABB1.png>
 Package pdftex.def Info: assets/ABB1.png  used on input line 8.
 (pdftex.def)             Requested size: 308.71106pt x 119.8423pt.
-<assets/Abb2.png, id=376, 835.12pt x 438.63875pt>
+<assets/Abb2.png, id=466, 835.12pt x 438.63875pt>
 File: assets/Abb2.png Graphic file (type png)
 <use assets/Abb2.png>
 Package pdftex.def Info: assets/Abb2.png  used on input line 20.
 (pdftex.def)             Requested size: 198.45662pt x 104.238pt.
-[21
+[22
 
  <./assets/ABB1.png> <./assets/Abb2.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 33--35
 
  []
 
-<assets/abb3.png, id=385, 148.555pt x 401.5pt>
+<assets/abb3.png, id=475, 148.555pt x 401.5pt>
 File: assets/abb3.png Graphic file (type png)
 <use assets/abb3.png>
 Package pdftex.def Info: assets/abb3.png  used on input line 42.
 (pdftex.def)             Requested size: 66.14996pt x 178.79253pt.
-(./chapters/1_3_EspecificacionABB.tex [22 <./assets/abb3.png>]) (./chapters/ImplementacionABBRec.tex
-<assets/abb4.png, id=392, 643.40375pt x 369.38pt>
+(./chapters/1_3_EspecificacionABB.tex [23 <./assets/abb3.png>]) (./chapters/ImplementacionABBRec.tex
+<assets/abb4.png, id=482, 643.40375pt x 369.38pt>
 File: assets/abb4.png Graphic file (type png)
 <use assets/abb4.png>
 Package pdftex.def Info: assets/abb4.png  used on input line 4.
 (pdftex.def)             Requested size: 264.61333pt x 151.92021pt.
- [23 <./assets/abb4.png>]
-<assets/abb5.png, id=399, 706.64pt x 445.665pt>
+\openout3 = `TeoriaEDNL.pyg'.
+
+ (./_minted-TeoriaEDNL/E50BE4E3C51C2CD6EF21C9B681749EE88FE4474E9ED5A30AFBDD5D9AC18A0239.pygtex)
+\openout3 = `TeoriaEDNL.pyg'.
+
+ (./_minted-TeoriaEDNL/4FDB082F0583088EEBE271B0EBD8E8108FE4474E9ED5A30AFBDD5D9AC18A0239.pygtex [24 <./assets/abb4.png>])
+<assets/abb5.png, id=489, 706.64pt x 445.665pt>
 File: assets/abb5.png Graphic file (type png)
 <use assets/abb5.png>
 Package pdftex.def Info: assets/abb5.png  used on input line 45.
 (pdftex.def)             Requested size: 176.40439pt x 111.25276pt.
+\openout3 = `TeoriaEDNL.pyg'.
 
+ (./_minted-TeoriaEDNL/5421EE89C0129C71BF1952A3F8EF33D28FE4474E9ED5A30AFBDD5D9AC18A0239.pygtex)
 Underfull \hbox (badness 10000) in paragraph at lines 65--70
 
  []
 
-[24 <./assets/abb5.png>]
-<assets/abb6.png, id=406, 662.475pt x 436.63126pt>
+[25 <./assets/abb5.png>]
+<assets/abb6.png, id=497, 662.475pt x 436.63126pt>
 File: assets/abb6.png Graphic file (type png)
 <use assets/abb6.png>
 Package pdftex.def Info: assets/abb6.png  used on input line 82.
@@ -988,45 +1140,47 @@ Underfull \hbox (badness 2237) in paragraph at lines 86--92
 []\OT1/cmr/m/n/10.95 Queremos eli-mi-nar el no-do con ele-men-to
  []
 
-<assets/abb11.png, id=407, 348.30125pt x 222.8325pt>
+<assets/abb11.png, id=498, 348.30125pt x 222.8325pt>
 File: assets/abb11.png Graphic file (type png)
 <use assets/abb11.png>
 Package pdftex.def Info: assets/abb11.png  used on input line 95.
 (pdftex.def)             Requested size: 176.40439pt x 112.85764pt.
-<assets/abb7.png, id=408, 655.44875pt x 415.5525pt>
+<assets/abb7.png, id=499, 655.44875pt x 415.5525pt>
 File: assets/abb7.png Graphic file (type png)
 <use assets/abb7.png>
 Package pdftex.def Info: assets/abb7.png  used on input line 100.
 (pdftex.def)             Requested size: 176.40439pt x 111.83925pt.
-<assets/abb10.png, id=409, 327.2225pt x 225.84375pt>
+<assets/abb10.png, id=500, 327.2225pt x 225.84375pt>
 File: assets/abb10.png Graphic file (type png)
 <use assets/abb10.png>
 Package pdftex.def Info: assets/abb10.png  used on input line 113.
 (pdftex.def)             Requested size: 176.40439pt x 121.75047pt.
-[25 <./assets/abb6.png> <./assets/abb11.png> <./assets/abb7.png> <./assets/abb10.png>]
-<assets/abb8.png, id=419, 706.64pt x 399.4925pt>
+[26 <./assets/abb6.png> <./assets/abb11.png> <./assets/abb7.png> <./assets/abb10.png>]
+<assets/abb8.png, id=509, 706.64pt x 399.4925pt>
 File: assets/abb8.png Graphic file (type png)
 <use assets/abb8.png>
 Package pdftex.def Info: assets/abb8.png  used on input line 122.
 (pdftex.def)             Requested size: 176.40439pt x 99.72658pt.
-<assets/abb9.png, id=420, 674.52pt x 431.6125pt>
+<assets/abb9.png, id=510, 674.52pt x 431.6125pt>
 File: assets/abb9.png Graphic file (type png)
 <use assets/abb9.png>
 Package pdftex.def Info: assets/abb9.png  used on input line 132.
 (pdftex.def)             Requested size: 176.40439pt x 112.87518pt.
-)) (./chapters/1_4_AVL.tex [26 <./assets/abb8.png> <./assets/abb9.png>]
+\openout3 = `TeoriaEDNL.pyg'.
+
+ (./_minted-TeoriaEDNL/170F6EDD28397D2C01C1451D695C785F8FE4474E9ED5A30AFBDD5D9AC18A0239.pygtex))) (./chapters/1_4_AVL.tex [27 <./assets/abb8.png> <./assets/abb9.png>]
 Cap\'{\i }tulo 5.
 
 Overfull \hbox (2.18713pt too wide) in paragraph at lines 1--1
 |\OT1/cmr/bx/n/20.74 5. []\OT1/cmr/bx/n/24.88 Arbo-les de B^^Susque-da Equi-li-bra-dos| 
  []
 
-<assets/avl1.png, id=427, 846.16125pt x 492.84125pt>
+<assets/avl1.png, id=518, 846.16125pt x 492.84125pt>
 File: assets/avl1.png Graphic file (type png)
 <use assets/avl1.png>
 Package pdftex.def Info: assets/avl1.png  used on input line 21.
 (pdftex.def)             Requested size: 220.50887pt x 128.42897pt.
-<assets/avl2.png, id=428, 841.1425pt x 494.84875pt>
+<assets/avl2.png, id=519, 841.1425pt x 494.84875pt>
 File: assets/avl2.png Graphic file (type png)
 <use assets/avl2.png>
 Package pdftex.def Info: assets/avl2.png  used on input line 25.
@@ -1036,10 +1190,10 @@ Overfull \hbox (2.43333pt too wide) in paragraph at lines 20--27
 []$[]$  $[]$ 
  []
 
-[27
+[28
 
  <./assets/avl1.png> <./assets/avl2.png>]
-<assets/arn1.png, id=436, 243.91125pt x 151.56625pt>
+<assets/arn1.png, id=527, 243.91125pt x 151.56625pt>
 File: assets/arn1.png Graphic file (type png)
 <use assets/arn1.png>
 Package pdftex.def Info: assets/arn1.png  used on input line 34.
@@ -1049,59 +1203,72 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 33--42
 []$[]$  $[]$ 
  []
 
-<assets/arn2.png, id=437, 674.52pt x 317.185pt>
+<assets/arn2.png, id=528, 674.52pt x 317.185pt>
 File: assets/arn2.png Graphic file (type png)
 <use assets/arn2.png>
 Package pdftex.def Info: assets/arn2.png  used on input line 49.
 (pdftex.def)             Requested size: 308.71106pt x 145.1712pt.
-[28 <./assets/arn1.png> <./assets/arn2.png>]
-<assets/avl3.png, id=447, 781.92125pt x 271.0125pt>
+[29 <./assets/arn1.png> <./assets/arn2.png>]
+<assets/avl3.png, id=538, 781.92125pt x 271.0125pt>
 File: assets/avl3.png Graphic file (type png)
 <use assets/avl3.png>
 Package pdftex.def Info: assets/avl3.png  used on input line 70.
 (pdftex.def)             Requested size: 441.01773pt x 152.85768pt.
-) (./chapters/1_5_APO.tex [29 <./assets/avl3.png>]
+) (./chapters/1_5_APO.tex [30 <./assets/avl3.png>]
 Cap\'{\i }tulo 6.
-<assets/apo1.png, id=454, 678.535pt x 414.54875pt>
+<assets/apo1.png, id=545, 678.535pt x 414.54875pt>
 File: assets/apo1.png Graphic file (type png)
 <use assets/apo1.png>
 Package pdftex.def Info: assets/apo1.png  used on input line 5.
 (pdftex.def)             Requested size: 308.71106pt x 188.601pt.
-(./chapters/1_5_EspecificacionAPO.tex [30
+(./chapters/1_5_EspecificacionAPO.tex [31
 
- <./assets/apo1.png>] [31]) (./chapters/ImplementacionAPO.tex [32]
-<assets/apo2.png, id=470, 499.8675pt x 270.00874pt>
+ <./assets/apo1.png>] [32]) (./chapters/ImplementacionAPO.tex
+\openout3 = `TeoriaEDNL.pyg'.
+
+ (./_minted-TeoriaEDNL/F7F6CBC0054AEB82922BF594862BC5FB8FE4474E9ED5A30AFBDD5D9AC18A0239.pygtex) [33]
+<assets/apo2.png, id=561, 499.8675pt x 270.00874pt>
 File: assets/apo2.png Graphic file (type png)
 <use assets/apo2.png>
 Package pdftex.def Info: assets/apo2.png  used on input line 25.
 (pdftex.def)             Requested size: 308.71106pt x 166.76096pt.
-<assets/apo3.png, id=471, 531.9875pt x 265.99374pt>
+<assets/apo3.png, id=562, 531.9875pt x 265.99374pt>
 File: assets/apo3.png Graphic file (type png)
 <use assets/apo3.png>
 Package pdftex.def Info: assets/apo3.png  used on input line 32.
 (pdftex.def)             Requested size: 308.71106pt x 154.35765pt.
- [33 <./assets/apo2.png> <./assets/apo3.png>]
-<assets/apo4.png, id=480, 552.0625pt x 255.95625pt>
+\openout3 = `TeoriaEDNL.pyg'.
+
+ (./_minted-TeoriaEDNL/3A3354AB9B36D9C9B81EAEE9A960A6388FE4474E9ED5A30AFBDD5D9AC18A0239.pygtex)
+\openout3 = `TeoriaEDNL.pyg'.
+
+ (./_minted-TeoriaEDNL/45394901281BE5B8C9EF127342D8C1BE8FE4474E9ED5A30AFBDD5D9AC18A0239.pygtex [34 <./assets/apo2.png> <./assets/apo3.png>])
+<assets/apo4.png, id=571, 552.0625pt x 255.95625pt>
 File: assets/apo4.png Graphic file (type png)
 <use assets/apo4.png>
-Package pdftex.def Info: assets/apo4.png  used on input line 69.
+Package pdftex.def Info: assets/apo4.png  used on input line 67.
 (pdftex.def)             Requested size: 308.71106pt x 143.13533pt.
-<assets/apo5.png, id=481, 504.88625pt x 255.95625pt>
+<assets/apo5.png, id=572, 504.88625pt x 255.95625pt>
 File: assets/apo5.png Graphic file (type png)
 <use assets/apo5.png>
-Package pdftex.def Info: assets/apo5.png  used on input line 76.
+Package pdftex.def Info: assets/apo5.png  used on input line 74.
 (pdftex.def)             Requested size: 308.71106pt x 156.5041pt.
- [34 <./assets/apo4.png> <./assets/apo5.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 94--95
+\openout3 = `TeoriaEDNL.pyg'.
+
+ (./_minted-TeoriaEDNL/6F760CB98D589303C33C040ADBC289868FE4474E9ED5A30AFBDD5D9AC18A0239.pygtex [35 <./assets/apo4.png> <./assets/apo5.png>])
+\openout3 = `TeoriaEDNL.pyg'.
+
+ (./_minted-TeoriaEDNL/37A5955903AE1189B177428117FBFE948FE4474E9ED5A30AFBDD5D9AC18A0239.pygtex
+Underfull \hbox (badness 10000) in paragraph at lines 91--1
 
  []
 
-)) (./chapters/1_6_TablasHash.tex [35]
+))) (./chapters/1_6_TablasHash.tex [36]
 Cap\'{\i }tulo 7.
-[36
+[37
 
-] [37] [38] [39]
-<assets/hash1.png, id=515, 820.06375pt x 537.00626pt>
+] [38] [39] [40]
+<assets/hash1.png, id=605, 820.06375pt x 537.00626pt>
 File: assets/hash1.png Graphic file (type png)
 <use assets/hash1.png>
 Package pdftex.def Info: assets/hash1.png  used on input line 135.
@@ -1109,16 +1276,322 @@ Package pdftex.def Info: assets/hash1.png  used on input line 135.
 
 Underfull \vbox (badness 5133) has occurred while \output is active []
 
- [40 <./assets/hash1.png>]) (./chapters/2_0_IntroGrafos.tex [41]
+ [41 <./assets/hash1.png>]) (./chapters/2_0_IntroGrafos.tex [42]
 Cap\'{\i }tulo 8.
+<assets/intrografo1.png, id=616, 804.00375pt x 364.36125pt>
+File: assets/intrografo1.png Graphic file (type png)
+<use assets/intrografo1.png>
+Package pdftex.def Info: assets/intrografo1.png  used on input line 12.
+(pdftex.def)             Requested size: 264.61333pt x 119.91711pt.
+<assets/intrografo2.png, id=617, 801.99625pt x 424.58624pt>
+File: assets/intrografo2.png Graphic file (type png)
+<use assets/intrografo2.png>
+Package pdftex.def Info: assets/intrografo2.png  used on input line 23.
+(pdftex.def)             Requested size: 264.61333pt x 140.08797pt.
+<assets/intrografo3.png, id=618, 809.0225pt x 385.44pt>
+File: assets/intrografo3.png Graphic file (type png)
+<use assets/intrografo3.png>
+Package pdftex.def Info: assets/intrografo3.png  used on input line 31.
+(pdftex.def)             Requested size: 308.71106pt x 147.08037pt.
+[43
+
+ <./assets/intrografo1.png> <./assets/intrografo2.png>]
+<assets/intrografo4.png, id=628, 916.42375pt x 455.7025pt>
+File: assets/intrografo4.png Graphic file (type png)
+<use assets/intrografo4.png>
+Package pdftex.def Info: assets/intrografo4.png  used on input line 50.
+(pdftex.def)             Requested size: 264.61333pt x 131.58015pt.
+<assets/intrografo5.png, id=629, 995.72pt x 467.7475pt>
+File: assets/intrografo5.png Graphic file (type png)
+<use assets/intrografo5.png>
+Package pdftex.def Info: assets/intrografo5.png  used on input line 58.
+(pdftex.def)             Requested size: 308.71106pt x 145.02162pt.
+ [44 <./assets/intrografo3.png> <./assets/intrografo4.png>]
+<assets/intrografo6.png, id=638, 364.36125pt x 357.335pt>
+File: assets/intrografo6.png Graphic file (type png)
+<use assets/intrografo6.png>
+Package pdftex.def Info: assets/intrografo6.png  used on input line 66.
+(pdftex.def)             Requested size: 132.30666pt x 129.7528pt.
+ [45 <./assets/intrografo5.png> <./assets/intrografo6.png>]) (./chapters/2_1ImplementacionesGrafos.tex [46]
+Cap\'{\i }tulo 9.
+(./chapters/2_1_1Dijkstra.tex
+\openout3 = `TeoriaEDNL.pyg'.
+
+ (./_minted-TeoriaEDNL/73F009E9374D1BC48CE81DF7090AFDE0DE1E28FD86CD158EBDDF8683DBC149C2.pygtex
+LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
+(Font)              scaled to size 6.0pt on input line 4.
 )
+<assets/dij2.png, id=657, 391.4625pt x 118.4425pt>
+File: assets/dij2.png Graphic file (type png)
+<use assets/dij2.png>
+Package pdftex.def Info: assets/dij2.png  used on input line 28.
+(pdftex.def)             Requested size: 176.40439pt x 53.37453pt.
+ [47
+
+ <./assets/dij2.png>]
+<assets/dij3.png, id=666, 376.40625pt x 113.42375pt>
+File: assets/dij3.png Graphic file (type png)
+<use assets/dij3.png>
+Package pdftex.def Info: assets/dij3.png  used on input line 40.
+(pdftex.def)             Requested size: 176.40439pt x 53.15686pt.
+<assets/dij4.png, id=667, 375.4025pt x 108.405pt>
+File: assets/dij4.png Graphic file (type png)
+<use assets/dij4.png>
+Package pdftex.def Info: assets/dij4.png  used on input line 54.
+(pdftex.def)             Requested size: 176.40439pt x 50.94041pt.
+<assets/dij1.png, id=668, 921.4425pt x 509.905pt>
+File: assets/dij1.png Graphic file (type png)
+<use assets/dij1.png>
+Package pdftex.def Info: assets/dij1.png  used on input line 68.
+(pdftex.def)             Requested size: 308.71106pt x 170.82895pt.
+<assets/dij5.png, id=669, 935.495pt x 581.17125pt>
+File: assets/dij5.png Graphic file (type png)
+<use assets/dij5.png>
+Package pdftex.def Info: assets/dij5.png  used on input line 81.
+(pdftex.def)             Requested size: 308.71106pt x 191.7871pt.
+
+Underfull \vbox (badness 5345) has occurred while \output is active []
+
+ [48 <./assets/dij3.png> <./assets/dij4.png> <./assets/dij1.png>]
+<assets/dij6.png, id=679, 901.3675pt x 608.2725pt>
+File: assets/dij6.png Graphic file (type png)
+<use assets/dij6.png>
+Package pdftex.def Info: assets/dij6.png  used on input line 88.
+(pdftex.def)             Requested size: 308.71106pt x 208.33208pt.
+ [49 <./assets/dij5.png> <./assets/dij6.png>]
+<assets/dij8.png, id=688, 854.19125pt x 438.63875pt>
+File: assets/dij8.png Graphic file (type png)
+<use assets/dij8.png>
+Package pdftex.def Info: assets/dij8.png  used on input line 107.
+(pdftex.def)             Requested size: 308.71106pt x 158.52559pt.
+\openout3 = `TeoriaEDNL.pyg'.
+
+ (./_minted-TeoriaEDNL/7B6742CAEA6513A038DD51AF277A91978FE4474E9ED5A30AFBDD5D9AC18A0239.pygtex)
+\openout3 = `TeoriaEDNL.pyg'.
+
+ (./_minted-TeoriaEDNL/F5CFD9188532B74D226943D02E8436128FE4474E9ED5A30AFBDD5D9AC18A0239.pygtex [50 <./assets/dij8.png>])
+\openout3 = `TeoriaEDNL.pyg'.
+
+ (./_minted-TeoriaEDNL/5296FEDEF99331E6A6554CF4AD5F49278FE4474E9ED5A30AFBDD5D9AC18A0239.pygtex)) (./chapters/2_1_2Floyd.tex
+\openout3 = `TeoriaEDNL.pyg'.
+
+ (./_minted-TeoriaEDNL/43D87D6E5F0F1E9128936150922AEFDF8FE4474E9ED5A30AFBDD5D9AC18A0239.pygtex) [51]
+<assets/flo1.png, id=699, 601.24625pt x 476.78125pt>
+File: assets/flo1.png Graphic file (type png)
+<use assets/flo1.png>
+Package pdftex.def Info: assets/flo1.png  used on input line 16.
+(pdftex.def)             Requested size: 220.50887pt x 174.8567pt.
+\openout3 = `TeoriaEDNL.pyg'.
+
+ (./_minted-TeoriaEDNL/00006F6239979B1A88B24B45AD8A76388FE4474E9ED5A30AFBDD5D9AC18A0239.pygtex [52 <./assets/flo1.png>])
+\openout3 = `TeoriaEDNL.pyg'.
+
+ (./_minted-TeoriaEDNL/77FB12FE5D3225B5A0E1EB8DCAD0E59F8FE4474E9ED5A30AFBDD5D9AC18A0239.pygtex) [53]) (./chapters/2_1_3Warshall.tex
+\openout3 = `TeoriaEDNL.pyg'.
+
+ (./_minted-TeoriaEDNL/E3CF8D6634782EA9537D01CAF5714F338FE4474E9ED5A30AFBDD5D9AC18A0239.pygtex)
+\openout3 = `TeoriaEDNL.pyg'.
+
+ (./_minted-TeoriaEDNL/472C18F533A122A3342FD8780D3703AA8FE4474E9ED5A30AFBDD5D9AC18A0239.pygtex [54]))) (./chapters/2_2ImplementacionesGrafos.tex [55]
+Cap\'{\i }tulo 10.
+
+Overfull \hbox (17.94247pt too wide) in paragraph at lines 1--1
+|\OT1/cmr/bx/n/20.74 10. []\OT1/cmr/bx/n/24.88 Arbo-les ge-ne-ra-do-res de cos-te m^^S^^Pni-
+ []
+
+<assets/AGCM.png, id=722, 684.5575pt x 340.27126pt>
+File: assets/AGCM.png Graphic file (type png)
+<use assets/AGCM.png>
+Package pdftex.def Info: assets/AGCM.png  used on input line 9.
+(pdftex.def)             Requested size: 308.71106pt x 153.45294pt.
+(./chapters/2_2TADParticion.tex [56
+
+ <./assets/AGCM.png>] (./chapters/2_2_1EspeTADParticion.tex) (./chapters/2_2_2ImpleTADParticion.tex
+<assets/impPAR1.png, id=730, 629.35126pt x 83.31125pt>
+File: assets/impPAR1.png Graphic file (type png)
+<use assets/impPAR1.png>
+Package pdftex.def Info: assets/impPAR1.png  used on input line 8.
+(pdftex.def)             Requested size: 441.01773pt x 58.37975pt.
+ [57 <./assets/impPAR1.png>]
+<assets/impPAR2.png, id=737, 702.625pt x 70.2625pt>
+File: assets/impPAR2.png Graphic file (type png)
+<use assets/impPAR2.png>
+Package pdftex.def Info: assets/impPAR2.png  used on input line 27.
+(pdftex.def)             Requested size: 441.01773pt x 44.10263pt.
+<assets/impPAR3.png, id=738, 640.3925pt x 92.345pt>
+File: assets/impPAR3.png Graphic file (type png)
+<use assets/impPAR3.png>
+Package pdftex.def Info: assets/impPAR3.png  used on input line 40.
+(pdftex.def)             Requested size: 441.01773pt x 63.5955pt.
+<assets/impPAR4.png, id=739, 611.28375pt x 92.345pt>
+File: assets/impPAR4.png Graphic file (type png)
+<use assets/impPAR4.png>
+Package pdftex.def Info: assets/impPAR4.png  used on input line 50.
+(pdftex.def)             Requested size: 441.01773pt x 66.6222pt.
+ [58 <./assets/impPAR2.png> <./assets/impPAR3.png> <./assets/impPAR4.png>]
+<assets/impPAR5.png, id=750, 761.84625pt x 144.54pt>
+File: assets/impPAR5.png Graphic file (type png)
+<use assets/impPAR5.png>
+Package pdftex.def Info: assets/impPAR5.png  used on input line 71.
+(pdftex.def)             Requested size: 441.01773pt x 83.67003pt.
+<assets/impPAR6.png, id=751, 597.23125pt x 133.49875pt>
+File: assets/impPAR6.png Graphic file (type png)
+<use assets/impPAR6.png>
+Package pdftex.def Info: assets/impPAR6.png  used on input line 82.
+(pdftex.def)             Requested size: 441.01773pt x 98.58176pt.
+ [59 <./assets/impPAR5.png> <./assets/impPAR6.png>]
+<assets/impPAR7.png, id=760, 722.7pt x 222.8325pt>
+File: assets/impPAR7.png Graphic file (type png)
+<use assets/impPAR7.png>
+Package pdftex.def Info: assets/impPAR7.png  used on input line 106.
+(pdftex.def)             Requested size: 441.01773pt x 135.98203pt.
+<assets/impPAR9.png, id=761, 668.4975pt x 229.85875pt>
+File: assets/impPAR9.png Graphic file (type png)
+<use assets/impPAR9.png>
+Package pdftex.def Info: assets/impPAR9.png  used on input line 114.
+(pdftex.def)             Requested size: 441.01773pt x 151.64409pt.
+ [60 <./assets/impPAR7.png> <./assets/impPAR9.png>]
+<assets/impPAR11.png, id=770, 736.7525pt x 222.8325pt>
+File: assets/impPAR11.png Graphic file (type png)
+<use assets/impPAR11.png>
+Package pdftex.def Info: assets/impPAR11.png  used on input line 150.
+(pdftex.def)             Requested size: 441.01773pt x 133.38431pt.
+<assets/impPAR12.png, id=771, 634.37pt x 195.73125pt>
+File: assets/impPAR12.png Graphic file (type png)
+<use assets/impPAR12.png>
+Package pdftex.def Info: assets/impPAR12.png  used on input line 166.
+(pdftex.def)             Requested size: 441.01773pt x 136.07611pt.
+ [61 <./assets/impPAR11.png>]
+<assets/impPAR13.png, id=779, 788.9475pt x 420.57124pt>
+File: assets/impPAR13.png Graphic file (type png)
+<use assets/impPAR13.png>
+Package pdftex.def Info: assets/impPAR13.png  used on input line 180.
+(pdftex.def)             Requested size: 396.91325pt x 211.58783pt.
+<assets/impPAR14.png, id=780, 684.5575pt x 373.395pt>
+File: assets/impPAR14.png Graphic file (type png)
+<use assets/impPAR14.png>
+Package pdftex.def Info: assets/impPAR14.png  used on input line 191.
+(pdftex.def)             Requested size: 396.91325pt x 216.50087pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[62 <./assets/impPAR12.png> <./assets/impPAR13.png>]
+\openout3 = `TeoriaEDNL.pyg'.
+
+ (./_minted-TeoriaEDNL/41592D884B823464F76917595501AF208FE4474E9ED5A30AFBDD5D9AC18A0239.pygtex [63 <./assets/impPAR14.png>]))) (./chapters/2_3Kruskall.tex
+<assets/kru1.png, id=795, 872.25874pt x 520.94624pt>
+File: assets/kru1.png Graphic file (type png)
+<use assets/kru1.png>
+Package pdftex.def Info: assets/kru1.png  used on input line 7.
+(pdftex.def)             Requested size: 308.71106pt x 184.36885pt.
+ [64 <./assets/kru1.png>]
+Overfull \hbox (4.1pt too wide) in paragraph at lines 19--21
+[]\OT1/cmr/m/n/10.95 Unimos los v^^Serti-ces que une di-cha aris-ta $\OMS/cmsy/m/n/10.95 !$ \OT1/cmr/m/n/10.95 rea-li-za-mos la opra-ci^^Son \OT1/zi4/m/it/10.95 unir(P.encontrar(4), 
+ []
+
+<assets/kru2.png, id=802, 474.77374pt x 400.49625pt>
+File: assets/kru2.png Graphic file (type png)
+<use assets/kru2.png>
+Package pdftex.def Info: assets/kru2.png  used on input line 31.
+(pdftex.def)             Requested size: 114.66177pt x 96.71994pt.
+<assets/kru3.png, id=803, 390.45876pt x 53.19875pt>
+File: assets/kru3.png Graphic file (type png)
+<use assets/kru3.png>
+Package pdftex.def Info: assets/kru3.png  used on input line 40.
+(pdftex.def)             Requested size: 220.50887pt x 30.04353pt.
+<assets/kru5.png, id=804, 427.5975pt x 394.47375pt>
+File: assets/kru5.png Graphic file (type png)
+<use assets/kru5.png>
+Package pdftex.def Info: assets/kru5.png  used on input line 53.
+(pdftex.def)             Requested size: 114.66177pt x 105.775pt.
+<assets/kru6.png, id=805, 364.36125pt x 42.1575pt>
+File: assets/kru6.png Graphic file (type png)
+<use assets/kru6.png>
+Package pdftex.def Info: assets/kru6.png  used on input line 62.
+(pdftex.def)             Requested size: 220.50887pt x 25.51338pt.
+<assets/kru4.png, id=806, 581.17125pt x 319.1925pt>
+File: assets/kru4.png Graphic file (type png)
+<use assets/kru4.png>
+Package pdftex.def Info: assets/kru4.png  used on input line 73.
+(pdftex.def)             Requested size: 308.71106pt x 169.5511pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) (./chapters/2_4Prim.tex [65 <./assets/kru2.png> <./assets/kru3.png> <./assets/kru5.png> <./assets/kru6.png>]
+<assets/prim1.png, id=822, 394.47375pt x 417.56pt>
+File: assets/prim1.png Graphic file (type png)
+<use assets/prim1.png>
+Package pdftex.def Info: assets/prim1.png  used on input line 7.
+(pdftex.def)             Requested size: 220.50887pt x 233.41147pt.
+ [66 <./assets/kru4.png> <./assets/prim1.png>]
+<assets/prim2.png, id=831, 124.465pt x 116.435pt>
+File: assets/prim2.png Graphic file (type png)
+<use assets/prim2.png>
+Package pdftex.def Info: assets/prim2.png  used on input line 19.
+(pdftex.def)             Requested size: 88.2022pt x 82.51308pt.
+<assets/prim3.png, id=832, 395.4775pt x 70.2625pt>
+File: assets/prim3.png Graphic file (type png)
+<use assets/prim3.png>
+Package pdftex.def Info: assets/prim3.png  used on input line 28.
+(pdftex.def)             Requested size: 220.50887pt x 39.17732pt.
+<assets/prim5.png, id=833, 199.74625pt x 235.88126pt>
+File: assets/prim5.png Graphic file (type png)
+<use assets/prim5.png>
+Package pdftex.def Info: assets/prim5.png  used on input line 42.
+(pdftex.def)             Requested size: 88.2022pt x 104.15878pt.
+<assets/prim6.png, id=834, 396.48125pt x 84.315pt>
+File: assets/prim6.png Graphic file (type png)
+<use assets/prim6.png>
+Package pdftex.def Info: assets/prim6.png  used on input line 51.
+(pdftex.def)             Requested size: 176.40776pt x 37.51553pt.
+<assets/prim9.png, id=835, 193.72375pt x 244.915pt>
+File: assets/prim9.png Graphic file (type png)
+<use assets/prim9.png>
+Package pdftex.def Info: assets/prim9.png  used on input line 64.
+(pdftex.def)             Requested size: 88.2022pt x 111.51123pt.
+<assets/prim10.png, id=836, 404.51125pt x 80.3pt>
+File: assets/prim10.png Graphic file (type png)
+<use assets/prim10.png>
+Package pdftex.def Info: assets/prim10.png  used on input line 72.
+(pdftex.def)             Requested size: 176.40776pt x 35.01965pt.
+ [67 <./assets/prim2.png> <./assets/prim3.png> <./assets/prim5.png> <./assets/prim6.png> <./assets/prim9.png> <./assets/prim10.png>]
+<assets/prim11.png, id=850, 214.8025pt x 254.9525pt>
+File: assets/prim11.png Graphic file (type png)
+<use assets/prim11.png>
+Package pdftex.def Info: assets/prim11.png  used on input line 85.
+(pdftex.def)             Requested size: 88.2022pt x 104.69069pt.
+<assets/prim12.png, id=851, 395.4775pt x 67.25125pt>
+File: assets/prim12.png Graphic file (type png)
+<use assets/prim12.png>
+Package pdftex.def Info: assets/prim12.png  used on input line 94.
+(pdftex.def)             Requested size: 176.40776pt x 29.99802pt.
+<assets/prim13.png, id=852, 342.27875pt x 266.9975pt>
+File: assets/prim13.png Graphic file (type png)
+<use assets/prim13.png>
+Package pdftex.def Info: assets/prim13.png  used on input line 107.
+(pdftex.def)             Requested size: 88.2022pt x 68.80252pt.
+<assets/prim14.png, id=853, 389.455pt x 94.3525pt>
+File: assets/prim14.png Graphic file (type png)
+<use assets/prim14.png>
+Package pdftex.def Info: assets/prim14.png  used on input line 116.
+(pdftex.def)             Requested size: 176.40776pt x 42.73752pt.
+<assets/prim15.png, id=854, 325.215pt x 316.18124pt>
+File: assets/prim15.png Graphic file (type png)
+<use assets/prim15.png>
+Package pdftex.def Info: assets/prim15.png  used on input line 129.
+(pdftex.def)             Requested size: 88.2022pt x 85.7512pt.
+<assets/prim16.png, id=855, 389.455pt x 68.255pt>
+File: assets/prim16.png Graphic file (type png)
+<use assets/prim16.png>
+Package pdftex.def Info: assets/prim16.png  used on input line 138.
+(pdftex.def)             Requested size: 176.40776pt x 30.9165pt.
+))
 
 Package caption Warning: Unused \captionsetup[table] on input line 34.
 See the caption package documentation for explanation.
 
-[42
-
-] (./TeoriaEDNL.aux
+[68 <./assets/prim11.png> <./assets/prim12.png> <./assets/prim13.png> <./assets/prim14.png> <./assets/prim15.png> <./assets/prim16.png>] (./TeoriaEDNL.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
 LaTeX Info: Redefining \. on input line 12.
@@ -1128,22 +1601,28 @@ LaTeX Info: Redefining \% on input line 12.
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
 Package rerunfilecheck Info: File `TeoriaEDNL.out' has not changed.
-(rerunfilecheck)             Checksum: 6F596E10DE2DFDB3131073B5ADE8A80E;8581.
+(rerunfilecheck)             Checksum: 79E6F35BA7ABCC82D619F2411D770D68;11775.
+runsystem(rm TeoriaEDNL.pyg)...executed.
+
  ) 
 Here is how much of TeX's memory you used:
- 28207 strings out of 474116
- 516954 string characters out of 5743682
+ 31949 strings out of 474116
+ 613665 string characters out of 5743682
  1945187 words of memory out of 5000000
- 49923 multiletter control sequences out of 15000+600000
- 567005 words of font info for 68 fonts, out of 8000000 for 9000
+ 53399 multiletter control sequences out of 15000+600000
+ 570364 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 104i,9n,104p,1234b,710s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on TeoriaEDNL.pdf (42 pages, 2883544 bytes).
+ 104i,11n,104p,1234b,1002s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
+Output written on TeoriaEDNL.pdf (68 pages, 5321168 bytes).
 PDF statistics:
- 621 PDF objects out of 1000 (max. 8388607)
- 454 compressed objects within 5 object streams
- 119 named destinations out of 1000 (max. 500000)
- 572 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 998 PDF objects out of 1000 (max. 8388607)
+ 701 compressed objects within 8 object streams
+ 209 named destinations out of 1000 (max. 500000)
+ 938 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{x}{template \PYGZlt{}typename tCoste\PYGZgt{} tCoste suma(tCoste x, tCoste y)\PYGZob{}}
+\PYG{x}{  //vamos a crear un alias para el tipo de dato infinito}
+\PYG{x}{  const tCoste INFINITO = GrafoP\PYGZlt{}tCoste\PYGZgt{}::INFINITO;}
+\PYG{x}{  if(x == INFINITO )}
+\PYG{x}{\PYGZcb{}}
+\end{Verbatim}
