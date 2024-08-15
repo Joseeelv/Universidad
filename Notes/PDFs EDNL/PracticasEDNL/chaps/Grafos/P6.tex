@@ -1,0 +1,271 @@
+Esta es la primera práctica de los grafos, donde realizaremos ejercicios con los algoritmos Dijkstra y Floyd.
+
+Como cabeceras tendremos:
+\begin{minted}[breaklines]{C++}
+  #include <iostream>
+  #include <vector>
+  #include "../grafoPMC.h"
+  #include "../alg_grafoPMC.h"
+\end{minted}
+
+\textbf{\large\underbar{Ejercicio 1:}}\textit{ Añadir una función genérica, llamada DijkstraInv, en el fichero alg\_grafoPMC.h para resolver el problema inverso al de Dijkstra, con los mismos tipos de parámetros y de resultado que la función ya incluida para éste. La nueva función, por tanto, debe hallar el camino de coste mínimo hasta un destino desde cada vértice del grafo y su correspondiente coste.}
+
+Suponemos que estamos dentro del fichero \texttt{alg\_grafoPMC.h} para poder incluir dicha función genérica para resolver el problema de Dijkstra pero de forma inversa.
+
+Como sabemos Dijkstra funciona de la manera que nosotros le damos como parámetros de entrada el grafo, el vértice origen y el vector de vértices por los que pasa, donde desde el origen calcula todos los caminos de coste mínimos a todos los vértices del grafo.
+
+Ahora esto es diferente ya que al pasarle el vértice destino, DijkstraInv nos calculará todos los caminos de coste mínimo desde cualquier vértice del grafo al vértice destino.
+
+Por tanto, la implementación de DijkstraInv quedaría de la siguiente forma:
+
+\begin{minted}[breaklines]{C++}
+template <typename tCoste> vector<tCoste> DijkstraInv(const GrafoP<tCoste>& G, typename GrafoP<tCoste>::vertice destino, vector<typename GrafoP<tCoste>::vertice> &P){
+  typedef GrafoP<tCoste>::vertice vertice; //llamamos vertice a los vértices (para no tener que escribir todo).
+  vertice v,w; //vertices del grafo
+  const size_t n = G.numVert();
+  vector<bool>S(n,false); //conjuto de vértices (vacío).
+  vector<tCoste> D(n); //vector de coste minimo hasta destino.
+  //Iniciamos D y P con los caminos directos hasta el destino.
+  for(size_t i = 0; i < n; i++)
+    D[i] = G[i][destino];
+  D[destino]=0;
+  P = vector<vertice>(n,destino);
+  //calculamos los caminos de costes mínimos.
+  S[destino] = true; //incluimos en S el vértice destino
+  for(size_t i = 1; i <= n-2; i++){
+    //vamos a coger el vértice "w" no incluido en S con menor coste desde el destino.
+    tCoste CosteMin = GrafoP<tCoste>::INFINITO;
+    for(v = 0; v < n; v++){
+      if(!S[v] && D[v] <= CosteMin)
+        CosteMin = D[v];
+        w = v;
+      }
+      S[w]=true; //incluimos vertice w en S
+    for(v = 0; v < n; v++)
+      if(!S[v]){
+        tCoste vwd = suma(G[v][w],D[w]); //el coste de ir desde v a destino pasando por w.
+        if(vwd < D[v]){ //si el coste es menor, se guarda el coste y se le asigna el vértice
+          D[v] = vwd;
+          P[v] = w;
+      }
+    }
+  }
+  return D; //devolvemos el camino de costes mínimo.
+}
+
+//Función calcular el camino pero de manera inversa.
+//Esta función devuelve el camino de coste mínimo entre los vértices v y destino, a partir de un vector P (obtenido en la función anterior DijkstraInv).
+
+template <typename tCoste> typename GrafoP<tCoste>::tCamino camino_inv(typename GrafoP<tCoste>::vertice destino, typename GrafoP<tCoste>::vertice v, const vector<typename GrafoP<tCoste>::vertice> &P){
+//Nos creamos un camino nuevo
+  typename GrafoP<tCoste>::tCamino C;
+  C.insertar(v,C.fin());
+  do{
+    C.insertar(P[v],C.fin());
+    v = P[v];
+  }while(v != destino);
+  return C;
+}
+\end{minted}
+
+\textbf{\large\underbar{Ejercicio 2:}}\textit{ Definiremos el pseudocentro de un grafo conexo como el nodo del mismo que minimiza la suma de las distancias mínimas a sus dos nodos más alejados. Definiremos el diámetro del grafo como la suma de las distancias mínimas a los dos nodos más alejados del pseudocentro del grafo.}
+
+\textit{Dado un grafo conexo representado mediante matriz de costes, implementa un subprograma que devuelva la longitud de su diámetro.}
+
+Sabemos que partimos de un grafo conexo (todos sus vértices están unidos con aristas con otros vértices).
+Para calcular el diametro de un grafo, es decir, la suma de las distancias mínimas a los dos nodos más alejados del grafo haremos uso del algoritmo de Floyd.
+
+Recibimos como parámetros el Grafo G en cuestión y un vértice que será nuestro centro.
+
+Finalmente, este subprograma devolverá el valor del diámetro del grafo G.
+
+\begin{minted}[breaklines]{C++}
+template <typename tCoste> tCoste diametro(const GrafoP<tCoste> &G){
+  //renombramos los vértices y el infinito.
+  typename GrafoP<tCoste>::vertice vertice;
+  typename GrafoP<tCoste>::INFINITO infinito;
+
+  //creamos una matriz de vértices y dos vértices cualesquiera
+  matriz<vertice> M; //parámetro de Floyd
+  vertice a, b;
+  //Realizamos Floyd
+  matriz<tCoste>costesminimo = Floyd(G,M);
+
+  tCoste primer_mayor = std::numeric_limits<tCoste>::min(), diametro = infinito, segundo_mayor = std::numeric_limits<tCoste>::min();
+  size_t n = costesminimo.dimension();
+
+  for(auto i = 0; i < n-1; i++){
+    primer_mayor = segundo_mayor = std::numeric_limits<tCoste>::min();
+    for(auto j = 0; j <= n; j++){
+      //Vamoa a obtener los dos vértices con mayor distancia.
+      if(costesminimo[i][j] > primer_mayor){
+        segundo_mayor = primer_mayor;
+        b = a;
+        primer_mayor = costesminimo[i][j];
+        a = j;
+      }
+      else if(costesminimo[i][j] > segundo_mayor){
+        segundo_mayor = costesminimo[i][j];
+        b = j;
+      }
+    }
+  }
+  //ahora nos vamos a quedar con las sumas más pequeñas debido a que estamos calculando las distancias mínimas
+  if(suma(primer_mayor,segundo_mayor) < diametro){
+    diametro = suma(primer_mayor, segundo_mayor);
+  }
+  return diametro;
+}
+\end{minted}
+
+\textbf{\large\underbar{Ejercicio 3:}}\textit{ Tu empresa de transportes “PEROTRAVEZUNGRAFO S.A.” acaba de recibir la lista de posibles subvenciones del Ministerio de Fomento en la que una de las más jugosas se concede a las empresas cuyo grafo asociado a su matriz de costes sea acíclico. ¿Puedes pedir esta subvención?}
+
+\textit{Implementa un subprograma que a partir de la matriz de costes nos indique si tu empresa tiene derecho a dicha subvención.}
+
+Como queremos saber si vamos a recibir o no la subvención este subprograma va a devolver un booleano.
+
+Además tendremos que comprobar si el grafo tiene ciclos o no, lo cual es una condición necesaria para saber si recibimos o no la subvención.
+
+\begin{minted}[breaklines]{C++}
+//Primero vamos a crear la función que nos cumpruebe si hay ciclo o no.
+template <typename tCoste> bool hayCiclo(const matriz<GrafoP<tCoste>::vertice> &M, GrafoP<tCoste>::vertice v, std::vector<bool> &visitados){
+  //Vamos a trabajar con un vector de booleano "visitados", donde si hemos visitados dicho vértice previamente, encontramos que hay un ciclo.
+  if(visitados[v]) 
+    return true; //si está visitado, hay ciclo
+  else{
+    visitados[v] = true; //se visita
+    for(auto i = 0; i < M.dimension(); i++){ //si hay camino, se va al siguiente vértice
+      if(M[v][i] != GrafoP<tCoste>::INFINITO){
+        return hayCiclo(M,i,visitados); 
+      }
+    }
+  }
+  return false; //devuelve falso, si no hay ciclo.
+}
+
+//Ahora vamos a implementar el subprograma que mediante un valor booleano nos indicará si recibimos o no la subvención, teniendo en cuenta la función anterior "hayCiclo".
+
+template <typename tCoste> bool recibe_subvencion(const GrafoP<tCoste> &G){
+  //Lo primero que vamos a hacer es crearnos una matriz de costes y de vértices para hacer uso de Floyd.
+  matriz<tCoste> CostesMinimos;
+  matriz<GrafoP<tCoste>::vertice>V;
+  CostesMinimos = Floyd(G,V);
+  bool subvencion = true; //recibe subvención
+  //Vamos a ver si hay ciclos en el grafo, para ello recorremos la matriz V haciendo uso de la función anterior.
+  for(auto i = 0; i < V.dimension(); i++){
+    std::vector<bool> visitados(V.dimension(),false);
+    if(hayCiclo(V,i,visitados))
+      subvencion = false; //no recibe subvención
+  }
+  return subvencion;
+}
+\end{minted}
+\newpage
+\textbf{\large\underbar{Ejercicio 4:}}\textit{ Se necesita hacer un estudio de las distancias mínimas necesarias para viajar entre dos ciudades cualesquiera de un país llamado Zuelandia. El problema es sencillo pero hay que tener en cuenta unos pequeños detalles:}
+\textit{
+\begin{enumerate}[label=\alph*)]
+  \item La orografía de Zuelandia es un poco especial, las carreteras son muy estrechas y por tanto solo permiten un sentido de la circulación.
+  \item Actualmente Zuelandia es un país en guerra. Y de hecho hay una serie de ciudades del país que han sido tomadas por los rebeldes, por lo que no pueden ser usadas para viajar.
+  \item Los rebeldes no sólo se han apoderado de ciertas ciudades del país, sino que también han cortado ciertas carreteras, (por lo que estas carreteras no pueden ser usadas).
+  \item Pero el gobierno no puede permanecer impasible ante la situación y ha exigido que absolutamente todos los viajes que se hagan por el país pasen por la capital del mismo, donde se harán los controles de seguridad pertinentes.
+\end{enumerate}
+Dadas estas cuatro condiciones, se pide implementar un subprograma que dados el grafo (matriz de costes) de Zuelandia en situación normal, la relación de las ciudades tomadas por los rebeldes, la relación de las carreteras cortadas por los rebeldes y la capital de Zuelandia,
+calcule la matriz de costes mínimos para viajar entre cualesquiera dos ciudades zuelandesas en esta situación.}
+
+Si leemos el enunciado vemos que contamos con un Grafo ponderado y dirigido, un vector de ciudades que han sido tomadas por los rebeldes, una ciudad sería la capital de Zuelandia debido a que todos los viajes tienen que pasar si o si por la capital.
+
+Suponemos que cada vértice del grafo es una ciudad y por ende, un par de ciudades da como resultado una carretera (que sería una arista del grafo), además vamos a tener un vector de las carreteras que están cortadas.
+
+Sabiendo todo esto, vamos a realizar el ejercicio haciendo uso de Floyd, debido a que no nos dicen ningún origen explicitamente, si no que todos los viajes tengan que pasar por la capital de Zuelandia.
+
+Suponemos que nuestro tCoste será cualquier tipo de dato, en mi caso será size\_t.
+\begin{minted}[breaklines]{C++}
+//vamos a declarar los tipos datos necesarios para el ejericio, como son las ciudades, carreteras..
+typedef GrafoP<size_t>::vertice ciudad;
+typedef std::pair<ciudad,ciudad> carretera;
+typedef std::vector<ciudad> ciudades_rebeldes;
+typedef std::pair<ciudad,ciudad> carreteras_cortadas;
+matriz<size_t> Zuelandia(GrafoP<size_t> &Z, ciudades_rebeldes cr, carreteras_cortadas cc, ciudad capitalZuelandia){
+  //Renombramos el tipo de dato infinito
+  const size_t INFINITO = GrafoP<size_t>::INFINITO;
+  size_t num_ciudades = Z.numVert();
+
+  // Aplicar las carreteras cortadas
+  for (const auto& c : cc) {
+      Z[c.first][c.second] = INFINITO;
+  }
+
+  // Aplicar las ciudades rebeldes
+  for (const auto& ciudadrebelde : cr) {
+      for (size_t i = 0; i < num_ciudades; ++i) {
+          Z[ciudadrebelde][i] = INFINITO;
+          Z[i][ciudadrebelde] = INFINITO;
+      }
+  }
+
+  // Asegurar que todos los caminos pasen por la capital
+  for (size_t i = 0; i < num_ciudades; ++i) {
+      if (i != capitalZuelandia) {
+          for (size_t j = 0; j < num_ciudades; ++j) {
+              if (j != capitalZuelandia) {
+                  Z[i][j] = INFINITO;
+              }
+          }
+      }
+  }
+
+  // Calcular la matriz de costes mínimos usando Floyd
+  matriz<size_t> CostesMinimos;
+  matriz<ciudad> M;
+  CostesMinimos = Floyd(Z, M);
+
+  return CostesMinimos;
+}
+\end{minted}
+
+\textbf{\large\underbar{Ejercicio 5:}}\textit{ Escribir una función genérica que implemente el algoritmo de Dijkstra usando un grafo ponderado representado mediante listas de adyacencia.}
+
+Vamos a calcular los caminos de coste mínimo entre el origen y todos los vértice del grafo (Dijkstra) pero ahora partiendo desde una lista de adyacencia que indica si dos vértices de un grafo están adyacentes ("al lado"), esta contiene tanto la lista de los vértices adyacentes al vértice v, como el peso de la arista que unen a dichos vértices.
+\begin{minted}[breaklines]{C++}
+template <typename tCoste> vector<tCoste> DijkstraLista(const GrafoP<tCoste> &G, typename GrafoP::vertice origen, vector<typename GrafoP<tCoste>::vertice> &P){
+  //Alias de los tipos de datos usados
+  typedef GrafoP<tCoste>::vertice vertice;
+  typedef GrafoP<tCoste>::INFINITO INFINITO;
+  vertice v,w; //Declaramos dos vértices
+
+  const size_t n = G.numVert();
+  vector<bool> S(n,false);  //conjunto de vértices vacío.
+  vector<tCoste> D(n,INFINITO); //vector de costes mínimos desde origen
+
+  //Iniciamos los vectores D y P con los caminos directos desde el origen
+  for(const auto& arista : G.adyacentes(origen)){
+    vertice i = arista.v;
+    D[i] = arista.c;
+  }
+  D[origen] = 0; //el coste de ir origen-origen es 0
+  P = std::vector<vertice>(n,origen);
+  //Calculamos los caminos de coste mínimo desde origen hasta cada vértice del grafo
+  S[origen]=true; //incluimos el origen en el conjunto de vértices.
+  for(size_t i = 0; i <= n-2; i++){
+    //Cogemos el vértice w no incluido en S con menor coste
+    tCoste CosteMin = INFINITO;
+    for(v = 0; v < n; v++){
+      if(!S[v] && D[v] < INFINITO){
+        CosteMin = D[v];
+        w = v;
+      }
+    }
+    S[w] = true; //Incluimos ese vértice en el conjunto
+    // Recalcular coste hasta cada v no incluido en S a través de w
+    for(const auto& arista : G.adyacentes(w)){
+      vertice u = arista.v;
+      tCoste peso = arista.c;
+      if(!S[u] && D[w] + peso < D[u]){
+        D[u] = D[w] + peso;
+        P[u] = w;
+      }
+    }
+  }
+  return D;
+}
+\end{minted}

@@ -1,0 +1,43 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{//Método buscar un nodo a partir de su contenido}
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{Agen}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{buscar}\PYG{p}{(}\PYG{n}{T}\PYG{+w}{ }\PYG{n}{e}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Agen}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{A}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{buscar\PYGZus{}rec}\PYG{p}{(}\PYG{n}{e}\PYG{p}{,}\PYG{n}{A}\PYG{p}{.}\PYG{n}{raiz}\PYG{p}{(),}\PYG{n}{A}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{Agen}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{buscar\PYGZus{}rec}\PYG{p}{(}\PYG{n}{T}\PYG{+w}{ }\PYG{n}{e}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{Agen}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{n}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Agen}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{A}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{if}\PYG{p}{(}\PYG{n}{n}\PYG{o}{==}\PYG{n}{Agen}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{NODO\PYGZus{}NULO}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{Agen}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{NODO\PYGZus{}NULO}\PYG{p}{;}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{k}{else}\PYG{+w}{ }\PYG{k}{if}\PYG{p}{(}\PYG{n}{A}\PYG{p}{.}\PYG{n}{elemento}\PYG{p}{(}\PYG{n}{n}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{e}\PYG{p}{)\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{//Lo hemos encontrado, lo devolvemos}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{n}\PYG{p}{;}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{k}{else}\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{c+c1}{//Vamos a buscar en sus hermanos}
+\PYG{+w}{    }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{Agen}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{aux}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{A}\PYG{p}{.}\PYG{n}{hijoIzqdo}\PYG{p}{(}\PYG{n}{n}\PYG{p}{);}
+\PYG{+w}{    }\PYG{k}{while}\PYG{p}{(}\PYG{n}{aux}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{Agen}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{NODO\PYGZus{}NULO}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{      }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{Agen}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{aux2}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{buscar\PYGZus{}rec}\PYG{p}{(}\PYG{n}{e}\PYG{p}{,}\PYG{n}{aux}\PYG{p}{,}\PYG{n}{A}\PYG{p}{);}
+\PYG{+w}{      }\PYG{k}{if}\PYG{p}{(}\PYG{n}{aux2}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{Agen}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{NODO\PYGZus{}NULO}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{aux2}\PYG{p}{;}
+\PYG{+w}{      }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{      }\PYG{n}{aux}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{A}\PYG{p}{.}\PYG{n}{hermDrcho}\PYG{p}{(}\PYG{n}{aux}\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{Agen}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{NODO\PYGZus{}NULO}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//no existe entre los hermanos}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{podaAgen}\PYG{p}{(}\PYG{n}{T}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Agen}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{A}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{Agen}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{n}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{buscar}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,}\PYG{n}{A}\PYG{p}{);}
+\PYG{+w}{  }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{podaAgen\PYGZus{}rec}\PYG{p}{(}\PYG{n}{n}\PYG{p}{,}\PYG{n}{A}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{podaAgen\PYGZus{}rec}\PYG{p}{(}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{Agen}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{n}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Agen}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}:}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{A}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{if}\PYG{p}{(}\PYG{n}{n}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{Agen}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{NODO\PYGZus{}NULO}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{    }\PYG{c+c1}{//Mientras que n tenga hijos, podamos}
+\PYG{+w}{    }\PYG{k}{while}\PYG{p}{(}\PYG{n}{A}\PYG{p}{.}\PYG{n}{hijoIzqdo}\PYG{p}{(}\PYG{n}{n}\PYG{p}{)}\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{Agen}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{NODO\PYGZus{}NULO}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{      }\PYG{c+c1}{//Realizamos la llamada recursiva con el hijo (poda del subárbol del hijo)}
+\PYG{+w}{      }\PYG{n}{podaAgen\PYGZus{}rec}\PYG{p}{(}\PYG{n}{A}\PYG{p}{.}\PYG{n}{hijoIzqdo}\PYG{p}{(}\PYG{n}{n}\PYG{p}{),}\PYG{n}{A}\PYG{p}{);}
+\PYG{+w}{      }\PYG{n}{A}\PYG{p}{.}\PYG{n}{eliminarHijoIzqdo}\PYG{p}{(}\PYG{n}{n}\PYG{p}{);}\PYG{+w}{ }\PYG{c+c1}{//eliminamos al propio hijo}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

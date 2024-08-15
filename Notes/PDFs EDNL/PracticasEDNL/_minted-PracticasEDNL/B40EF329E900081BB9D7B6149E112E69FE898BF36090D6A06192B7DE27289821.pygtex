@@ -1,0 +1,23 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{//Definimos los tipos de datos a usar}
+\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{pair}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}}\PYG{n}{puente}\PYG{p}{;}
+
+\PYG{n}{puente}\PYG{+w}{ }\PYG{n+nf}{PuenteFobosDeimos}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{Fobos}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{Deimos}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{costerasFobos}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{costerasDeimos}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{  }\PYG{c+c1}{//Definimos las matrices (Costes y vértices) para hacer uso de floyd}
+\PYG{+w}{  }\PYG{n}{matriz}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}}\PYG{n}{verticesFobos}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{CostesMinimosFobos}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{verticesDeimos}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{CostesMinimosDeimos}\PYG{p}{;}
+\PYG{+w}{  }\PYG{c+c1}{//Obtenemos los costes mínimos de cada isla.}
+\PYG{+w}{  }\PYG{n}{CostesMinimosFobos}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{Floyd}\PYG{p}{(}\PYG{n}{Fobos}\PYG{p}{,}\PYG{n}{verticesFobos}\PYG{p}{);}
+\PYG{+w}{  }\PYG{n}{CostesMinimosDeimos}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{Floyd}\PYG{p}{(}\PYG{n}{Deimos}\PYG{p}{,}\PYG{n}{verticesDeimos}\PYG{p}{);}
+
+\PYG{+w}{  }\PYG{c+c1}{//La ciudad costera elegida será la mínima de la media de los costes de ir a dichas ciudades costeras.}
+\PYG{+w}{  }\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{CiudadCosteraMinimaFobos}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}::}\PYG{n}{INFINITO}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{costerasFobos}\PYG{p}{.}\PYG{n}{size}\PYG{p}{();}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{    }\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{media}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{j}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{j}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{Fobos}\PYG{p}{.}\PYG{n}{numVert}\PYG{p}{();}\PYG{+w}{ }\PYG{n}{j}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{      }\PYG{n}{media}\PYG{+w}{ }\PYG{o}{+=}\PYG{+w}{ }\PYG{n}{Fobos}\PYG{p}{[}\PYG{n}{j}\PYG{p}{][}\PYG{n}{coste}\PYG{p}{]}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

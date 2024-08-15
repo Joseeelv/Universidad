@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n+nf}{ViajeTren\PYGZus{}Bus2}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{Tren}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{Bus}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{origen}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{destino}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{  }\PYG{c+c1}{//Vamos a crear los vectores (vértices y costes) para realizar Dijkstra y DijkstraInv.}
+\PYG{+w}{  }\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{VerticesTren}\PYG{p}{;}
+\PYG{+w}{  }\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{VerticesBus}\PYG{p}{;}
+\PYG{+w}{  }\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{CostesMinimosTren}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{Dijkstra}\PYG{p}{(}\PYG{n}{Tren}\PYG{p}{,}\PYG{n}{origen}\PYG{p}{,}\PYG{n}{VerticesTren}\PYG{p}{);}
+\PYG{+w}{  }\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{CostesMinimosBus}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{Dijkstra}\PYG{p}{(}\PYG{n}{Bus}\PYG{p}{,}\PYG{n}{origen}\PYG{p}{,}\PYG{n}{VerticesBus}\PYG{p}{);}
+\PYG{+w}{  }\PYG{c+c1}{//ahora vamos a calcular los costes para las 4 opciones de viaje:}
+\PYG{+w}{  }\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{viaje1}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{CostesMinimosTren}\PYG{p}{[}\PYG{n}{destino}\PYG{p}{],}
+\PYG{+w}{        }\PYG{n}{v}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

@@ -1,0 +1,164 @@
+Para poder resolver esta práctica es necesario haber visto el Tema 2: Árboles Binarios (para poder saber cual es la especificación del TAD Abin).
+
+Además vamos a incluir los siguientes ficheros de cabecera:
+\begin{minted}[breaklines]{C++}
+#include <iostream>
+#include "abin_E-S.h"
+#include "abin.h" //contiene la especificación e implementación del TAD
+\end{minted}
+
+\textbf{\large\underbar{Ejercicio 1:}}\textit{ Implementa un subprograma que calcule el número de nodos de un árbol binario.}
+
+Para calcular el número de nodos de un árbol binario vamos a crear una función recursiva no final, la cual por cada iteración vaya incrementando su valor hasta que termine de recorrer todos los nodos del árbol, hacemos una función llamadora ya que el método \texttt{contarnodos()} solamente recibe el árbol y por tanto necesitamos especificar en que nodo comienza.
+\begin{minted}[breaklines]{C++}
+template <typename T> size_t contarnodos(const Abin<T>& A){
+  //Comprobamos que el árbol no esté vacío
+  if(A.raiz() == Abin<T>::NODO_NULO)
+    return 0;
+  else
+    return contarnodos_rec(A.raiz(),A);
+}
+
+template <typename T> size_t contarnodos_rec(typename Abin<T>::nodo n, const Abin<T>& A){
+  //Caso base
+  if(n == Abin<T>::NODO_NULO)
+    return 0; //si no hay nodo, devuelve 0
+  else
+    return 1+contarnodos_rec(A.hijoIzqdo(A),A) + contarnodos_rec(A.hijoDrcho(A),A);
+}
+\end{minted}
+
+\textbf{\large\underbar{Ejercicio 2:}}\textit{ Implementa un subprograma que calcule la altura de un árbol binario.}
+
+La altura en un árbol es la longitud de la rama más larga, por lo que desde el nodo raíz iremos calculando la longitud de todas las ramas y nos quedaremos con la más grande.
+
+Si el árbol está vacío su altura será -1, si solamente tiene el nodo raíz esta será 0.
+\begin{minted}[breaklines]{C++}
+template <typename T> size_t alturaAbin(const Abin<T>&A){
+    return alturaAbin_rec(A.raiz() , A);
+}
+
+template <typename T> size_t alturaAbin_rec(typename Abin<T>::nodo n, const Abin<T>& A){
+  //Caso base
+  if(n == Abin<T>::NODO_NULO)
+    return -1; //un nodo nulo no tiene altura, puesto que indica no existencia de nodo
+  else
+    return 1+std::max(alturaAbin_rec(A.hijoIzqdo(n),A),
+      alturaAbin_rec(A.hijoDrcho(n),A));
+}
+\end{minted}
+
+\textbf{\large\underbar{Ejercicio 3:}}\textit{ Implementa un subprograma que, dados un árbol binario y un nodo del mismo, determine la profundidad de este nodo en dicho árbol.}
+
+La profundidad es la longitud del único camino desde dicho nodo hasta la raíz del árbol, por tanto, una vez más vamos a implementar una función recursiva que nos calcule la profundidad de dicho nodo.
+\begin{minted}[breaklines]{C++}
+template <typename T> size_t profundidad_rec(typename Abin<T>::nodo n, const Abin<T>&A){
+  if(n == A.raiz()) //la profundidad de la raiz es 0.
+    return 0;
+  else
+    return 1+profundidad_rec(A.padre(n),A);
+}
+\end{minted}
+
+\textbf{\large\underbar{Ejercicio 4:}}\textit{ Añade dos nuevas operaciones al TAD árbol binario, una que calcule la profundidad de un nodo y otra que calcule la altura de un nodo en un árbol dado. Implementa esta operación para la representación vectorial (índices del padre, hijo izquierdo e hijo derecho).}
+
+Este ejercicio tendremos que incluirlo en el fichero `abin.vec\_1' (las incluimos dentro de la clase y las implemetamos). Como en la implementación vectorial no podemos realizar la llamada mediante la estructura \texttt{celda}, por lo que tendremos que hacer uso del vector de nodos `\texttt{nodos}' para poder acceder al padre e hijos, siendo el acceso al padre (\texttt{nodos[n].padre}), acceso al hijo izquierdo (\texttt{nodos[n].hizq}) y acceso al hijo derecho (\texttt{nodos[n].hder}).
+
+Como estamos dentro del TAD Abin\_vec no hace falta hacer uso del operador de resolución de ámbito `::' para incluir el \texttt{NODO\_NULO} o el nodo en sí.
+\begin{minted}[breaklines]{C++}
+//Profundidad de un nodo
+template <typename T> size_t Abin<T>::profundidad_vec(nodo n){
+  //La profundidad de la raiz es 0
+  if(n == 0) return 0;
+  else
+    return 1+profundidad_vec(nodos[n].padre);
+}
+
+//Altura del árbol
+template <typename T> size_t Abin<T>::altura_vec(nodo n)const{
+  //La altura de un nodo nulo no existe, puesto que este indica no existencia de nodo
+  if(n == NODO_NULO) return -1;
+  else
+    return 1+std::max(altura_vec(nodos[n].hizq),altura_vec(nodos[n].hder));
+}
+\end{minted}
+
+\textbf{\large\underbar{Ejercicio 5:}}\textit{ Repite el ejercicio anterior para la representación enlazada de árboles binarios (punteros al padre, hijo izquierdo e hijo derecho).}
+
+Este ejercicio lo incluiremos en el fichero `abin.h' y ahora el acceso al padre e hijos se realiza mediante punteros, de la forma \texttt{nodo\(\rightarrow\)padre}(acceso al padre), \texttt{nodo\(\rightarrow\)hizq}(acceso al hijo izquierdo) y \texttt{nodo\(\rightarrow\)hder}(acceso al hijo derecho).
+
+Al igual que en el ejercicio 4, no nos hace falta hacer uso del operador de resolución de ámbito, puesto que estamos dentro del contexto del TAD Abin (enlazado).
+\begin{minted}[breaklines]{C++}
+//Profundidad de un nodo
+template <typename T> size_t Abin<T>::profundidad_enla(nodo n){
+  //La profundidad de la raiz es 0
+  if(n == r) return 0;
+  else
+    return 1+(profundidad_enla(n->padre));
+}
+
+//Altura del árbol
+template <typename T> size_t Abin<T>::altura_enla(nodo n){
+//La altura de un nodo nulo no existe, puesto que este indica no existencia de nodo
+  if(n == NODO_NULO)
+    return -1;
+  else
+    return 1+std::max(altura_enla(n->hizq),altura_enla(n->der));
+}
+
+\end{minted}
+\textbf{\large\underbar{Ejercicio 6:}}\textit{ Implementa un subprograma que determine el nivel de desequilibrio de un árbol binario, definido como el máximo desequilibrio de todos sus nodos. El desequilibrio de un nodo se define como la diferencia entre las alturas de los subárboles del mismo.}
+
+Como hemos visto en la teoría, el desequilibrio del un árbol es la máxima diferencia de las alturas de los subárboles, por tanto, vamos a implementar una función recursiva que nos lo calcule.
+
+También haremos uso del método altura del ejercicio 2 de esta misma práctica ya que nos ayudará a obtener la altura de cada subárbol.
+
+\begin{minted}[breaklines]{C++}
+template <typename T>
+size_t desequilibrio(const Abin<T> &A){
+    return desequilibrio_rec(A.raiz(), A);
+}
+
+template <typename T> size_t desequilibrio_rec(typename Abin<T>::nodo n, const Abin<T> &A){
+  if (n == Abin<T>::NODO_NULO)
+    return 0;
+  else
+    return std::max(std::abs(A.alturaAbin_rec(A.hijoIzqdo(n), A) - A.alturaAbin_rec(A.hijoDrcho(n) A)), std::max(desequilibrio_rec(A.hijoIzqdo(n), A), desequilibrio_rec(A.hijoDrcho(n), A)));
+}
+\end{minted}
+\textbf{\large\underbar{Ejercicio 7:}}\textit{ Implementa un subprograma que determine si un árbol binario es o no pseudocompleto.
+En este problema entenderemos que un árbol es pseudocompleto, si en el penúltimo nivel
+del mismo cada uno de los nodos tiene dos hijos o ninguno.}
+
+Como tenemos que comprobar si tiene o no los dos hijos los nodos del último nivel, vamos a crear una función llamada esHoja la cual nos devolverá un valor booleano dependiendo si el nodo tiene algún nodo o ninguno, en el caso de que tenga al menos uno, devuelve false, de lo contrario devolverá true (no tiene ningún hijo).
+
+Pero también necesitamos una manera de indicar si ese nodo tiene los dos hijos, para ello crearemos otra función llamada dosHijos que devuelve true en el caso de que ese nodo tenga tanto hijo izquierdo, como derecho, en el caso contrario devuelve falso.
+
+Como estamos trabajando con un árbol binario cuya implementación es la enlazada, haremos uso del método que calcula la altura implementado en el ejercicio 5
+
+\begin{minted}[breaklines]{C++}
+template <typename T> bool esHoja(typename Abin<T>::nodo n, const Abin<T>& A){
+  return (A.hijoIzqdo(n)==Abin<T>::NODO_NULO && A.hijoDrcho(n) == Abin<T>::NODO_NULO);
+}
+
+template <typename T> bool dosHijos(typename Abin<T>::nodo n, const Abin<T>& A){
+  return (A.hijoIzqdo(n)!=Abin<T>::NODO_NULO && A.hijoDrcho(n)!=Abin<T>::NODO_NULO);
+}
+
+template <typename T> bool pseudocompleto(const Abin<T>& A){
+  if(A.arbolVacio() || alturaAbin(A) == 0) return true;
+  else  return pseudocompleto_rec(A.raiz(), A);
+}
+
+template <typename T> bool pseudocompleto_rec(typename Abin<T>::nodo n, const Abin<T>& A){
+  if(A.altura_enla(n) == 1)
+    return (dosHijos(n,A));
+  else{
+    if(A.alura_enla(A.hijoIzqdo(n))>A.altura_enla(A.hijoDrcho(n)))
+      return pseudocompleto_rec(A.hijoIzqdo(n),A);
+    else if(A.alura_enla(A.hijoIzqdo(n))<A.altura_enla(A.hijoDrcho(n)))
+      return pseudocompleto_rec(A.hijoDrcho(n),A);
+    else  return (pseudocompleto_rec(A.hijoIzqdo(n),A) && pseudocompleto_rec(A.hijoDrcho(n),A));
+  }
+}
+\end{minted}

@@ -1,0 +1,126 @@
+En esta práctica seguiremos trabajando con los árboles binarios pero resolveremos ejercicios un poco más complejos.
+
+Como fichros de cabecera seguiremos teniendo los mismos que en la práctica 1.
+
+\textbf{\large\underbar{Ejercicio 1:}}\textit{ Dos árboles binarios son similares cuando tienen idéntica estructura de ramificación,
+es decir, ambos son vacíos, o en caso contrario, tienen subárboles izquierdo y derecho
+similares. Implementa un subprograma que determine si dos árboles binarios son
+similares.}
+
+En este ejercicio vamos a realizar una comparación entre dos árboles binario comparando cada subárbol de cada uno para ver si tienen la misma ramificación, por ello vamos a necesitar dos árboles y dos nodos en la función recursiva, la cual devolverá true si ambos árboles tienen la misma ramificación y en el caso contrario devuelve false.
+
+\begin{minted}[breaklines]{C++}
+template <typename T> bool similares(const Abin<T>& A, const Abin<T>& B){
+  return similares_rec(A.raiz(),B.raiz());
+}
+
+template <typename T> bool similares_rec(typename Abin<T>::nodo nA, typename Abin<T>::nodo nB, const Abin<T>& A, const Abin<T>& B){
+  if(nA == Abin<T>::NODO_NULO || nb == Abin<T>::NODO_NULO)
+    return nA == Abin<T>::NODO_NULO && nb == Abin<T>::NODO_NULO;
+  else //Vamos a comprobar la ramificación de sus hijos
+    return similares_rec(A.hijoIzqdo(nA), B.hijoIzqdo(nB),A,B) &&
+      similares_rec(A.hijoDrcho(nA), B.hijoDrcho(nB),A,B);
+}
+\end{minted}
+
+\textbf{\large\underbar{Ejercicio 2:}}\textit{ Para un árbol binario \(B\), podemos construir el árbol binario reflejado \(B^R\) cambiando los subárboles izquierdo y derecho en cada nodo. Implementa un subprograma que devuelva el árbol binario reflejado de uno dado.}
+
+\begin{minted}[breaklines]{C++}
+//Declaración adelanta del método reflejado_rec
+template <typename T> void reflejado_rec(typename Abin<T>::nodo nA, typename Abin<T>::nodo nB,const Abin<T>& A, Abin<T>& B);
+
+template <typename T> Abin<T> reflejado (const Abin<T> A){
+  //Creamos el árbol binario a devolver
+  Abin<T> B;
+  if(!A.arbolVacio()){
+    B.insertarRaiz(A.elemento(A.raiz())); //inicializamos el árbol B con la raiz de A
+    reflejado_rec(A.raiz(),B.raiz(),A,B);
+  }
+  return B; //Devolvemos el árbol reflejado
+}
+template <typename T> void reflejado_rec(typename Abin<T>::nodo nA, typename Abin<T>::nodo nB,const Abin<T>& A, Abin<T>& B){
+  //Comprobamos caso base, que el nodo nA no sea nulo
+  if(nA!=Abin<T>::NODO_NULO){
+    if(A.hijoIzqdo(nA)!=Abin<T>::NODO_NULO){ //Si A tiene Hizqdo, se inserta en Hder de B
+      B.insertarHijoDrcho(nB,A.elemento(A.hijoIzqdo(nA)));
+      reflejado_rec(A.hijoIzqdo(nA),nB,A,B);
+    }
+    if(A.hijoDrcho(nA)!= Abin<T>::NODO_NULO){//Si A tiene Hder, se inserta en Hizq de B
+      B.insertarHijoIzqdo(nB,A.hijoDrcho(nA),A,B);
+      reflejado_rec(A.hijoDrcho(nA),nB,A,B);
+    }
+    //Si los hijos de nA son hoja, no hace nada.
+  }
+  //Si nA es hoja, no hace nada.
+}
+\end{minted}
+\textbf{\large\underbar{Ejercicio 3:}}\textit{ El TAD árbol binario puede albergar expresiones matemáticas mediante un árbol de expresión. Dentro del árbol binario los nodos hojas contendrán los operandos, y el resto de los nodos los operadores.}
+\begin{enumerate}[label=\alph*)]
+  \item Define el tipo de los elementos del árbol para que los nodos puedan almacenar
+  operadores y operandos.
+  \item Implementa una función que tome un árbol binario de expresión (aritmética) y
+  devuelva el resultado de la misma. Por simplificar el problema se puede asumir que el
+  árbol representa una expresión correcta. Los operadores binarios posibles en la expresión
+  aritmética serán suma, resta, multiplicación y división.
+\end{enumerate}
+Sea la operación aritmética \(\rightarrow\) \textbf{7×(15 - 3,2)/2}
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics*[width=.3\textwidth]{assets/p2.1.png}
+  \end{center}
+  \caption{Ejemplo árbol binario de expresión (aritmética)}
+\end{figure}
+
+\underbar{Nota:} En el programa de prueba podemos usar las funciones rellenarAbin() de abin\_E-S.h para introducir por teclado o desde un fichero el árbol de expresión a evaluar. Sin
+embargo, en este caso, será necesario sobrecargar los operadores utilizados internamente
+en dichas funciones, es decir \(>>\), \(<<\) y \(!=\) para el tipo de los elementos del árbol.
+
+Como vemos en la \textit{Figura 1.1} los nodos que no son hojas son los que contienen los operadores aritméticos. Para poder introducir un número este nodo tiene que ser hoja por eso vamos a hacer uso de la función \texttt{esHoja()}.
+\begin{minted}[breaklines]{C++}
+template <typename T> bool esHoja(typename Abin<T>::nodo n, const Abin<T>& A){
+  return (A.hijoIzqdo(n) == Abin<T>::NODO_NULO && A.hijoDrcho(n)==Abin<T>::NODO_NULO);
+} 
+\end{minted}
+
+Vamos a crear un tipo \texttt{Enum} que va a contener los operadores aritméticos.
+\begin{minted}[breaklines]{C++}
+enum operador{suma = '+', resta = '-', producto = '*', division = '/'};
+\end{minted}
+
+Como vemos en el ejemplo del enunciado una expresión es la unión de un número con su operador
+\begin{minted}[breaklines]{C++}
+union expresion{
+  double num;
+  operador op;};
+\end{minted}
+
+Como ya tenemos todos los componentes del ejercicio declarados, vamos a implementar la función que nos calcula la expresión aritmética.
+\begin{minted}[breaklines]{C++}
+double calcular(const Abin<expresion>& A){
+  return calcular_rec(A.raiz(),A);
+}
+
+double calcular_rec(typename Abin<expresion>::nodo n, const Abin<expresion>& A){
+  //Si el nodo es hoja, es el contenido del nodo es un número
+  if(esHoja(n,A)){
+    return A.elemento(n).num;
+  }
+  else{ //es un operador aritmético
+    switch(A.elemento(n).op){
+      case suma:
+        return calcular_rec(A.hijoIzqdo(n),A) + calcular_rec(A.hijoDrcho(n),A);
+        break;
+      case resta:
+        return calcular_rec(A.hijoIzqdo(n),A) - calcular_rec(A.hijoDrcho(n),A);
+        break;
+      case producto:
+        return calcular_rec(A.hijoIzqdo(n),A) * calcular_rec(A.hijoDrcho(n),A);
+        break;
+      case division:
+        return calcular_rec(A.hijoIzqdo(n),A) / calcular_rec(A.hijoDrcho(n),A);
+        break;
+    }
+  }
+}
+\end{minted}
+% \textbf{\large\underbar{Ejercicio 4:} }

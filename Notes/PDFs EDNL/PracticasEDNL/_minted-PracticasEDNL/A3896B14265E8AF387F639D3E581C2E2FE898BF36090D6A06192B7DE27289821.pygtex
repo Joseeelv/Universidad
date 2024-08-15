@@ -1,0 +1,43 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{//vamos a declarar los tipos datos necesarios para el ejericio, como son las ciudades, carreteras..}
+\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}::}\PYG{n}{vertice}\PYG{+w}{ }\PYG{n}{ciudad}\PYG{p}{;}
+\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{pair}\PYG{o}{\PYGZlt{}}\PYG{n}{ciudad}\PYG{p}{,}\PYG{n}{ciudad}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{carretera}\PYG{p}{;}
+\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{ciudad}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{ciudades\PYGZus{}rebeldes}\PYG{p}{;}
+\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{pair}\PYG{o}{\PYGZlt{}}\PYG{n}{ciudad}\PYG{p}{,}\PYG{n}{ciudad}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{carreteras\PYGZus{}cortadas}\PYG{p}{;}
+\PYG{n}{matriz}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{Zuelandia}\PYG{p}{(}\PYG{n}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{Z}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ciudades\PYGZus{}rebeldes}\PYG{+w}{ }\PYG{n}{cr}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{carreteras\PYGZus{}cortadas}\PYG{+w}{ }\PYG{n}{cc}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ciudad}\PYG{+w}{ }\PYG{n}{capitalZuelandia}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{  }\PYG{c+c1}{//Renombramos el tipo de dato infinito}
+\PYG{+w}{  }\PYG{k}{const}\PYG{+w}{ }\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{INFINITO}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}::}\PYG{n}{INFINITO}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{num\PYGZus{}ciudades}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{Z}\PYG{p}{.}\PYG{n}{numVert}\PYG{p}{();}
+
+\PYG{+w}{  }\PYG{c+c1}{// Aplicar las carreteras cortadas}
+\PYG{+w}{  }\PYG{k}{for}\PYG{+w}{ }\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{k}{auto}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{c}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{n}{cc}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{n}{Z}\PYG{p}{[}\PYG{n}{c}\PYG{p}{.}\PYG{n}{first}\PYG{p}{][}\PYG{n}{c}\PYG{p}{.}\PYG{n}{second}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{INFINITO}\PYG{p}{;}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{  }\PYG{c+c1}{// Aplicar las ciudades rebeldes}
+\PYG{+w}{  }\PYG{k}{for}\PYG{+w}{ }\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{k}{auto}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{ciudadrebelde}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{n}{cr}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{k}{for}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{num\PYGZus{}ciudades}\PYG{p}{;}\PYG{+w}{ }\PYG{o}{++}\PYG{n}{i}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{          }\PYG{n}{Z}\PYG{p}{[}\PYG{n}{ciudadrebelde}\PYG{p}{][}\PYG{n}{i}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{INFINITO}\PYG{p}{;}
+\PYG{+w}{          }\PYG{n}{Z}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{ciudadrebelde}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{INFINITO}\PYG{p}{;}
+\PYG{+w}{      }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{  }\PYG{c+c1}{// Asegurar que todos los caminos pasen por la capital}
+\PYG{+w}{  }\PYG{k}{for}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{num\PYGZus{}ciudades}\PYG{p}{;}\PYG{+w}{ }\PYG{o}{++}\PYG{n}{i}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{i}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{capitalZuelandia}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{          }\PYG{k}{for}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{j}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{j}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{num\PYGZus{}ciudades}\PYG{p}{;}\PYG{+w}{ }\PYG{o}{++}\PYG{n}{j}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{              }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{j}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{capitalZuelandia}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{                  }\PYG{n}{Z}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{INFINITO}\PYG{p}{;}
+\PYG{+w}{              }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{          }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{      }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{  }\PYG{c+c1}{// Calcular la matriz de costes mínimos usando Floyd}
+\PYG{+w}{  }\PYG{n}{matriz}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{CostesMinimos}\PYG{p}{;}
+\PYG{+w}{  }\PYG{n}{matriz}\PYG{o}{\PYGZlt{}}\PYG{n}{ciudad}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{M}\PYG{p}{;}
+\PYG{+w}{  }\PYG{n}{CostesMinimos}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{Floyd}\PYG{p}{(}\PYG{n}{Z}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{M}\PYG{p}{);}
+
+\PYG{+w}{  }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{CostesMinimos}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

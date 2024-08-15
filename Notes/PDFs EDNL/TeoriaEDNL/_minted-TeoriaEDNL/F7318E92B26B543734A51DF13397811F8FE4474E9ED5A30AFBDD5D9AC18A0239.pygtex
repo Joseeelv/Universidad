@@ -1,0 +1,242 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{APOmM}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{    }\PYG{k}{explicit}\PYG{+w}{ }\PYG{n}{APOmM}\PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{maxNodos}\PYG{p}{);}\PYG{+w}{ }\PYG{c+c1}{//constructor}
+\PYG{+w}{    }\PYG{n}{APOmM}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{APOmM}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{A}\PYG{p}{);}\PYG{c+c1}{//ctor de copia}
+\PYG{+w}{    }\PYG{n}{APOmM}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}\PYGZam{}}\PYG{+w}{ }\PYG{k}{operator}\PYG{o}{=}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{APOmM}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{A}\PYG{p}{);}\PYG{c+c1}{//operador de asignación por copia}
+\PYG{+w}{    }\PYG{c+c1}{//Modificadores de la clase}
+\PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{insertar}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{T}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{e}\PYG{p}{);}
+\PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{suprimir}\PYG{p}{();}
+\PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{suprimirMax}\PYG{p}{();}
+\PYG{+w}{    }\PYG{c+c1}{//Observadores de la clase}
+\PYG{+w}{    }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{T}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n+nf}{cima}\PYG{p}{()}\PYG{k}{const}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{n+nf}{vacio}\PYG{p}{()}\PYG{k}{const}\PYG{p}{;}
+\PYG{+w}{    }\PYG{o}{\PYGZti{}}\PYG{n}{APOmM}\PYG{p}{();}\PYG{+w}{ }\PYG{c+c1}{//destructor}
+
+\PYG{+w}{  }\PYG{k}{private}\PYG{o}{:}
+\PYG{+w}{    }\PYG{k}{typedef}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{nodo}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//indice del vector entre 0 y maxNodos\PYGZhy{}1}
+\PYG{+w}{    }\PYG{n}{T}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{nodos}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//vector de nodos}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{maxNodos}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//Tamaño del vector}
+\PYG{+w}{    }\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{ultimo}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//ultimo nodo del APO}
+\PYG{+w}{    }\PYG{n}{nodo}\PYG{+w}{ }\PYG{n+nf}{padre}\PYG{p}{(}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{i}\PYG{p}{)\PYGZob{}}\PYG{k}{return}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{i}\PYG{o}{==}\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{o}{?}\PYG{+w}{ }\PYG{l+m+mi}{\PYGZhy{}1}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{i}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{)}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{p}{;\PYGZcb{}}\PYG{+w}{ }\PYG{c+c1}{//Si es la raiz devuelve \PYGZhy{}1}
+\PYG{+w}{    }\PYG{n}{nodo}\PYG{+w}{ }\PYG{n+nf}{hIzq}\PYG{p}{(}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{i}\PYG{p}{)\PYGZob{}}\PYG{k}{return}\PYG{+w}{ }\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{;\PYGZcb{}}
+\PYG{+w}{    }\PYG{n}{nodo}\PYG{+w}{ }\PYG{n+nf}{hDer}\PYG{p}{(}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{i}\PYG{p}{)\PYGZob{}}\PYG{k}{return}\PYG{+w}{ }\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{2}\PYG{p}{;\PYGZcb{}}
+\PYG{+w}{    }\PYG{n}{nodo}\PYG{+w}{ }\PYG{n+nf}{nodoMinimo}\PYG{p}{(}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{i}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{j}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{k}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{nodo}\PYG{+w}{ }\PYG{n+nf}{nodoMaximo}\PYG{p}{(}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{i}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{j}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{k}\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{c+c1}{//métodos privados}
+\PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{floar}\PYG{p}{(}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{i}\PYG{p}{);}
+\PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{hundir}\PYG{p}{(}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{i}\PYG{p}{);}
+\PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{Mostrar\PYGZus{}descendencia}\PYG{p}{(}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{i}\PYG{p}{);}
+\PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{Intercambio}\PYG{p}{(}\PYG{n}{T}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{T}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{);}
+
+\PYG{p}{\PYGZcb{};}
+\PYG{c+c1}{//Implementación de los métodos}
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{APOmM}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{APOmM}\PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{maxNodos}\PYG{p}{)}\PYG{o}{:}\PYG{n}{nodos}\PYG{p}{(}\PYG{k}{new}\PYG{+w}{ }\PYG{n}{T}\PYG{p}{[}\PYG{n}{maxNodos}\PYG{p}{]),}\PYG{+w}{ }\PYG{n}{maxNodos}\PYG{p}{(}\PYG{n}{maxNodos}\PYG{p}{),}\PYG{n}{ultimo}\PYG{p}{(}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{)\PYGZob{}\PYGZcb{}}
+
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{ApomM}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{ApomM}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{ApomM}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{A}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{n}{nodos}\PYG{p}{(}\PYG{k}{new}\PYG{+w}{ }\PYG{n}{T}\PYG{p}{[}\PYG{n}{A}\PYG{p}{.}\PYG{n}{maxNodos}\PYG{p}{]),}\PYG{+w}{ }\PYG{n}{maxNodos}\PYG{p}{(}\PYG{n}{A}\PYG{p}{.}\PYG{n}{maxNodos}\PYG{p}{),}\PYG{n}{ultimo}\PYG{p}{(}\PYG{n}{A}\PYG{p}{.}\PYG{n}{ultimo}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{  }\PYG{c+c1}{// copiar el vector}
+\PYG{+w}{  }\PYG{k}{for}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{n}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{n}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{ultimo}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{n}\PYG{o}{++}\PYG{p}{)}
+\PYG{+w}{  }\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{n}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{A}\PYG{p}{.}\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{n}\PYG{p}{];}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{ApomM}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{ApomM}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{k}{operator}\PYG{+w}{ }\PYG{o}{=}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{ApomM}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{A}\PYG{p}{)}
+\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{k}{this}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{A}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{// evitar autoasignación}
+\PYG{+w}{    }\PYG{c+c1}{// Destruir el vector y crear uno nuevo si es necesario}
+\PYG{+w}{    }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{maxNodos}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{A}\PYG{p}{.}\PYG{n}{maxNodos}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{k}{delete}\PYG{p}{[]}\PYG{+w}{ }\PYG{n}{nodos}\PYG{p}{;}
+\PYG{+w}{      }\PYG{n}{maxNodos}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{A}\PYG{p}{.}\PYG{n}{maxNodos}\PYG{p}{;}
+\PYG{+w}{      }\PYG{n}{nodos}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{T}\PYG{p}{[}\PYG{n}{maxNodos}\PYG{p}{];}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{      }\PYG{n}{ultimo}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{A}\PYG{p}{.}\PYG{n}{ultimo}\PYG{p}{;}
+\PYG{+w}{      }\PYG{o}{/}\PYG{+w}{ }\PYG{n}{Copiar}\PYG{+w}{ }\PYG{n}{el}\PYG{+w}{ }\PYG{n}{vector}
+\PYG{+w}{      }\PYG{k}{for}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{n}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{n}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{ultimo}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{n}\PYG{o}{++}\PYG{p}{)}
+\PYG{+w}{      }\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{n}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{A}\PYG{p}{.}\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{n}\PYG{p}{];}
+\PYG{+w}{   }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{k}{return}\PYG{+w}{ }\PYG{o}{*}\PYG{k}{this}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{k+kr}{inline}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{T}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{ApomM}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{cima}\PYG{p}{()}\PYG{+w}{ }\PYG{k}{const}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{n}{assert}\PYG{p}{(}\PYG{n}{ultimo}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{);}\PYG{+w}{ }\PYG{c+c1}{// ApomM no vacío}
+\PYG{+w}{  }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{nodos}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{];}
+\PYG{p}{\PYGZcb{}}
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{k+kr}{inline}\PYG{+w}{ }\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{n}{ApomM}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{vacio}\PYG{p}{()}\PYG{+w}{ }\PYG{k}{const}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{return}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{ultimo}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{k+kr}{inline}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{ApomM}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{insertar}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{T}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{e}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{  }\PYG{c+c1}{//Vamos a insertar por el final del APO}
+\PYG{+w}{  }\PYG{n}{assert}\PYG{p}{(}\PYG{n}{ultimo}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{maxNodos}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{);}\PYG{+w}{ }\PYG{c+c1}{// ApomM no lleno}
+\PYG{+w}{  }\PYG{n}{nodos}\PYG{p}{[}\PYG{o}{++}\PYG{n}{ultimo}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{e}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{ultimo}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{flotar}\PYG{p}{(}\PYG{n}{ultimo}\PYG{p}{);}\PYG{+w}{ }\PYG{c+c1}{// Reordenar}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{k+kr}{inline}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{ApomM}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{suprimir}\PYG{p}{()\PYGZob{}}
+\PYG{+w}{  }\PYG{n}{assert}\PYG{p}{(}\PYG{n}{ultimo}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{);}\PYG{+w}{ }\PYG{c+c1}{// ApomM no vacío}
+\PYG{+w}{  }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{n}{ultimo}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{)\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{// ApomM no queda vacío}
+\PYG{+w}{    }\PYG{n}{nodos}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{ultimo}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{];}
+\PYG{+w}{    }\PYG{n}{std}\PYG{o}{::}\PYG{n}{cout}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{}Va a llamar a hundir\PYGZdq{}}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{std}\PYG{o}{::}\PYG{n}{endl}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{ultimo}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{)}
+\PYG{+w}{    }\PYG{n}{hundir}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{);}\PYG{+w}{ }\PYG{c+c1}{// Quedan dos o más elementos \PYGZhy{}\PYGZgt{} Reordenar}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{k+kr}{inline}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{ApomM}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{suprimirMax}\PYG{p}{()\PYGZob{}}
+\PYG{+w}{  }\PYG{n}{assert}\PYG{p}{(}\PYG{n}{ultimo}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{);}
+\PYG{+w}{  }\PYG{k}{if}\PYG{p}{(}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{n}{ultimo}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{)\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{//APOmM no queda vacio}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{ultimo}\PYG{+w}{ }\PYG{o}{\PYGZgt{}=}\PYG{+w}{ }\PYG{l+m+mi}{2}\PYG{p}{)\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{//Tiene 2 hijos y almenos 1 nieto, siendo el máximo uno de los 2 hijos}
+\PYG{+w}{      }\PYG{k}{if}\PYG{p}{(}\PYG{n}{nodos}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{nodos}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{])\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{nodos}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{ultimo}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{];}
+\PYG{+w}{        }\PYG{n}{hundir}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{);}
+\PYG{+w}{      }\PYG{p}{\PYGZcb{}}\PYG{k}{else}\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{nodos}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{ultimo}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{];}
+\PYG{+w}{        }\PYG{n}{hundir}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{);}
+\PYG{+w}{      }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}\PYG{k}{else}\PYG{+w}{ }\PYG{k}{if}\PYG{p}{(}\PYG{n}{ultimo}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{)\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{//Tiene 2 hijos y ningun nieto. Se elimina el hijo derecho y en el izquiero queda el menor}
+\PYG{+w}{      }\PYG{n}{nodos}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{min}\PYG{p}{(}\PYG{n}{nodos}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],}\PYG{n}{nodos}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]);}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{ApomM}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{hundir}\PYG{p}{(}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{i}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{  }\PYG{c+c1}{//Ahora hay que determinar profundidad de i, buscar el mayor(nivel impar) o menor(nivel par) nieto y reordenar esos 3}
+\PYG{+w}{  }\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{nietos}\PYG{p}{[}\PYG{l+m+mi}{4}\PYG{p}{],}\PYG{+w}{ }\PYG{n}{reordenar}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{];}
+\PYG{+w}{  }\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{nietoInter}\PYG{p}{,}\PYG{n}{hijoInter}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//El que finalmente se va a intercambiar}
+\PYG{+w}{  }\PYG{n}{nietos}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{hIzq}\PYG{p}{(}\PYG{n}{hIzq}\PYG{p}{(}\PYG{n}{i}\PYG{p}{));}
+\PYG{+w}{  }\PYG{n}{nietos}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{hDer}\PYG{p}{(}\PYG{n}{hIzq}\PYG{p}{(}\PYG{n}{i}\PYG{p}{));}
+\PYG{+w}{  }\PYG{n}{nietos}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{hIzq}\PYG{p}{(}\PYG{n}{hDer}\PYG{p}{(}\PYG{n}{i}\PYG{p}{));}
+\PYG{+w}{  }\PYG{n}{nietos}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{hDer}\PYG{p}{(}\PYG{n}{hDer}\PYG{p}{(}\PYG{n}{i}\PYG{p}{));}
+\PYG{+w}{  }\PYG{n}{std}\PYG{o}{::}\PYG{n}{cout}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{}En hundir\PYGZdq{}}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{std}\PYG{o}{::}\PYG{n}{endl}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{profundidad}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{log2}\PYG{p}{(}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{);}
+\PYG{+w}{  }\PYG{k}{if}\PYG{p}{(}\PYG{n}{nietos}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{n}{ultimo}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{profundidad}\PYG{o}{\PYGZpc{}}\PYG{l+m+mi}{2}\PYG{o}{==}\PYG{l+m+mi}{0}\PYG{p}{)\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{//Voy a buscar el mínimo de los nietos}
+\PYG{+w}{      }\PYG{n}{std}\PYG{o}{::}\PYG{n}{cout}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{}i está en nivel par\PYGZdq{}}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{std}\PYG{o}{::}\PYG{n}{endl}\PYG{p}{;}
+\PYG{+w}{      }\PYG{n}{nietoInter}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{nietos}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{];}
+\PYG{+w}{      }\PYG{k}{if}\PYG{p}{(}\PYG{n}{nietos}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{ultimo}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{      }\PYG{k}{if}\PYG{p}{(}\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{nietos}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]]}\PYG{o}{\PYGZlt{}}\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{nietoInter}\PYG{p}{])}
+\PYG{+w}{        }\PYG{n}{nietoInter}\PYG{o}{=}\PYG{n}{nietos}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{];}
+\PYG{+w}{        }\PYG{k}{if}\PYG{p}{(}\PYG{n}{nietos}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{n}{ultimo}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{if}\PYG{p}{(}\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{nietos}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]]}\PYG{o}{\PYGZlt{}}\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{nietoInter}\PYG{p}{])}
+\PYG{+w}{          }\PYG{n}{nietoInter}\PYG{o}{=}\PYG{n}{nietos}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{];}
+\PYG{+w}{          }\PYG{k}{if}\PYG{p}{(}\PYG{n}{nietos}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{n}{ultimo}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{          }\PYG{k}{if}\PYG{p}{(}\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{nietos}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{]]}\PYG{o}{\PYGZlt{}}\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{nietoInter}\PYG{p}{])}
+\PYG{+w}{            }\PYG{n}{nietoInter}\PYG{o}{=}\PYG{n}{nietos}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{];}
+\PYG{+w}{          }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{      }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{      }\PYG{n}{hijoInter}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{padre}\PYG{p}{(}\PYG{n}{nietoInter}\PYG{p}{);}
+\PYG{+w}{      }\PYG{n}{std}\PYG{o}{::}\PYG{n}{cout}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{}Para i= \PYGZdq{}}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{i}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{} el nieto a intercambiar es: \PYGZdq{}}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{nietoInter}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{} y su padre: \PYGZdq{}}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{hijoInter}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{std}\PYG{o}{::}\PYG{n}{endl}\PYG{p}{;}
+\PYG{+w}{      }\PYG{c+c1}{//Tengo que reordenar a 3 los nodos i, hijoInter, nietoInter}
+\PYG{+w}{      }\PYG{n}{reordenar}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{nodoMinimo}\PYG{p}{(}\PYG{n}{i}\PYG{p}{,}\PYG{n}{hijoInter}\PYG{p}{,}\PYG{n}{nietoInter}\PYG{p}{);}
+\PYG{+w}{      }\PYG{n}{reordenar}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{nodoMaximo}\PYG{p}{(}\PYG{n}{i}\PYG{p}{,}\PYG{n}{hijoInter}\PYG{p}{,}\PYG{n}{nietoInter}\PYG{p}{);}
+\PYG{+w}{      }\PYG{k}{if}\PYG{p}{(}\PYG{n}{i}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{reordenar}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{reordenar}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{])}
+\PYG{+w}{        }\PYG{n}{reordenar}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{i}\PYG{p}{;}
+\PYG{+w}{      }\PYG{k}{else}\PYG{+w}{ }\PYG{k}{if}\PYG{p}{(}\PYG{n}{hijoInter}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{reordenar}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{hijoInter}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{reordenar}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{])}
+\PYG{+w}{        }\PYG{n}{reordenar}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{hijoInter}\PYG{p}{;}
+\PYG{+w}{      }\PYG{k}{else}\PYG{+w}{ }\PYG{k}{if}\PYG{p}{(}\PYG{n}{nietoInter}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{reordenar}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{nietoInter}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{reordenar}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{])}
+\PYG{+w}{        }\PYG{n}{reordenar}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{nietoInter}\PYG{p}{;}
+\PYG{+w}{      }\PYG{n}{std}\PYG{o}{::}\PYG{n}{cout}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{}El orden al final será: \PYGZdq{}}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{reordenar}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]]}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{}}
+\PYG{+w}{      }\PYG{l+s}{\PYGZdq{}\PYGZlt{}\PYGZlt{}nodos[reordenar[1]]\PYGZlt{}\PYGZlt{}\PYGZdq{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}\PYGZlt{}\PYGZlt{}nodos[reordenar[2]]\PYGZlt{}\PYGZlt{}std::endl;}
+\PYG{+w}{      }\PYG{n}{T}\PYG{+w}{ }\PYG{n}{valores}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{];}
+\PYG{+w}{      }\PYG{n}{valores}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{reordenar}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]];}
+\PYG{+w}{      }\PYG{n}{valores}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{reordenar}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]];}
+\PYG{+w}{      }\PYG{n}{valores}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{reordenar}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]];}
+\PYG{+w}{      }\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{valores}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{];}
+\PYG{+w}{      }\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{hijoInter}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{valores}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{];}
+\PYG{+w}{      }\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{nietoInter}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{valores}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{];}
+\PYG{+w}{      }\PYG{n}{hundir}\PYG{p}{(}\PYG{n}{nietoInter}\PYG{p}{);}\PYG{+w}{ }\PYG{c+c1}{//Sigo reordenando a partir de nietoInter hacia abajo}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{else}\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{//i está en nivel impar}
+\PYG{+w}{        }\PYG{n}{std}\PYG{o}{::}\PYG{n}{cout}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{}i está en nivel impar\PYGZdq{}}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{std}\PYG{o}{::}\PYG{n}{endl}\PYG{p}{;}
+\PYG{+w}{        }\PYG{n}{nietoInter}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{nietos}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{];}
+\PYG{+w}{        }\PYG{k}{if}\PYG{p}{(}\PYG{n}{nietos}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{ultimo}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{if}\PYG{p}{(}\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{nietos}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]]}\PYG{o}{\PYGZgt{}}\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{nietoInter}\PYG{p}{])}
+\PYG{+w}{          }\PYG{n}{nietoInter}\PYG{o}{=}\PYG{n}{nietos}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{];}
+\PYG{+w}{          }\PYG{k}{if}\PYG{p}{(}\PYG{n}{nietos}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{n}{ultimo}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{          }\PYG{k}{if}\PYG{p}{(}\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{nietos}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]]}\PYG{o}{\PYGZgt{}}\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{nietoInter}\PYG{p}{])}
+\PYG{+w}{            }\PYG{n}{nietoInter}\PYG{o}{=}\PYG{n}{nietos}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{];}
+\PYG{+w}{            }\PYG{k}{if}\PYG{p}{(}\PYG{n}{nietos}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{n}{ultimo}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{            }\PYG{k}{if}\PYG{p}{(}\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{nietos}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{]]}\PYG{o}{\PYGZgt{}}\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{nietoInter}\PYG{p}{])}
+\PYG{+w}{              }\PYG{n}{nietoInter}\PYG{o}{=}\PYG{n}{nietos}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{];}
+\PYG{+w}{            }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{          }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{      }\PYG{n}{std}\PYG{o}{::}\PYG{n}{cout}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{}Para i= \PYGZdq{}}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{i}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{} el nieto a intercambiar es: \PYGZdq{}}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{nietoInter}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{std}\PYG{o}{::}\PYG{n}{endl}\PYG{p}{;}
+\PYG{+w}{      }\PYG{n}{hijoInter}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{padre}\PYG{p}{(}\PYG{n}{nietoInter}\PYG{p}{);}
+\PYG{+w}{      }\PYG{c+c1}{//Tengo que reordenar a 3 los nodos i, hijoInter, nietoInter}
+\PYG{+w}{      }\PYG{n}{reordenar}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{nodoMaximo}\PYG{p}{(}\PYG{n}{i}\PYG{p}{,}\PYG{n}{hijoInter}\PYG{p}{,}\PYG{n}{nietoInter}\PYG{p}{);}
+\PYG{+w}{      }\PYG{n}{reordenar}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{nodoMinimo}\PYG{p}{(}\PYG{n}{i}\PYG{p}{,}\PYG{n}{hijoInter}\PYG{p}{,}\PYG{n}{nietoInter}\PYG{p}{);}
+\PYG{+w}{      }\PYG{k}{if}\PYG{p}{(}\PYG{n}{i}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{reordenar}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{reordenar}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{])}
+\PYG{+w}{        }\PYG{n}{reordenar}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{i}\PYG{p}{;}
+\PYG{+w}{      }\PYG{k}{else}\PYG{+w}{ }\PYG{k}{if}\PYG{p}{(}\PYG{n}{hijoInter}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{reordenar}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{hijoInter}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{reordenar}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{])}
+\PYG{+w}{        }\PYG{n}{reordenar}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{hijoInter}\PYG{p}{;}
+\PYG{+w}{      }\PYG{k}{else}\PYG{+w}{ }\PYG{k}{if}\PYG{p}{(}\PYG{n}{nietoInter}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{reordenar}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{nietoInter}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{reordenar}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{])}
+\PYG{+w}{        }\PYG{n}{reordenar}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{nietoInter}\PYG{p}{;}
+\PYG{+w}{      }\PYG{n}{std}\PYG{o}{::}\PYG{n}{cout}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{}El orden al final será: \PYGZdq{}}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{reordenar}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]]}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{} \PYGZdq{}}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{reordenar}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]]}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{} \PYGZdq{}}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{reordenar}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]]}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{std}\PYG{o}{::}\PYG{n}{endl}\PYG{p}{;}
+\PYG{+w}{      }\PYG{n}{T}\PYG{+w}{ }\PYG{n}{valores}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{];}
+\PYG{+w}{      }\PYG{n}{valores}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{reordenar}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]];}
+\PYG{+w}{      }\PYG{n}{valores}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{reordenar}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]];}
+\PYG{+w}{      }\PYG{n}{valores}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{reordenar}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]];}
+\PYG{+w}{      }\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{valores}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{];}
+\PYG{+w}{      }\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{hijoInter}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{valores}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{];}
+\PYG{+w}{      }\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{nietoInter}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{valores}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{];}
+\PYG{+w}{      }\PYG{n}{hundir}\PYG{p}{(}\PYG{n}{nietoInter}\PYG{p}{);}\PYG{+w}{ }\PYG{c+c1}{//Sigo reordenando a partir de nietoInter hacia abajo}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{else}\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{k}{if}\PYG{p}{(}\PYG{n}{profundidad}\PYG{o}{\PYGZpc{}}\PYG{l+m+mi}{2}\PYG{o}{==}\PYG{l+m+mi}{0}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{hijomin}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k}{if}\PYG{p}{(}\PYG{n}{hIzq}\PYG{p}{(}\PYG{n}{i}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{n}{ultimo}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{          }\PYG{n}{hijomin}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{hIzq}\PYG{p}{(}\PYG{n}{i}\PYG{p}{);}
+\PYG{+w}{          }\PYG{k}{if}\PYG{p}{(}\PYG{n}{hDer}\PYG{p}{(}\PYG{n}{i}\PYG{p}{)}\PYG{o}{\PYGZlt{}=}\PYG{n}{ultimo}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{hDer}\PYG{p}{(}\PYG{n}{i}\PYG{p}{)]}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{hijomin}\PYG{p}{])}
+\PYG{+w}{            }\PYG{n}{hijomin}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{hDer}\PYG{p}{(}\PYG{n}{i}\PYG{p}{);}
+\PYG{+w}{          }\PYG{k}{if}\PYG{p}{(}\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{hijomin}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{i}\PYG{p}{])}
+\PYG{+w}{            }\PYG{n}{Intercambio}\PYG{p}{(}\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{hijomin}\PYG{p}{],}\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]);}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{        }\PYG{k}{else}\PYG{p}{\PYGZob{}}
+\PYG{+w}{          }\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{hijomax}\PYG{p}{;}
+\PYG{+w}{          }\PYG{k}{if}\PYG{p}{(}\PYG{n}{hIzq}\PYG{p}{(}\PYG{n}{i}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{n}{ultimo}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{            }\PYG{n}{hijomax}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{hIzq}\PYG{p}{(}\PYG{n}{i}\PYG{p}{);}
+\PYG{+w}{          }\PYG{k}{if}\PYG{p}{(}\PYG{n}{hDer}\PYG{p}{(}\PYG{n}{i}\PYG{p}{)}\PYG{o}{\PYGZlt{}=}\PYG{n}{ultimo}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{hDer}\PYG{p}{(}\PYG{n}{i}\PYG{p}{)]}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{hijomax}\PYG{p}{])}
+\PYG{+w}{            }\PYG{n}{hijomax}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{hDer}\PYG{p}{(}\PYG{n}{i}\PYG{p}{);}
+\PYG{+w}{          }\PYG{k}{if}\PYG{p}{(}\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{hijomax}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{i}\PYG{p}{])}
+\PYG{+w}{            }\PYG{n}{Intercambio}\PYG{p}{(}\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{hijomax}\PYG{p}{],}\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]);}
+\PYG{+w}{          }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{      }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{c+c1}{//Si no hay ni hijos ni nietos, no se hacen llamadas recursivas}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{ApomM}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{ApomM}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{nodoMinimo}\PYG{p}{(}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{ApomM}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{n1}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{ApomM}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{n2}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{ApomM}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{n3}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{if}\PYG{p}{(}\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{n1}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{n2}\PYG{p}{])\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{n1}\PYG{p}{]}\PYG{o}{\PYGZlt{}}\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{n3}\PYG{p}{])}\PYG{+w}{ }\PYG{o}{?}\PYG{+w}{ }\PYG{n}{n1}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{n}{n3}\PYG{p}{;}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{k}{else}\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{//n2\PYGZlt{}n1 ( los 3 nodos deberían ser distintos)}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{n2}\PYG{p}{]}\PYG{o}{\PYGZlt{}}\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{n3}\PYG{p}{])}\PYG{+w}{ }\PYG{o}{?}\PYG{+w}{ }\PYG{n}{n2}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{n}{n3}\PYG{p}{;}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{ApomM}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{ApomM}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{nodoMaximo}\PYG{p}{(}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{ApomM}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{n1}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{ApomM}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{n2}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{ApomM}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{n3}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{if}\PYG{p}{(}\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{n1}\PYG{p}{]}\PYG{o}{\PYGZgt{}}\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{n2}\PYG{p}{])\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{n1}\PYG{p}{]}\PYG{o}{\PYGZgt{}}\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{n3}\PYG{p}{])}\PYG{+w}{ }\PYG{o}{?}\PYG{+w}{ }\PYG{n}{n1}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{n}{n3}\PYG{p}{;}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{k}{else}\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{n2}\PYG{p}{]}\PYG{o}{\PYGZgt{}}\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{n3}\PYG{p}{])}\PYG{+w}{ }\PYG{o}{?}\PYG{+w}{ }\PYG{n}{n2}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{n}{n3}\PYG{p}{;}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{k+kr}{inline}\PYG{+w}{ }\PYG{n}{ApomM}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::\PYGZti{}}\PYG{n}{ApomM}\PYG{p}{()\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{delete}\PYG{p}{[]}\PYG{+w}{ }\PYG{n}{nodos}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{ApomM}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{Mostrar\PYGZus{}descendencia}\PYG{p}{(}\PYG{n}{ApomM}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{i}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{  }\PYG{c+c1}{//Si i ya no pertenece al arbol o alguno de sus hijos, termina él solito.}
+\PYG{+w}{  }\PYG{k}{using}\PYG{+w}{ }\PYG{k}{namespace}\PYG{+w}{ }\PYG{n+nn}{std}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k}{if}\PYG{p}{(}\PYG{n}{hIzq}\PYG{p}{(}\PYG{n}{i}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{ultimo}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{cout}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{}Hijo izqdo de \PYGZdq{}}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{}: \PYGZdq{}}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{hIzq}\PYG{p}{(}\PYG{n}{i}\PYG{p}{)]}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{endl}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{Mostrar\PYGZus{}descendencia}\PYG{p}{(}\PYG{n}{hIzq}\PYG{p}{(}\PYG{n}{i}\PYG{p}{));}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{k}{if}\PYG{p}{(}\PYG{n}{hDer}\PYG{p}{(}\PYG{n}{i}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{ultimo}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{cout}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{}Hijo drcho de \PYGZdq{}}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{}: \PYGZdq{}}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{nodos}\PYG{p}{[}\PYG{n}{hDer}\PYG{p}{(}\PYG{n}{i}\PYG{p}{)]}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{endl}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{Mostrar\PYGZus{}descendencia}\PYG{p}{(}\PYG{n}{hDer}\PYG{p}{(}\PYG{n}{i}\PYG{p}{));}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+
+\end{Verbatim}

@@ -70,6 +70,11 @@ size_t distanciaEU(ciudad a, ciudad b){
 
 /*Ejercicio 2*/
 typedef vector<std::pair<ciudad,ciudad>> lineasaereas;
+typedef std::pair<size_t,size_t>ciudad;
+
+typedef std::pair<std::vector<ciudad>,matriz<size_t>>isla;
+
+typedef vector<isla> archipielago;
 
 lineasaereas Tombuctu2(vector<ciudad> ciudades, GrafoP<size_t>& carreteras){
     archipielago archipielagoAux = Tombuctu1(ciudades,carreteras);
@@ -79,12 +84,12 @@ lineasaereas Tombuctu2(vector<ciudad> ciudades, GrafoP<size_t>& carreteras){
         for (size_t j=i+1; j<archipielagoAux.size(); i++){
             size_t costeMin = GrafoP<size_t>::INFINITO;
             ciudad ciudadIsla1, ciudadIsla2;
-            for(size_t k=0; k < archipielagoAux[i].ciudades.size(); k++){
-                for(size_t l = 0; k < archipielagoAux[j].ciudades.size(); l++){
-                    if(distanciaEU(archipielagoAux[i].ciudades[k], archipielagoAux[j].ciudades[l])< costeMin){
-                        costeMin = archipielagoAux[i].Mcoste[k][l];
-                        ciudadIsla1 = archipielagoAux[i].ciudades[k];
-                        ciudadIsla2 = archipielagoAux[j].ciudades[l];
+            for(size_t k=0; k < archipielagoAux[i].first.size(); k++){
+                for(size_t l = 0; k < archipielagoAux[j].first.size(); l++){
+                    if(distanciaEU(archipielagoAux[i].first[k], archipielagoAux[j].first[l])< costeMin){
+                        costeMin = archipielagoAux[i].second[k][l];
+                        ciudadIsla1 = archipielagoAux[i].first[k];
+                        ciudadIsla2 = archipielagoAux[j].first[l];
                     }
                 }
             }

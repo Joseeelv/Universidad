@@ -1,0 +1,19 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{//Profundidad de un nodo}
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{Abin}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{profundidad\PYGZus{}enla}\PYG{p}{(}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{n}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{  }\PYG{c+c1}{//La profundidad de la raiz es 0}
+\PYG{+w}{  }\PYG{k}{if}\PYG{p}{(}\PYG{n}{n}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{r}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k}{else}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{o}{+}\PYG{p}{(}\PYG{n}{profundidad\PYGZus{}enla}\PYG{p}{(}\PYG{n}{n}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{padre}\PYG{p}{));}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{//Altura del árbol}
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{Abin}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{altura\PYGZus{}enla}\PYG{p}{(}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{n}\PYG{p}{)\PYGZob{}}
+\PYG{c+c1}{//La altura de un nodo nulo no existe, puesto que este indica no existencia de nodo}
+\PYG{+w}{  }\PYG{k}{if}\PYG{p}{(}\PYG{n}{n}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{NODO\PYGZus{}NULO}\PYG{p}{)}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k}{else}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{o}{+}\PYG{n}{std}\PYG{o}{::}\PYG{n}{max}\PYG{p}{(}\PYG{n}{altura\PYGZus{}enla}\PYG{p}{(}\PYG{n}{n}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{hizq}\PYG{p}{),}\PYG{n}{altura\PYGZus{}enla}\PYG{p}{(}\PYG{n}{n}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{der}\PYG{p}{));}
+\PYG{p}{\PYGZcb{}}
+
+\end{Verbatim}

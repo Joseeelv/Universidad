@@ -1,0 +1,31 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{//Definimos los tipos de datos a usar}
+\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{pair}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{p}{,}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}}\PYG{n}{ciudad}\PYG{p}{;}
+\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{pair}\PYG{o}{\PYGZlt{}}\PYG{n}{ciudad}\PYG{p}{,}\PYG{n}{ciudad}\PYG{o}{\PYGZgt{}}\PYG{n}{lineaAerea}\PYG{p}{;}
+\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{lineaAerea}\PYG{o}{\PYGZgt{}}\PYG{n}{lineasAereas}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//Lo podemos hacer en una misma linea.}
+\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{pair}\PYG{o}{\PYGZlt{}}\PYG{n}{std}\PYG{o}{::}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{ciudad}\PYG{o}{\PYGZgt{}}\PYG{p}{,}\PYG{n}{matriz}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}\PYGZgt{}}\PYG{+w}{ }\PYG{n}{isla}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//ciudades \PYGZhy{} coste}
+\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{isla}\PYG{o}{\PYGZgt{}}\PYG{n}{archipielago}\PYG{p}{;}
+\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}::}\PYG{n}{INFINITO}\PYG{+w}{ }\PYG{n}{INFINITO}\PYG{p}{;}
+\PYG{n}{lineasAereas}\PYG{+w}{ }\PYG{n+nf}{Tombuctu2}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{Grafo}\PYG{+w}{ }\PYG{n}{G}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{ciudad}\PYG{o}{\PYGZgt{}}\PYG{n}{ciudades}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{  }\PYG{c+c1}{//Creamos el archipiélago mediante el método Tombuctu1}
+\PYG{+w}{  }\PYG{n}{archipielago}\PYG{+w}{ }\PYG{n}{archipielagores}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{Tombuctu1}\PYG{p}{(}\PYG{n}{G}\PYG{p}{,}\PYG{n}{ciudades}\PYG{p}{);}
+\PYG{+w}{  }\PYG{n}{lineasAereas}\PYG{+w}{ }\PYG{n}{LA}\PYG{p}{;}
+\PYG{+w}{  }\PYG{c+c1}{//Ya tenemos creado el archipielago, vamos a recorrer todas las islas del archipiélago}
+\PYG{+w}{  }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{archipielagores}\PYG{p}{.}\PYG{n}{size}\PYG{p}{();}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{j}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{j}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{archipielagores}\PYG{p}{.}\PYG{n}{size}\PYG{p}{();}\PYG{+w}{ }\PYG{n}{j}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{      }\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{costeMinimo}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{INFINITO}\PYG{p}{;}
+\PYG{+w}{      }\PYG{n}{ciudad}\PYG{+w}{ }\PYG{n}{ciudadIslaA}\PYG{p}{,}\PYG{n}{ciudadIslaB}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//las 2 ciudades de la línea aérea.}
+\PYG{+w}{      }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{k}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{k}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{archipielagores}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{first}\PYG{p}{.}\PYG{n}{size}\PYG{p}{();}\PYG{+w}{ }\PYG{n}{k}\PYG{o}{++}\PYG{p}{)}
+\PYG{+w}{        }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{l}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{l}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{archipielagores}\PYG{p}{[}\PYG{n}{j}\PYG{p}{].}\PYG{n}{first}\PYG{p}{.}\PYG{n}{size}\PYG{p}{();}\PYG{+w}{ }\PYG{n}{l}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{          }\PYG{k}{if}\PYG{p}{(}\PYG{n}{DistanciaEuclidea}\PYG{p}{(}\PYG{n}{archipielagores}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{first}\PYG{p}{[}\PYG{n}{k}\PYG{p}{],}\PYG{n}{archipielagores}\PYG{p}{[}\PYG{n}{j}\PYG{p}{].}\PYG{n}{first}\PYG{p}{[}\PYG{n}{l}\PYG{p}{])}\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{costeMinimo}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{            }\PYG{n}{costeMinimo}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{archipielagores}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{second}\PYG{p}{[}\PYG{n}{k}\PYG{p}{][}\PYG{n}{l}\PYG{p}{];}
+\PYG{+w}{            }\PYG{n}{ciudadIslaA}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{archipielagores}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{first}\PYG{p}{[}\PYG{n}{k}\PYG{p}{];}
+\PYG{+w}{            }\PYG{n}{ciudadIslaB}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{archipielagores}\PYG{p}{[}\PYG{n}{j}\PYG{p}{].}\PYG{n}{first}\PYG{p}{[}\PYG{n}{l}\PYG{p}{];}
+\PYG{+w}{          }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{n}{LA}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(\PYGZob{}}\PYG{n}{ciudadIslaA}\PYG{p}{,}\PYG{n}{ciudadIslaB}\PYG{p}{\PYGZcb{});}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{LA}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

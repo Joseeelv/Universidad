@@ -1,4 +1,4 @@
-Las operaciones del TAD árbol binario permiten insertar y eliminar hojas y nodos internos -> **verdadero**
+**Las** operaciones del TAD árbol binario permiten insertar y eliminar hojas y nodos internos -> **verdadero**
 
 Al insertar en un Árbol B, si el nuevo elemento no cabe en el nodo que le correspondería, se divide el nodo en dos y se promociona un elemento al nodo padre, y en este caso, se permite que exista algún nodo con un solo elemento, independientemente del mínimo permitido según el orden del árbol -> **verdadero**
 

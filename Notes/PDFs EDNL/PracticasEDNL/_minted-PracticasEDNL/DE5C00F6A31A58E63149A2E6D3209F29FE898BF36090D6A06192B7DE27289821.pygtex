@@ -1,0 +1,49 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{//Creamos los métodos para realizar la búsqueda del nodo}
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{Abin}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{buscar\PYGZus{}elto}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{T}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{elto}\PYG{p}{,}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Abin}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{A}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{  }\PYG{c+c1}{//creamos el nodo donde se encuentra el elemento}
+\PYG{+w}{  }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{Abin}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{resultado}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k}{if}\PYG{p}{(}\PYG{n}{A}\PYG{p}{.}\PYG{n}{arbolVacio}\PYG{p}{())}\PYG{k}{return}\PYG{+w}{ }\PYG{n}{Abin}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{NODO\PYGZus{}NULO}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//No hay nodos en el árbol}
+\PYG{+w}{  }\PYG{k}{else}\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{buscar\PYGZus{}elto\PYGZus{}rec}\PYG{p}{(}\PYG{n}{elto}\PYG{p}{,}\PYG{n}{A}\PYG{p}{.}\PYG{n}{raiz}\PYG{p}{(),}\PYG{n}{resultado}\PYG{p}{,}\PYG{n}{A}\PYG{p}{))}
+\PYG{+w}{      }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{resultado}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{else}
+\PYG{+w}{      }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{Abin}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{NODO\PYGZus{}NULO}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//No existe ese elemento en el árbol}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{n}{buscar\PYGZus{}elto\PYGZus{}rec}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{T}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{elto}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{Abin}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{n}\PYG{p}{,}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{Abin}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{nodo}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{res}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Abin}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{A}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{  }\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{n}{encontrado}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n+nb}{true}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k}{if}\PYG{p}{(}\PYG{n}{n}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{Abin}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{NODO\PYGZus{}NULO}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{A}\PYG{p}{.}\PYG{n}{elemento}\PYG{p}{(}\PYG{n}{n}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{elto}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{      }\PYG{n}{res}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{n}\PYG{p}{;}
+\PYG{+w}{      }\PYG{k}{return}\PYG{+w}{ }\PYG{n+nb}{true}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{else}\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{buscar\PYGZus{}elto\PYGZus{}rec}\PYG{p}{(}\PYG{n}{elto}\PYG{p}{,}\PYG{n}{A}\PYG{p}{.}\PYG{n}{hijoIzqdo}\PYG{p}{(}\PYG{n}{n}\PYG{p}{),}\PYG{n}{res}\PYG{p}{,}\PYG{n}{A}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{buscar\PYGZus{}elto\PYGZus{}rec}\PYG{p}{(}\PYG{n}{elto}\PYG{p}{,}\PYG{n}{A}\PYG{p}{.}\PYG{n}{hijoDrcho}\PYG{p}{(}\PYG{n}{n}\PYG{p}{),}\PYG{n}{res}\PYG{p}{,}\PYG{n}{A}\PYG{p}{);}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{//Función auxiliar que nos comprueba si el nodo es una hoja o No}
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{n}{EsHoja}\PYG{p}{(}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{Abin}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{n}\PYG{+w}{ }\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Abin}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{A}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{return}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{A}\PYG{p}{.}\PYG{n}{hijoIzqdo}\PYG{p}{(}\PYG{n}{n}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{Abin}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{NODO\PYGZus{}NULO}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{A}\PYG{p}{.}\PYG{n}{hijoDrcho}\PYG{p}{(}\PYG{n}{n}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{Abin}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{NODO\PYGZus{}NULO}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{//Vamos a realizar la función de poda}
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{poda}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{T}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{e}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Abin}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{A}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{if}\PYG{p}{(}\PYG{o}{!}\PYG{n}{A}\PYG{p}{.}\PYG{n}{arbolVacio}\PYG{p}{())\PYGZob{}}
+\PYG{+w}{    }\PYG{c+c1}{//Tenemos que buscar el nodo donde se encuentra dicho elemento}
+\PYG{+w}{    }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{Abin}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{n}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{buscar\PYGZus{}elto}\PYG{p}{(}\PYG{n}{elto}\PYG{p}{,}\PYG{n}{A}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{poda\PYGZus{}rec}\PYG{p}{(}\PYG{n}{n}\PYG{p}{,}\PYG{n}{A}\PYG{p}{);}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{poda\PYGZus{}rec}\PYG{p}{(}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{Abin}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{n}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Abin}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{A}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{if}\PYG{p}{(}\PYG{n}{n}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{Abin}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{NODO\PYGZus{}NULO}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{o}{!}\PYG{n}{EsHoja}\PYG{p}{(}\PYG{n}{n}\PYG{p}{))\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{//Si no es hoja no lo podemos eliminar, llamamos a sus descendientes}
+\PYG{+w}{      }\PYG{n}{poda\PYGZus{}rec}\PYG{p}{(}\PYG{n}{A}\PYG{p}{.}\PYG{n}{hijo}\PYG{p}{)}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+\end{Verbatim}

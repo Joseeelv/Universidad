@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{k+kr}{inline}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{Abin}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{insertarRaiz}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{T}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{e}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{  }\PYG{n}{assert}\PYG{p}{(}\PYG{n}{r}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{NODO\PYGZus{}NULO}\PYG{p}{);}\PYG{+w}{ }\PYG{c+c1}{//Comprobamos la Precondición}
+\PYG{+w}{  }\PYG{n}{r}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{celda}\PYG{p}{(}\PYG{n}{e}\PYG{p}{);}\PYG{+w}{ }\PYG{c+c1}{//Inserción del nodo raíz.}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{Abb}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{Intersec}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Abb}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{A}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Abb}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{B}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{  }\PYG{c+c1}{//Declaramos un Abb vacio que será el resultado de la unión de A y B.}
+\PYG{+w}{  }\PYG{n}{Abb}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{Res}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k}{while}\PYG{p}{(}\PYG{o}{!}\PYG{n}{B}\PYG{p}{.}\PYG{n}{vacio}\PYG{p}{())\PYGZob{}}
+\PYG{+w}{    }\PYG{c+c1}{//insertamos los elementos que se encuentren en A}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{o}{!}\PYG{n}{A}\PYG{p}{.}\PYG{n}{buscar}\PYG{p}{(}\PYG{n}{B}\PYG{p}{.}\PYG{n}{elemento}\PYG{p}{()).}\PYG{n}{vacio}\PYG{p}{())\PYGZob{}}
+\PYG{+w}{      }\PYG{n}{Res}\PYG{p}{.}\PYG{n}{insertar}\PYG{p}{(}\PYG{n}{B}\PYG{p}{.}\PYG{n}{elemento}\PYG{p}{());}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{n}{B}\PYG{p}{.}\PYG{n}{eliminar}\PYG{p}{(}\PYG{n}{B}\PYG{p}{.}\PYG{n}{elemento}\PYG{p}{());}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{n}{Equilibrar}\PYG{p}{(}\PYG{n}{Res}\PYG{p}{);}
+\PYG{+w}{  }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{Res}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

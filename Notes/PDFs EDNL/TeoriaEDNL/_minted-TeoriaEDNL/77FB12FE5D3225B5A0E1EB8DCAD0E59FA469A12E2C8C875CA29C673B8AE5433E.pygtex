@@ -1,0 +1,26 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{tCoste}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{n}{tCoste}\PYG{o}{\PYGZgt{}::}\PYG{n}{tCamino}\PYG{+w}{ }\PYG{n}{caminoAux}\PYG{p}{(}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{n}{tCoste}\PYG{o}{\PYGZgt{}::}\PYG{n}{vertice}\PYG{+w}{ }\PYG{n}{v}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{n}{tCoste}\PYG{o}{\PYGZgt{}::}\PYG{n}{vertice}\PYG{+w}{ }\PYG{n}{w}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{matriz}\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{n}{tCoste}\PYG{o}{\PYGZgt{}::}\PYG{n}{vertice}\PYG{o}{\PYGZgt{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{P}\PYG{p}{)\PYGZob{}}
+\PYG{c+c1}{// Devuelve el camino de coste mínimo entre v y w, exluidos estos,}
+\PYG{c+c1}{// a partir de una matriz P obtenida mediante la función Floyd().}
+\PYG{+w}{  }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{n}{tCoste}\PYG{o}{\PYGZgt{}::}\PYG{n}{tCamino}\PYG{+w}{ }\PYG{n}{C1}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{C2}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{n}{tCoste}\PYG{o}{\PYGZgt{}::}\PYG{n}{vertice}\PYG{+w}{ }\PYG{n}{u}\PYG{p}{;}
+\PYG{+w}{  }\PYG{n}{u}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{P}\PYG{p}{[}\PYG{n}{v}\PYG{p}{][}\PYG{n}{w}\PYG{p}{];}
+\PYG{+w}{  }\PYG{k}{if}\PYG{p}{(}\PYG{n}{u}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{w}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{C1}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{caminoAux}\PYG{o}{\PYGZlt{}}\PYG{n}{tCoste}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{n}{v}\PYG{p}{,}\PYG{n}{u}\PYG{p}{,}\PYG{n}{P}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{C1}\PYG{p}{.}\PYG{n}{insertar}\PYG{p}{(}\PYG{n}{u}\PYG{p}{,}\PYG{n}{C1}\PYG{p}{.}\PYG{n}{fin}\PYG{p}{());}
+\PYG{+w}{    }\PYG{n}{C2}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{caminoAux}\PYG{o}{\PYGZlt{}}\PYG{n}{tCamino}\PYG{p}{(}\PYG{n}{u}\PYG{p}{,}\PYG{n}{w}\PYG{p}{,}\PYG{n}{P}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{C1}\PYG{+w}{ }\PYG{o}{+=}\PYG{+w}{ }\PYG{n}{C2}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//lista\PYGZlt{}vertice\PYGZgt{}::operator *=(), concatena C1 y C2.}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{C1}\PYG{p}{;}\PYG{+w}{ }\PYG{o}{/}\PYG{l+m+mi}{7}\PYG{o}{/}\PYG{n}{devolvemos}\PYG{+w}{ }\PYG{n}{la}\PYG{+w}{ }\PYG{n}{lista}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{tCoste}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{n}{tCoste}\PYG{o}{\PYGZgt{}::}\PYG{n}{tCamino}\PYG{+w}{ }\PYG{n}{camino}\PYG{p}{(}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{n}{tCoste}\PYG{o}{\PYGZgt{}::}\PYG{n}{vertice}\PYG{+w}{ }\PYG{n}{v}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{n}{tCoste}\PYG{o}{\PYGZgt{}::}\PYG{n}{vertice}\PYG{+w}{ }\PYG{n}{w}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{matriz}\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{n}{tCoste}\PYG{o}{\PYGZgt{}::}\PYG{n}{vertice}\PYG{o}{\PYGZgt{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{P}\PYG{p}{)\PYGZob{}}
+\PYG{c+c1}{// Devuelve el camino de coste mínimo desde v hasta w a partir}
+\PYG{c+c1}{// de una matriz P obtenida mediante la función Floyd().}
+\PYG{+w}{  }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{n}{tCoste}\PYG{o}{\PYGZgt{}::}\PYG{n}{tCamino}\PYG{+w}{ }\PYG{n}{C}\PYG{p}{;}
+\PYG{+w}{  }\PYG{n}{C}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{caminoAux}\PYG{o}{\PYGZlt{}}\PYG{n}{tCoste}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{n}{v}\PYG{p}{,}\PYG{n}{w}\PYG{p}{,}\PYG{n}{P}\PYG{p}{);}
+\PYG{+w}{  }\PYG{n}{C}\PYG{p}{.}\PYG{n}{insertar}\PYG{p}{(}\PYG{n}{v}\PYG{p}{,}\PYG{n}{C}\PYG{p}{.}\PYG{n}{primera}\PYG{p}{());}
+\PYG{+w}{  }\PYG{n}{C}\PYG{p}{.}\PYG{n}{insertar}\PYG{p}{(}\PYG{n}{w}\PYG{p}{,}\PYG{n}{C}\PYG{p}{.}\PYG{n}{fin}\PYG{p}{());}
+\PYG{+w}{  }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{C}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

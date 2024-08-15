@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{+w}{  }\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}iostream\PYGZgt{}}
+\PYG{+w}{  }\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZdq{}agen.h\PYGZdq{}}\PYG{c+c1}{ //Especificación e implementación de los métodos del TAD.}
+\PYG{+w}{  }\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZdq{}agen\PYGZus{}E\PYGZhy{}S.h\PYGZdq{}}
+\end{Verbatim}

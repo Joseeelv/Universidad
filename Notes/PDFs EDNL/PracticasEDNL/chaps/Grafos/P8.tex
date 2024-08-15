@@ -1,0 +1,365 @@
+Esta es la última práctica de grafos. Donde trabajaremos con los algoritmos vistos en las prácticas 6 y 7, y además con nuevos algoritmos como son el TAD Partición, Kruskal o Prim.
+
+Para la resolución de esta práctica tendremos como ficheros de cabeceras:
+\begin{minted}[breaklines]{C++}
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <cmath>
+#include "../grafoMA.h"
+#include "../grafoPMC.h"
+#include "../alg_grafoMA.h"
+#include "../alg_grafoPMC.h"
+#include "../particion.h"
+\end{minted}
+
+\textbf{\large\underbar{Ejercicio 1:}}\textit{ El archipiélago de Tombuctú, está formado por un número indeterminado de islas, cada una de las cuales tiene, a su vez, un número indeterminado de ciudades. En cambio, sí es conocido el número total de ciudades de Tombuctú (podemos llamarlo N, por ejemplo).}
+
+\textit{Dentro de cada una de las islas existen carreteras que permiten viajar entre todas las ciudades de la isla. Se dispone de las coordenadas cartesianas (x, y) de todas y cada una de las ciudades del archipiélago. Se dispone de un grafo (matriz de adyacencia) en el que se indica si existe carretera directa entre cualesquiera dos ciudades del archipiélago. El objetivo de nuestro problema es encontrar qué ciudades de Tombuctú pertenecen a cada una de las islas del mismo y cuál es el coste mínimo de viajar entre cualesquiera dos ciudades de una misma isla de Tombuctú.}
+
+\textit{Así pues, dados los siguientes datos:
+\begin{itemize}
+  \item Lista de ciudades de Tombuctú representada cada una de ellas por sus coordenadas cartesianas.
+  \item Matriz de adyacencia de Tombuctú, que indica las carreteras existentes en dicho archipiélago.
+\end{itemize}
+Implementen un subprograma que calcule y devuelva la distribución en islas de las ciudades de Tombuctú, así como el coste mínimo de viajar entre cualesquiera dos ciudades de una misma isla del archipiélago.}
+
+No sabemos ni el número de islas ni de ciudades de las mismas. Sabemos que las ciudades de una isla se conectan mediante carreteras y estas ciudades están formadas por dos coordenadas cartesianas.
+
+También contamos con una matriz de adyacencia, es decir, que podemos saber que ciudades están en dicha isla.
+Mediante esto y el Grafo dado, tenemos que devolver las islas del archipiélago y el coste de viajar entre dos ciudades de una misma isla.
+
+\begin{minted}[breaklines]{C++}
+// Vector ciudad:
+// [{0,1},{2,4},{3,5},{6,7},{8,9},{10,11},{12,13}]
+// [ c1,   c2,    c3,   c4,  c5,    c6,     c7]
+
+// Matriz de adyacencia:
+//      [c1,   c2,    c3,    c4,    c5,    c6,    c7]
+//   c1 [ 0,    1,     0,     0,     0,     0,     0]
+//   c2 [ 1,    0,     1,     0,     0,     0,     0]
+//   c3 [ 0,    1,     0,     0,     0,     0,     0]
+//   c4 [ 0,    0,     0,     0,     1,     0,     0]
+//   c5 [ 0,    0,     0,     1,     0,     1,     0]
+//   c6 [ 0,    0,     0,     0,     1,     0,     1]
+//   c7 [ 0,    0,     0,     0,     0,     1,     0]
+//------------------------------------------------------
+//Definimos los tipos de datos a usar
+typedef std::pair<size_t,size_t> ciudad;
+typedef std::pair<std::vector<ciudad>,matriz<size_t>> isla;
+typedef std::vector<isla>archipielago;
+
+//Función auxiliar que nos calcula el coste mínimo de viajar entre 2 ciudades cualesquiera
+matriz<size_t> CalcularCostes(vector<ciudad>ciudades){
+  //Primero creamos el grafo del tamaño de las ciudades
+  GrafoP<size_t> G(ciudades.size());
+
+  //Como vamos a hacer uso de Floyd, vamos a crear las matrices de costes y vértices.
+  matriz<size_t>MVertices(G.numVert()), Mcostes(G.numVert());
+  //Rellenamos el grafo con los costes, que será la distancia euclídea de las ciudades
+  for(size_t i = 0; i < ciudades.size(); i++)
+    for(size_t j = i+1; j < ciudades.size(); j++)
+      G[i][j] = DistanciaEuclidea(ciudades[i],ciudades[j]);
+
+  //Ahora hacemos Floyd, para calcular el coste mínimo, una vez tengamos el grafo relleno.
+  return Mcostes = Floyd(G,MVertices);
+}
+
+//Función auxiliar que nos calcula la distancia euclídea entre dos ciudades:
+size_t DistanciaEuclidea(ciudad a, ciudad b){
+  return sqrt(pow(a.first - b.first,2) + pow(a.second - b.second,2));
+}
+
+//Tenemos que devolver la distribución del archipiélago:
+archipielago Tombuctu1(Grafo G, vector<ciudad> ciudades){
+  //Tenemos un grafo no ponderado, si no una matriz de adyacencia, por lo que podemos hacer uso del TAD Partición:
+  //Creamos una particion:
+  Particion P(ciudades.size());
+  for(size_t i = 0; i < ciudades.size(); i++){
+    for(size_t j = i+1; j < ciudades.size(); j++){
+      if(G[i][j]){
+        P.unir(P.encontrar(i),P.encontrar(j)); //Buscamos los representantes de cada elemento y unimos.
+
+      }
+    }
+  }
+  //Ahora en P ya tenemos todas las islas formadas (cada isla tiene su representante):
+  // [{c1,c2,c3},{c4,c5,c6,c7}]
+
+  //Vamos a recorrer la partición creando a partir de dichos subconjuntos las islas, y a cada isla le vamos a calcular el coste mínimo de viajar entre dos ciudades cualesquieran.
+
+  archipielago archipielagores;
+  size_t representante = P.encontrar(0);
+  isla islaux;
+  for(size_t i = 0; i < ciudades.size(); i++){
+    if(representante == P.encontrar(i)){ //Si tiene el mismo representante, lo metemos en esa isla.
+      islaux.first.push_back(i);
+    }
+    else{// Si ha cambiado de representante, meto la isla en archipielagores y creo una nueva isla.
+      islaux.second = CalcularCostes(islaux.first); //Calculamos el coste mínimo
+      archipielagores.push_back(islaux);
+      islaux.first.clear(); //limpiamos "la isla"
+      islaux.first.push_back(ciudades[i]);
+      representante = P.encontrar(i); //Actualizamos el representante.
+    }
+  }
+  return archipielagores;
+}
+
+\end{minted}
+
+\textbf{\large\underbar{Ejercicio 2:}}\textit{ El archipiélago de Tombuctú2 está formado por un número desconocido de islas, cada una de las cuales tiene, a su vez, un número desconocido de ciudades, las cuales tienen en común que todas y cada una de ellas dispone de un aeropuerto. Sí que se conoce el número total de ciudades del archipiélago (podemos llamarlo N, por ejemplo).}
+
+\textit{Dentro de cada una de las islas existen carreteras que permiten viajar entre todas las ciudades de la isla. No existen puentes que unan las islas y se ha decidido que la opción de comunicación más económica de implantar será el avión.}
+
+\textit{Se dispone de las coordenadas cartesianas (x, y) de todas y cada una de las ciudades del archipiélago. Se dispone de un grafo (matriz de adyacencia) en el que se indica si existe carretera directa entre cualesquiera dos ciudades del archipiélago. El objetivo de nuestro problema es encontrar qué líneas aéreas debemos implantar para poder viajar entre todas las ciudades del archipiélago, siguiendo los siguientes criterios:
+\begin{enumerate}
+  \item Se implantará una y sólo una línea aérea entre cada par de islas.
+  \item La línea aérea escogida entre cada par de islas será la más corta entre todas
+  las posibles.
+\end{enumerate}
+Así pues, dados los siguientes datos:
+\begin{itemize}
+  \item Lista de ciudades de Tombuctú2 representada cada una de ellas por sus coordenadas cartesianas.
+  \item Matriz de adyacencia de Tombuctú que indica las carreteras existentes en
+  dicho archipiélago
+\end{itemize}
+Implementen un subprograma que calcule y devuelva las líneas aéreas necesarias para comunicar adecuadamente el archipiélago siguiendo los criterios anteriormente expuestos.}
+
+Este ejercicio es casi parecido al anterior, con la diferencia que ahora buscamos las líneas aéreas necesarias para comunicar las diferentes islas del archipiélago.
+
+Vamos a hacer uso del método implementado en el ejercicio anterior \texttt{Tombuctu1()}, y el método \texttt{DistanciaEuclidea()} para reutilizar código.
+
+Ahora estas líneas aéreas será un par de dos ciudades de diferente isla.
+
+\begin{minted}[breaklines]{C++}
+//Definimos los tipos de datos a usar
+typedef std::pair<size_t,size_t>ciudad;
+typedef std::pair<ciudad,ciudad>lineaAerea;
+typedef std::vector<lineaAerea>lineasAereas; //Lo podemos hacer en una misma linea.
+typedef std::pair<std::vector<ciudad>,matriz<size_t>> isla; //ciudades - coste
+typedef std::vector<isla>archipielago;
+typedef GrafoP<size_t>::INFINITO INFINITO;
+lineasAereas Tombuctu2 (Grafo G, vector<ciudad>ciudades){
+  //Creamos el archipiélago mediante el método Tombuctu1
+  archipielago archipielagores = Tombuctu1(G,ciudades);
+  lineasAereas LA;
+  //Ya tenemos creado el archipielago, vamos a recorrer todas las islas del archipiélago
+  for(size_t i = 0; i < archipielagores.size(); i++){
+    for(size_t j = i+1; j < archipielagores.size(); j++){
+      size_t costeMinimo = INFINITO;
+      ciudad ciudadIslaA,ciudadIslaB; //las 2 ciudades de la línea aérea.
+      for(size_t k = 0; k < archipielagores[i].first.size(); k++)
+        for(size_t l = 0; l < archipielagores[j].first.size(); l++){
+          if(DistanciaEuclidea(archipielagores[i].first[k],archipielagores[j].first[l])< costeMinimo){
+            costeMinimo = archipielagores[i].second[k][l];
+            ciudadIslaA = archipielagores[i].first[k];
+            ciudadIslaB = archipielagores[j].first[l];
+          }
+        }
+    }
+    LA.push_back({ciudadIslaA,ciudadIslaB});
+  }
+  return LA;
+}
+\end{minted}
+
+\textbf{\large\underbar{Ejercicio 3:}}\textit{ Implementa un subprograma para encontrar un árbol de extensión máximo. ¿Es más difícil que encontrar un árbol de extensión mínimo?}
+
+Podemos hacer uso del algoritmo de Kruskal pero con la diferencia de que en vez de ordenar las aristas de menor a mayor, las ordenamos de mayor a menor, es decir, vamos a tener un algoritmo llamado Kruskal Máximo.
+
+\begin{minted}[breaklines]{C++}
+template <typename tCoste> GrafoP<tCoste> KruskalMaximo(const GrafoP<tCoste> &G){
+  //Comprobamos si este grafo es dirigido o no
+  assert(!G.esDirigido());
+  typedef typename GrafoP<size_t>::vertice vertice;
+  typedef typename GrafoP<size_t>::arista arista;
+  const size_t n = G.numVert();
+  Particion P(n);
+  vector<arista>aristas;
+  for(vertice v = 0; v < n; v++)
+    for(vertice w = v+1; w < n; w++)
+      if(G[v][w] != GrafoP<size_t>::INFINITO)
+        aristas.push_back(arista(v,w,G[v][w]));
+  //Ordenamos las aristas de mayor a menor, en vez de menor a mayor
+  sort(aristas.begin(),aristas.end(),greater<arista>());
+  GrafoP<tCoste>A(n); //Creamos el nuevo grafo
+  for(size_t i = 0; i < aristas.size(); i++){
+    vertice v = aristas[i].v, w = aristas[i].w;
+    if(P.encontrar(v) != P.encontrar(w)){
+      A[v][w] = A[w][v] = aristas[i].coste;
+      P.unir(v,w);
+    }
+  }
+  retrun A;
+}
+\end{minted}
+
+\textbf{\large\underbar{Ejercicio 4:}}\textit{ La empresa EMASAJER S.A. tiene que unir mediante canales todas las ciudades del valle del Jerte (Cáceres). Calcula qué canales y de qué longitud deben construirse partiendo del grafo con las distancias entre las ciudades y asumiendo las siguientes premisas:
+\begin{itemize}
+  \item el coste de abrir cada nuevo canal es casi prohibitivo, luego la solución final debe tener un número mínimo de canales.
+  \item el Ministerio de Fomento nos subvenciona por Kms de canal, luego los canales deben ser de la longitud máxima posible.
+\end{itemize}}
+
+Partimos del conjunto de ciudades de Cárceres, para calcular qué canales de tamaño máximo podemos construir haremos uso del algoritmo \texttt{KruskalMaximo()}, es decir, estamos buscando un árbol de expansión máximo.
+
+\begin{minted}[breaklines]{C++}
+//Definimos los tipos de datos a usar
+typedef std::pair<size_t,size_t> ciudad;
+
+GrafoP<size_t> EMASAJER(vector<ciudad>ciudades){
+  //Vamos a crear el grafo a devolver
+  GrafoP<size_t> Jerte(ciudades.size());
+
+  //Rellenamos el Grafo
+  for(size_t i = 0; i < ciudades.size(); i++)
+    for(size_t j = i+1; j < ciudades.size(); j++)
+      Jerte[i][j] = DistanciaEuclidea(ciudades[i],ciudades[j]);
+
+  //Ahora calculamos el KruskalMaximo de Jerte y devolvemos el Grafo
+  return KruskalMaximo(Jerte);
+}
+\end{minted}
+
+\textbf{\large\underbar{Ejercicio 5:}}\textit{ La nueva compañía de telefonía RETEUNI3 tiene que conectar entre sí, con fibra óptica, todas y cada una de las ciudades del país. Partiendo del grafo que representa las distancias entre todas las ciudades del mismo, implementad un subprograma que calcule la longitud mínima de fibra óptica necesaria para realizar dicha conexión.}
+
+Este ejercicio es muy parecido al anterior pero ahora buscamos obtener el árbol de expansión mínimo, es decir, haremos uso de Kruskal.
+\begin{minted}[breaklines]{C++}
+//Definimos los tipos de datos a usar
+typedef std::pair<size_t,size_t> ciudad;
+
+size_t RETEUNI3(GrafoP<size_t> G){
+  //Creamos el grafo a devolver
+  GrafoP<size_t> F = Kruskal(G);
+  size_t longitud = 0; //longitud de la fibra óptica necesaria
+  //Rellenamos el grafo con los costes
+  for(size_t i = 0; i < ciudades.size(); i++)
+    for(size_t j = i+1; j < ciudades.size(); j++)
+      longitud += F[i][j];
+  return longitud;
+}
+\end{minted}
+
+\textbf{\large\underbar{Ejercicio 6:}}\textit{ La empresa EMASAJER S.A. tiene que unir mediante canales todas las ciudades del valle del Jerte (Cáceres), teniendo en cuenta las siguientes premisas:
+\begin{itemize}
+  \item El coste de abrir cada nuevo canal es casi prohibitivo, luego la solución final debe tener un número mínimo de canales.
+  \item El Ministerio de Fomento nos subvenciona por m3/sg de caudal, luego el conjunto de los canales debe admitir el mayor caudal posible, pero por otra parte, el coste de abrir cada canal es proporcional a su longitud, por lo que el conjunto de los canales también debería medir lo menos posible. Así pues, la solución óptima debería combinar adecuadamente ambos factores.
+\end{itemize}
+Dada la matriz de distancias entre las diferentes ciudades del valle del Jerte, otra matriz con los diferentes caudales máximos admisibles entre estas ciudades teniendo en cuenta su orografía, la subvención que nos da Fomento por m3/sg. de caudal y el coste por km. de canal, implementen un subprograma que calcule qué canales y de qué longitud y caudal deben construirse para minimizar el coste total de la red de canales.}
+
+Tenemos que tener en cuenta que queremos devolver los canales y su longitud sabiendo que el caudal del mismo tiene que ser lo mayor posible y el mínimo número de canales posibles. Como queremos que el caudal sea lo mayor posible, vamos a hacer uso de \texttt{KruskalMaximo()}.
+\begin{minted}[breaklines]{C++}
+//Definimos los tipos de datos a usar
+typedef struct{
+  size_t caudal_, longitud_;
+}canal;
+
+GrafoP<canal> EMASAJER2(matriz<size_t>caudales, matriz<size_t>longitudes, size_t subvencionCaudal, size_t costeLongitud){
+  //Creamos el grafo
+  Grafop<size_t> Jerte(caudales.dimension());
+  //Rellenamos el Grafo con los caudales y longitudes
+  for(size_t i = 0; i < caudales.dimension(); i++)
+    for(size_t j = i+1; j < caudales.dimension(); j++)
+      Jerte[i][j] = caudales[i][j]*(subvencionCaudal/100) - longitudes[i][j]*costeLongitud;
+  //Ahora hacemos KruskalMaximo del Grafo
+  Jerte = KruskalMaximo(Jerte);
+  //Ahora creamos el grafo que vamos a devolver
+  GrafoP<canal> JerteFinal(Jerte.numVert());
+  //Rellenamos el Grafo
+  for(size_t i = 0; i < Jerte.numVert(); i++)
+    for(size_t j = i+1; j < Jerte.numVert(); j++){
+      if(Jerte[i][j]!= GrafoP<size_t>::INFINITO){
+        JerteFinal[i][j].caudal_ =  caudales[i][j];
+        JerteFinal[i][j].longitud_ = longitudes[i][j];
+      }
+    }
+  return JerteFinal;
+}
+\end{minted}
+
+\textbf{\large\underbar{Ejercicio 7:}}\textit{ El archipiélago de Grecoland (Zuelandia) está formado únicamente por dos islas, Fobos y Deimos, que tienen \(N_1\) y \(N_2\) ciudades, respectivamente, de las cuales \(C_1\) y \(C_2\) ciudades son costeras (obviamente \(C_1 \leq N_1\) y \(C_2 \leq N_2\) ). Se dispone de las coordenadas cartesianas (x, y) de todas y cada una de las ciudades del archipiélago. El huracán Isadore acaba de devastar el archipiélago, con lo que todas las carreteras y puentes construidos en su día han desaparecido. En esta terrible situación se pide ayuda a la ONU, que acepta reconstruir el archipiélago (es decir volver a comunicar todas las ciudades del archipiélago) siempre que se haga al mínimo coste.}
+
+\textit{De cara a poder comparar costes de posibles reconstrucciones se asume lo siguiente:
+\begin{enumerate}
+  \item El coste de construir cualquier carretera o cualquier puente es proporcional a su longitud (distancia euclídea entre las poblaciones de inicio y fin de la carretera o del puente).
+  \item Cualquier puente que se construya siempre será más caro que cualquier carretera que se construya.
+\end{enumerate}}
+
+\textit{De cara a poder calcular los costes de VIAJAR entre cualquier ciudad del
+archipiélago se considerará lo siguiente:
+\begin{enumerate}
+  \item El coste directo de viajar, es decir de utilización de una carretera o de un puente, coincidirá con su longitud (distancia euclídea entre las poblaciones origen y destino de la carretera o del puente).
+\end{enumerate}}
+
+\textit{En estas condiciones, implementa un subprograma que calcule el coste mínimo de viajar entre dos ciudades de Grecoland, origen y destino, después de haberse reconstruido el archipiélago, dados los siguientes datos:
+\begin{enumerate}
+  \item Lista de ciudades de Fobos representadas mediante sus coordenadas cartesianas.
+  \item Lista de ciudades de Deimos representadas mediante sus coordenadas
+  cartesianas.
+  \item Lista de ciudades costeras de Fobos.
+  \item Lista de ciudades costeras de Deimos.
+  \item Ciudad origen del viaje.
+  \item Ciudad destino del viaje.
+\end{enumerate}}
+
+Contamos con el conjunto de ciudades de las islas Fobos y Deimos, el conjunto de ciudaes costeras de ambas islas y la ciudad origen y destino del viaje.
+
+Como vemos, Grecoland está destruido y debe de ser reconstruido sabiendo que el coste de construir un puente es más caro que una carretera y que se debe de hacer con el menor coste posible, por lo que haremos uso de Kruskal, para tener las ciudades de cada isla comunicadas con el menor coste posible.
+
+Como queremos obtener el coste mínimo de viajar entre dos ciudades de Grecoland vamos a hacer uso de Dijkstra.
+\begin{minted}[breaklines]{C++}
+//Definimos los tipos de datos a usar
+typedef std::pair<size_t,size_t>ciudad;
+size_t Grecoland(vector<ciudad>ciudadesFobos,vector<ciudad>ciudadesDeimos, vector<ciudad>costerasFobos, vector<ciudad>costerasDeimos, size_t Origen, size_t Destino){
+  //Primero vamos a crear los grafos de Fobos para poder calcular su árbol generador de coste mínimo (Kruskal)
+  GrafoP<size_t>Fobos(ciudadesFobos.size());
+  //Rellenamos el grafo con los costes (DistanciaEuclidea)
+  for(size_t i = 0; i < ciudadesFobos.size(); i++)
+    for(size_t j = i+1; j < ciudadesFobos.size(); j++){
+      Fobos[i][j] = DistanciaEuclidea[ciudadesFobos[i],ciudadesFobos[j]];
+    }
+  //Ahora calculamos el árbol generador de coste mínimo
+  Fobos = Kruskal(Fobos);
+
+  //Lo mismo para la isla de Deimos
+  GrafoP<size_t>Deimos(ciudadesDeimos.size());
+  for(size_t i = 0; i < ciudadesDeimos.size(); i++)
+    for(size_t j = i+1; j < ciudadesDeimos.size(); j++)
+      Deimos[i][j] = DistanciaEuclidea(ciudadesDeimos[i], ciudadesDeimos[j]);
+  //Ahora hacemos Kruskal
+  Deimos = Kruskal(Deimos);
+
+  //Ahora vamos a crear el supergrafo
+  GrafoP<size_t>grecoland(ciudadesFobos.size());
+  //Rellenamos el supergrafo primero con el grafo Fobos
+  for(size_t i = 0; i < ciudadesFobos.size(); i++)
+    for(size_t j = 0; j < ciudadesFobos.size(); j++){
+      grecoland[i][j] = Fobos[i][j];
+    }
+  //Ahora incluimos en el supergrafo el grafo Deimos
+  for(size_t i = 0; i < ciudadesDeimos.size(); i++)
+    for(size_t j = 0; j < ciudadesDeimos.size(); j++)
+      grecoland[i+ciudadesFobos.size()][j+ciudadesFobos.size()] = Deimos[i][j];
+  
+  //Ahora que tenemos el supergrafo relleno, es decir, el archipielago reconstruido con las carreteras, vamos a incluir los puentes.
+  for(size_t i = 0; i < ciudadesFobos.size(); i++)
+    for(size_t j = 0; j < ciudadesDeimos.size(); j++){
+      //Si i es costera y j es costera, se unen con un puente
+      //Buscamos en el vector de las ciudades costeras si dicha ciudad costera existe en el vector de ciudades de la isla:
+      if(find(costerasFobos.begin(),costerasFobos.end(), ciudadesFobos[i])!= costerasFobos.end() &&                                                                                                   find(costerasDeimos.begin(), costerasDeimos.end(), ciudadesDeimos[j]) != costerasDeimos.end()){
+
+        size_t costePuente = DistanciaEuclidea(ciudadesFobos[i],ciudadesDeimos[j]);
+        //Guardamos en el grafo el coste del puente (la unión entre las dos ciudades):
+        grecoland[i][j+ciudadesFobos.size()] = costePuente;
+        grecoland[j+ciudadesFobos.size()][i] = costePuente;
+      }
+    }
+  //Ahora hacemos Kruskal del grafo grecoland para quedarnos con los puentes con menor costes
+  grecoland = Kruskal(grecoland);
+
+  //Ya que tenemos las ciudades unidas mediante carreteras y puentes con el coste menor posible, podemos calcular el coste de ir de una ciudad origen a destino en nuestro archipielago Grecoland. Para ello vamos a declarar los vectores (coste y vértices) para poder hacer uso de Dijkstra
+  vector<size_t>vertices(grecoland.numVert());
+  vector<size_t>CosteMinimo = Dijkstra(grecoland, Origen, vertices);
+  return costeMinimo[Destino]; //devolvemos el coste mínimo de ir desde el Origen a nuestro Destino.
+}
+\end{minted}

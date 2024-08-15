@@ -1,0 +1,142 @@
+En esta práctica, veremos como trabajar con árboles binarios de búsqueda (ABB).
+
+A diferencia de los árboles binarios o generales ahora no trabajamos con nodos, si no con subárboles del mismo.
+
+Como ficheros de cabeceras tendremos:
+\begin{minted}[breaklines]{C++}
+  #include <iostream>
+  #include "abb.h" //contiene Especificación e implementación métodos del TAD.
+  #include <vector> //para algunos ejercicios
+\end{minted}
+
+\newpage
+\textbf{\large\underbar{Ejercicio 1:}}\textit{ Implementa una nueva operación del TAD Abb que tomando un elemento del mismo elimine al completo el subárbol que cuelga de él.}
+\underbar{Ejemplo:} Para el árbol binario de búsqueda de la figura se muestra la transformación si la entrada fuera el valor 9.
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics*[width=.7\textwidth]{assets/Abb1.png}
+  \end{center}
+\end{figure}
+
+Suponemos que estamos dentro del TAD -> `abb.h'
+\begin{minted}[breaklines]{C++}
+template <typename T> void deletSubarbol(Abb<T> A, const T& e){
+  return deletSubarbol_rec(A.r, e);
+}
+
+template typename<T> void deletSubarbol_rec(typename Abb<T>::arbol *&a, const T& e){
+  if(a != nullptr){
+    if( e < a->elto){
+      deletSubarbol_rec(a->izq.r,e);
+    }
+    else if(e > a->elto){
+      deletSubarbol_rec (a->der.r, e);
+    }
+    else{
+      delete a;
+      a = nullptr;
+    }
+  }
+}
+\end{minted}
+
+\textbf{\large\underbar{Ejercicio 2:}}\textit{ Un árbol binario de búsqueda se puede equilibrar realizando el recorrido en inorden del árbol para obtener el listado ordenado de sus elementos y a continuación, repartir equitativamente los elementos a izquierda y derecha colocando la mediana en la raíz y construyendo recursivamente los subárboles izquierdo y derecho de cada nodo. Implementa este algoritmo para equilibrar un ABB.}
+
+Para llevar a cabo este problema necesitamos almacenar todos los elementos de un Abb y mediante un recorrido en inorden realizar la inserción de dicho elementos de menera equitativa con el fin de obtener un ABB equilibrado. Aquí está el motivo de porque incluimos la cabecera \texttt{<vector>}.
+
+Además vamos a construir el árbol equilibrado a partir del vector con los elementos, por eso el método \texttt{equilibrarABB\_rec()} recibe dos enteros; posición inicio y fin del vector.
+
+A partir de ahí se calcula la mediana que concuerda con el elemento que será la raiz del ABB.
+
+\begin{minted}[breaklines]{C++}
+template <typename T> void equilibrarABB(Abb<T> &A){
+//Creamos el vector que contendrá los elementos del ABB
+  vector<T> v;
+//Recorrido en inorden
+  inorden(A, v);
+//Equilibramos todo el árbol.
+  A.r = equilibrarABB_rec(v,0,v.size()-1);
+}
+
+template <typename T> Abb<T>::arbol* equilibrarABB_rec(std::vector<T> &v, size_t ini, size_t fin){
+  if(ini > fin){
+    return nullptr;
+  }
+  else{
+    //sacamos la raiz
+    size_t mediana = (ini+fin)/2;
+    //creamos un nuevo árbol con el valor de la mediana como raiz
+    typename Abb<T>::arbol* a = new typename Abb<T>::arbol(v[mediana]);
+    //insertamos los elementos de forma equitativa
+    a->izq.r = equilibrarABB_rec(v, ini,mediana-1);
+    a->der.r = equilibrarABB_rec(v,mediana+1,fin);
+    return a; //devolvemos el árbol equilibrado
+  }
+}
+\end{minted}
+
+\textbf{\large\underbar{Ejercicio 3:}}\textit{ Dados dos conjuntos representados mediante árboles binarios de búsqueda, implementa la operación unión de dos conjuntos que devuelva como resultado otro conjunto que sea la unión de ambos, representado por un ABB equilibrado.}
+
+
+\begin{minted}[breaklines]{C++}
+template <typename T> Abb<T> Union(const Abb<T> &A, Abb<T>B){
+  //Declaramos un Abb con el contenido de A que será el resultado de la unión de A y B.
+  Abb<T> Res{A}; 
+  while(!B.vacio()){
+    //Insertamos los elemento que no se encuentren en A
+    if(A.buscar(B.elemento()).vacio()){
+      Res.insertar(B.elemento());
+    }
+    B.eliminar(B.elemento());
+  }
+  Equilibrar(Res);
+  return Res;
+}
+\end{minted}
+
+\textbf{\large\underbar{Ejercicio 4:}}\textit{ Dados dos conjuntos representados mediante árboles binarios de búsqueda, implementa la operación intersección de dos conjuntos, que devuelva como resultado otro conjunto que sea la intersección de ambos. El resultado debe quedar en un árbol equilibrado.}
+\begin{minted}[breaklines]{C++}
+template <typename T> Abb<T> Intersec(const Abb<T> &A, Abb<T> B){
+  //Declaramos un Abb vacio que será el resultado de la unión de A y B.
+  Abb<T> Res;
+  while(!B.vacio()){
+    //insertamos los elementos que se encuentren en A
+    if(!A.buscar(B.elemento()).vacio()){
+      Res.insertar(B.elemento());
+    }
+    B.eliminar(B.elemento());
+  }
+  Equilibrar(Res);
+  return Res;
+}
+\end{minted}
+
+\textbf{\large\underbar{Ejercicio 5:}}\textit{ Implementa el operador $\diamond$ para conjuntos definido como $A \diamond\ B = (A \cup B) - (A \cap B)$. La implementación del operador $\diamond$ debe realizarse utilizando obligatoriamente la operación $\in$, que nos indica si un elemento dado pertenece o no a un conjunto. La representación del tipo Conjunto debe ser tal que la operación de pertenencia esté en el caso promedio en $O(\log n)$.}
+
+Para poder llevar a cabo este subprograma vamos a hacer uso de las dos funciones previamente implementadas (Unión e Intersección) de Abb.
+\begin{minted}[breaklines]{C++}
+//vamos a crearnos una función auxiliar que nos va a servir de ayuda para comprobar si un elemento existe o no en un conjunto.
+template <typename T> bool existe(const T& e, const Abb<T> &A){
+  return !A.buscar(e).vacio();
+}
+template <typename T> Abb<T> opRombo(const Abb<T> &A, Abb<T> B){
+  //realizamos la unión e intersección de los árboles
+  Abb<T> Union{Union(A,B)};
+  Abb<T> Inserseccion{Intersec(A,B)};
+  Abb<T> Diff{Union};
+
+  while(!Intersección.vacio()){
+    //Si encontramos el elemento en la intersección de A y B, se quita de la diferencia
+    if(exite(Interseccion.elemento(),Union)){
+      Diff.eliminar(Interseccion.elemento());
+    }
+    //Si no está, se elimina de la intersección
+    Interseccion.eliminar(Interseccion.elemento());
+    //Equilibramos el árbol despues de eliminar un elemento.
+    Equilibrar(Interseccion);
+  }
+  //Equilibramos el árbol diferencia "Diff" ya que hemos eliminado del mismo.
+  Equilibrar(Diff);
+  return Diff;
+}
+\end{minted}

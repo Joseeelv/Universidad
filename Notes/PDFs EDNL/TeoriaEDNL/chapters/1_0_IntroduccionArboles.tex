@@ -112,3 +112,19 @@ Los árboles se componen de nodos raiz, hojas, subárboles, ramas, etcétera.
   \caption{Ejemplo de altura y profundidad}
   En rojo vemos la altura y en verde la profundidad.
 \end{figure}
+
+Cálculo de la altura de un árbol binario:
+\begin{minted}[breaklines]{C++}
+  return 1+std::max(alturaAbin_rec(A.hijoIzqdo(n),A), alturaAbin_rec(A.hijoDrcho(n),A));
+\end{minted}
+Código del cálculo de la profunddad de un árbol binario:
+\begin{minted}[breaklines]{C++}
+  return 1+profundidad_rec(A.padre(n),A);
+\end{minted}
+
+\underbar{\large\textbf{Desequilibrio:}} El desequilibrio de un árbol es la máxima diferencia de altura de los subárboles izquierdos y derecho de uno o más nodos, esto puede repercutir significativamente en la eficiencia de algunas operaciones, en la \textit{Figura 1.7} podemos ver un árbol desequilibrado.
+
+Código del desequilibrio de un árbol binario:
+\begin{minted}[breaklines]{C++}
+  return std::max(std::abs(A.alturaAbin_rec(A.hijoIzqdo(n), A) - A.alturaAbin_rec(A.hijoDrcho(n) A)), std::max(desequilibrio_rec(A.hijoIzqdo(n), A), desequilibrio_rec(A.hijoDrcho(n), A)));
+\end{minted}

@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{//vamos a declarar los tipos datos necesarios para el ejericio, como son las ciudades, carreteras..}
+\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}::}\PYG{n}{vertice}\PYG{+w}{ }\PYG{n}{ciudad}\PYG{p}{;}
+\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{pair}\PYG{o}{\PYGZlt{}}\PYG{n}{ciudad}\PYG{p}{,}\PYG{n}{ciudad}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{carretera}\PYG{p}{;}
+\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{ciudad}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{ciudades\PYGZus{}rebeldes}\PYG{p}{;}
+\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{pair}\PYG{o}{\PYGZlt{}}\PYG{n}{ciudad}\PYG{p}{,}\PYG{n}{ciudad}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{carreteras\PYGZus{}cortadas}\PYG{p}{;}
+\PYG{n}{matriz}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{Zuelandia}\PYG{p}{(}\PYG{n}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{G}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ciudades\PYGZus{}rebeldes}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{cr}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{carre}\PYG{p}{)}
+\end{Verbatim}

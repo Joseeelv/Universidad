@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{//vamos a declarar los tipos datos necesarios para el ejericio, como son las ciudades, carreteras..}
+\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}::}\PYG{n}{vertice}\PYG{+w}{ }\PYG{n}{ciudad}\PYG{p}{;}
+\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{pair}\PYG{o}{\PYGZlt{}}\PYG{n}{ciudad}\PYG{p}{,}\PYG{n}{ciudad}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{carretera}\PYG{p}{;}
+\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{ciudad}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{ciudades\PYGZus{}rebeldes}\PYG{p}{;}
+\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{pair}\PYG{o}{\PYGZlt{}}\PYG{n}{ciudad}\PYG{p}{,}\PYG{n}{ciudad}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{carreteras\PYGZus{}cortadas}\PYG{p}{;}
+\PYG{n}{matriz}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{Zuelandia}\PYG{p}{(}\PYG{n}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{Z}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ciudades\PYGZus{}rebeldes}\PYG{+w}{ }\PYG{n}{cr}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{carreteras\PYGZus{}cortadas}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{cc}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ciudad}\PYG{+w}{ }\PYG{n}{capitalZuelandia}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{Z}\PYG{p}{.}\PYG{n}{numVert}\PYG{p}{();}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{++}\PYG{p}{)\PYGZob{}\PYGZcb{}}
+\PYG{+w}{  }\PYG{n}{Z}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{capita}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//ponemos los caminos directos hacia la capital.}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
