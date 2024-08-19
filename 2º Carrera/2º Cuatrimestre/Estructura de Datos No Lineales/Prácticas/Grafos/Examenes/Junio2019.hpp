@@ -16,13 +16,14 @@
 
 //Creamos el tipo coordenada
 typedef std::pair<size_t,size_t>ciudad; //dos coordenadas es una ciudad
-vector<std::pair<ciudad,ciudad>>lineaAereas; //linea aerea entre dos ciudades
 
-lineaAereas Tombuctú2(vector<ciudad>ciudades, const Grafo& archipielago)
+
+vector<std::pair<ciudad,ciudad>> Tombuctú2(vector<ciudad>ciudades, const Grafo& archipielago)
 {
     //Creamos un vector de lineas Aereas auxiliar que vamos a devolver
-    lineaAereas lineaAereaAux;
-    archipielago archi = rellenar(c, carreteras);
+    vector<std::pair<ciudad,ciudad>> lineaAereaAux;
+    archipielago archi;
+    rellenar(c, carreteras,archi);
 
     //Recorremos una par de islas para buscar las ciudades más cercanas
     for(size_t i = 0; i<archi.size(); i++){
@@ -49,7 +50,7 @@ size_t distanciaEuclidea(ciudad i, ciudad j)
     return sqrt(pow(i.first - j.first, 2) + pow(i.second - j.second, 2));
 }
 
-archipielago rellenar(vector<ciudad> c, Grafo carreteras)
+void rellenar(vector<ciudad> c, Grafo carreteras, Grafo& archipielago)
 {
     Particion p(c.size());
     // [{c1},{c2},{c3},{c4},{c5},{c6},{c7}]
