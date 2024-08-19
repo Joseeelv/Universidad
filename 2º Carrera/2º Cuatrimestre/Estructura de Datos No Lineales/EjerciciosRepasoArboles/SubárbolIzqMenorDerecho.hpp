@@ -2,7 +2,7 @@
 
 /*Parece que se puede hacer mediante un ABB, pero este ya nos lo daría hecho, por tanto, vamos a hacer uso de un Abin comprobando que los elementos de los hijosIzquierdo < HijoDerecho*/
 #include <iostream>
-#include "../Árboles/Abin.h"
+#include "../Árboles/abin.h"
 
 template <typename T>
 bool menorsubarbol(const Abin<T> &A){

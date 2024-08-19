@@ -2,7 +2,7 @@
  */
 
 #include <iostream>
-#include "../Árboles/Abin.h"
+#include "../Árboles/abin.h"
 
 // Llamada a la función recursiva que nos eliminará los nodos hijos.
 template <typename T>
