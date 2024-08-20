@@ -1,6 +1,7 @@
 #include <iostream>
 #include "abin_E-S.h" 
 #include "abin.h"
+#include <vector>
 
 /*Ejercicio de clase: Considere un árbol A, en el que puede suponer que no 
 hay elementos repetidos. Dado un elemento x, devuelve el camino que existe entre la
