@@ -1,0 +1,13 @@
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\contentsline {chapter}{\numberline {1}Prácticas Árboles}{3}{chapter.1}%
+\contentsline {section}{Práctica 1: Árboles Binarios I}{3}{section*.2}%
+\contentsline {section}{Práctica 2: Árboles Binarios II}{7}{section*.3}%
+\contentsline {section}{Práctica 3: Árboles Generales}{9}{section*.5}%
+\contentsline {section}{Práctica 4: Árboles Binarios de Búsqueda}{12}{section*.6}%
+\contentsline {section}{Práctica 5: Árboles parcialmente ordenados y otros}{16}{section*.8}%
+\contentsline {section}{Práctica Extra: Repaso árboles Binarios}{21}{section*.10}%
+\contentsline {chapter}{\numberline {2}Prácticas Grafos}{25}{chapter.2}%
+\contentsline {section}{Práctica 6: Problemas de Grafos I}{25}{section*.11}%
+\contentsline {section}{Práctica 7: Problemas de Grafos II}{31}{section*.12}%
+\contentsline {section}{Práctica 8: Problemas de Grafos III}{52}{section*.13}%

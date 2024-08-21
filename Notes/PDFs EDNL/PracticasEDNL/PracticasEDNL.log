@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.27)  21 AUG 2024 14:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.27)  21 AUG 2024 14:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -823,12 +823,7 @@ Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'spanish'.
-(./PracticasEDNL.aux
-LaTeX Info: Redefining \. on input line 11.
-LaTeX Info: Redefining \% on input line 11.
-LaTeX Info: Redefining \. on input line 12.
-LaTeX Info: Redefining \% on input line 12.
-)
+No file PracticasEDNL.aux.
 \openout1 = `PracticasEDNL.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
@@ -854,7 +849,7 @@ Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
- (/usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+(/usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count393
 \scratchdimen=\dimen316
@@ -876,7 +871,6 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
 Package hyperref Info: Link coloring ON on input line 8.
- (./PracticasEDNL.out) (./PracticasEDNL.out)
 \@outlinefile=\write6
 \openout6 = `PracticasEDNL.out'.
 
@@ -920,23 +914,12 @@ Couldn't patch \ttl@straight@ii
 Couldn't patch \ttl@straight@ii
 (./chaps/00_Portada.tex) [1
 
-{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./PracticasEDNL.toc
-LaTeX Info: Redefining \. on input line 1.
-LaTeX Info: Redefining \% on input line 1.
-LaTeX Info: Redefining \. on input line 2.
-LaTeX Info: Redefining \% on input line 2.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 4.
- (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 4.
- (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-))
+{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+No file PracticasEDNL.toc.
 \tf@toc=\write7
 \openout7 = `PracticasEDNL.toc'.
 
- (./chaps/Párboles.tex [2
+(./chaps/Párboles.tex [2
 
 ]
 Cap\'{\i }tulo 1.
@@ -957,6 +940,14 @@ LaTeX Font Warning: Font shape `OT1/zi4/m/it' undefined
 
 LaTeX Font Info:    Font shape `OT1/zi4/m/it' will be
 (Font)              scaled to size 10.95pt on input line 2.
+)
+LaTeX Font Info:    Trying to load font information for U+msa on input line 10.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 10.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 \openout3 = `PracticasEDNL.pyg'.
 
@@ -995,7 +986,7 @@ Underfull \vbox (badness 6910) has occurred while \output is active []
 \openout3 = `PracticasEDNL.pyg'.
 
  (./_minted-PracticasEDNL/8023CEA6AC51B8C29B718A94D2145580FE898BF36090D6A06192B7DE27289821.pygtex [7])
-<assets/p2.1.png, id=104, 506.89375pt x 419.5675pt>
+<assets/p2.1.png, id=51, 506.89375pt x 419.5675pt>
 File: assets/p2.1.png Graphic file (type png)
 <use assets/p2.1.png>
 Package pdftex.def Info: assets/p2.1.png  used on input line 69.
@@ -1030,4 +1021,265 @@ LaTeX Font Info:    Font shape `TS1/zi4/m/n' will be
  (./_minted-PracticasEDNL/7B6510026AA2088B91ACFB3A4F409732FE898BF36090D6A06192B7DE27289821.pygtex)
 \openout3 = `PracticasEDNL.pyg'.
 
- (./_minted-PracticasEDNL/4DE49CBB784405F47F56116BE809BB5DFE898BF36090D6A06192B7DE27289821.pygtex [
+ (./_minted-PracticasEDNL/4DE49CBB784405F47F56116BE809BB5DFE898BF36090D6A06192B7DE27289821.pygtex [10])
+\openout3 = `PracticasEDNL.pyg'.
+
+ (./_minted-PracticasEDNL/3EAA3E895C4BCD96BD47AA5D01CFEDB4FE898BF36090D6A06192B7DE27289821.pygtex [11])) (./chaps/Arboles/P4.tex
+\openout3 = `PracticasEDNL.pyg'.
+
+ (./_minted-PracticasEDNL/47881BB0B3D4EE4574E7A830A59A2D99FE898BF36090D6A06192B7DE27289821.pygtex) [12]
+<assets/Abb1.png, id=84, 564.1075pt x 266.9975pt>
+File: assets/Abb1.png Graphic file (type png)
+<use assets/Abb1.png>
+Package pdftex.def Info: assets/Abb1.png  used on input line 17.
+(pdftex.def)             Requested size: 308.71106pt x 146.11574pt.
+\openout3 = `PracticasEDNL.pyg'.
+
+ (./_minted-PracticasEDNL/47629EEEC8F99A9E184E30BB7689DC38FE898BF36090D6A06192B7DE27289821.pygtex)
+\openout3 = `PracticasEDNL.pyg'.
+
+ (./_minted-PracticasEDNL/F202407ECDB7B5BF7F7E5653DD05E8E0FE898BF36090D6A06192B7DE27289821.pygtex [13 <./assets/Abb1.png>])
+\openout3 = `PracticasEDNL.pyg'.
+
+ (./_minted-PracticasEDNL/BEEE9F55E8548D73B46BE878D20E1B39FE898BF36090D6A06192B7DE27289821.pygtex)
+\openout3 = `PracticasEDNL.pyg'.
+
+ (./_minted-PracticasEDNL/91FFAF47FCB5E8A0A6E5EEF4984432EDFE898BF36090D6A06192B7DE27289821.pygtex [14])
+\openout3 = `PracticasEDNL.pyg'.
+
+ (./_minted-PracticasEDNL/FA0A99746913DA481733A288D79A8125FE898BF36090D6A06192B7DE27289821.pygtex)) [15] (./chaps/Arboles/p5.tex
+\openout3 = `PracticasEDNL.pyg'.
+
+ (./_minted-PracticasEDNL/275A04EEC36105CE454BA62EF2EC876FFE898BF36090D6A06192B7DE27289821.pygtex)
+\openout3 = `PracticasEDNL.pyg'.
+
+ (./_minted-PracticasEDNL/8CAE554A738B8B143C16B40E0401568CFE898BF36090D6A06192B7DE27289821.pygtex [16])
+\openout3 = `PracticasEDNL.pyg'.
+
+ (./_minted-PracticasEDNL/1B807F301179E5F86D1B067D1C327CE6FE898BF36090D6A06192B7DE27289821.pygtex [17]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [18])
+\openout3 = `PracticasEDNL.pyg'.
+
+ (./_minted-PracticasEDNL/90D0516E6252CBF03D42102B377EA550FE898BF36090D6A06192B7DE27289821.pygtex)
+\openout3 = `PracticasEDNL.pyg'.
+
+ (./_minted-PracticasEDNL/AF2BCC9E36AFCD3E6B75CAFA596ECFBCFE898BF36090D6A06192B7DE27289821.pygtex [19])
+<assets/p5.png, id=120, 1286.8075pt x 647.41875pt>
+File: assets/p5.png Graphic file (type png)
+<use assets/p5.png>
+Package pdftex.def Info: assets/p5.png  used on input line 196.
+(pdftex.def)             Requested size: 308.71106pt x 155.31451pt.
+ [20 <./assets/p5.png>]
+\openout3 = `PracticasEDNL.pyg'.
+
+ (./_minted-PracticasEDNL/209ED58A94C884F3E47967729CD149F9FE898BF36090D6A06192B7DE27289821.pygtex)) (./chaps/Arboles/Pextra.tex
+\openout3 = `PracticasEDNL.pyg'.
+
+ (./_minted-PracticasEDNL/D299887683E4015401DA785208C6AD8DFE898BF36090D6A06192B7DE27289821.pygtex [21])
+\openout3 = `PracticasEDNL.pyg'.
+
+ (./_minted-PracticasEDNL/9F1C0E403FFFF4D7A5BFED85AB91D51FFE898BF36090D6A06192B7DE27289821.pygtex
+Underfull \vbox (badness 3098) has occurred while \output is active []
+
+ [22])
+\openout3 = `PracticasEDNL.pyg'.
+
+ (./_minted-PracticasEDNL/047D6B741C40DE294AAC5C1A39552B53FE898BF36090D6A06192B7DE27289821.pygtex [23]))) (./chaps/Pgrafos.tex [24]
+Cap\'{\i }tulo 2.
+(./chaps/Grafos/P6.tex
+\openout3 = `PracticasEDNL.pyg'.
+
+ (./_minted-PracticasEDNL/EB301A81BC52D7CA92E9F1B401BE864AFE898BF36090D6A06192B7DE27289821.pygtex)
+Overfull \hbox (1.89638pt too wide) in paragraph at lines 11--12
+[]$[]$ \OT1/cmr/m/it/10.95 A~nadir una fun-ci^^Son gen^^Seri-ca, lla-ma-da Dijks-traInv, en el fi-che-ro alg[]grafoPMC.h
+ []
+
+\openout3 = `PracticasEDNL.pyg'.
+
+(./_minted-PracticasEDNL/9DEBC087A540EFE0E39C291283C7A2DBFE898BF36090D6A06192B7DE27289821.pygtex [25
+
+]) [26]
+\openout3 = `PracticasEDNL.pyg'.
+
+ (./_minted-PracticasEDNL/B537A08C661966888045588958E64A2CFE898BF36090D6A06192B7DE27289821.pygtex) [27]
+\openout3 = `PracticasEDNL.pyg'.
+
+ (./_minted-PracticasEDNL/A6A07007233A806F4C4E62652AE30BB7FE898BF36090D6A06192B7DE27289821.pygtex) [28]
+\openout3 = `PracticasEDNL.pyg'.
+
+ (./_minted-PracticasEDNL/A3896B14265E8AF387F639D3E581C2E2FE898BF36090D6A06192B7DE27289821.pygtex [29])
+\openout3 = `PracticasEDNL.pyg'.
+
+ (./_minted-PracticasEDNL/51B56400E8CF36D80F3ACB4E07463BB8FE898BF36090D6A06192B7DE27289821.pygtex [30])) (./chaps/Grafos/P7.tex
+\openout3 = `PracticasEDNL.pyg'.
+
+ (./_minted-PracticasEDNL/BE7FDC7B3057D6F887427E8FFF62F2ABFE898BF36090D6A06192B7DE27289821.pygtex [31]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [32])
+LaTeX Font Info:    Trying to load font information for OMS+zi4 on input line 90.
+LaTeX Font Info:    No file OMSzi4.fd. on input line 90.
+
+
+LaTeX Font Warning: Font shape `OMS/zi4/m/n' undefined
+(Font)              using `OMS/cmsy/m/n' instead
+(Font)              for symbol `textbraceleft' on input line 90.
+
+\openout3 = `PracticasEDNL.pyg'.
+
+(./_minted-PracticasEDNL/55C08C1546E814B6A5EA35ADA091D99DFE898BF36090D6A06192B7DE27289821.pygtex [33]
+Underfull \vbox (badness 1033) has occurred while \output is active []
+
+ [34]) [35]
+\openout3 = `PracticasEDNL.pyg'.
+
+ (./_minted-PracticasEDNL/947825C6ECF0B8F6AECE3EB82ED84AA3FE898BF36090D6A06192B7DE27289821.pygtex)
+\openout3 = `PracticasEDNL.pyg'.
+
+ (./_minted-PracticasEDNL/4F218DD269E5AF063F0F0301C9FB8114FE898BF36090D6A06192B7DE27289821.pygtex [36])
+\openout3 = `PracticasEDNL.pyg'.
+
+ (./_minted-PracticasEDNL/18AAFA528589BB2DA6F89A2619E88870FE898BF36090D6A06192B7DE27289821.pygtex [37]) [38]
+\openout3 = `PracticasEDNL.pyg'.
+
+ (./_minted-PracticasEDNL/15F810F153FF247B9F18D9AF153A192CFE898BF36090D6A06192B7DE27289821.pygtex
+Overfull \hbox (166.70625pt too wide) in paragraph at lines 20--20
+[]\OT1/zi4/m/it/10.95 std[]::[]min(std[]::[]min(matriz_minima_tren[i][j],matriz_minima_bus[i][j]),std[]::[]min(matriz_minima_bus[i][j],[] 
+ []
+
+) [39]
+\openout3 = `PracticasEDNL.pyg'.
+
+ (./_minted-PracticasEDNL/62173153AD35EC2F43B9901A4D1E912BFE898BF36090D6A06192B7DE27289821.pygtex) [40]
+\openout3 = `PracticasEDNL.pyg'.
+
+ (./_minted-PracticasEDNL/6E07632B53CE9EE91C921AD4BF193574FE898BF36090D6A06192B7DE27289821.pygtex) [41]
+\openout3 = `PracticasEDNL.pyg'.
+
+ (./_minted-PracticasEDNL/EFEFDCAFB3FA019FE0086D3C9B328BFFFE898BF36090D6A06192B7DE27289821.pygtex [42]) [43]
+\openout3 = `PracticasEDNL.pyg'.
+
+ (./_minted-PracticasEDNL/8A694C6DF9945E9E1EB8E6C5794411D0FE898BF36090D6A06192B7DE27289821.pygtex [44]
+
+LaTeX Font Warning: Font shape `TS1/zi4/m/it' undefined
+(Font)              using `TS1/zi4/m/n' instead
+(Font)              for symbol `textordmasculine' on input line 34.
+
+LaTeX Font Info:    Font shape `TS1/zi4/m/it' will be
+(Font)              scaled to size 10.95pt on input line 34.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [45]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [46]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [47])
+\openout3 = `PracticasEDNL.pyg'.
+
+ (./_minted-PracticasEDNL/EF8C7693758C5A66ABC46FFC6E32AF50FE898BF36090D6A06192B7DE27289821.pygtex [48])
+\openout3 = `PracticasEDNL.pyg'.
+
+ (./_minted-PracticasEDNL/946C32090EF4272DEC5E1B0F862A7E1DFE898BF36090D6A06192B7DE27289821.pygtex [49])
+Underfull \vbox (badness 2165) has occurred while \output is active []
+
+ [50]
+\openout3 = `PracticasEDNL.pyg'.
+
+ (./_minted-PracticasEDNL/833D6C2AB9F3936930E71D1FB0A5B5A4FE898BF36090D6A06192B7DE27289821.pygtex [51])) (./chaps/Grafos/P8.tex
+\openout3 = `PracticasEDNL.pyg'.
+
+ (./_minted-PracticasEDNL/F85D73F28B11D98BB99E3AAC7BE41A91FE898BF36090D6A06192B7DE27289821.pygtex [52])
+\openout3 = `PracticasEDNL.pyg'.
+
+runsystem(pygmentize -l 'C++' -f latex -P commandprefix=PYG -F tokenmerge -P stripnl='False' -o _minted-PracticasEDNL/68B329DA9893E34099C7D8AD5CB9C940FE898BF36090D6A06192B7DE27289821.pygtex PracticasEDNL.pyg)...disabled (restricted).
+
+
+
+./chaps/Grafos/P8.tex:34: Package minted Error: Missing Pygments output; \inputminted was
+probably given a file that does not exist--otherwise, you may need 
+the outputdir package option, or may be using an incompatible build tool,
+or may be using frozencache with a missing file.
+
+See the minted package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.34 \end{minted}
+                 
+This could be caused by using -output-directory or -aux-directory 
+without setting minted's outputdir, or by using a build tool that 
+changes paths in ways minted cannot detect, 
+or using frozencache with a missing file.
+
+[53]
+\openout3 = `PracticasEDNL.pyg'.
+
+ (./_minted-PracticasEDNL/4825B65365C00424BBE1F301CE6A9496FE898BF36090D6A06192B7DE27289821.pygtex [54])
+\openout3 = `PracticasEDNL.pyg'.
+
+ (./_minted-PracticasEDNL/0E2E4D9E2FCEE2BEE19EDDA7FF6D397EFE898BF36090D6A06192B7DE27289821.pygtex)
+\openout3 = `PracticasEDNL.pyg'.
+
+ (./_minted-PracticasEDNL/887B8F01D2818294E513DCFB1E329B42FE898BF36090D6A06192B7DE27289821.pygtex [55])
+\openout3 = `PracticasEDNL.pyg'.
+
+ (./_minted-PracticasEDNL/52C84175BAFDC15CFBC71C9CBE439511FE898BF36090D6A06192B7DE27289821.pygtex [56])
+\openout3 = `PracticasEDNL.pyg'.
+
+ (./_minted-PracticasEDNL/AAE5731252A4BC89CBE6F53066459944FE898BF36090D6A06192B7DE27289821.pygtex [57]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [58])))
+
+Package caption Warning: Unused \captionsetup[table] on input line 29.
+See the caption package documentation for explanation.
+
+[59] (./PracticasEDNL.aux
+LaTeX Info: Redefining \. on input line 11.
+LaTeX Info: Redefining \% on input line 11.
+LaTeX Info: Redefining \. on input line 12.
+LaTeX Info: Redefining \% on input line 12.
+)
+ ***********
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-02-20>
+ ***********
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `PracticasEDNL.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `PracticasEDNL.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  661C431B7ABEEC5C200820EC272C7273;2525.
+runsystem(rm PracticasEDNL.pyg)...disabled (restricted).
+
+ ) 
+Here is how much of TeX's memory you used:
+ 31615 strings out of 474116
+ 617639 string characters out of 5743682
+ 1944187 words of memory out of 5000000
+ 53140 multiletter control sequences out of 15000+600000
+ 569599 words of font info for 79 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 104i,10n,104p,1380b,938s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
+Output written on PracticasEDNL.pdf (59 pages, 616077 bytes).
+PDF statistics:
+ 411 PDF objects out of 1000 (max. 8388607)
+ 309 compressed objects within 4 object streams
+ 101 named destinations out of 1000 (max. 500000)
+ 40 words of extra memory for PDF output out of 10000 (max. 10000000)
+

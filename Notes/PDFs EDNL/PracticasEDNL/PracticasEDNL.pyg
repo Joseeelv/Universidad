@@ -1,19 +1,54 @@
-template <typename T> bool esTernario(const Agen<T> &A){
-  return esTernario_rec(A.raiz(), A);
-}
+//Definimos los tipos de datos a usar
+typedef std::pair<size_t,size_t>ciudad;
+size_t Grecoland(vector<ciudad>ciudadesFobos,vector<ciudad>ciudadesDeimos, vector<ciudad>costerasFobos, vector<ciudad>costerasDeimos, size_t Origen, size_t Destino){
+  //Primero vamos a crear los grafos de Fobos para poder calcular su árbol generador de coste mínimo (Kruskal)
+  GrafoP<size_t>Fobos(ciudadesFobos.size());
+  //Rellenamos el grafo con los costes (DistanciaEuclidea)
+  for(size_t i = 0; i < ciudadesFobos.size(); i++)
+    for(size_t j = i+1; j < ciudadesFobos.size(); j++){
+      Fobos[i][j] = DistanciaEuclidea[ciudadesFobos[i],ciudadesFobos[j]];
+    }
+  //Ahora calculamos el árbol generador de coste mínimo
+  Fobos = Kruskal(Fobos);
 
-template <typename T> bool esTernario_rec(typename Agen<T>::nodo n, const Agen<T> &A){
-  //n es un nodo nulo
-  if(n == Agen<T>::NODO_NULO)
-    return true;
-  //n no tiene hijos.
-  else if(A.hijoIzqdo(n) == Agen<T>::NODO_NULO && A.hermDrcho(n)== Agen<T>::NODO_NULO)
-    return true;
-  //n tiene hijos
-  else if(A.hijoIzqdo(n) != Agen<T>::NODO_NULO && A.hermDrcho(n)!= Agen<T>::NODO_NULO){
-    //llamamos a la función para sus hijos
-    esTernario_rec(A.hijoIzqdo(n),A) && esTernario_rec(A.hermDrcho(n),A);
-  }
-  else //Tiene 1 hijo.
-    return false;
+  //Lo mismo para la isla de Deimos
+  GrafoP<size_t>Deimos(ciudadesDeimos.size());
+  for(size_t i = 0; i < ciudadesDeimos.size(); i++)
+    for(size_t j = i+1; j < ciudadesDeimos.size(); j++)
+      Deimos[i][j] = DistanciaEuclidea(ciudadesDeimos[i], ciudadesDeimos[j]);
+  //Ahora hacemos Kruskal
+  Deimos = Kruskal(Deimos);
+
+  //Ahora vamos a crear el supergrafo
+  GrafoP<size_t>grecoland(ciudadesFobos.size());
+  //Rellenamos el supergrafo primero con el grafo Fobos
+  for(size_t i = 0; i < ciudadesFobos.size(); i++)
+    for(size_t j = 0; j < ciudadesFobos.size(); j++){
+      grecoland[i][j] = Fobos[i][j];
+    }
+  //Ahora incluimos en el supergrafo el grafo Deimos
+  for(size_t i = 0; i < ciudadesDeimos.size(); i++)
+    for(size_t j = 0; j < ciudadesDeimos.size(); j++)
+      grecoland[i+ciudadesFobos.size()][j+ciudadesFobos.size()] = Deimos[i][j];
+
+  //Ahora que tenemos el supergrafo relleno, es decir, el archipielago reconstruido con las carreteras, vamos a incluir los puentes.
+  for(size_t i = 0; i < ciudadesFobos.size(); i++)
+    for(size_t j = 0; j < ciudadesDeimos.size(); j++){
+      //Si i es costera y j es costera, se unen con un puente
+      //Buscamos en el vector de las ciudades costeras si dicha ciudad costera existe en el vector de ciudades de la isla:
+      if(find(costerasFobos.begin(),costerasFobos.end(), ciudadesFobos[i])!= costerasFobos.end() &&                                                                                                   find(costerasDeimos.begin(), costerasDeimos.end(), ciudadesDeimos[j]) != costerasDeimos.end()){
+
+        size_t costePuente = DistanciaEuclidea(ciudadesFobos[i],ciudadesDeimos[j]);
+        //Guardamos en el grafo el coste del puente (la unión entre las dos ciudades):
+        grecoland[i][j+ciudadesFobos.size()] = costePuente;
+        grecoland[j+ciudadesFobos.size()][i] = costePuente;
+      }
+    }
+  //Ahora hacemos Kruskal del grafo grecoland para quedarnos con los puentes con menor costes
+  grecoland = Kruskal(grecoland);
+
+  //Ya que tenemos las ciudades unidas mediante carreteras y puentes con el coste menor posible, podemos calcular el coste de ir de una ciudad origen a destino en nuestro archipielago Grecoland. Para ello vamos a declarar los vectores (coste y vértices) para poder hacer uso de Dijkstra
+  vector<size_t>vertices(grecoland.numVert());
+  vector<size_t>CosteMinimo = Dijkstra(grecoland, Origen, vertices);
+  return costeMinimo[Destino]; //devolvemos el coste mínimo de ir desde el Origen a nuestro Destino.
 }

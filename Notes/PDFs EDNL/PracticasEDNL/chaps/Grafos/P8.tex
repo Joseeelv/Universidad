@@ -30,83 +30,7 @@ También contamos con una matriz de adyacencia, es decir, que podemos saber que 
 Mediante esto y el Grafo dado, tenemos que devolver las islas del archipiélago y el coste de viajar entre dos ciudades de una misma isla.
 
 \begin{minted}[breaklines]{C++}
-// Vector ciudad:
-// [{0,1},{2,4},{3,5},{6,7},{8,9},{10,11},{12,13}]
-// [ c1,   c2,    c3,   c4,  c5,    c6,     c7]
-
-// Matriz de adyacencia:
-//      [c1,   c2,    c3,    c4,    c5,    c6,    c7]
-//   c1 [ 0,    1,     0,     0,     0,     0,     0]
-//   c2 [ 1,    0,     1,     0,     0,     0,     0]
-//   c3 [ 0,    1,     0,     0,     0,     0,     0]
-//   c4 [ 0,    0,     0,     0,     1,     0,     0]
-//   c5 [ 0,    0,     0,     1,     0,     1,     0]
-//   c6 [ 0,    0,     0,     0,     1,     0,     1]
-//   c7 [ 0,    0,     0,     0,     0,     1,     0]
-//------------------------------------------------------
-
-//Definimos los tipos de datos a usar
-typedef std::pair<size_t,size_t> Ciudad; //ciudad con las coordenadas x , y
-typedef struct Isla{ 
-  //La forman el conjunto de las ciudades y los costes mínimos
-   vector<Ciudad> CiudadesIsla;
-   matriz<size_t> CostesIsla;
-};
-
-typedef vector<Isla> Archipielago; //conjunto de las N islas
-
-//Función auxiliar que nos calcula el coste mínimo de viajar entre 2 ciudades cualesquiera
-matriz<size_t> CalcularCostes(vector<ciudad>ciudades){
-  //Primero creamos el grafo del tamaño de las ciudades
-  GrafoP<size_t> G(ciudades.size());
-
-  //Como vamos a hacer uso de Floyd, vamos a crear las matrices de costes y vértices.
-  matriz<size_t>MVertices(G.numVert()), Mcostes(G.numVert());
-  //Rellenamos el grafo con los costes, que será la distancia euclídea de las ciudades
-  for(size_t i = 0; i < ciudades.size(); i++)
-    for(size_t j = i+1; j < ciudades.size(); j++)
-      G[i][j] = DistanciaEuclidea(ciudades[i],ciudades[j]);
-
-  //Ahora hacemos Floyd, para calcular el coste mínimo, una vez tengamos el grafo relleno.
-  return Mcostes = Floyd(G,MVertices);
-}
-
-//Función auxiliar que nos calcula la distancia euclídea entre dos ciudades:
-size_t DistanciaEuclidea(ciudad a, ciudad b){
-  return sqrt(pow(a.first - b.first,2) + pow(a.second - b.second,2));
-}
-
-//Tenemos que devolver la distribución del archipiélago:
-archipielago Tombuctu1(Grafo G, vector<ciudad> ciudades){
-  size_t Tama = G.numVert();
-  Particion P(Tama);
-  //Recorremos el grafo comprobando si hay carretera
-  for(size_t i = 0; i < Tama; i++)
-    for(size_t j = 0; j < Tama; j++){
-      if(G[i][j] && P.encontrar(i) != P.encontrar(j)){ //Hay carretera y no están unidas (distinto representante), las unimos en el mismo subconjunto.
-        P.unir(P.encontrar(i),P.encontrar(j));
-      }
-    }
-  //Tenemos los sunconjuntos crados, por lo que vamos a insertar en cada isla sus ciudades el coste
-  size_t representante_actual = P.encontrar(0);
-  Isla isla;
-  Archipielago archipielago; //contiene el número de islas
-  for(size_t i = 0; i < ciudades.size(); i++){
-    if(P.encontrar(i) == representante_actual){ //está en esa isla
-      isla.CiudadesIsla.push_back(ciudades[i]);
-    }
-    else{ //si no tiene el mismo representante, metemos la isla en el archipiélago y cambiamos el representante
-      isla.CostesIsla = CalculaCostesIsla(isla.CiudadesIsla); //gaurdamos los costes mínimos de la isla
-      archipielago.push_back(isla); //almacenamos la isla en el archipiélago
-      //limpiamos el vector de ciudades de la isla
-      isla.CiudadesIsla.clear();
-      isla.CiudadesIsla.push_back(ciudades[i]); //insertamos la nueva ciudad
-      representante_actual = P.encontrar(i); //nuevo representante, de la nueva ciudad      
-    }
-  }
-  return archipielago;
-}
-
+  
 \end{minted}
 
 \textbf{\large\underbar{Ejercicio 2:}}\textit{ El archipiélago de Tombuctú2 está formado por un número desconocido de islas, cada una de las cuales tiene, a su vez, un número desconocido de ciudades, las cuales tienen en común que todas y cada una de ellas dispone de un aeropuerto. Sí que se conoce el número total de ciudades del archipiélago (podemos llamarlo N, por ejemplo).}
@@ -135,65 +59,7 @@ Ahora estas líneas aéreas será un par de dos ciudades de diferente isla, que 
 
 Además como hay un aeropuerto por cada ciudad, esto nos deja un número de \(n(n-1)/2\) líneas aéreas posibles que equivale al número de nodos del grafo. Esto es un número enorme de posibilidades por lo que haremos uso de un APO donde guardaremos estas líneas aéreas y podremos acceder a la de menor coste en un tiempo de \(O(1)\), ya que tenemos acceso al mínimo elemento.      
 
-\begin{minted}[breaklines]{C++}
-//Definimos los tipos de datos a usar
-typedef std::pair<size_t,size_t> Ciudad; //ciudad con las coordenadas x , y
 
-typedef struct LineaAerea{
-  size_t Origen_, Destino_, CosteViaje_;
-};
-
-//Conjunto de la líneas aéreas a devolver
-typedef vector<LineaAerea> LineasAereasArchipielago;
-
-typedef struct Isla{
-   vector<Ciudad> CiudadesIsla;
-   matriz<size_t> CostesIsla;
-};
-
-typedef vector<Isla> Archipielago;
-
-typedef GrafoP<size_t>::INFINITO INFINITO;
-
-LineasAereasArchipielago Tombuctu2 (Grafo G, vector<ciudad>ciudades){
-  //Creamos el archipiélago mediante el método Tombuctu1
-  Archipielago archipielago = Tombuctu1(G,ciudades); 
-  lineasAereas LA;
-  //Para ello, haremos uso del TAD APO, ya que el coste de encontrar el mínimo es de orden O(1).
-  Apo<LineaAerea> A(archipielago.size()*(archipielago.size()-1));
-  //Guardamos en el APO todas las líneas aéreas posible
-  for(size_t i = 0; i < archipielago.size(); i++)
-    for(size_t j = 0; j < archipielago.size(); j++){
-      if(P.encontrar(i) != P.encontrar(j)){
-        //Distinto representante, distinta isla -> linaea aerea
-        //insertamos la linea aérea en el apo
-        size_t representanteOrigen = P.encontrar(i);
-        size_t representanteDestino = P.encontrar(j);
-        A.insertar({representanteOrigen,representanteDestino,DistanciaEuclidea(ciudades[i],ciudades[j])});
-      }
-      //son de la misma isla, no hay linea aérea
-    }
-  //Tenemos el APO con las líneas aéreas, vamos a quedarnos con las menos costosas
-  //Vamos a crearnos una matriz de booleanos de las islas para saber que islas están unidas
-  matriz<bool> ConexiónIsla(archipielago.size(),false);
-
-  LineasAereasArchipielago vector_LA((archipielago.size()*(archipielago.size()-1))/2);
-  size_t contador = 0;
-  while(!A.vacio() && contador < (archipielago.size()*(archipielago.size()-1))/2){
-    LineaAerea aux = A.cima(); //linea aérea menos costosa
-    if(P.encontrar(aux.Origen_) != P.encontrar(aux.Destino_) && ConexiónIsla[aux.Origen_][aux.Destino_] ==false){ 
-      //son islas diferentes y no están conectadas. 
-      ConexiónIsla[aux.Origen_][aux.Destino_] = ConexiónIsla[aux.Origen_][aux.Destino_] = true;
-      //rellenamos el vector de las lineas aereas
-      vector_LA[contador].Origen_ = aux.Origen_;
-      vector_LA[contador].Destino_ = aux.Destino_;
-      vector_LA[contador].CosteViaje_ = aux.CosteViaje_;
-      contador++ ; //aumentamos el contador de las líneas aéreas.
-    }
-  }
-  return vector_LA;
-}
-\end{minted}
 
 \textbf{\large\underbar{Ejercicio 3:}}\textit{ Implementa un subprograma para encontrar un árbol de extensión máximo. ¿Es más difícil que encontrar un árbol de extensión mínimo?}
 
