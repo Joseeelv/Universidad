@@ -1,3 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{k}{return}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{o}{+}\PYG{n}{profundidad\PYGZus{}rec}\PYG{p}{(}\PYG{n}{A}\PYG{p}{.}\PYG{n}{padre}\PYG{p}{(}\PYG{n}{n}\PYG{p}{),}\PYG{n}{A}\PYG{p}{);}
-\end{Verbatim}

@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/jose/Desktop/Ejercicios TADS",
+      "program": "/Users/jose/Desktop/Ejercicios TADS/build/Debug/outDebug"
+    }
+  ]
+}

@@ -1,9 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{+w}{  }\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{D4}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{public}\PYG{+w}{ }\PYG{n}{D1}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{public}\PYG{+w}{  }\PYG{n}{D2}\PYG{p}{\PYGZob{}}
-\PYG{+w}{    }\PYG{k}{public}\PYG{o}{:}
-\PYG{+w}{      }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{f}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)\PYGZob{}}\PYG{n}{cout}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{}f(int) de D4\PYGZdq{}}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{endl}\PYG{p}{;\PYGZcb{}}
-\PYG{+w}{      }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{h}\PYG{p}{()\PYGZob{}}\PYG{n}{cout}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{}h() de D4\PYGZdq{}}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{endl}\PYG{p}{;\PYGZcb{}}
-\PYG{+w}{    }\PYG{k}{private}\PYG{o}{:}
-\PYG{+w}{      }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{d4}\PYG{p}{;}
-\PYG{+w}{  }\PYG{p}{\PYGZcb{};}
-\end{Verbatim}

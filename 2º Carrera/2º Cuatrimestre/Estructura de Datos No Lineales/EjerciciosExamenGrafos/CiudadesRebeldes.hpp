@@ -27,7 +27,7 @@ CostesViajes ZuelandiaRebelde(GrafoP<size_t> &G, vector<size_t> &CiudadesRebelde
   //Como no podemos acceder a las ciudades rebeldes, vamosa cortarlas
   for(auto &ciudad : CiudadesRebeldes){
     for(size_t i = 0; i < G.numVert(); i++){
-      G[i][ciudad] = G[ciudad][i] = GrafoP<size_t>::INFINITO;
+      G[i][ciudad] = GrafoP<size_t>::INFINITO;
     }
   }
   //Ahora vamos a cortar las carreteras que están tomadas por los rebeldes
@@ -46,6 +46,7 @@ CostesViajes ZuelandiaRebelde(GrafoP<size_t> &G, vector<size_t> &CiudadesRebelde
   matriz<size_t>CostesMinimos(G.numVert()),Vertices(G.numVert());
   return CostesMinimos = Floyd(G,Vertices); 
 }
+
 
 
 #endif // !CiudadesRebeldes_HPP

@@ -1,9 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{+w}{  }\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{A}\PYG{p}{\PYGZob{}}
-\PYG{+w}{    }\PYG{n}{A}\PYG{p}{(}\PYG{n}{X}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{)}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)\PYGZob{}\PYGZcb{}}
-\PYG{+w}{  }\PYG{p}{\PYGZcb{};}
-
-\PYG{+w}{  }\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{B}\PYG{p}{\PYGZob{}}
-\PYG{+w}{    }\PYG{n}{B}\PYG{p}{(}\PYG{n}{X}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{)}\PYG{o}{:}\PYG{n}{x}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)\PYGZob{}\PYGZcb{}}
-\PYG{p}{\PYGZcb{};}
-\end{Verbatim}

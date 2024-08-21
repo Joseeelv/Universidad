@@ -1,9 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{x}{template \PYGZlt{}typename tCoste\PYGZgt{} vector\PYGZlt{}tCoste\PYGZgt{} Dijkstra (const GrafoP\PYGZlt{}tCoste\PYGZgt{}\PYGZam{} G,typename GrafoP\PYGZlt{}tCoste\PYGZgt{}::vertice origen, vector\PYGZlt{}typename GrafoP\PYGZlt{}tCoste\PYGZgt{}::vertice\PYGZgt{}\PYGZam{} vertice)\PYGZob{}}
-\PYG{x}{  typedef typename GrafoP\PYGZlt{}tCoste\PYGZgt{}::vertice vertice;}
-\PYG{x}{  vertice v,w;}
-\PYG{x}{  const size\PYGZus{}t n = G.numVert(); //guardamos el numero de vertices}
-\PYG{x}{  vector\PYGZlt{}bool\PYGZgt{} S(n,false); //vector de booleanos inici}
-
-\PYG{x}{\PYGZcb{}}
-\end{Verbatim}

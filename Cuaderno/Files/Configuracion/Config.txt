@@ -1,6 +1,0 @@
-n_maximo_materias-11
-n_maximo_horarios-6
-n_maximo_alumnos-10
-n_maximo_matriculas-5
-n_maximo_usuarios-5
-calificacion_defecto-0

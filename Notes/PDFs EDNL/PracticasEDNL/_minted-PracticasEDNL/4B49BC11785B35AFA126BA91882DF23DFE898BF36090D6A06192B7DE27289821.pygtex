@@ -1,3 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{k}{enum}\PYG{+w}{ }\PYG{n+nc}{operador}\PYG{p}{\PYGZob{}}\PYG{n}{suma}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}+\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{resta}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}\PYGZhy{}\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{producto}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}*\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{division}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}/\PYGZsq{}}\PYG{p}{\PYGZcb{};}
-\end{Verbatim}
