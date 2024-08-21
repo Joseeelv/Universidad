@@ -1,8 +1,8 @@
-PWD /Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/POO Latex
+PWD /Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs POO/POO Latex
 INPUT /usr/local/texlive/2024/texmf.cnf
 INPUT /usr/local/texlive/2024/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/POO Latex/Index.tex
+INPUT /Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs POO/POO Latex/Index.tex
 OUTPUT Index.log
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/base/report.cls
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/base/report.cls

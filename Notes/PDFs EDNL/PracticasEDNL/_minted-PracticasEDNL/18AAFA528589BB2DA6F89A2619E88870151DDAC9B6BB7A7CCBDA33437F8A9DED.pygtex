@@ -1,0 +1,48 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{//Definimos los tipos de datos a usar}
+\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}::}\PYG{n}{vertice}\PYG{+w}{ }\PYG{n}{vertice}\PYG{p}{;}
+
+\PYG{c+c1}{//Como tenemos 3 grafos (3 medios de transporte), podemos hacer un super grafo y rellenarlo, para poder trabajar más comodamente.}
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{rellena\PYGZus{}supergrafo}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{trans1}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{trans2}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{supergrafo}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{for}\PYG{p}{(}\PYG{n}{vertice}\PYG{+w}{ }\PYG{n}{v}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{v}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{trans1}\PYG{p}{.}\PYG{n}{numVert}\PYG{p}{();}\PYG{+w}{ }\PYG{n}{v}\PYG{o}{++}\PYG{p}{)}
+\PYG{+w}{    }\PYG{k}{for}\PYG{p}{(}\PYG{n}{vertice}\PYG{+w}{ }\PYG{n}{w}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{w}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{trans2}\PYG{p}{.}\PYG{n}{numVert}\PYG{p}{();}\PYG{+w}{ }\PYG{n}{w}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{      }\PYG{n}{supergrafo}\PYG{p}{[}\PYG{n}{v}\PYG{p}{][}\PYG{n}{w}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{min}\PYG{p}{(}\PYG{n}{trans1}\PYG{p}{[}\PYG{n}{v}\PYG{p}{][}\PYG{n}{w}\PYG{p}{],}\PYG{n}{trans2}\PYG{p}{[}\PYG{n}{v}\PYG{p}{][}\PYG{n}{w}\PYG{p}{]);}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{//Como tenemos que devolver las ciudades a las que puede ir nuestro viajero alérgico vamos a crear un método que nos devuelva en un vector dichas ciudades.}
+
+\PYG{n}{std}\PYG{o}{::}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{bool}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{ciudades\PYGZus{}alcanzables}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{carretera}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{tren}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{avion}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{string}\PYG{+w}{ }\PYG{n}{alergia}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{vertice}\PYG{+w}{ }\PYG{n}{origen}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{presupuesto}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{  }\PYG{c+c1}{//Nos creamos el supergrafo}
+\PYG{+w}{  }\PYG{n}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{G}\PYG{p}{(}\PYG{n}{G}\PYG{p}{.}\PYG{n}{numVert}\PYG{p}{());}
+\PYG{+w}{  }\PYG{c+c1}{//Vamos a crearnos el vector que nos dirá a que ciudades podemos importa}
+\PYG{+w}{  }\PYG{n}{std}\PYG{o}{::}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{bool}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{alcanzables}\PYG{p}{(}\PYG{n}{G}\PYG{p}{.}\PYG{n}{numVert}\PYG{p}{(),}\PYG{n+nb}{false}\PYG{p}{);}
+\PYG{+w}{  }\PYG{c+c1}{//Nos creamos los vectores para hacer Dijkstra}
+\PYG{+w}{  }\PYG{n}{std}\PYG{o}{::}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{vertice}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{P}\PYG{p}{(}\PYG{n}{G}\PYG{p}{.}\PYG{n}{numVert}\PYG{p}{());}
+\PYG{+w}{  }\PYG{n}{std}\PYG{o}{::}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{costes\PYGZus{}minimos}\PYG{p}{(}\PYG{n}{G}\PYG{p}{.}\PYG{n}{numVert}\PYG{p}{());}
+
+\PYG{+w}{  }\PYG{c+c1}{//Ahora vamos a rellenar el supergrafo dependiendo de la alergia que tenga}
+\PYG{+w}{  }\PYG{k}{if}\PYG{p}{(}\PYG{n}{alergia}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}carretera\PYGZdq{}}\PYG{p}{)}
+\PYG{+w}{    }\PYG{n}{rellena\PYGZus{}supergrafo}\PYG{p}{(}\PYG{n}{tren}\PYG{p}{,}\PYG{n}{avion}\PYG{p}{,}\PYG{n}{G}\PYG{p}{);}
+\PYG{+w}{  }\PYG{k}{else}\PYG{+w}{ }\PYG{k}{if}\PYG{p}{(}\PYG{n}{alergia}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}tren\PYGZdq{}}\PYG{p}{)}
+\PYG{+w}{    }\PYG{n}{rellena\PYGZus{}supergrafo}\PYG{p}{(}\PYG{n}{carretera}\PYG{p}{,}\PYG{n}{avion}\PYG{p}{,}\PYG{n}{G}\PYG{p}{);}
+\PYG{+w}{  }\PYG{k}{else}\PYG{+w}{ }\PYG{k}{if}\PYG{p}{(}\PYG{n}{alergia}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}avion\PYGZdq{}}\PYG{p}{)}
+\PYG{+w}{    }\PYG{n}{rellena\PYGZus{}supergrafo}\PYG{p}{(}\PYG{n}{carretera}\PYG{p}{,}\PYG{n}{tren}\PYG{p}{,}\PYG{n}{G}\PYG{p}{);}
+\PYG{+w}{  }\PYG{c+c1}{//else si la string no es una de esas alergias no hace nada.}
+
+\PYG{+w}{  }\PYG{c+c1}{//Calculamos los costes mínimo}
+\PYG{+w}{  }\PYG{n}{costes\PYGZus{}minimos}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{Dijkstra}\PYG{p}{(}\PYG{n}{G}\PYG{p}{,}\PYG{n}{origen}\PYG{p}{,}\PYG{n}{P}\PYG{p}{);}
+
+\PYG{+w}{  }\PYG{c+c1}{//Ahora vamos a quedarnos con las ciudades a las que puede ir el viajero}
+\PYG{+w}{  }\PYG{k}{for}\PYG{p}{(}\PYG{n}{vertice}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{costes\PYGZus{}minimos}\PYG{p}{.}\PYG{n}{size}\PYG{p}{();}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{costes\PYGZus{}minimos}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{presupuesto}\PYG{p}{)}
+\PYG{+w}{      }\PYG{n}{alcanzables}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n+nb}{true}\PYG{p}{;}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{  }\PYG{c+c1}{//Ahora ponemos la ciudad origen como alcanzable}
+\PYG{+w}{  }\PYG{n}{alcanzables}\PYG{p}{[}\PYG{n}{origen}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n+nb}{true}\PYG{p}{;}
+
+\PYG{+w}{  }\PYG{c+c1}{//devolvemos las ciudades a las que puede ir el viajero}
+\PYG{+w}{  }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{alcanzables}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

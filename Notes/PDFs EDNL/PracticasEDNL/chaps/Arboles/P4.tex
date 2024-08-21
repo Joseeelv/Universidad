@@ -9,7 +9,6 @@ Como ficheros de cabeceras tendremos:
   #include <vector> //para algunos ejercicios
 \end{minted}
 
-\newpage
 \textbf{\large\underbar{Ejercicio 1:}}\textit{ Implementa una nueva operación del TAD Abb que tomando un elemento del mismo elimine al completo el subárbol que cuelga de él.}
 \underbar{Ejemplo:} Para el árbol binario de búsqueda de la figura se muestra la transformación si la entrada fuera el valor 9.
 \begin{figure}[h]
@@ -39,7 +38,7 @@ template typename<T> void deletSubarbol_rec(typename Abb<T>::arbol *&a, const T&
   }
 }
 \end{minted}
-
+\newpage
 \textbf{\large\underbar{Ejercicio 2:}}\textit{ Un árbol binario de búsqueda se puede equilibrar realizando el recorrido en inorden del árbol para obtener el listado ordenado de sus elementos y a continuación, repartir equitativamente los elementos a izquierda y derecha colocando la mediana en la raíz y construyendo recursivamente los subárboles izquierdo y derecho de cada nodo. Implementa este algoritmo para equilibrar un ABB.}
 
 Para llevar a cabo este problema necesitamos almacenar todos los elementos de un Abb y mediante un recorrido en inorden realizar la inserción de dicho elementos de menera equitativa con el fin de obtener un ABB equilibrado. Aquí está el motivo de porque incluimos la cabecera \texttt{<vector>}.

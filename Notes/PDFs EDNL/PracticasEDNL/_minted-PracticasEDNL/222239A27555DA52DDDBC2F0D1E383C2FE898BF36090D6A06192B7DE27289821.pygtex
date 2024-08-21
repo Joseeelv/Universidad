@@ -1,0 +1,63 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{//Definimos los tipos de datos a usar}
+\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{pair}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{p}{,}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{Ciudad}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//ciudad con las coordenadas x , y}
+
+\PYG{k}{typedef}\PYG{+w}{ }\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{Isla}\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{Ciudad}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{CiudadesIsla}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{matriz}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{CostesIsla}\PYG{p}{;}
+\PYG{p}{\PYGZcb{};}
+
+\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{Isla}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{Archipielago}\PYG{p}{;}
+
+\PYG{c+c1}{//Función que nos calcula la distancia euclidea de dos ciudades}
+\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n+nf}{DistanciaEuclidea}\PYG{p}{(}\PYG{n}{Ciudad}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Ciudad}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{sqrt}\PYG{p}{(}\PYG{n}{pow}\PYG{p}{(}\PYG{n}{a}\PYG{p}{.}\PYG{n}{first}\PYG{o}{\PYGZhy{}}\PYG{n}{b}\PYG{p}{.}\PYG{n}{first}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{a}\PYG{p}{.}\PYG{n}{second}\PYG{o}{\PYGZhy{}}\PYG{n}{b}\PYG{p}{.}\PYG{n}{second}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{));}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{//Función que nos calcula los costes minimos de cada isla dado su conjunto de ciudades}
+\PYG{n}{matriz}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{CalculaCostesIsla}\PYG{p}{(}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{Ciudad}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{ciudades}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{  }\PYG{c+c1}{//Creamos el grafo para poder realizar el cálculo de los costes mínimos}
+\PYG{+w}{  }\PYG{n}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{GIsla}\PYG{p}{(}\PYG{n}{ciudades}\PYG{p}{.}\PYG{n}{size}\PYG{p}{());}
+\PYG{+w}{  }\PYG{c+c1}{//Rellenamos el grafo con los costes (Distancia Euclídea)}
+\PYG{+w}{  }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{ciudades}\PYG{p}{.}\PYG{n}{size}\PYG{p}{();}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+\PYG{+w}{    }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{j}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{  }\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{j}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{ciudades}\PYG{p}{.}\PYG{n}{size}\PYG{p}{();}\PYG{+w}{ }\PYG{n}{j}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{      }\PYG{n}{GIsla}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{GIsla}\PYG{p}{[}\PYG{n}{j}\PYG{p}{][}\PYG{n}{i}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{DistanciaEuclidea}\PYG{p}{(}\PYG{n}{ciudades}\PYG{p}{[}\PYG{n}{i}\PYG{p}{],}\PYG{n}{ciudades}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]);}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{c+c1}{//Rellenado el grafo, vamos a calcular sus costes mínimos, con Floyd por lo que creamos las matrices de vértices y costes}
+\PYG{+w}{  }\PYG{n}{matriz}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}}\PYG{n}{Vertices}\PYG{p}{(}\PYG{n}{GIsla}\PYG{p}{.}\PYG{n}{numVert}\PYG{p}{()),}\PYG{n}{CostesMinimos}\PYG{p}{(}\PYG{n}{GIsla}\PYG{p}{.}\PYG{n}{numVert}\PYG{p}{());}
+\PYG{+w}{  }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{CostesMinimos}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{Floyd}\PYG{p}{(}\PYG{n}{GIsla}\PYG{p}{,}\PYG{n}{Vertices}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{//Sabemos que partimos de una matriz de adyacencia (grafo no ponderado) y del conjunto de ciudades}
+\PYG{n}{Archipielago}\PYG{+w}{ }\PYG{n}{Tumbuctu1}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Grafo}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{G}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{Ciudad}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{ciudades}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{  }\PYG{c+c1}{//Con la matriz de adyacencia sabemos si una ciudad está en la misma isla que otra si esta devuelve 1, si no devuelve 0.}
+\PYG{+w}{  }\PYG{c+c1}{//Sabiendo esto podemos ir recorriendo la matriz e insertandon en cada subconjunto de la partición las ciuades.}
+\PYG{+w}{  }\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{Tama}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{G}\PYG{p}{.}\PYG{n}{numVert}\PYG{p}{();}
+\PYG{+w}{  }\PYG{n}{Particion}\PYG{+w}{ }\PYG{n+nf}{P}\PYG{p}{(}\PYG{n}{Tama}\PYG{p}{);}
+\PYG{+w}{  }\PYG{c+c1}{//Recorremos el grafo comprobando si hay carretera}
+\PYG{+w}{  }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{Tama}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+\PYG{+w}{    }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{j}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{j}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{Tama}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{j}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{      }\PYG{k}{if}\PYG{p}{(}\PYG{n}{G}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{P}\PYG{p}{.}\PYG{n}{encontrar}\PYG{p}{(}\PYG{n}{i}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{P}\PYG{p}{.}\PYG{n}{encontrar}\PYG{p}{(}\PYG{n}{j}\PYG{p}{))\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{//Hay carretera y no están unidas (distinto representante), las unimos en el mismo subconjunto.}
+\PYG{+w}{        }\PYG{n}{P}\PYG{p}{.}\PYG{n}{unir}\PYG{p}{(}\PYG{n}{P}\PYG{p}{.}\PYG{n}{encontrar}\PYG{p}{(}\PYG{n}{i}\PYG{p}{),}\PYG{n}{P}\PYG{p}{.}\PYG{n}{encontrar}\PYG{p}{(}\PYG{n}{j}\PYG{p}{));}
+\PYG{+w}{      }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{c+c1}{//Tenemos los sunconjuntos crados, por lo que vamos a insertar en cada isla sus ciudades el coste}
+\PYG{+w}{  }\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{representante\PYGZus{}actual}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{P}\PYG{p}{.}\PYG{n}{encontrar}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{);}
+\PYG{+w}{  }\PYG{n}{Isla}\PYG{+w}{ }\PYG{n}{isla}\PYG{p}{;}
+\PYG{+w}{  }\PYG{n}{Archipielago}\PYG{+w}{ }\PYG{n}{archipielago}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//contiene el número de islas}
+\PYG{+w}{  }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{ciudades}\PYG{p}{.}\PYG{n}{size}\PYG{p}{();}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{P}\PYG{p}{.}\PYG{n}{encontrar}\PYG{p}{(}\PYG{n}{i}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{representante\PYGZus{}actual}\PYG{p}{)\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{//está en esa isla}
+\PYG{+w}{      }\PYG{n}{isla}\PYG{p}{.}\PYG{n}{CiudadesIsla}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{ciudades}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]);}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{else}\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{//si no tiene el mismo representante, metemos la isla en el archipiélago y cambiamos el representante}
+\PYG{+w}{      }\PYG{n}{isla}\PYG{p}{.}\PYG{n}{CostesIsla}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{CalculaCostesIsla}\PYG{p}{(}\PYG{n}{isla}\PYG{p}{.}\PYG{n}{CiudadesIsla}\PYG{p}{);}\PYG{+w}{ }\PYG{c+c1}{//gaurdamos los costes mínimos de la isla}
+\PYG{+w}{      }\PYG{n}{archipielago}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{isla}\PYG{p}{);}\PYG{+w}{ }\PYG{c+c1}{//almacenamos la isla en el archipiélago}
+\PYG{+w}{      }\PYG{c+c1}{//limpiamos el vector de ciudades de la isla}
+\PYG{+w}{      }\PYG{n}{isla}\PYG{p}{.}\PYG{n}{CiudadesIsla}\PYG{p}{.}\PYG{n}{clear}\PYG{p}{();}
+\PYG{+w}{      }\PYG{n}{isla}\PYG{p}{.}\PYG{n}{CiudadesIsla}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{ciudades}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]);}\PYG{+w}{ }\PYG{c+c1}{//insertamos la nueva ciudad}
+\PYG{+w}{      }\PYG{n}{representante\PYGZus{}actual}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{P}\PYG{p}{.}\PYG{n}{encontrar}\PYG{p}{(}\PYG{n}{i}\PYG{p}{);}\PYG{+w}{ }\PYG{c+c1}{//nuevo representante, de la nueva ciudad}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{archipielago}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

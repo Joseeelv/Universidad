@@ -1,0 +1,56 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{//Definimos los tipos de datos a usar}
+\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{pair}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{p}{,}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}}\PYG{n}{ciudad}\PYG{p}{;}
+\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n+nf}{Grecoland}\PYG{p}{(}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{ciudad}\PYG{o}{\PYGZgt{}}\PYG{n}{ciudadesFobos}\PYG{p}{,}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{ciudad}\PYG{o}{\PYGZgt{}}\PYG{n}{ciudadesDeimos}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{ciudad}\PYG{o}{\PYGZgt{}}\PYG{n}{costerasFobos}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{ciudad}\PYG{o}{\PYGZgt{}}\PYG{n}{costerasDeimos}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{Origen}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{Destino}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{  }\PYG{c+c1}{//Primero vamos a crear los grafos de Fobos para poder calcular su árbol generador de coste mínimo (Kruskal)}
+\PYG{+w}{  }\PYG{n}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}}\PYG{n}{Fobos}\PYG{p}{(}\PYG{n}{ciudadesFobos}\PYG{p}{.}\PYG{n}{size}\PYG{p}{());}
+\PYG{+w}{  }\PYG{c+c1}{//Rellenamos el grafo con los costes (DistanciaEuclidea)}
+\PYG{+w}{  }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{ciudadesFobos}\PYG{p}{.}\PYG{n}{size}\PYG{p}{();}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+\PYG{+w}{    }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{j}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{j}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{ciudadesFobos}\PYG{p}{.}\PYG{n}{size}\PYG{p}{();}\PYG{+w}{ }\PYG{n}{j}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{      }\PYG{n}{Fobos}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{DistanciaEuclidea}\PYG{p}{[}\PYG{n}{ciudadesFobos}\PYG{p}{[}\PYG{n}{i}\PYG{p}{],}\PYG{n}{ciudadesFobos}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]];}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{c+c1}{//Ahora calculamos el árbol generador de coste mínimo}
+\PYG{+w}{  }\PYG{n}{Fobos}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{Kruskal}\PYG{p}{(}\PYG{n}{Fobos}\PYG{p}{);}
+
+\PYG{+w}{  }\PYG{c+c1}{//Lo mismo para la isla de Deimos}
+\PYG{+w}{  }\PYG{n}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}}\PYG{n}{Deimos}\PYG{p}{(}\PYG{n}{ciudadesDeimos}\PYG{p}{.}\PYG{n}{size}\PYG{p}{());}
+\PYG{+w}{  }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{ciudadesDeimos}\PYG{p}{.}\PYG{n}{size}\PYG{p}{();}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+\PYG{+w}{    }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{j}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{j}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{ciudadesDeimos}\PYG{p}{.}\PYG{n}{size}\PYG{p}{();}\PYG{+w}{ }\PYG{n}{j}\PYG{o}{++}\PYG{p}{)}
+\PYG{+w}{      }\PYG{n}{Deimos}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{DistanciaEuclidea}\PYG{p}{(}\PYG{n}{ciudadesDeimos}\PYG{p}{[}\PYG{n}{i}\PYG{p}{],}\PYG{+w}{ }\PYG{n}{ciudadesDeimos}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]);}
+\PYG{+w}{  }\PYG{c+c1}{//Ahora hacemos Kruskal}
+\PYG{+w}{  }\PYG{n}{Deimos}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{Kruskal}\PYG{p}{(}\PYG{n}{Deimos}\PYG{p}{);}
+
+\PYG{+w}{  }\PYG{c+c1}{//Ahora vamos a crear el supergrafo}
+\PYG{+w}{  }\PYG{n}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}}\PYG{n}{grecoland}\PYG{p}{(}\PYG{n}{ciudadesFobos}\PYG{p}{.}\PYG{n}{size}\PYG{p}{());}
+\PYG{+w}{  }\PYG{c+c1}{//Rellenamos el supergrafo primero con el grafo Fobos}
+\PYG{+w}{  }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{ciudadesFobos}\PYG{p}{.}\PYG{n}{size}\PYG{p}{();}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+\PYG{+w}{    }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{j}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{j}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{ciudadesFobos}\PYG{p}{.}\PYG{n}{size}\PYG{p}{();}\PYG{+w}{ }\PYG{n}{j}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{      }\PYG{n}{grecoland}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{Fobos}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{];}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{c+c1}{//Ahora incluimos en el supergrafo el grafo Deimos}
+\PYG{+w}{  }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{ciudadesDeimos}\PYG{p}{.}\PYG{n}{size}\PYG{p}{();}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+\PYG{+w}{    }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{j}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{j}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{ciudadesDeimos}\PYG{p}{.}\PYG{n}{size}\PYG{p}{();}\PYG{+w}{ }\PYG{n}{j}\PYG{o}{++}\PYG{p}{)}
+\PYG{+w}{      }\PYG{n}{grecoland}\PYG{p}{[}\PYG{n}{i}\PYG{o}{+}\PYG{n}{ciudadesFobos}\PYG{p}{.}\PYG{n}{size}\PYG{p}{()][}\PYG{n}{j}\PYG{o}{+}\PYG{n}{ciudadesFobos}\PYG{p}{.}\PYG{n}{size}\PYG{p}{()]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{Deimos}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{];}
+
+\PYG{+w}{  }\PYG{c+c1}{//Ahora que tenemos el supergrafo relleno, es decir, el archipielago reconstruido con las carreteras, vamos a incluir los puentes.}
+\PYG{+w}{  }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{ciudadesFobos}\PYG{p}{.}\PYG{n}{size}\PYG{p}{();}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+\PYG{+w}{    }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{j}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{j}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{ciudadesDeimos}\PYG{p}{.}\PYG{n}{size}\PYG{p}{();}\PYG{+w}{ }\PYG{n}{j}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{      }\PYG{c+c1}{//Si i es costera y j es costera, se unen con un puente}
+\PYG{+w}{      }\PYG{c+c1}{//Buscamos en el vector de las ciudades costeras si dicha ciudad costera existe en el vector de ciudades de la isla:}
+\PYG{+w}{      }\PYG{k}{if}\PYG{p}{(}\PYG{n}{find}\PYG{p}{(}\PYG{n}{costerasFobos}\PYG{p}{.}\PYG{n}{begin}\PYG{p}{(),}\PYG{n}{costerasFobos}\PYG{p}{.}\PYG{n}{end}\PYG{p}{(),}\PYG{+w}{ }\PYG{n}{ciudadesFobos}\PYG{p}{[}\PYG{n}{i}\PYG{p}{])}\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{costerasFobos}\PYG{p}{.}\PYG{n}{end}\PYG{p}{()}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{                                                                                                   }\PYG{n}{find}\PYG{p}{(}\PYG{n}{costerasDeimos}\PYG{p}{.}\PYG{n}{begin}\PYG{p}{(),}\PYG{+w}{ }\PYG{n}{costerasDeimos}\PYG{p}{.}\PYG{n}{end}\PYG{p}{(),}\PYG{+w}{ }\PYG{n}{ciudadesDeimos}\PYG{p}{[}\PYG{n}{j}\PYG{p}{])}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{costerasDeimos}\PYG{p}{.}\PYG{n}{end}\PYG{p}{())\PYGZob{}}
+
+\PYG{+w}{        }\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{costePuente}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{DistanciaEuclidea}\PYG{p}{(}\PYG{n}{ciudadesFobos}\PYG{p}{[}\PYG{n}{i}\PYG{p}{],}\PYG{n}{ciudadesDeimos}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]);}
+\PYG{+w}{        }\PYG{c+c1}{//Guardamos en el grafo el coste del puente (la unión entre las dos ciudades):}
+\PYG{+w}{        }\PYG{n}{grecoland}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{o}{+}\PYG{n}{ciudadesFobos}\PYG{p}{.}\PYG{n}{size}\PYG{p}{()]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{costePuente}\PYG{p}{;}
+\PYG{+w}{        }\PYG{n}{grecoland}\PYG{p}{[}\PYG{n}{j}\PYG{o}{+}\PYG{n}{ciudadesFobos}\PYG{p}{.}\PYG{n}{size}\PYG{p}{()][}\PYG{n}{i}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{costePuente}\PYG{p}{;}
+\PYG{+w}{      }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{c+c1}{//Ahora hacemos Kruskal del grafo grecoland para quedarnos con los puentes con menor costes}
+\PYG{+w}{  }\PYG{n}{grecoland}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{Kruskal}\PYG{p}{(}\PYG{n}{grecoland}\PYG{p}{);}
+
+\PYG{+w}{  }\PYG{c+c1}{//Ya que tenemos las ciudades unidas mediante carreteras y puentes con el coste menor posible, podemos calcular el coste de ir de una ciudad origen a destino en nuestro archipielago Grecoland. Para ello vamos a declarar los vectores (coste y vértices) para poder hacer uso de Dijkstra}
+\PYG{+w}{  }\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}}\PYG{n}{vertices}\PYG{p}{(}\PYG{n}{grecoland}\PYG{p}{.}\PYG{n}{numVert}\PYG{p}{());}
+\PYG{+w}{  }\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}}\PYG{n}{CosteMinimo}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{Dijkstra}\PYG{p}{(}\PYG{n}{grecoland}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Origen}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{vertices}\PYG{p}{);}
+\PYG{+w}{  }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{costeMinimo}\PYG{p}{[}\PYG{n}{Destino}\PYG{p}{];}\PYG{+w}{ }\PYG{c+c1}{//devolvemos el coste mínimo de ir desde el Origen a nuestro Destino.}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
