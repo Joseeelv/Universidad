@@ -1,0 +1,19 @@
+template <typename T> bool esTernario(const Agen<T> &A){
+  return esTernario_rec(A.raiz(), A);
+}
+
+template <typename T> bool esTernario_rec(typename Agen<T>::nodo n, const Agen<T> &A){
+  //n es un nodo nulo
+  if(n == Agen<T>::NODO_NULO)
+    return true;
+  //n no tiene hijos.
+  else if(A.hijoIzqdo(n) == Agen<T>::NODO_NULO && A.hermDrcho(n)== Agen<T>::NODO_NULO)
+    return true;
+  //n tiene hijos
+  else if(A.hijoIzqdo(n) != Agen<T>::NODO_NULO && A.hermDrcho(n)!= Agen<T>::NODO_NULO){
+    //llamamos a la función para sus hijos
+    esTernario_rec(A.hijoIzqdo(n),A) && esTernario_rec(A.hermDrcho(n),A);
+  }
+  else //Tiene 1 hijo.
+    return false;
+}
