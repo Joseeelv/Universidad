@@ -6,7 +6,5 @@
 \contentsline {section}{Árbol General Similar}{8}{section*.4}%
 \contentsline {section}{Contar Nodos Verdes}{11}{section*.5}%
 \contentsline {section}{Flotar Nodos}{15}{section*.6}%
-\contentsline {section}{Ciudades Rebeldes}{17}{section*.8}%
-\contentsline {section}{Lineas Aéreas Tumbuctú}{18}{section*.9}%
-\contentsline {section}{Puentes Grecoland}{19}{section*.10}%
-\contentsline {section}{Toxicidad Zuelandia }{20}{section*.11}%
+\contentsline {chapter}{\numberline {2}Ejercicios Grafos}{17}{chapter.2}%
+\contentsline {section}{Ciudades Rebeldes}{17}{section*.7}%

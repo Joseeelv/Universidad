@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.27)  21 AUG 2024 20:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.27)  21 AUG 2024 21:38
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -959,30 +959,19 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [13]) [14] (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/Temas/EjerciciosÁrboles/FlotarNodos.tex
 \openout3 = `ExamenesEDNL.pyg'.
 
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/_minted-ExamenesEDNL/1FE519FBCAC6541EE90529AC683B99A96903A74BC7F3F6727365290C959CBE0B.pygtex) [15])) (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/Temas/EjerciciosGrafos/EjerciciosGrafos.tex [16] (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/Temas/EjerciciosGrafos/CiudadesRebeldes.tex
+ (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/_minted-ExamenesEDNL/1FE519FBCAC6541EE90529AC683B99A96903A74BC7F3F6727365290C959CBE0B.pygtex) [15])) (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/Temas/EjerciciosGrafos/EjerciciosGrafos.tex [16]
+Cap\'{\i }tulo 2.
+(/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/Temas/EjerciciosGrafos/CiudadesRebeldes.tex [17
+
+]
 \openout3 = `ExamenesEDNL.pyg'.
 
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/_minted-ExamenesEDNL/68B329DA9893E34099C7D8AD5CB9C9406903A74BC7F3F6727365290C959CBE0B.pygtex)) [17
-
-] (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/Temas/EjerciciosGrafos/LineasAereasTumbuctu.tex
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 3.
- (/usr/local/texlive/2024/texmf-dist/tex/latex/base/ulasy.fd
-File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
-)
-\openout3 = `ExamenesEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/_minted-ExamenesEDNL/68B329DA9893E34099C7D8AD5CB9C9406903A74BC7F3F6727365290C959CBE0B.pygtex)) [18] (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/Temas/EjerciciosGrafos/PuentesGrecoland.tex
-\openout3 = `ExamenesEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/_minted-ExamenesEDNL/68B329DA9893E34099C7D8AD5CB9C9406903A74BC7F3F6727365290C959CBE0B.pygtex)) [19] (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/Temas/EjerciciosGrafos/ToxicidadZuelandia.tex
-\openout3 = `ExamenesEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/_minted-ExamenesEDNL/68B329DA9893E34099C7D8AD5CB9C9406903A74BC7F3F6727365290C959CBE0B.pygtex)))
+ (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/_minted-ExamenesEDNL/F6D52EBD7DD342D9D7C95EBF8E0CA35C6903A74BC7F3F6727365290C959CBE0B.pygtex) [18]))
 
 Package caption Warning: Unused \captionsetup[table] on input line 29.
 See the caption package documentation for explanation.
 
-[20] (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/ExamenesEDNL.aux
+[19] (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/ExamenesEDNL.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
 LaTeX Info: Redefining \. on input line 12.
@@ -997,23 +986,23 @@ L3 programming layer <2024-02-20>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `ExamenesEDNL.out' has not changed.
-(rerunfilecheck)             Checksum: BBD8F192A5FC1F3980EBB8DA3978E721;1549.
+(rerunfilecheck)             Checksum: 87A3AE952EC57475F3EFE8A4E1D2EDC4;1202.
 runsystem(rm ExamenesEDNL.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 31151 strings out of 474116
- 591519 string characters out of 5743682
- 1941187 words of memory out of 5000000
- 52877 multiletter control sequences out of 15000+600000
- 566890 words of font info for 70 fonts, out of 8000000 for 9000
+ 31102 strings out of 474116
+ 588419 string characters out of 5743682
+ 1942187 words of memory out of 5000000
+ 52851 multiletter control sequences out of 15000+600000
+ 566784 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 104i,9n,104p,1137b,930s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/latxfont/lasy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on "/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/ExamenesEDNL.pdf" (20 pages, 156407 bytes).
+ 104i,10n,104p,1137b,930s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
+Output written on "/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/ExamenesEDNL.pdf" (19 pages, 149924 bytes).
 PDF statistics:
- 217 PDF objects out of 1000 (max. 8388607)
- 173 compressed objects within 2 object streams
- 39 named destinations out of 1000 (max. 500000)
- 93 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 194 PDF objects out of 1000 (max. 8388607)
+ 153 compressed objects within 2 object streams
+ 35 named destinations out of 1000 (max. 500000)
+ 77 words of extra memory for PDF output out of 10000 (max. 10000000)
 

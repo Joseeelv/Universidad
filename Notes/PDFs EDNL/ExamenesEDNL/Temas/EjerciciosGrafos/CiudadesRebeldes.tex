@@ -10,20 +10,62 @@
 Dadas estas cuatro condiciones, se pide implementar un subprograma que dados el grafo (matriz de costes) de Zuelandia en situación normal, la relación de las ciudades tomadas por los rebeldes, la relación de las carreteras cortadas por los rebeldes y la capital de Zuelandia, calcule la matriz de costes mínimos para viajar entre cualesquiera dos ciudades zuelandesas en esta situación.
 }
 
+Partimos de la base de que tenemos un grafo ponderado y dirigido (ya que solo se puede ir en una dirección), contamos con el conjunto de ciudades y carreteras (unión de dos ciudades) que están tomadas por los rebeldes, a las cuales no podremos acceder. Además tenemos la capital de Zuelandia, que nos servirá para hacer que todos los viajes se realicen por la misma.
 
+Como queremos obtener las distancias mínimas de viajar entre dos ciudades cualesquiera de Zuelandia, haremos uso del algoritmo de Floyd, ya que este calcula los costes de viajar entre cada par de vértices de todo el grafo.
 
-
-
+\newpage
 \begin{minted}[breaklines]{C++}
-  
+//Definimos los tipos de datos a usar, representaremos una ciudad como un entero sin signo.
+typedef std::pair<size_t,size_t> Carretera;
+typedef matriz<size_t>CostesViajes;
+
+CostesViajes ZuelandiaRebeldes(GrafoP<size_t> &G, const vector<size_t> &CiudadesRebeldes, const vector<Carretera> &CarreterasRebeldes, size_t Capital){
+  //Como tenemos ciudades que no pueden ser accesibles, vamos a modificar el grafo, haciendo que el coste de estas sea infinito.
+  for(auto &ciudadrebelde : CiudadesRebeldes)
+    for(size_t i = 0; i < G.numVert(); i++)
+      G[i][ciudadrebelde] = GrafoP<size_t>::INFINITO;
+
+  //Ahora vamos a hacer inaccesibles dichas carreteras
+  for(auto & carreterarebelde : CarreterasRebeldes)
+    G[carreterarebelde.first][carreterarebelde.second] = GrafoP<size_t>::INFINITO;
+
+  //Ahora vamos a obligar que todos los viajes se lleven a cabo por la Capital
+  for(size_t i = 0; i < G.numVert(); i++)
+    if(i != Capital){
+      for(size_t j = i+1; j <G.numVert(); j++){
+        if(j!= Capital)
+        G[i][j] = GrafoP<size_t>::INFINITO;
+      }
+    }
+  //Ya teniendo tanto las ciuades rebeldes como la carreteras rebeldes indicadas en el grafo, y todos los viajes cruzan la capital, vamos a poder calcular los costes mínimos de los caminos entre cada par de vértices del grafo,es decir floyd, para ello, creamos las matrices de costes mínimos y vértices.
+  matriz<size_t>Vertices(G.numVert()),CosteMinimos(G.numVert());
+  return CosteMinimos = Floyd(G,Vertices); 
+}
 \end{minted}
 
-
-Hemos hecho uso de las operaciones de los grafos:
+Hemos hecho uso de las operaciones de los grafos y prototipos de las funciones:
 \begin{itemize}
-  \item \verb | |
+  \item \verb |size_t numVert() const;|
   \begin{itemize}
-    \item \textit{Pre}:
-    \item \textit{Post}:
+    \item \textit{Post}: Devuelve el número de vértices del grafo.
+  \end{itemize}
+  \item \verb |matriz<size_t>(G.numVert());|
+  \begin{itemize}
+    \item \textit{Post}: Crea y devuelve una matriz de enteros sin signos vacía de tamaño G.numVert().
+  \end{itemize}
+  \item \verb |vector<tCoste>& operator[](vertice v)const;|
+  \begin{itemize}
+    \item \textit{Post}: Devuelve un vector con los costes de las aristas adyacentes a v.
+  \end{itemize}
+  \item \verb |const T& GrafoP<tCoste>::INFINITO = std::numeric_limits<T>::max();|
+  \begin{itemize}
+    \item \textit{Post}: Devuelve el valor máximo permitido.
+  \end{itemize}
+  \item \verb |matriz<tCoste> Floyd(const GrafoP<size_t> &G,|\\ 
+  \hspace*{0.5cm} \verb|vector<typename GrafoP<tCoste>::vertice> &P);|
+  \begin{itemize}
+    \item \textit{Pre}: Recibe un Grafo ponderado y una matriz de vértices.
+    \item \textit{Post}: Devuelve una matriz con los costes mínimos y una matriz con los vértices por los que pasan los caminos.
   \end{itemize}
 \end{itemize}
