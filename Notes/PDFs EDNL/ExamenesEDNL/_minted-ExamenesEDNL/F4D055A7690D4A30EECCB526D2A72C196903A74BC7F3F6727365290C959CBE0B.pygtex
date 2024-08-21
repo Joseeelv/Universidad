@@ -1,0 +1,58 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}iostream\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZdq{}agen.h\PYGZdq{}}
+
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{o}{\PYGZgt{}}
+\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{n}{Similares}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Agen}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{A}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Agen}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{B}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{  }\PYG{c+c1}{//Si ambos tienen solamente un nodo (raiz), diremos que son similares}
+\PYG{+w}{  }\PYG{k}{if}\PYG{p}{(}\PYG{n}{A}\PYG{p}{.}\PYG{n}{raiz}\PYG{p}{()}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{Agen}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{NODO\PYGZus{}NULO}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{B}\PYG{p}{.}\PYG{n}{raiz}\PYG{p}{()}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{Agen}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{NODO\PYGZus{}NULO}\PYG{p}{)}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n+nb}{true}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{Similares\PYGZus{}rec}\PYG{p}{(}\PYG{n}{A}\PYG{p}{.}\PYG{n}{raiz}\PYG{p}{(),}\PYG{n}{B}\PYG{p}{.}\PYG{n}{raiz}\PYG{p}{(),}\PYG{n}{A}\PYG{p}{,}\PYG{n}{B}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{//Función auxiliar que nos calcula el número de hijos que tiene un nodo}
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{o}{\PYGZgt{}}
+\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{nHijos}\PYG{p}{(}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{Agen}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{n}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Agen}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{A}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{  }\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{nhijos}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{n}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{Agen}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{NODO\PYGZus{}NULO}\PYG{p}{)}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{nhijos}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k}{else}\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{c+c1}{//Vamos a recorrer toda la lista de hijos del nodo n}
+\PYG{+w}{    }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{Agen}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{hijo}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{A}\PYG{p}{.}\PYG{n}{hijoIzqdo}\PYG{p}{(}\PYG{n}{n}\PYG{p}{);}
+\PYG{+w}{    }\PYG{k}{while}\PYG{p}{(}\PYG{n}{hijo}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{Agen}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{NODO\PYGZus{}NULO}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{      }\PYG{n}{nhijos}\PYG{o}{++}\PYG{p}{;}
+\PYG{+w}{      }\PYG{n}{hijo}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{A}\PYG{p}{.}\PYG{n}{hermDrcho}\PYG{p}{(}\PYG{n}{hijo}\PYG{p}{);}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{nhijos}\PYG{p}{;}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\PYG{c+c1}{//Función que nos comprueba si el nodo es una hoja}
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{o}{\PYGZgt{}}
+\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{n}{esHoja}\PYG{p}{(}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{Agen}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{n}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Agen}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{A}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{A}\PYG{p}{.}\PYG{n}{hijoIzqdo}\PYG{p}{(}\PYG{n}{n}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{Agen}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{NODO\PYGZus{}NULO}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{o}{\PYGZgt{}}
+\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{n}{Similares\PYGZus{}rec}\PYG{p}{(}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{Agen}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{Agen}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Agen}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{A}\PYG{p}{;}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Agen}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{B}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{  }\PYG{c+c1}{//Ahora tenemos que comprobar las diferentes condiciones}
+\PYG{+w}{  }\PYG{k}{if}\PYG{p}{(}\PYG{n}{a}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{Agen}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{NODO\PYGZus{}NULO}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{b}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{Agen}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{NODO\PYGZus{}NULO}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{n+nb}{true}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k}{else}\PYG{+w}{ }\PYG{k}{if}\PYG{p}{(}\PYG{n}{a}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{Agen}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{NODO\PYGZus{}NULO}\PYG{+w}{ }\PYG{o}{||}\PYG{+w}{ }\PYG{n}{Agen}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{NODO\PYGZus{}NULO}\PYG{p}{)}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n+nb}{false}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//si existe a pero no b, o viceversa no son similares.}
+\PYG{+w}{  }\PYG{k}{else}\PYG{+w}{ }\PYG{k}{if}\PYG{p}{(}\PYG{n}{esHoja}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,}\PYG{n}{A}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{esHoja}\PYG{p}{(}\PYG{n}{b}\PYG{p}{,}\PYG{n}{B}\PYG{p}{))\PYGZob{}}
+\PYG{+w}{    }\PYG{c+c1}{//Comprobamos el contenido de las hojas}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{A}\PYG{p}{.}\PYG{n}{elemento}\PYG{p}{(}\PYG{n}{a}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{B}\PYG{p}{.}\PYG{n}{elemento}\PYG{p}{(}\PYG{n}{b}\PYG{p}{))}
+\PYG{+w}{      }\PYG{k}{return}\PYG{+w}{ }\PYG{n+nb}{true}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//mismo elemento}
+\PYG{+w}{    }\PYG{k}{else}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{n+nb}{false}\PYG{p}{;}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{k}{else}\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{//no son hojas, vamos a comprobar la ramificación}
+\PYG{+w}{  }\PYG{c+c1}{//nos creamos una flag que nos devolerá si son similares o no}
+\PYG{+w}{    }\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{n}{flag}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{nHijos}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,}\PYG{n}{A}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{nHijos}\PYG{p}{(}\PYG{n}{b}\PYG{p}{,}\PYG{n}{B}\PYG{p}{);}\PYG{+w}{ }\PYG{c+c1}{//tiene los mismos hijos, true}
+\PYG{+w}{    }\PYG{k}{while}\PYG{p}{(}\PYG{n}{flag}\PYG{p}{)\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{//mientra que sean similares, comprobamos los hijos de los hijos}
+\PYG{+w}{      }\PYG{n}{flag}\PYG{+w}{ }\PYG{o}{\PYGZam{}=}\PYG{+w}{ }\PYG{n}{Similares\PYGZus{}rec}\PYG{p}{(}\PYG{n}{A}\PYG{p}{.}\PYG{n}{hijoIzqdo}\PYG{p}{(}\PYG{n}{a}\PYG{p}{),}\PYG{n}{B}\PYG{p}{.}\PYG{n}{hijoIzqdo}\PYG{p}{(}\PYG{n}{b}\PYG{p}{),}\PYG{n}{A}\PYG{p}{,}\PYG{n}{B}\PYG{p}{);}\PYG{+w}{ }\PYG{c+c1}{//llamamos con sus hijos}
+\PYG{+w}{      }\PYG{n}{a}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{A}\PYG{p}{.}\PYG{n}{hermDrcho}\PYG{p}{(}\PYG{n}{a}\PYG{p}{);}
+\PYG{+w}{      }\PYG{n}{b}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{B}\PYG{p}{.}\PYG{n}{hermDrcho}\PYG{p}{(}\PYG{n}{b}\PYG{p}{);}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{flag}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//devolvemos si son similares o no.}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

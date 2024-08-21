@@ -34,11 +34,11 @@
 \PYG{+w}{      }\PYG{c+c1}{//son de la misma isla, no hay linea aérea}
 \PYG{+w}{    }\PYG{p}{\PYGZcb{}}
 \PYG{+w}{  }\PYG{c+c1}{//Tenemos el APO con las líneas aéreas, vamos a quedarnos con las menos costosas}
-\PYG{+w}{  }\PYG{c+c1}{//Vamos a crearnos una matriz de adyacencia de las islas para saber que islas están unidas}
+\PYG{+w}{  }\PYG{c+c1}{//Vamos a crearnos una matriz de booleanos   de las islas para saber que islas están unidas}
 \PYG{+w}{  }\PYG{n}{matriz}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{bool}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{ConexiónIsla}\PYG{p}{(}\PYG{n}{archipielago}\PYG{p}{.}\PYG{n}{size}\PYG{p}{(),}\PYG{n+nb}{false}\PYG{p}{);}
 
 \PYG{+w}{  }\PYG{n}{LineasAereasArchipielago}\PYG{+w}{ }\PYG{n}{vector\PYGZus{}LA}\PYG{p}{((}\PYG{n}{archipielago}\PYG{p}{.}\PYG{n}{size}\PYG{p}{()}\PYG{o}{*}\PYG{p}{(}\PYG{n}{archipielago}\PYG{p}{.}\PYG{n}{size}\PYG{p}{()}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{))}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{p}{);}
-\PYG{+w}{  }\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{contador}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{contador}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//indice del vector de líneas aéreas}
 \PYG{+w}{  }\PYG{k}{while}\PYG{p}{(}\PYG{o}{!}\PYG{n}{A}\PYG{p}{.}\PYG{n}{vacio}\PYG{p}{()}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{contador}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{archipielago}\PYG{p}{.}\PYG{n}{size}\PYG{p}{()}\PYG{o}{*}\PYG{p}{(}\PYG{n}{archipielago}\PYG{p}{.}\PYG{n}{size}\PYG{p}{()}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{))}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{p}{)\PYGZob{}}
 \PYG{+w}{    }\PYG{n}{LineaAerea}\PYG{+w}{ }\PYG{n}{aux}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{A}\PYG{p}{.}\PYG{n}{cima}\PYG{p}{();}\PYG{+w}{ }\PYG{c+c1}{//linea aérea menos costosa}
 \PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{P}\PYG{p}{.}\PYG{n}{encontrar}\PYG{p}{(}\PYG{n}{aux}\PYG{p}{.}\PYG{n}{Origen\PYGZus{}}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{P}\PYG{p}{.}\PYG{n}{encontrar}\PYG{p}{(}\PYG{n}{aux}\PYG{p}{.}\PYG{n}{Destino\PYGZus{}}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{ConexiónIsla}\PYG{p}{[}\PYG{n}{aux}\PYG{p}{.}\PYG{n}{Origen\PYGZus{}}\PYG{p}{][}\PYG{n}{aux}\PYG{p}{.}\PYG{n}{Destino\PYGZus{}}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n+nb}{false}\PYG{p}{)\PYGZob{}}
@@ -52,6 +52,5 @@
 \PYG{+w}{    }\PYG{p}{\PYGZcb{}}
 \PYG{+w}{  }\PYG{p}{\PYGZcb{}}
 \PYG{+w}{  }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{vector\PYGZus{}LA}\PYG{p}{;}
-\PYG{+w}{  }\PYG{n}{hola}
 \PYG{p}{\PYGZcb{}}
 \end{Verbatim}

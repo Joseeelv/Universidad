@@ -1,0 +1,161 @@
+\textbf{\underbar{Enunciado:}}\textit{ Un nodo verde es aquel nodo que cumple una cierta codición, por ejemplo en este caso, nuestra condición es aquel que tiene estrictamente 3 nietos.\\ Es decir, vamos a devolver el número de nodos que tienen 3 en el árbol.}
+
+Este ejercicio la vamos a hacer tanto para árboles binarios como árboles generales.
+\subsection*{Tres Nietos Árboles Binarios}
+
+\begin{minted}[breaklines]{C++}
+#include <iostream>
+#include "abin.h"
+
+template <typename T>
+size_t ContarNodosVerdesAbin(const Abin<T> &A){
+  if(A.arbolVacio()) return 0;
+  return ContarNodosVerdesAbin_rec(A.raiz(),A);
+}
+
+//Para tener 3 nietos tiene que tener si o si dos hijos
+template <typename T>
+bool DosHijos(typename Abin<T>::nodo n, const Abin<T> &A){
+  return (A.hijoIzqdo(n) != Abin<T>::NODO_NULO && A.hijoDrcho(n) != Abin<T>::NODO_NULO);
+}
+
+template <typename T>
+size_t TresNietos(typename Abin<T>::nodo n, const Abin<T> &A){
+  if(n == Abin<T>::NODO_NULO) return 0;
+  else{
+    size_t nietos = 0;
+    if(DosHijos(n,A)){
+      //Vamos a recorrer los nietos de un nodo para ver si tiene 3 (descendientes propios de él).
+      if(A.hijoIzqdo(A.hijoIzqdo(n)) != Abin<T>::NODO_NULO) nietos++; //tiene hijo izquierdo y nieto izquierdo
+      if(A.hijoIzqdo(A.hijoDrcho(n)) != Abin<T>::NODO_NULO) nietos++; //tiene hijo izquierdo y nieto derecho
+      if(A.hijoDrcho(A.hijoIzqdo(n)) != Abin<T>::NODO_NULO) nietos++; //tiene hijo derecho y nieto izquierdo
+      if(A.hijoDrcho(A.hijoDrcho(n)) != Abin<T>::NODO_NULO) nietos++; //tiene hijo derecho y nieto derecho
+    }
+    return nietos;
+  }
+}
+
+template <typename T>
+size_t ContarNodosVerdesAbin_rec(typename Abin<T>::nodo n, const Abin<T> &A){
+  if(n == Abin<T>::NODO_NULO) return 0;
+  else if(TresNietos(n,A) == 3) //condición a cumplir
+      return 1 + ContarNodosVerdesAbin_rec(A.hijoIzqdo(n),A) + ContarNodosVerdesAbin_rec(A.hijoDrcho(n),A);
+  else
+    return 0 + ContarNodosVerdesAbin_rec(A.hijoIzqdo(n),A) + ContarNodosVerdesAbin_rec(A.hijoDrcho(n),A);
+}
+\end{minted}
+
+Hemos hecho uso de un árbol binario (ya que no lo especificaba el enunciado) con la representación enlazada, siendo la parte privada del TAD Abin:
+\begin{center}
+  \begin{verbatim}
+  private:
+    struct celda{
+      T elto;
+      nodo padre, hizq, hder;
+      celda(const T& e, nodo p = NODO_NULO):elto(e),padre(p),
+        hizq(NODO_NULO),hder(NODO_NULO){}
+    };
+  nodo r; //raíz del árbol
+};//fin del TAD
+  \end{verbatim}
+\end{center}
+
+Además hemos hecho uso de los métodos públicos del TAD Abin:
+\begin{itemize}
+  \item \verb|bool arbolVacio()const;|
+  \begin{itemize}
+    \item \textit{Post}: Devuelve true si el árbol está vacío, si no false.
+  \end{itemize}
+  \item \verb|nodo raiz() const;|
+  \begin{itemize}
+    \item \textit{Post}: Devuelve el nodo que es raíz del árbol, si vacío devuelve \texttt{NODO\_NULO}.
+  \end{itemize}
+  \item \verb|nodo hijoIzqdo(nodo n)const;|
+  \begin{itemize}
+    \item \textit{Pre}: El nodo n existe en el árbol.
+    \item \textit{Post}: Devuelve el hijo derecho del nodo n, si no existe devuelve \texttt{NODO\_NULO}.
+  \end{itemize}
+  \item \verb|nodo hijoDrcho(nodo n)const;|
+  \begin{itemize}
+    \item \textit{Pre}: El nodo n existe en el árbol.
+    \item \textit{Post}: Devuelve el hijo derecho del nodo n, si no existe devuelve \texttt{NODO\_NULO}.
+  \end{itemize}
+\end{itemize}
+
+\newpage
+\subsection*{Tres Nietos Árboles General}
+
+\begin{minted}[breaklines]{C++}
+#include <iostream>
+#include "agen.h"
+
+template <typename T>
+size_t ContarNodosVerdesAgen(const Agen<T> &A){
+  if(A.raiz() == Agen<T>::NODO_NULO) return 0;
+  return ContarNodosVerdesAgen_rec(A.raiz(),A);
+}
+
+//Ahora para que un nodo pueda tener nietos, como mínimo tiene que tener un hijo izquierdo.
+
+//Función para calcular el número de hijos que tiene un nodo, tenemos que realizar una búsqueda en anchura
+template <typename T>
+size_t TresNietosAgen(typename Agen<T>::nodo n, const Agen<T> &A){
+  if(n == Agen<T>::NODO_NULO) return 0;
+  else{
+    size_t nietos = 0;
+    typename Agen<T>::nodo hijo = A.hijoIzqdo(n);
+    while(hijo != Agen<T>::NODO_NULO){
+      //Vamos a recorrer los nietos en anchura
+      typename Agen<T>::nodo nieto = A.hijoIzqdo(hijo);
+      while(nieto != Agen<T>::NODO_NULO){
+        nietos++;
+        nieto = A.hermDrcho(nieto);
+      }
+      hijo = A.hermDrcho(hijo);
+    }
+    return nietos;
+  }
+}
+
+template <typename T>
+size_t ContarNodosVerdesAgen_rec(typename Agen<T>::nodo n, const Agen<T> &A){
+  if(n == Agen<T>::NODO_NULO) return 0;
+  else{
+    if(TresNietosAgen(n,A) == 3)//cumple la codición, se suma.
+      return 1+ContarNodosVerdesAgen_rec(A.hijoIzqdo(n),A);
+    else
+      return 0+ContarNodosVerdesAgen_rec(A.hijoIzqdo(n),A);
+  }
+}
+\end{minted}
+
+Para la resolución de este ejercicio, hemos hecho uso de la representación enlazada del TAD agen, siendo su parte privada:
+\begin{verbatim}
+  private:
+    struct celda{
+      T elto;
+      nodo padre, hizq, hder;
+      celda(const T& e, nodo p = NODO_NULO): elto(e), padre(p),
+        hizq(NODO_NULO), hder(NODO_NULO){}
+    };
+  nodo r; //nodo raíz del árbol
+};
+\end{verbatim}
+
+También hemos hecho uso de los métodos públicos del TAD Agen:
+\begin{itemize}
+  \item \verb |nodo raiz()const;|
+  \begin{itemize}
+    \item \textit{Post}: Devuelve el nodo raiz del árbol, si vacío\\ devuelve \texttt{NODO\_NULO}.
+  \end{itemize}
+  \item \verb |nodo hijoIzqdo(nodo n)const;|
+  \begin{itemize}
+    \item \textit{Pre}: El nodo n existe en el árbol.
+    \item \textit{Post}: Devuelve el hijo izquierdo del árbol, si no existe\\ devuelve \texttt{NODO\_NULO}.
+  \end{itemize}
+  \item \verb |nodo hermDrcho(nodo n)const;|
+  \begin{itemize}
+    \item \textit{Pre}: El nodo n existe en el árbol.
+    \item \textit{Post}: Devuelve el hermano derecho del nodo n, si no existe\\ devuelve \texttt{NODO\_NULO}.
+  \end{itemize}
+\end{itemize}

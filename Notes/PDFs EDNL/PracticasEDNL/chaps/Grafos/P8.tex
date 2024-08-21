@@ -30,7 +30,10 @@ También contamos con una matriz de adyacencia, es decir, que podemos saber que 
 Mediante esto y el Grafo dado, tenemos que devolver las islas del archipiélago y el coste de viajar entre dos ciudades de una misma isla.
 
 \begin{minted}[breaklines]{C++}
-<<<<<<< HEAD
+
+
+
+
 // Vector ciudad: 
 // [{0,1},{2,4},{3,5},{6,7},{8,9},{10,11},{12,13}]
 // [ c1,   c2,    c3,   c4,  c5,    c6,     c7]
@@ -46,8 +49,6 @@ Mediante esto y el Grafo dado, tenemos que devolver las islas del archipiélago 
 //   c7 [ 0,    0,     0,     0,     0,     1,     0]
 //------------------------------------------------------
 
-=======
->>>>>>> 93454e9ea954e810ddfed0bce25729a22a237b1f
 //Definimos los tipos de datos a usar
 typedef std::pair<size_t,size_t> Ciudad; //ciudad con las coordenadas x , y
 
@@ -78,6 +79,8 @@ matriz<size_t> CalculaCostesIsla(vector<Ciudad> &ciudades){
 }
 
 //Sabemos que partimos de una matriz de adyacencia (grafo no ponderado) y del conjunto de ciudades
+
+
 Archipielago Tumbuctu1(const Grafo& G, vector<Ciudad> &ciudades){
   //Con la matriz de adyacencia sabemos si una ciudad está en la misma isla que otra si esta devuelve 1, si no devuelve 0.
   //Sabiendo esto podemos ir recorriendo la matriz e insertandon en cada subconjunto de la partición las ciuades.
@@ -191,7 +194,6 @@ LineasAereasArchipielago Tumbuctu(const Grafo& G, vector<Ciudad> &ciudades){
     }
   }
   return vector_LA;
-  hola
 }
 \end{minted}
 

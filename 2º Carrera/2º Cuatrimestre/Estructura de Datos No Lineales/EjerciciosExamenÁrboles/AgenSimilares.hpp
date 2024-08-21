@@ -22,7 +22,7 @@ size_t nHijos(typename Agen<T>::nodo n, const Agen<T> &A){
     typename Agen<T>::nodo hijo = A.hijoIzqdo(n);
     size_t nodoshijos = 0;
     while(hijo != Agen<T>::NODO_NULO){
-      nodoshijos = 1 + nHijos(hijo,A);
+      nodoshijos ++;
       hijo = A.hermDrcho(hijo);
     }
     return nodoshijos;

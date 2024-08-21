@@ -1,0 +1,41 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}iostream\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZdq{}abin.h\PYGZdq{}}
+
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{o}{\PYGZgt{}}
+\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{ContarNodosVerdesAbin}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Abin}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{A}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{if}\PYG{p}{(}\PYG{n}{A}\PYG{p}{.}\PYG{n}{arbolVacio}\PYG{p}{())}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{ContarNodosVerdesAbin\PYGZus{}rec}\PYG{p}{(}\PYG{n}{A}\PYG{p}{.}\PYG{n}{raiz}\PYG{p}{(),}\PYG{n}{A}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{//Para tener 3 nietos tiene que tener si o si dos hijos}
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{o}{\PYGZgt{}}
+\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{n}{DosHijos}\PYG{p}{(}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{Abin}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{n}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Abin}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{A}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{return}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{A}\PYG{p}{.}\PYG{n}{hijoIzqdo}\PYG{p}{(}\PYG{n}{n}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{Abin}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{NODO\PYGZus{}NULO}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{A}\PYG{p}{.}\PYG{n}{hijoDrcho}\PYG{p}{(}\PYG{n}{n}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{Abin}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{NODO\PYGZus{}NULO}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{o}{\PYGZgt{}}
+\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{TresNietos}\PYG{p}{(}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{Abin}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{n}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Abin}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{A}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{if}\PYG{p}{(}\PYG{n}{n}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{Abin}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{NODO\PYGZus{}NULO}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k}{else}\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{nietos}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{DosHijos}\PYG{p}{(}\PYG{n}{n}\PYG{p}{,}\PYG{n}{A}\PYG{p}{))\PYGZob{}}
+\PYG{+w}{      }\PYG{c+c1}{//Vamos a recorrer los nietos de un nodo para ver si tiene 3 (descendientes propios de él).}
+\PYG{+w}{      }\PYG{k}{if}\PYG{p}{(}\PYG{n}{A}\PYG{p}{.}\PYG{n}{hijoIzqdo}\PYG{p}{(}\PYG{n}{A}\PYG{p}{.}\PYG{n}{hijoIzqdo}\PYG{p}{(}\PYG{n}{n}\PYG{p}{))}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{Abin}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{NODO\PYGZus{}NULO}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{nietos}\PYG{o}{++}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//tiene hijo izquierdo y nieto izquierdo}
+\PYG{+w}{      }\PYG{k}{if}\PYG{p}{(}\PYG{n}{A}\PYG{p}{.}\PYG{n}{hijoIzqdo}\PYG{p}{(}\PYG{n}{A}\PYG{p}{.}\PYG{n}{hijoDrcho}\PYG{p}{(}\PYG{n}{n}\PYG{p}{))}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{Abin}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{NODO\PYGZus{}NULO}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{nietos}\PYG{o}{++}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//tiene hijo izquierdo y nieto derecho}
+\PYG{+w}{      }\PYG{k}{if}\PYG{p}{(}\PYG{n}{A}\PYG{p}{.}\PYG{n}{hijoDrcho}\PYG{p}{(}\PYG{n}{A}\PYG{p}{.}\PYG{n}{hijoIzqdo}\PYG{p}{(}\PYG{n}{n}\PYG{p}{))}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{Abin}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{NODO\PYGZus{}NULO}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{nietos}\PYG{o}{++}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//tiene hijo derecho y nieto izquierdo}
+\PYG{+w}{      }\PYG{k}{if}\PYG{p}{(}\PYG{n}{A}\PYG{p}{.}\PYG{n}{hijoDrcho}\PYG{p}{(}\PYG{n}{A}\PYG{p}{.}\PYG{n}{hijoDrcho}\PYG{p}{(}\PYG{n}{n}\PYG{p}{))}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{Abin}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{NODO\PYGZus{}NULO}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{nietos}\PYG{o}{++}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//tiene hijo derecho y nieto derecho}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{nietos}\PYG{p}{;}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{o}{\PYGZgt{}}
+\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{ContarNodosVerdesAbin\PYGZus{}rec}\PYG{p}{(}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{Abin}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{n}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Abin}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{A}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{if}\PYG{p}{(}\PYG{n}{n}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{Abin}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{NODO\PYGZus{}NULO}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k}{else}\PYG{+w}{ }\PYG{k}{if}\PYG{p}{(}\PYG{n}{TresNietos}\PYG{p}{(}\PYG{n}{n}\PYG{p}{,}\PYG{n}{A}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{l+m+mi}{3}\PYG{p}{)}\PYG{+w}{ }\PYG{c+c1}{//condición a cumplir}
+\PYG{+w}{      }\PYG{k}{return}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{ContarNodosVerdesAbin\PYGZus{}rec}\PYG{p}{(}\PYG{n}{A}\PYG{p}{.}\PYG{n}{hijoIzqdo}\PYG{p}{(}\PYG{n}{n}\PYG{p}{),}\PYG{n}{A}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{ContarNodosVerdesAbin\PYGZus{}rec}\PYG{p}{(}\PYG{n}{A}\PYG{p}{.}\PYG{n}{hijoDrcho}\PYG{p}{(}\PYG{n}{n}\PYG{p}{),}\PYG{n}{A}\PYG{p}{);}
+\PYG{+w}{  }\PYG{k}{else}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{ContarNodosVerdesAbin\PYGZus{}rec}\PYG{p}{(}\PYG{n}{A}\PYG{p}{.}\PYG{n}{hijoIzqdo}\PYG{p}{(}\PYG{n}{n}\PYG{p}{),}\PYG{n}{A}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{ContarNodosVerdesAbin\PYGZus{}rec}\PYG{p}{(}\PYG{n}{A}\PYG{p}{.}\PYG{n}{hijoDrcho}\PYG{p}{(}\PYG{n}{n}\PYG{p}{),}\PYG{n}{A}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

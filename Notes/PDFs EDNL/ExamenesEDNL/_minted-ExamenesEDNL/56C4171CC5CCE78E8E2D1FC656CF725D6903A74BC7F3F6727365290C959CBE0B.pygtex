@@ -1,0 +1,31 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}iostream\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZdq{}abin.h\PYGZdq{}}
+
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{o}{\PYGZgt{}}
+\PYG{n}{Abin}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{AbinReflejado}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Abin}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{A}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{  }\PYG{c+c1}{//Creamos el nuevo árbol binario}
+\PYG{+w}{  }\PYG{n}{Abin}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{Reflejado}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k}{if}\PYG{p}{(}\PYG{o}{!}\PYG{n}{A}\PYG{p}{.}\PYG{n}{arbolVacio}\PYG{p}{())\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{Reflejado}\PYG{p}{.}\PYG{n}{insertarRaiz}\PYG{p}{(}\PYG{n}{A}\PYG{p}{.}\PYG{n}{elemento}\PYG{p}{(}\PYG{n}{A}\PYG{p}{.}\PYG{n}{raiz}\PYG{p}{()));}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{AbinReflejado\PYGZus{}rec}\PYG{p}{(}\PYG{n}{A}\PYG{p}{.}\PYG{n}{raiz}\PYG{p}{(),}\PYG{n}{Reflejado}\PYG{p}{.}\PYG{n}{raiz}\PYG{p}{(),}\PYG{n}{A}\PYG{p}{,}\PYG{n}{Reflejado}\PYG{p}{);}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{Reflejado}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//devolvemos el árbol}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{o}{\PYGZgt{}}
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{AbinReflejado\PYGZus{}rec}\PYG{p}{(}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{Abin}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{Abin}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{nodo}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Abin}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{A}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Abin}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{B}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{if}\PYG{p}{(}\PYG{n}{a}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{Abin}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{NODO\PYGZus{}NULO}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{    }\PYG{c+c1}{//Vamos a insertar en el subárbol izquierdo del nodo b de B el subárbol derecho del nodo a de A y viceversa.}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{A}\PYG{p}{.}\PYG{n}{hijoDrcho}\PYG{p}{(}\PYG{n}{a}\PYG{p}{)}\PYG{o}{!=}\PYG{n}{Abin}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{NODO\PYGZus{}NULO}\PYG{p}{)}
+\PYG{+w}{      }\PYG{n}{B}\PYG{p}{.}\PYG{n}{insertarHijoIzqdo}\PYG{p}{(}\PYG{n}{b}\PYG{p}{,}\PYG{n}{A}\PYG{p}{.}\PYG{n}{elemento}\PYG{p}{(}\PYG{n}{A}\PYG{p}{.}\PYG{n}{hijoDrcho}\PYG{p}{(}\PYG{n}{a}\PYG{p}{)));}
+\PYG{+w}{    }\PYG{c+c1}{//Llamamos a la función recursiva con el subárbol derecho de A y izquierdo de B.}
+\PYG{+w}{    }\PYG{n}{AbinReflejado}\PYG{p}{(}\PYG{n}{A}\PYG{p}{.}\PYG{n}{hijoDrcho}\PYG{p}{(}\PYG{n}{a}\PYG{p}{),}\PYG{n}{A}\PYG{p}{.}\PYG{n}{hijoIzqdo}\PYG{p}{(}\PYG{n}{b}\PYG{p}{),}\PYG{n}{A}\PYG{p}{,}\PYG{n}{B}\PYG{p}{);}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{A}\PYG{p}{.}\PYG{n}{hijoIzqdo}\PYG{p}{(}\PYG{n}{a}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{Abin}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}::}\PYG{n}{NODO\PYGZus{}NULO}\PYG{p}{)}
+\PYG{+w}{      }\PYG{n}{B}\PYG{p}{.}\PYG{n}{insertarHijoDrcho}\PYG{p}{(}\PYG{n}{b}\PYG{p}{,}\PYG{n}{A}\PYG{p}{.}\PYG{n}{elemento}\PYG{p}{(}\PYG{n}{A}\PYG{p}{.}\PYG{n}{hijoIzqdo}\PYG{p}{(}\PYG{n}{a}\PYG{p}{)));}
+\PYG{+w}{    }\PYG{c+c1}{//Llamamos a la función con el subárbol izquierdo A y derecho de B.}
+\PYG{+w}{    }\PYG{n}{AbinReflejado}\PYG{p}{(}\PYG{n}{A}\PYG{p}{.}\PYG{n}{hijoIzqdo}\PYG{p}{(}\PYG{n}{a}\PYG{p}{),}\PYG{n}{B}\PYG{p}{.}\PYG{n}{hijoDrcho}\PYG{p}{(}\PYG{n}{b}\PYG{p}{),}\PYG{n}{A}\PYG{p}{,}\PYG{n}{B}\PYG{p}{);}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{c+c1}{//Devolvemos por referencia el árbol B (Reflejado),}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

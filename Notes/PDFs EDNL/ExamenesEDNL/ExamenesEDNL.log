@@ -1,15 +1,15 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.27)  21 AUG 2024 17:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.27)  21 AUG 2024 20:44
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
-**PracticasEDNL
-(./PracticasEDNL.tex
+**ExamenesEDNL
+(./ExamenesEDNL.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
 (/usr/local/texlive/2024/texmf-dist/tex/latex/base/report.cls
 Document Class: report 2023/05/17 v1.4n Standard LaTeX document class
-(/usr/local/texlive/2024/texmf-dist/tex/latex/base/size11.clo
-File: size11.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
+(/usr/local/texlive/2024/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count188
 \c@chapter=\count189
@@ -23,7 +23,7 @@ File: size11.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 \abovecaptionskip=\skip48
 \belowcaptionskip=\skip49
 \bibindent=\dimen140
-) (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/configuracion/paquetes.tex (/usr/local/texlive/2024/texmf-dist/tex/latex/base/inputenc.sty
+) (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/configuracion/paquetes.tex (/usr/local/texlive/2024/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2021/02/14 v1.3d Input encoding file
 \inpenc@prehook=\toks17
 \inpenc@posthook=\toks18
@@ -423,10 +423,10 @@ Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )) (/usr/local/texlive/2024/texmf-dist/tex/generic/iftex/ifluatex.sty
 Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
 )
-runsystem(uname -s > "PracticasEDNL.w18")...executed.
+runsystem(uname -s > "ExamenesEDNL.w18")...executed.
 
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/PracticasEDNL.w18)
-runsystem(rm -- "PracticasEDNL.w18")...executed.
+ (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/ExamenesEDNL.w18)
+runsystem(rm -- "ExamenesEDNL.w18")...executed.
 
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/xstring/xstring.sty (/usr/local/texlive/2024/texmf-dist/tex/generic/xstring/xstring.tex
 \xs_counta=\count330
@@ -449,7 +449,7 @@ Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 \@float@every@listing=\toks29
 \c@listing=\count334
 )
-runsystem(mkdir -p _minted-PracticasEDNL)...executed.
+runsystem(mkdir -p _minted-ExamenesEDNL)...executed.
 
  (/usr/local/texlive/2024/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2019/06/20 v3.9 Customized lists
@@ -785,48 +785,48 @@ Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
 \multirow@dima=\skip67
 \bigstrutjot=\dimen315
 )
-LaTeX Info: Redefining \. on input line 40.
-LaTeX Info: Redefining \% on input line 40.
+LaTeX Info: Redefining \. on input line 37.
+LaTeX Info: Redefining \% on input line 37.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/appendix/appendix.sty
 Package: appendix 2020/02/08 v1.2c extra appendix facilities
 \c@@pps=\count390
 \c@@ppsavesec=\count391
 \c@@ppsaveapp=\count392
-)) (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/configuracion/estilos.tex)
-runsystem(command -v pygmentize && touch PracticasEDNL.aex)...executed.
+)) (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/configuracion/estilos.tex)
+runsystem(command -v pygmentize && touch ExamenesEDNL.aex)...executed.
 
-runsystem(rm PracticasEDNL.aex)...executed.
+runsystem(rm ExamenesEDNL.aex)...executed.
 
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'spanish'.
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/PracticasEDNL.aux
+ (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/ExamenesEDNL.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
 LaTeX Info: Redefining \. on input line 12.
 LaTeX Info: Redefining \% on input line 12.
 )
-\openout1 = `PracticasEDNL.aux'.
+\openout1 = `ExamenesEDNL.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
@@ -851,12 +851,12 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/local/texlive/2024/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-LaTeX Info: Redefining \. on input line 9.
-LaTeX Info: Redefining \% on input line 9.
-Package hyperref Info: Link coloring ON on input line 9.
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/PracticasEDNL.out) (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/PracticasEDNL.out)
+LaTeX Info: Redefining \. on input line 8.
+LaTeX Info: Redefining \% on input line 8.
+Package hyperref Info: Link coloring ON on input line 8.
+ (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/ExamenesEDNL.out) (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/ExamenesEDNL.out)
 \@outlinefile=\write6
-\openout6 = `PracticasEDNL.out'.
+\openout6 = `ExamenesEDNL.out'.
 
 \c@lstlisting=\count399
 
@@ -879,12 +879,12 @@ Package hyperref Info: Link coloring ON on input line 9.
 * \topmargin=-31.02492pt
 * \headheight=12.0pt
 * \headsep=25.0pt
-* \topskip=11.0pt
+* \topskip=12.0pt
 * \footskip=30.0pt
-* \marginparwidth=113.0pt
+* \marginparwidth=95.0pt
 * \marginparsep=10.0pt
 * \columnsep=10.0pt
-* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
 * \mag=1000
@@ -896,9 +896,9 @@ Package hyperref Info: Link coloring ON on input line 9.
 
 Couldn't patch \ttl@straight@ii
 Couldn't patch \ttl@straight@ii
-(/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/chaps/00_Portada.tex) [1
+(/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/Temas/Portada.tex) [1
 
-{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/PracticasEDNL.toc
+{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/ExamenesEDNL.toc
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 LaTeX Info: Redefining \. on input line 2.
@@ -912,308 +912,77 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 4.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ))
 \tf@toc=\write7
-\openout7 = `PracticasEDNL.toc'.
+\openout7 = `ExamenesEDNL.toc'.
 
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/chaps/Párboles.tex [2
+ (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/Temas/EjerciciosÁrboles/EjerciciosArboles.tex [2
 
 ]
 Cap\'{\i }tulo 1.
-(/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/chaps/Arboles/P1.tex
-\openout3 = `PracticasEDNL.pyg'.
+(/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/Temas/EjerciciosÁrboles/AbinReflejado.tex
+\openout3 = `ExamenesEDNL.pyg'.
 
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/default.pygstyle) (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/489E323248D64DB2E393D00CE34C0E86FE898BF36090D6A06192B7DE27289821.pygtex
+ (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/_minted-ExamenesEDNL/default.pygstyle) (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/_minted-ExamenesEDNL/56C4171CC5CCE78E8E2D1FC656CF725D6903A74BC7F3F6727365290C959CBE0B.pygtex
 LaTeX Font Info:    Trying to load font information for OT1+zi4 on input line 1.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/inconsolata/ot1zi4.fd
 File: ot1zi4.fd 2018/01/14 OT1/zi4 (Inconsolata)
 )
 LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
-(Font)              scaled to size 10.95pt on input line 1.
+(Font)              scaled to size 12.0pt on input line 1.
 
 
 LaTeX Font Warning: Font shape `OT1/zi4/m/it' undefined
 (Font)              using `OT1/zi4/m/n' instead on input line 2.
 
 LaTeX Font Info:    Font shape `OT1/zi4/m/it' will be
-(Font)              scaled to size 10.95pt on input line 2.
-)
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/26B4CA37FD767F340F986CB3EDA2B87EFE898BF36090D6A06192B7DE27289821.pygtex
+(Font)              scaled to size 12.0pt on input line 2.
 LaTeX Font Info:    Font shape `OT1/zi4/b/n' will be
-(Font)              scaled to size 10.95pt on input line 2.
+(Font)              scaled to size 12.0pt on input line 5.
 LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
-(Font)              scaled to size 6.0pt on input line 10.
+(Font)              scaled to size 6.0pt on input line 17.
+) [3
+
+{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/inconsolata/i4-ot1-0.enc}] [4{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]) [5] (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/Temas/EjerciciosÁrboles/AgenReflejado.tex
+\openout3 = `ExamenesEDNL.pyg'.
+
+ (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/_minted-ExamenesEDNL/4E0B1EA1E038827B1C0EF832CC62192D6903A74BC7F3F6727365290C959CBE0B.pygtex) [6]) [7] (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/Temas/EjerciciosÁrboles/AgenSimilar.tex
+\openout3 = `ExamenesEDNL.pyg'.
+
+ (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/_minted-ExamenesEDNL/F4D055A7690D4A30EECCB526D2A72C196903A74BC7F3F6727365290C959CBE0B.pygtex [8]) [9]) [10] (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/Temas/EjerciciosÁrboles/NodosVerdes.tex
+\openout3 = `ExamenesEDNL.pyg'.
+
+ (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/_minted-ExamenesEDNL/2274F1D985A71CEFE5972DE47C330A666903A74BC7F3F6727365290C959CBE0B.pygtex [11]) [12]
+\openout3 = `ExamenesEDNL.pyg'.
+
+ (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/_minted-ExamenesEDNL/A3429AE3D992F6BC1C0BC54EAD024A1E6903A74BC7F3F6727365290C959CBE0B.pygtex)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [13]) [14] (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/Temas/EjerciciosÁrboles/FlotarNodos.tex
+\openout3 = `ExamenesEDNL.pyg'.
+
+ (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/_minted-ExamenesEDNL/1FE519FBCAC6541EE90529AC683B99A96903A74BC7F3F6727365290C959CBE0B.pygtex) [15])) (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/Temas/EjerciciosGrafos/EjerciciosGrafos.tex [16] (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/Temas/EjerciciosGrafos/CiudadesRebeldes.tex
+\openout3 = `ExamenesEDNL.pyg'.
+
+ (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/_minted-ExamenesEDNL/68B329DA9893E34099C7D8AD5CB9C9406903A74BC7F3F6727365290C959CBE0B.pygtex)) [17
+
+] (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/Temas/EjerciciosGrafos/LineasAereasTumbuctu.tex
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 3.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/base/ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-\openout3 = `PracticasEDNL.pyg'.
+\openout3 = `ExamenesEDNL.pyg'.
 
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/BE38C6FF34FD02E366F9A6ECF9AA5921FE898BF36090D6A06192B7DE27289821.pygtex [3
+ (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/_minted-ExamenesEDNL/68B329DA9893E34099C7D8AD5CB9C9406903A74BC7F3F6727365290C959CBE0B.pygtex)) [18] (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/Temas/EjerciciosGrafos/PuentesGrecoland.tex
+\openout3 = `ExamenesEDNL.pyg'.
 
-{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/inconsolata/i4-ot1-0.enc}])
-\openout3 = `PracticasEDNL.pyg'.
+ (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/_minted-ExamenesEDNL/68B329DA9893E34099C7D8AD5CB9C9406903A74BC7F3F6727365290C959CBE0B.pygtex)) [19] (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/Temas/EjerciciosGrafos/ToxicidadZuelandia.tex
+\openout3 = `ExamenesEDNL.pyg'.
 
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/9529100873F32FBA184192A322C30882FE898BF36090D6A06192B7DE27289821.pygtex)
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/35FDE9C09163DB25B7998FADE3BDBCBDFE898BF36090D6A06192B7DE27289821.pygtex [4])
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/CAB161871648F040F95DCEB6BB9DD30DFE898BF36090D6A06192B7DE27289821.pygtex)
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/A1AC04AC289DF3E4E158EFC13C349A4AFE898BF36090D6A06192B7DE27289821.pygtex [5])
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/C9229089B0B33B130482AE5F625510ABFE898BF36090D6A06192B7DE27289821.pygtex)) [6] (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/chaps/Arboles/P2.tex
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/D4AEB22252E511B5B074788AA890AA18FE898BF36090D6A06192B7DE27289821.pygtex)
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/8023CEA6AC51B8C29B718A94D2145580FE898BF36090D6A06192B7DE27289821.pygtex [7])
-<assets/p2.1.png, id=104, 506.89375pt x 419.5675pt>
-File: assets/p2.1.png Graphic file (type png)
-<use assets/p2.1.png>
-Package pdftex.def Info: assets/p2.1.png  used on input line 69.
-(pdftex.def)             Requested size: 132.30666pt x 109.5075pt.
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/279DAA3681A8FAC0AA3F367256670CAAFE898BF36090D6A06192B7DE27289821.pygtex)
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/4B49BC11785B35AFA126BA91882DF23DFE898BF36090D6A06192B7DE27289821.pygtex
-LaTeX Font Info:    Trying to load font information for TS1+zi4 on input line 2.
- (/usr/local/texlive/2024/texmf-dist/tex/latex/inconsolata/ts1zi4.fd
-File: ts1zi4.fd 2018/01/14 TS1/zi4 (Inconsolata)
-)
-LaTeX Font Info:    Font shape `TS1/zi4/m/n' will be
-(Font)              scaled to size 10.95pt on input line 2.
-)
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/2E93BF88F0D0B0C15D1B6B8A686B231CFE898BF36090D6A06192B7DE27289821.pygtex [8{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/inconsolata/i4-ts1.enc} </Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/assets/p2.1.png>])
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/5F1FA87E32DD92FAEAD368813691E440FE898BF36090D6A06192B7DE27289821.pygtex)) [9] (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/chaps/Arboles/P3.tex
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/F4198FD42DAF12BEC6AF32472FBDBCD9FE898BF36090D6A06192B7DE27289821.pygtex)
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/9CDD2F4C606692357DBD341D54DA77C5FE898BF36090D6A06192B7DE27289821.pygtex)
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/7B6510026AA2088B91ACFB3A4F409732FE898BF36090D6A06192B7DE27289821.pygtex) [10]
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/4DE49CBB784405F47F56116BE809BB5DFE898BF36090D6A06192B7DE27289821.pygtex)
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/3EAA3E895C4BCD96BD47AA5D01CFEDB4FE898BF36090D6A06192B7DE27289821.pygtex [11])) [12] (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/chaps/Arboles/P4.tex
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/47881BB0B3D4EE4574E7A830A59A2D99FE898BF36090D6A06192B7DE27289821.pygtex)
-<assets/Abb1.png, id=134, 564.1075pt x 266.9975pt>
-File: assets/Abb1.png Graphic file (type png)
-<use assets/Abb1.png>
-Package pdftex.def Info: assets/Abb1.png  used on input line 16.
-(pdftex.def)             Requested size: 308.71106pt x 146.11574pt.
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/47629EEEC8F99A9E184E30BB7689DC38FE898BF36090D6A06192B7DE27289821.pygtex) [13 </Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/assets/Abb1.png>]
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/F202407ECDB7B5BF7F7E5653DD05E8E0FE898BF36090D6A06192B7DE27289821.pygtex)
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/BEEE9F55E8548D73B46BE878D20E1B39FE898BF36090D6A06192B7DE27289821.pygtex [14])
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/91FFAF47FCB5E8A0A6E5EEF4984432EDFE898BF36090D6A06192B7DE27289821.pygtex)
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/FA0A99746913DA481733A288D79A8125FE898BF36090D6A06192B7DE27289821.pygtex [15])) [16] (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/chaps/Arboles/p5.tex
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/275A04EEC36105CE454BA62EF2EC876FFE898BF36090D6A06192B7DE27289821.pygtex)
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/8CAE554A738B8B143C16B40E0401568CFE898BF36090D6A06192B7DE27289821.pygtex [17])
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/1B807F301179E5F86D1B067D1C327CE6FE898BF36090D6A06192B7DE27289821.pygtex [18]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [19])
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/90D0516E6252CBF03D42102B377EA550FE898BF36090D6A06192B7DE27289821.pygtex)
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/AF2BCC9E36AFCD3E6B75CAFA596ECFBCFE898BF36090D6A06192B7DE27289821.pygtex [20])
-<assets/p5.png, id=174, 1286.8075pt x 647.41875pt>
-File: assets/p5.png Graphic file (type png)
-<use assets/p5.png>
-Package pdftex.def Info: assets/p5.png  used on input line 196.
-(pdftex.def)             Requested size: 308.71106pt x 155.31451pt.
- [21 </Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/assets/p5.png>]
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/2D7415E3B538C845F7CD762FBCA83D73FE898BF36090D6A06192B7DE27289821.pygtex)) [22] (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/chaps/Arboles/Pextra.tex
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/D299887683E4015401DA785208C6AD8DFE898BF36090D6A06192B7DE27289821.pygtex)
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/9F1C0E403FFFF4D7A5BFED85AB91D51FFE898BF36090D6A06192B7DE27289821.pygtex [23])
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/047D6B741C40DE294AAC5C1A39552B53FE898BF36090D6A06192B7DE27289821.pygtex [24]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [25]))) (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/chaps/Pgrafos.tex [26]
-Cap\'{\i }tulo 2.
-[27
-
-] (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/chaps/Grafos/P6.tex
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/EB301A81BC52D7CA92E9F1B401BE864AFE898BF36090D6A06192B7DE27289821.pygtex)
-Overfull \hbox (1.89638pt too wide) in paragraph at lines 11--12
-[]$[]$ \OT1/cmr/m/it/10.95 A~nadir una fun-ci^^Son gen^^Seri-ca, lla-ma-da Dijks-traInv, en el fi-che-ro alg[]grafoPMC.h
- []
-
-\openout3 = `PracticasEDNL.pyg'.
-
-(/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/9DEBC087A540EFE0E39C291283C7A2DBFE898BF36090D6A06192B7DE27289821.pygtex [28])
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/B537A08C661966888045588958E64A2CFE898BF36090D6A06192B7DE27289821.pygtex [29])
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/A6A07007233A806F4C4E62652AE30BB7FE898BF36090D6A06192B7DE27289821.pygtex [30]) [31]
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/A3896B14265E8AF387F639D3E581C2E2FE898BF36090D6A06192B7DE27289821.pygtex [32])
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/51B56400E8CF36D80F3ACB4E07463BB8FE898BF36090D6A06192B7DE27289821.pygtex [33])) [34] (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/chaps/Grafos/P7.tex
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/BE7FDC7B3057D6F887427E8FFF62F2ABFE898BF36090D6A06192B7DE27289821.pygtex [35]) [36]
-LaTeX Font Info:    Trying to load font information for OMS+zi4 on input line 90.
-LaTeX Font Info:    No file OMSzi4.fd. on input line 90.
-
-
-LaTeX Font Warning: Font shape `OMS/zi4/m/n' undefined
-(Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbraceleft' on input line 90.
-
-\openout3 = `PracticasEDNL.pyg'.
-
-(/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/55C08C1546E814B6A5EA35ADA091D99DFE898BF36090D6A06192B7DE27289821.pygtex [37]) [38]
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/947825C6ECF0B8F6AECE3EB82ED84AA3FE898BF36090D6A06192B7DE27289821.pygtex) [39]
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/4F218DD269E5AF063F0F0301C9FB8114FE898BF36090D6A06192B7DE27289821.pygtex)
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/18AAFA528589BB2DA6F89A2619E88870FE898BF36090D6A06192B7DE27289821.pygtex [40]
-Underfull \vbox (badness 1033) has occurred while \output is active []
-
- [41])
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/15F810F153FF247B9F18D9AF153A192CFE898BF36090D6A06192B7DE27289821.pygtex
-Overfull \hbox (166.70625pt too wide) in paragraph at lines 20--20
-[]\OT1/zi4/m/it/10.95 std[]::[]min(std[]::[]min(matriz_minima_tren[i][j],matriz_minima_bus[i][j]),std[]::[]min(matriz_minima_bus[i][j],[] 
- []
-
-[42])
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/62173153AD35EC2F43B9901A4D1E912BFE898BF36090D6A06192B7DE27289821.pygtex [43])
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/6E07632B53CE9EE91C921AD4BF193574FE898BF36090D6A06192B7DE27289821.pygtex [44])
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/EFEFDCAFB3FA019FE0086D3C9B328BFFFE898BF36090D6A06192B7DE27289821.pygtex [45]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [46]) [47]
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/8A694C6DF9945E9E1EB8E6C5794411D0FE898BF36090D6A06192B7DE27289821.pygtex
-
-LaTeX Font Warning: Font shape `TS1/zi4/m/it' undefined
-(Font)              using `TS1/zi4/m/n' instead
-(Font)              for symbol `textordmasculine' on input line 34.
-
-LaTeX Font Info:    Font shape `TS1/zi4/m/it' will be
-(Font)              scaled to size 10.95pt on input line 34.
-[48]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [49]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [50])
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [51]
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/EF8C7693758C5A66ABC46FFC6E32AF50FE898BF36090D6A06192B7DE27289821.pygtex [52])
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/946C32090EF4272DEC5E1B0F862A7E1DFE898BF36090D6A06192B7DE27289821.pygtex [53])
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/833D6C2AB9F3936930E71D1FB0A5B5A4FE898BF36090D6A06192B7DE27289821.pygtex [54]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [55])) [56] (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/chaps/Grafos/P8.tex
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/F85D73F28B11D98BB99E3AAC7BE41A91FE898BF36090D6A06192B7DE27289821.pygtex)
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/DEC30FC256CB2476B20DB4944FE518A9FE898BF36090D6A06192B7DE27289821.pygtex [57]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [58]) [59]
-\openout3 = `PracticasEDNL.pyg'.
-
-runsystem(pygmentize -l 'C++' -f latex -P commandprefix=PYG -F tokenmerge -P stripnl='False' -o _minted-PracticasEDNL/0B6A2DD622CFF46F8B96173BB90EA9C3FE898BF36090D6A06192B7DE27289821.pygtex PracticasEDNL.pyg)...executed.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/0B6A2DD622CFF46F8B96173BB90EA9C3FE898BF36090D6A06192B7DE27289821.pygtex [60])
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/4825B65365C00424BBE1F301CE6A9496FE898BF36090D6A06192B7DE27289821.pygtex [61])
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/0E2E4D9E2FCEE2BEE19EDDA7FF6D397EFE898BF36090D6A06192B7DE27289821.pygtex)
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/887B8F01D2818294E513DCFB1E329B42FE898BF36090D6A06192B7DE27289821.pygtex [62])
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/52C84175BAFDC15CFBC71C9CBE439511FE898BF36090D6A06192B7DE27289821.pygtex [63]) [64]
-\openout3 = `PracticasEDNL.pyg'.
-
- (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/_minted-PracticasEDNL/AAE5731252A4BC89CBE6F53066459944FE898BF36090D6A06192B7DE27289821.pygtex
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [65])))
+ (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/_minted-ExamenesEDNL/68B329DA9893E34099C7D8AD5CB9C9406903A74BC7F3F6727365290C959CBE0B.pygtex)))
 
 Package caption Warning: Unused \captionsetup[table] on input line 29.
 See the caption package documentation for explanation.
 
-runsystem(rm _minted-PracticasEDNL/B07C533513FB45C7646A06A4DF9BE973FE898BF36090D6A06192B7DE27289821.pygtex)...executed.
-
-[66] (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/PracticasEDNL.aux
+[20] (/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/ExamenesEDNL.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
 LaTeX Info: Redefining \. on input line 12.
@@ -1227,24 +996,24 @@ L3 programming layer <2024-02-20>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package rerunfilecheck Info: File `PracticasEDNL.out' has not changed.
-(rerunfilecheck)             Checksum: 661C431B7ABEEC5C200820EC272C7273;2525.
-runsystem(rm PracticasEDNL.pyg)...executed.
+Package rerunfilecheck Info: File `ExamenesEDNL.out' has not changed.
+(rerunfilecheck)             Checksum: BBD8F192A5FC1F3980EBB8DA3978E721;1549.
+runsystem(rm ExamenesEDNL.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 31671 strings out of 474116
- 636324 string characters out of 5743682
- 1946187 words of memory out of 5000000
- 53167 multiletter control sequences out of 15000+600000
- 569599 words of font info for 79 fonts, out of 8000000 for 9000
+ 31151 strings out of 474116
+ 591519 string characters out of 5743682
+ 1941187 words of memory out of 5000000
+ 52877 multiletter control sequences out of 15000+600000
+ 566890 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 104i,10n,104p,1278b,938s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on "/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/PracticasEDNL/PracticasEDNL.pdf" (66 pages, 628407 bytes).
+ 104i,9n,104p,1137b,930s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/latxfont/lasy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
+Output written on "/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs EDNL/ExamenesEDNL/ExamenesEDNL.pdf" (20 pages, 156407 bytes).
 PDF statistics:
- 486 PDF objects out of 1000 (max. 8388607)
- 377 compressed objects within 4 object streams
- 108 named destinations out of 1000 (max. 500000)
- 128 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 217 PDF objects out of 1000 (max. 8388607)
+ 173 compressed objects within 2 object streams
+ 39 named destinations out of 1000 (max. 500000)
+ 93 words of extra memory for PDF output out of 10000 (max. 10000000)
 
