@@ -124,11 +124,11 @@ LineasAereasArchipielago Tumbuctu(const Grafo& G, vector<Ciudad> &ciudades){
       //son de la misma isla, no hay linea aérea
     }
   //Tenemos el APO con las líneas aéreas, vamos a quedarnos con las menos costosas
-  //Vamos a crearnos una matriz de adyacencia de las islas para saber que islas están unidas
+  //Vamos a crearnos una matriz de booleanos de las islas para saber que islas están unidas
   matriz<bool> ConexiónIsla(archipielago.size(),false);
 
   LineasAereasArchipielago vector_LA((archipielago.size()*(archipielago.size()-1))/2);
-  size_t contador = 0;
+  size_t contador = 0;    
   while(!A.vacio() && contador < (archipielago.size()*(archipielago.size()-1))/2){
     LineaAerea aux = A.cima(); //linea aérea menos costosa
     if(P.encontrar(aux.Origen_) != P.encontrar(aux.Destino_) && ConexiónIsla[aux.Origen_][aux.Destino_] ==false){ 

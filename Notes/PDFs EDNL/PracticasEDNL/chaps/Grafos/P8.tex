@@ -30,7 +30,7 @@ También contamos con una matriz de adyacencia, es decir, que podemos saber que 
 Mediante esto y el Grafo dado, tenemos que devolver las islas del archipiélago y el coste de viajar entre dos ciudades de una misma isla.
 
 \begin{minted}[breaklines]{C++}
-// Vector ciudad:
+// Vector ciudad: 
 // [{0,1},{2,4},{3,5},{6,7},{8,9},{10,11},{12,13}]
 // [ c1,   c2,    c3,   c4,  c5,    c6,     c7]
 
@@ -174,14 +174,14 @@ LineasAereasArchipielago Tombuctu2 (Grafo G, vector<ciudad>ciudades){
       //son de la misma isla, no hay linea aérea
     }
   //Tenemos el APO con las líneas aéreas, vamos a quedarnos con las menos costosas
-  //Vamos a crearnos una matriz de adyacencia de las islas para saber que islas están unidas
+  //Vamos a crearnos una matriz de booleanos   de las islas para saber que islas están unidas
   matriz<bool> ConexiónIsla(archipielago.size(),false);
 
   LineasAereasArchipielago vector_LA((archipielago.size()*(archipielago.size()-1))/2);
-  size_t contador = 0;
+  size_t contador = 0; //indice del vector de líneas aéreas
   while(!A.vacio() && contador < (archipielago.size()*(archipielago.size()-1))/2){
     LineaAerea aux = A.cima(); //linea aérea menos costosa
-    if(P.encontrar(aux.Origen_) != P.encontrar(aux.Destino_) && ConexiónIsla[aux.Origen_][aux.Destino_] ==false){ 
+    if(P.encontrar(aux.Origen_) != P.encontrar(aux.Destino_) && ConexiónIsla[aux.Origen_][aux.Destino_] == false){ 
       //son islas diferentes y no están conectadas. 
       ConexiónIsla[aux.Origen_][aux.Destino_] = ConexiónIsla[aux.Origen_][aux.Destino_] = true;
       //rellenamos el vector de las lineas aereas
