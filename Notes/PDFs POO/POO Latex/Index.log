@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.27)  17 JUN 2024 18:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.27)  21 AUG 2024 14:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/POO Latex/Index.tex"
-(/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/POO Latex/Index.tex
+**"/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs POO/POO Latex/Index.tex"
+(/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs POO/POO Latex/Index.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
 (/usr/local/texlive/2024/texmf-dist/tex/latex/base/report.cls
@@ -1148,12 +1148,12 @@ Package rerunfilecheck Info: File `Index.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  28410 strings out of 474116
- 519534 string characters out of 5743682
+ 519561 string characters out of 5743682
  2222187 words of memory out of 5000000
  49650 multiletter control sequences out of 15000+600000
  566452 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 104i,9n,104p,1222b,2112s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 104i,9n,104p,1231b,2112s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb>
 Output written on Index.pdf (43 pages, 1956456 bytes).
 PDF statistics:

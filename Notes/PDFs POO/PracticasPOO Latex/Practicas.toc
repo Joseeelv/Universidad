@@ -1,56 +1,56 @@
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {chapter}{\numberline {1}Práctica 0}{5}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Clase Fecha}{5}{section.1.1}%
-\contentsline {subsection}{\numberline {1.1.1}Fecha.hpp}{6}{subsection.1.1.1}%
-\contentsline {subsection}{\numberline {1.1.2}Fecha.cpp}{8}{subsection.1.1.2}%
-\contentsline {section}{\numberline {1.2}Clase Cadena}{11}{section.1.2}%
-\contentsline {subsection}{\numberline {1.2.1}Cadena.hpp}{13}{subsection.1.2.1}%
-\contentsline {subsection}{\numberline {1.2.2}Cadena.cpp}{14}{subsection.1.2.2}%
-\contentsline {chapter}{\numberline {2}Práctica 1}{18}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Clase Fecha}{18}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}Fecha.hpp modificado}{18}{subsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.1.2}Fecha.cpp modificado}{19}{subsection.2.1.2}%
-\contentsline {section}{\numberline {2.2}Clase Cadena}{20}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Cadena.hpp modificada}{21}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Cadena.cpp modificada}{22}{subsection.2.2.2}%
-\contentsline {chapter}{\numberline {3}Práctica 2}{24}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Clase Artículo}{24}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Articulo.hpp}{25}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Articulo.cpp}{26}{subsection.3.1.2}%
-\contentsline {section}{\numberline {3.2}Clase Tarjeta y Número}{26}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Clase Numero}{26}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Clase Tarjeta}{27}{subsection.3.2.2}%
-\contentsline {subsubsection}{Tarjeta.hpp}{28}{subsubsection*.5}%
-\contentsline {subsubsection}{Tarjeta.cpp}{30}{subsubsection*.6}%
-\contentsline {section}{\numberline {3.3}Clase Usuario y Clave}{34}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Clase Clave}{34}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Clase Usuario}{34}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Usuario.hpp}{36}{subsection.3.3.3}%
-\contentsline {subsection}{\numberline {3.3.4}Usuario.cpp}{38}{subsection.3.3.4}%
-\contentsline {chapter}{\numberline {4}Práctica 3}{41}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Modificación de la clase Numero}{42}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Numero.hpp}{42}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Numero.cpp}{43}{subsection.4.1.2}%
-\contentsline {section}{\numberline {4.2}Clase Pedido}{44}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Pedido.hpp}{45}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Pedido.cpp}{46}{subsection.4.2.2}%
-\contentsline {section}{\numberline {4.3}Clase asociación Articulo\_Pedido}{48}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Clase LineaPedido}{48}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Clase de asociación Articulo\_Pedido}{49}{subsection.4.3.2}%
-\contentsline {subsubsection}{Ejemplo de salida de pedidos:}{50}{subsubsection*.8}%
-\contentsline {subsection}{\numberline {4.3.3}Articulo\_Pedido.hpp}{51}{subsection.4.3.3}%
-\contentsline {subsection}{\numberline {4.3.4}Articulo\_Pedido.cpp}{52}{subsection.4.3.4}%
-\contentsline {section}{\numberline {4.4}Clase de asociación Usuario\_Pedido}{55}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Usuario\_Pedido.hpp}{55}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}Usuario\_Pedido.cpp}{56}{subsection.4.4.2}%
-\contentsline {chapter}{\numberline {5}Práctica 4}{57}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Modificación de la clase Articulo}{57}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Clase Autor}{58}{section.5.2}%
-\contentsline {section}{\numberline {5.3}La subclase ArticuloAlmacenable}{59}{section.5.3}%
-\contentsline {section}{\numberline {5.4}La subclase LibroDigital}{59}{section.5.4}%
-\contentsline {section}{\numberline {5.5}La subclase Libro}{59}{section.5.5}%
-\contentsline {section}{\numberline {5.6}La subclase Revista}{60}{section.5.6}%
-\contentsline {section}{\numberline {5.7}Modificación clase Articulo.hpp}{60}{section.5.7}%
-\contentsline {section}{\numberline {5.8}Modificación clase Articulo.cpp}{63}{section.5.8}%
-\contentsline {section}{\numberline {5.9}Modificación clase Pedido.cpp}{64}{section.5.9}%
+\contentsline {chapter}{\numberline {1}Práctica 0}{4}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Clase Fecha}{4}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Fecha.hpp}{5}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Fecha.cpp}{7}{subsection.1.1.2}%
+\contentsline {section}{\numberline {1.2}Clase Cadena}{10}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Cadena.hpp}{12}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Cadena.cpp}{13}{subsection.1.2.2}%
+\contentsline {chapter}{\numberline {2}Práctica 1}{17}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Clase Fecha}{17}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Fecha.hpp modificado}{17}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Fecha.cpp modificado}{18}{subsection.2.1.2}%
+\contentsline {section}{\numberline {2.2}Clase Cadena}{19}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Cadena.hpp modificada}{20}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Cadena.cpp modificada}{21}{subsection.2.2.2}%
+\contentsline {chapter}{\numberline {3}Práctica 2}{23}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Clase Artículo}{23}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Articulo.hpp}{24}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Articulo.cpp}{25}{subsection.3.1.2}%
+\contentsline {section}{\numberline {3.2}Clase Tarjeta y Número}{25}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Clase Numero}{25}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Clase Tarjeta}{26}{subsection.3.2.2}%
+\contentsline {subsubsection}{Tarjeta.hpp}{27}{subsubsection*.5}%
+\contentsline {subsubsection}{Tarjeta.cpp}{29}{subsubsection*.6}%
+\contentsline {section}{\numberline {3.3}Clase Usuario y Clave}{33}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Clase Clave}{33}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Clase Usuario}{33}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Usuario.hpp}{35}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.4}Usuario.cpp}{37}{subsection.3.3.4}%
+\contentsline {chapter}{\numberline {4}Práctica 3}{40}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Modificación de la clase Numero}{41}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Numero.hpp}{41}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Numero.cpp}{42}{subsection.4.1.2}%
+\contentsline {section}{\numberline {4.2}Clase Pedido}{43}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Pedido.hpp}{44}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Pedido.cpp}{45}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}Clase asociación Articulo\_Pedido}{47}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Clase LineaPedido}{47}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Clase de asociación Articulo\_Pedido}{48}{subsection.4.3.2}%
+\contentsline {subsubsection}{Ejemplo de salida de pedidos:}{49}{subsubsection*.8}%
+\contentsline {subsection}{\numberline {4.3.3}Articulo\_Pedido.hpp}{50}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}Articulo\_Pedido.cpp}{51}{subsection.4.3.4}%
+\contentsline {section}{\numberline {4.4}Clase de asociación Usuario\_Pedido}{54}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Usuario\_Pedido.hpp}{54}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Usuario\_Pedido.cpp}{55}{subsection.4.4.2}%
+\contentsline {chapter}{\numberline {5}Práctica 4}{56}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Modificación de la clase Articulo}{56}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Clase Autor}{57}{section.5.2}%
+\contentsline {section}{\numberline {5.3}La subclase ArticuloAlmacenable}{58}{section.5.3}%
+\contentsline {section}{\numberline {5.4}La subclase LibroDigital}{58}{section.5.4}%
+\contentsline {section}{\numberline {5.5}La subclase Libro}{58}{section.5.5}%
+\contentsline {section}{\numberline {5.6}La subclase Revista}{59}{section.5.6}%
+\contentsline {section}{\numberline {5.7}Modificación clase Articulo.hpp}{59}{section.5.7}%
+\contentsline {section}{\numberline {5.8}Modificación clase Articulo.cpp}{62}{section.5.8}%
+\contentsline {section}{\numberline {5.9}Modificación clase Pedido.cpp}{63}{section.5.9}%

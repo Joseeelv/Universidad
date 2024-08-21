@@ -1,9 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.27)  17 JUN 2024 11:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.27)  21 AUG 2024 15:06
 entering extended mode
- \write18 enabled.
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
  %&-line parsing enabled.
-**"/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PracticasPOO Latex/Practicas"
-(/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PracticasPOO Latex/Practicas.tex
+**"/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs POO/PracticasPOO Latex/Practicas.tex"
+(/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs POO/PracticasPOO Latex/Practicas.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
 (/usr/local/texlive/2024/texmf-dist/tex/latex/base/report.cls
@@ -403,7 +404,7 @@ LaTeX Info: Redefining \\ on input line 3180.
 Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/tools/shellesc.sty
 Package: shellesc 2023/07/08 v1.0d unified shell escape interface for LaTeX
-Package shellesc Info: Unrestricted shell escape enabled on input line 75.
+Package shellesc Info: Restricted shell escape enabled on input line 77.
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/ifplatform/ifplatform.sty
 Package: ifplatform 2017/10/13 v0.4a Testing for the operating system
  (/usr/local/texlive/2024/texmf-dist/tex/generic/catchfile/catchfile.sty
@@ -413,10 +414,9 @@ Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )) (/usr/local/texlive/2024/texmf-dist/tex/generic/iftex/ifluatex.sty
 Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
 )
-runsystem(uname -s > "Practicas.w18")...executed.
 
- (./Practicas.w18)
-runsystem(rm -- "Practicas.w18")...executed.
+Package ifplatform Warning: 
+    shell escape is disabled, so I can only detect \ifwindows.
 
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/xstring/xstring.sty (/usr/local/texlive/2024/texmf-dist/tex/generic/xstring/xstring.tex
 \xs_counta=\count330
@@ -439,9 +439,21 @@ Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 \@float@every@listing=\toks28
 \c@listing=\count334
 )
-runsystem(mkdir -p _minted-Practicas)...executed.
+runsystem(mkdir -p _minted-Practicas)...disabled (restricted).
 
- (/usr/local/texlive/2024/texmf-dist/tex/latex/natbib/natbib.sty
+
+
+./Config/paquetes.tex:19: Package minted Error: You must invoke LaTeX with the -shell-escape flag.
+
+See the minted package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.19 
+     
+Pass the -shell-escape flag to LaTeX. Refer to the minted.sty documentation for more information.
+
+(/usr/local/texlive/2024/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip57
 \bibsep=\skip58
@@ -775,20 +787,25 @@ Package: appendix 2020/02/08 v1.2c extra appendix facilities
 \c@@ppsavesec=\count389
 \c@@ppsaveapp=\count390
 )) (./Config/estilos.tex)
-runsystem(command -v pygmentize && touch Practicas.aex)...executed.
+runsystem(command -v pygmentize && touch Practicas.aex)...disabled (restricted).
 
-runsystem(rm Practicas.aex)...executed.
+
+
+/Users/jose/Library/CloudStorage/OneDrive-alum.uca.es/UNI/Universidad/Notes/PDFs POO/PracticasPOO Latex/Practicas.tex:8: Package minted Error: You must have `pygmentize' installed to use this package.
+
+See the minted package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.8 \begin{document}
+                    
+Refer to the installation instructions in the minted documentation for more information.
 
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'spanish'.
- (./Practicas.aux
-LaTeX Info: Redefining \. on input line 11.
-LaTeX Info: Redefining \% on input line 11.
-LaTeX Info: Redefining \. on input line 12.
-LaTeX Info: Redefining \% on input line 12.
-)
+No file Practicas.aux.
 \openout1 = `Practicas.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
@@ -814,7 +831,7 @@ Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
- (/usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+(/usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count391
 \scratchdimen=\dimen315
@@ -836,7 +853,6 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
 Package hyperref Info: Link coloring ON on input line 8.
- (./Practicas.out) (./Practicas.out)
 \@outlinefile=\write6
 \openout6 = `Practicas.out'.
 
@@ -880,29 +896,25 @@ Couldn't patch \ttl@straight@ii
 Couldn't patch \ttl@straight@ii
 (./Capitulos/0_0_Portada.tex) [1
 
-{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./Practicas.toc
-LaTeX Info: Redefining \. on input line 1.
-LaTeX Info: Redefining \% on input line 1.
-LaTeX Info: Redefining \. on input line 2.
-LaTeX Info: Redefining \% on input line 2.
- [2
-
-])
+{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+No file Practicas.toc.
 \tf@toc=\write7
 \openout7 = `Practicas.toc'.
 
- (./Capitulos/0_1_Introduccion.tex [3]
+(./Capitulos/0_1_Introduccion.tex [2
+
+]
 LaTeX Font Info:    Trying to load font information for OT1+zi4 on input line 19.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/inconsolata/ot1zi4.fd
 File: ot1zi4.fd 2018/01/14 OT1/zi4 (Inconsolata)
 )
 LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
 (Font)              scaled to size 12.0pt on input line 19.
-) (./Capitulos/1_P0.tex [4
+) (./Capitulos/1_P0.tex [3
 
 {/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/inconsolata/i4-ot1-0.enc}]
 Cap\'{\i }tulo 1.
-[5
+[4
 
 ]
 LaTeX Font Info:    Trying to load font information for OML+cmr on input line 81.
@@ -922,25 +934,25 @@ LaTeX Font Info:    Font shape `OT1/zi4/m/it' will be
 (Font)              scaled to size 12.0pt on input line 2.
 LaTeX Font Info:    Font shape `OT1/zi4/b/n' will be
 (Font)              scaled to size 12.0pt on input line 11.
-[6]
+[5]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [7])
+ [6])
 \openout3 = `Practicas.pyg'.
 
- (./_minted-Practicas/6AA4FD975AEFD1D801A95B3742585B4D853081DC2989D0ABEBDE1A5E19836A99.pygtex [8]
+ (./_minted-Practicas/6AA4FD975AEFD1D801A95B3742585B4D853081DC2989D0ABEBDE1A5E19836A99.pygtex [7]
 LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
 (Font)              scaled to size 6.0pt on input line 46.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [9]
+ [8]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [10]) [11]
+ [9]) [10]
 \openout3 = `Practicas.pyg'.
 
- (./_minted-Practicas/76DF2B72F4FEBCB79EE1977AC403E332853081DC2989D0ABEBDE1A5E19836A99.pygtex [12]
+ (./_minted-Practicas/76DF2B72F4FEBCB79EE1977AC403E332853081DC2989D0ABEBDE1A5E19836A99.pygtex [11]
 LaTeX Font Info:    Trying to load font information for TS1+zi4 on input line 11.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/inconsolata/ts1zi4.fd
 File: ts1zi4.fd 2018/01/14 TS1/zi4 (Inconsolata)
@@ -955,33 +967,33 @@ LaTeX Font Warning: Font shape `TS1/zi4/m/it' undefined
 
 LaTeX Font Info:    Font shape `TS1/zi4/m/it' will be
 (Font)              scaled to size 12.0pt on input line 37.
-[13{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/inconsolata/i4-ts1.enc}])
+[12{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/inconsolata/i4-ts1.enc}])
 \openout3 = `Practicas.pyg'.
 
- (./_minted-Practicas/15573C2385D1B157366D9C1DE1F05B8A853081DC2989D0ABEBDE1A5E19836A99.pygtex [14]
+ (./_minted-Practicas/15573C2385D1B157366D9C1DE1F05B8A853081DC2989D0ABEBDE1A5E19836A99.pygtex [13]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [15]
+ [14]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [16])) (./Capitulos/2_P1.tex [17]
+ [15])) (./Capitulos/2_P1.tex [16]
 Cap\'{\i }tulo 2.
 \openout3 = `Practicas.pyg'.
 
-(./_minted-Practicas/32BB7799A0F69052F380E573BC58281B853081DC2989D0ABEBDE1A5E19836A99.pygtex) [18
+(./_minted-Practicas/32BB7799A0F69052F380E573BC58281B853081DC2989D0ABEBDE1A5E19836A99.pygtex) [17
 
 ]
 \openout3 = `Practicas.pyg'.
 
- (./_minted-Practicas/64AF851A925701C842DDC8796720CD46853081DC2989D0ABEBDE1A5E19836A99.pygtex) [19] [20{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+ (./_minted-Practicas/64AF851A925701C842DDC8796720CD46853081DC2989D0ABEBDE1A5E19836A99.pygtex) [18] [19{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
 \openout3 = `Practicas.pyg'.
 
- (./_minted-Practicas/DAE39EC222A1DD38E49BA6B5F0449498853081DC2989D0ABEBDE1A5E19836A99.pygtex [21])
+ (./_minted-Practicas/DAE39EC222A1DD38E49BA6B5F0449498853081DC2989D0ABEBDE1A5E19836A99.pygtex [20])
 \openout3 = `Practicas.pyg'.
 
- (./_minted-Practicas/F246BAD9CD5B02F3A2AE5CE160E8B9B6853081DC2989D0ABEBDE1A5E19836A99.pygtex [22])) (./Capitulos/3_P2.tex [23]
+ (./_minted-Practicas/F246BAD9CD5B02F3A2AE5CE160E8B9B6853081DC2989D0ABEBDE1A5E19836A99.pygtex [21])) (./Capitulos/3_P2.tex [22]
 Cap\'{\i }tulo 3.
-<Pics/P2_1.png, id=383, 545.03625pt x 311.1625pt>
+<Pics/P2_1.png, id=136, 545.03625pt x 311.1625pt>
 File: Pics/P2_1.png Graphic file (type png)
 <use Pics/P2_1.png>
 Package pdftex.def Info: Pics/P2_1.png  used on input line 7.
@@ -997,9 +1009,9 @@ LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
 (Font)              scaled to size 8.39996pt on input line 16.
 \openout3 = `Practicas.pyg'.
 
-(./_minted-Practicas/74B2D51CCECFDB5CAC116F876167F6BE853081DC2989D0ABEBDE1A5E19836A99.pygtex [24
+(./_minted-Practicas/74B2D51CCECFDB5CAC116F876167F6BE853081DC2989D0ABEBDE1A5E19836A99.pygtex [23
 
- <./Pics/P2_1.png>]) [25]
+ <./Pics/P2_1.png>]) [24]
 \openout3 = `Practicas.pyg'.
 
  (./_minted-Practicas/698E67211BE7E6BD542E224A9A502117853081DC2989D0ABEBDE1A5E19836A99.pygtex
@@ -1007,21 +1019,21 @@ LaTeX Font Info:    Faking \texteuro for font family zi4
 (Font)              in TS1 encoding on input line 9.
 LaTeX Font Info:    Faking \texteuro for font family zi4
 (Font)              in TS1 encoding on input line 9.
-)) (./Capitulos/3_P2_Tarjeta.tex [26] [27]
-<Pics/P2_2.png, id=404, 348.30125pt x 165.61874pt>
+)) (./Capitulos/3_P2_Tarjeta.tex [25] [26]
+<Pics/P2_2.png, id=165, 348.30125pt x 165.61874pt>
 File: Pics/P2_2.png Graphic file (type png)
 <use Pics/P2_2.png>
 Package pdftex.def Info: Pics/P2_2.png  used on input line 63.
 (pdftex.def)             Requested size: 220.50887pt x 104.85336pt.
 \openout3 = `Practicas.pyg'.
 
- (./_minted-Practicas/ADD87999DD8A9214B38EBE100568EA47853081DC2989D0ABEBDE1A5E19836A99.pygtex [28 <./Pics/P2_2.png>]
+ (./_minted-Practicas/ADD87999DD8A9214B38EBE100568EA47853081DC2989D0ABEBDE1A5E19836A99.pygtex [27 <./Pics/P2_2.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [29])
+ [28])
 \openout3 = `Practicas.pyg'.
 
- (./_minted-Practicas/E261D0D65966AC4D5DCE8E6DD2FB1EB3853081DC2989D0ABEBDE1A5E19836A99.pygtex [30]
+ (./_minted-Practicas/E261D0D65966AC4D5DCE8E6DD2FB1EB3853081DC2989D0ABEBDE1A5E19836A99.pygtex [29]
 Overfull \hbox (32.98227pt too wide) in paragraph at lines 44--44
 []\OT1/zi4/m/it/12 numero_(numero),titular_([]&[]titular),caducidad_(caducidad),activa_([]true[]){|  
  []
@@ -1029,32 +1041,32 @@ Overfull \hbox (32.98227pt too wide) in paragraph at lines 44--44
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [31]
+ [30]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [32])) [33] (./Capitulos/3_P2_Usuario.tex
+ [31])) [32] (./Capitulos/3_P2_Usuario.tex
 Overfull \hbox (5.20421pt too wide) in paragraph at lines 29--30
 []\OT1/cmr/m/n/12 La cla-se tendr^^Sa va-rios m^^Seto-dos ob-ser-va-do-res: \OT1/zi4/m/it/12 id()\OT1/cmr/m/n/12 , \OT1/zi4/m/it/12 nombre()\OT1/cmr/m/n/12 , \OT1/zi4/m/it/12 apellido()\OT1/cmr/m/n/12 , \OT1/zi4/m/it/12 direccion()\OT1/cmr/m/n/12 ,
  []
 
-[34]
+[33]
 LaTeX Font Info:    Font shape `OML/cmr/m/it' in size <12> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 45.
-<Pics/P2_3.png, id=438, 513.92pt x 116.435pt>
+<Pics/P2_3.png, id=202, 513.92pt x 116.435pt>
 File: Pics/P2_3.png Graphic file (type png)
 <use Pics/P2_3.png>
 Package pdftex.def Info: Pics/P2_3.png  used on input line 50.
 (pdftex.def)             Requested size: 441.01773pt x 99.91893pt.
- [35 <./Pics/P2_3.png>]
+ [34 <./Pics/P2_3.png>]
 \openout3 = `Practicas.pyg'.
 
- (./_minted-Practicas/BA4DCDFDFFE88472DA58E3CA3344339E853081DC2989D0ABEBDE1A5E19836A99.pygtex [36])
+ (./_minted-Practicas/BA4DCDFDFFE88472DA58E3CA3344339E853081DC2989D0ABEBDE1A5E19836A99.pygtex [35])
 \openout3 = `Practicas.pyg'.
 
  (./_minted-Practicas/7AFB728FF85995826EA3FE612FC1298D853081DC2989D0ABEBDE1A5E19836A99.pygtex
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [37]
+ [36]
 Overfull \hbox (38.98227pt too wide) in paragraph at lines 15--15
 [][]\OT1/zi4/m/it/12 =[][]"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789./"[];|  
  []
@@ -1069,7 +1081,7 @@ Overfull \hbox (86.98227pt too wide) in paragraph at lines 35--35
 []\OT1/zi4/m/it/12 identificador_(id),nombre_(nom),apellidos_(apell),direccion_(dir),clave_(clave){|  
  []
 
-[38]
+[37]
 LaTeX Font Info:    Faking \texteuro for font family zi4
 (Font)              in TS1 encoding on input line 79.
 LaTeX Font Info:    Faking \texteuro for font family zi4
@@ -1077,22 +1089,22 @@ LaTeX Font Info:    Faking \texteuro for font family zi4
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [39]))) (./Capitulos/4_P3.tex [40]
+ [38]))) (./Capitulos/4_P3.tex [39]
 Cap\'{\i }tulo 4.
-<Pics/P3_1.png, id=466, 524.71031pt x 400.49625pt>
+<Pics/P3_1.png, id=231, 524.71031pt x 400.49625pt>
 File: Pics/P3_1.png Graphic file (type png)
 <use Pics/P3_1.png>
 Package pdftex.def Info: Pics/P3_1.png  used on input line 4.
 (pdftex.def)             Requested size: 441.01773pt x 336.62843pt.
-[41
+[40
 
  <./Pics/P3_1.png>] (./Capitulos/4_P3_Tarjeta.tex
 \openout3 = `Practicas.pyg'.
 
- (./_minted-Practicas/2F84A281F0D856AB6DE86DEE6D95E428853081DC2989D0ABEBDE1A5E19836A99.pygtex) [42]
+ (./_minted-Practicas/2F84A281F0D856AB6DE86DEE6D95E428853081DC2989D0ABEBDE1A5E19836A99.pygtex) [41]
 \openout3 = `Practicas.pyg'.
 
- (./_minted-Practicas/D73DB2A5E896634D2BB09CE7AD147B21853081DC2989D0ABEBDE1A5E19836A99.pygtex)) [43] (./Capitulos/4_P3_Pedido.tex [44]
+ (./_minted-Practicas/D73DB2A5E896634D2BB09CE7AD147B21853081DC2989D0ABEBDE1A5E19836A99.pygtex)) [42] (./Capitulos/4_P3_Pedido.tex [43]
 LaTeX Font Info:    Faking \texteuro for font family zi4
 (Font)              in TS1 encoding on input line 40.
 
@@ -1102,15 +1114,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 40--41
 
 \openout3 = `Practicas.pyg'.
 
-(./_minted-Practicas/DC0CE5983E363FAB3316624F9DE003AD853081DC2989D0ABEBDE1A5E19836A99.pygtex [45])
+(./_minted-Practicas/DC0CE5983E363FAB3316624F9DE003AD853081DC2989D0ABEBDE1A5E19836A99.pygtex [44])
 \openout3 = `Practicas.pyg'.
 
- (./_minted-Practicas/9543875EB71D87E316019475BC935516853081DC2989D0ABEBDE1A5E19836A99.pygtex [46]
+ (./_minted-Practicas/9543875EB71D87E316019475BC935516853081DC2989D0ABEBDE1A5E19836A99.pygtex [45]
 LaTeX Font Info:    Faking \texteuro for font family zi4
 (Font)              in TS1 encoding on input line 49.
 LaTeX Font Info:    Faking \texteuro for font family zi4
 (Font)              in TS1 encoding on input line 49.
-)) [47] (./Capitulos/4_P3_Articulo_Pedido.tex [48] [49]
+)) [46] (./Capitulos/4_P3_Articulo_Pedido.tex [47] [48]
 LaTeX Font Info:    Faking \texteuro for font family zi4
 (Font)              in TS1 encoding on input line 49.
 LaTeX Font Info:    Faking \texteuro for font family zi4
@@ -1127,10 +1139,10 @@ LaTeX Font Info:    Faking \texteuro for font family zi4
 (Font)              in TS1 encoding on input line 63.
 LaTeX Font Info:    Faking \texteuro for font family zi4
 (Font)              in TS1 encoding on input line 77.
- [50]
+ [49]
 \openout3 = `Practicas.pyg'.
 
- (./_minted-Practicas/C505CDF00A5145E18EACD73D94C234B8853081DC2989D0ABEBDE1A5E19836A99.pygtex [51])
+ (./_minted-Practicas/C505CDF00A5145E18EACD73D94C234B8853081DC2989D0ABEBDE1A5E19836A99.pygtex [50])
 \openout3 = `Practicas.pyg'.
 
  (./_minted-Practicas/139EA81BD545D56AF07109537F7BEC05853081DC2989D0ABEBDE1A5E19836A99.pygtex
@@ -1138,7 +1150,7 @@ LaTeX Font Info:    Faking \texteuro for font family zi4
 (Font)              in TS1 encoding on input line 4.
 LaTeX Font Info:    Faking \texteuro for font family zi4
 (Font)              in TS1 encoding on input line 4.
- [52]
+ [51]
 LaTeX Font Info:    Faking \texteuro for font family zi4
 (Font)              in TS1 encoding on input line 48.
 LaTeX Font Info:    Faking \texteuro for font family zi4
@@ -1150,7 +1162,7 @@ LaTeX Font Info:    Faking \texteuro for font family zi4
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [53]
+ [52]
 LaTeX Font Info:    Faking \texteuro for font family zi4
 (Font)              in TS1 encoding on input line 71.
 LaTeX Font Info:    Faking \texteuro for font family zi4
@@ -1163,20 +1175,20 @@ LaTeX Font Info:    Faking \texteuro for font family zi4
 (Font)              in TS1 encoding on input line 89.
 LaTeX Font Info:    Faking \texteuro for font family zi4
 (Font)              in TS1 encoding on input line 89.
-)) [54] (./Capitulos/4_P3_Usuario_Pedido.tex
+)) [53] (./Capitulos/4_P3_Usuario_Pedido.tex
 \openout3 = `Practicas.pyg'.
 
- (./_minted-Practicas/37A31614276115F98655BF505EA11E46853081DC2989D0ABEBDE1A5E19836A99.pygtex [55])
+ (./_minted-Practicas/37A31614276115F98655BF505EA11E46853081DC2989D0ABEBDE1A5E19836A99.pygtex [54])
 \openout3 = `Practicas.pyg'.
 
- (./_minted-Practicas/C16190E8B25B0BF9FA02D2E32C599507853081DC2989D0ABEBDE1A5E19836A99.pygtex))) (./Capitulos/5_P4.tex [56]
+ (./_minted-Practicas/C16190E8B25B0BF9FA02D2E32C599507853081DC2989D0ABEBDE1A5E19836A99.pygtex))) (./Capitulos/5_P4.tex [55]
 Cap\'{\i }tulo 5.
-<Pics/P4_1.png, id=538, 381.67593pt x 243.91125pt>
+<Pics/P4_1.png, id=319, 381.67593pt x 243.91125pt>
 File: Pics/P4_1.png Graphic file (type png)
 <use Pics/P4_1.png>
 Package pdftex.def Info: Pics/P4_1.png  used on input line 4.
 (pdftex.def)             Requested size: 441.01773pt x 281.84676pt.
-[57
+[56
 
  <./Pics/P4_1.png>]
 LaTeX Font Info:    Faking \texteuro for font family zi4
@@ -1185,16 +1197,16 @@ LaTeX Font Info:    Faking \texteuro for font family zi4
 (Font)              in TS1 encoding on input line 44.
 LaTeX Font Info:    Faking \texteuro for font family zi4
 (Font)              in TS1 encoding on input line 51.
- [58] [59]
+ [57] [58]
 \openout3 = `Practicas.pyg'.
 
- (./_minted-Practicas/E21DF7F3C84159EDE286B2267C692873853081DC2989D0ABEBDE1A5E19836A99.pygtex [60]
+ (./_minted-Practicas/E21DF7F3C84159EDE286B2267C692873853081DC2989D0ABEBDE1A5E19836A99.pygtex [59]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [61]
+ [60]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [62])
+ [61])
 \openout3 = `Practicas.pyg'.
 
  (./_minted-Practicas/7DD032BC4F5AE1F043368E0D967D198C853081DC2989D0ABEBDE1A5E19836A99.pygtex
@@ -1202,15 +1214,15 @@ LaTeX Font Info:    Faking \texteuro for font family zi4
 (Font)              in TS1 encoding on input line 21.
 LaTeX Font Info:    Faking \texteuro for font family zi4
 (Font)              in TS1 encoding on input line 21.
- [63])
+ [62])
 \openout3 = `Practicas.pyg'.
 
- (./_minted-Practicas/246D01CA8EDB9859F65B475049585C27853081DC2989D0ABEBDE1A5E19836A99.pygtex [64]))
+ (./_minted-Practicas/246D01CA8EDB9859F65B475049585C27853081DC2989D0ABEBDE1A5E19836A99.pygtex [63]))
 
 Package caption Warning: Unused \captionsetup[table] on input line 34.
 See the caption package documentation for explanation.
 
-[65] (./Practicas.aux
+[64] (./Practicas.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
 LaTeX Info: Redefining \. on input line 12.
@@ -1224,24 +1236,30 @@ L3 programming layer <2024-02-20>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package rerunfilecheck Info: File `Practicas.out' has not changed.
-(rerunfilecheck)             Checksum: BEDFAA50EF84276B0D8E21DCA3787DA9;7505.
-runsystem(rm Practicas.pyg)...executed.
+
+Package rerunfilecheck Warning: File `Practicas.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Practicas.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  BEDFAA50EF84276B0D8E21DCA3787DA9;7505.
+runsystem(rm Practicas.pyg)...disabled (restricted).
 
  ) 
 Here is how much of TeX's memory you used:
- 30911 strings out of 474116
- 587929 string characters out of 5743682
+ 30840 strings out of 474116
+ 586852 string characters out of 5743682
  1985187 words of memory out of 5000000
- 52510 multiletter control sequences out of 15000+600000
+ 52451 multiletter control sequences out of 15000+600000
  565965 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 104i,9n,104p,1231b,1169s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 104i,9n,104p,1244b,1169s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on Practicas.pdf (65 pages, 407040 bytes).
+Output written on Practicas.pdf (64 pages, 400742 bytes).
 PDF statistics:
- 660 PDF objects out of 1000 (max. 8388607)
- 556 compressed objects within 6 object streams
- 137 named destinations out of 1000 (max. 500000)
- 446 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 449 PDF objects out of 1000 (max. 8388607)
+ 348 compressed objects within 4 object streams
+ 136 named destinations out of 1000 (max. 500000)
+ 38 words of extra memory for PDF output out of 10000 (max. 10000000)
 
