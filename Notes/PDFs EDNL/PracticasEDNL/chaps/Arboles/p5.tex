@@ -208,31 +208,37 @@ Sabemos la dimensiones de la matriz que sería \(2k\), es decir \(2*(NumNodos-1)
 
 Como cada casilla tiene un color asociado o no, podemos creanos una estructura llamada "pixel" la cual contendrá la información de cada casilla junto con su "coordenada".
 \begin{minted}[breaklines]{C++}
+//Declaramos los tipos de datos a usar
 typedef struct Pixel{
-  std::string color; //typedef enum {B,N,V}color;
-  int filaS[2]; //fila
-  int filaI[2]; //columa
-};
-
-//devolvemos la matriz por referencia 
-template <typename Pixel> void figura (typename Agen<Pixel>::nodo n, const Agen<Pixel> &A, std::vector<std::vector<Pixel>> &M){
-  if(n!= Agen<Pixel>::NODO_NULO){
-    if(A.elemento(n).color == " "){ //Nodo intermedio del árbol
-      typename Agen<Pixel>::nodo aux = A.hijoIzqdo(n);
-      while(aux != Agen<Pixel>::NODO_NULO){
-        figura(aux,A,M);
-        aux = A.hermDrcho(aux);
+  std::string color;
+  //Nos movemos en el sentidos de las agujas del reloj
+  size_t x_[2]; //  (0,0) --> (0,1) |
+  size_t y_[2]; //  (0,1) <-- (1,1) v
+};  
+//Devolvemos la matriz por referencia
+template <typename Pixel>
+void Figura(typename Agen<Pixel>::nodo n, const Agen<Pixel> &A, vector<vector<Pixel>> &M){
+  if(n != Agen<Pixel>::NODO_NULO){
+    // Comprobamos si es un nodo intermedio
+    if(A.elemento(n) == ""){
+      Vamos a recorrer a sus hijos
+      typename Agen<Pixel>::nodo hijo = A.hijoIzqdo(n);
+      while(hijo != Agen<Pixel>::NODO_NULO){
+        //Llamamos a la función con los hijos
+        Figura(hijo,A,M);
+        hijo = A.hermDrcho(hijo);
       }
     }
-    else{ //Tiene color asociado
-      if(A.elemento(n).color == "B" || A.elemento(n).color == "N"){
-        //Vamos acceder a la posición de la matriz en sentido horario:
-        for(auto i = A.elemento(n).filaS[0]; i<= A.elemento(n).filaS[1]; i++)
-          for(auto j = A.elemento(n).filaI[1]; j<= A.elemento(n).filaI[0]; j--){
+    else{
+      if(A.elemento(n).color == "Blanco" || A.elemento(n).color == "Negro"){
+      //Vamos ir insertando en la matriz los colores
+        for(auto i = A.elemento(n).x_[0]; i <= A.elemento(n).x_[1]; i++)
+          for(auto j = A.elemento(n).y_[1]; j <= A.elemento(n).y_[0]; j++)
             M[i][j] = A.elemento(n).color;
-          }
       }
     }
+    //Si es otro color, no hace nada 
   }
+    //Si es nodo nulo, no se hace nada
 }
 \end{minted}

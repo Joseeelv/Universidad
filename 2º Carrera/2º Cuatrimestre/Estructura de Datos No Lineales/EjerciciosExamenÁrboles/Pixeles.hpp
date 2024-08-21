@@ -14,40 +14,43 @@
     Nota: Por simplificar el problema, se asume que en cada nodo del árbol se incluyen las coordenadas de la esquina superior izquierda y de la esquina inferior derecha del cuadrante que representa.
   */
 
-  #include <iostream>
-  #include "agen.h"
+#include <iostream>
+#include "agen.h"
+#include <string>
+#include <vector>
+//Declaramos los tipos de datos a usar
+typedef struct Pixel{
+  std::string color;
+  //Nos movemos en el sentidos de las agujas del reloj
+  size_t x_[2]; //  (0,0) --> (0,1) |
+  size_t y_[2]; //  (0,1) <-- (1,1) v
+};
 
-  //Declaramos los tipos de datos a usar
-  typedef struct Pixel{
-    enum Color {Blanco,Negro,SinColor}color;
-    //Nos movemos en el sentidos de las agujas del reloj
-    size_t x_[2]; //  (0,0) --> (0,1) |
-    size_t y_[2]; //  (0,1) <-- (1,1) v
-  };
 
-  //Devolvemos la matriz por referencia
-  template <typename Pixel>
-  void Figura(typename Agen<Pixel>::nodo n, const Agen<Pixel> &A, matriz<Pixel> &M){
-    if(n != Agen<Pixel>::NODO_NULO){
-      //Comprobamos si es un nodo intermedio
-      if(A.elemento(n).color == Pixel::SinColor){
-        //Vamos a recorrer a sus hijos
-        typename Agen<Pixel>::nodo hijo = A.hijoIzqdo(n);
-        while(hijo != Agen<Pixel>::NODO_NULO){
-          //Llamamos a la función con los hijos
-          Figura(hijo,A,M);
-          hijo = A.hermDrcho(hijo);
-        }
+//Devolvemos la matriz por referencia
+template <typename Pixel>
+void Figura(typename Agen<Pixel>::nodo n, const Agen<Pixel> &A, vector<vector<Pixel>> &M){
+  if(n != Agen<Pixel>::NODO_NULO){
+    // Comprobamos si es un nodo intermedio
+    if(A.elemento(n) == ""){
+      Vamos a recorrer a sus hijos
+      typename Agen<Pixel>::nodo hijo = A.hijoIzqdo(n);
+      while(hijo != Agen<Pixel>::NODO_NULO){
+        //Llamamos a la función con los hijos
+        Figura(hijo,A,M);
+        hijo = A.hermDrcho(hijo);
       }
-      else if(A.elemento(n).color == Pixel::Blanco || A.elemento(n).color == Pixel::Negro){
-        //Vamos ir insertando en la matriz los colores
-        for(auto i = A.elemento(n).x_[0]; i < A.elemento(n).x_[1]; i++)
-          for(auto j = A.elemento(n).y_[1]; j < A.elemento(n).y_[0]; j++){
-            M[i][j] = A.elemento(n).color;
-          }
+    }
+    else{
+      if(A.elemento(n).color == "Blanco" || A.elemento(n).color == "Negro"){
+      //Vamos ir insertando en la matriz los colores
+        for(auto i = A.elemento(n).x_[0]; i <= A.elemento(n).x_[1]; i++)
+          for(auto j = A.elemento(n).y_[1]; j <= A.elemento(n).y_[0]; j++)
+           M[i][j] = A.elemento(n).color;
       }
-      //Si es otro color, no hace nada xd
-    } 
-    //Si es nodo nulo, no se hace nada
+    }
+    //Si es otro color, no hace nada 
   }
+   //Si es nodo nulo, no se hace nada)
+}
 #endif // !Pixeles_HPP

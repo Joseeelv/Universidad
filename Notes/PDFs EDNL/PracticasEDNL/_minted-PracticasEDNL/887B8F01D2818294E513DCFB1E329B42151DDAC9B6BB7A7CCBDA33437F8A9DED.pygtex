@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{//Definimos los tipos de datos a usar}
+\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{pair}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{p}{,}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{ciudad}\PYG{p}{;}
+
+\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n+nf}{RETEUNI3}\PYG{p}{(}\PYG{n}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{G}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{  }\PYG{c+c1}{//Creamos el grafo a devolver}
+\PYG{+w}{  }\PYG{n}{GrafoP}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{F}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{Kruskal}\PYG{p}{(}\PYG{n}{G}\PYG{p}{);}
+\PYG{+w}{  }\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{longitud}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//longitud de la fibra óptica necesaria}
+\PYG{+w}{  }\PYG{c+c1}{//Rellenamos el grafo con los costes}
+\PYG{+w}{  }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{ciudades}\PYG{p}{.}\PYG{n}{size}\PYG{p}{();}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+\PYG{+w}{    }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{j}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{j}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{ciudades}\PYG{p}{.}\PYG{n}{size}\PYG{p}{();}\PYG{+w}{ }\PYG{n}{j}\PYG{o}{++}\PYG{p}{)}
+\PYG{+w}{      }\PYG{n}{longitud}\PYG{+w}{ }\PYG{o}{+=}\PYG{+w}{ }\PYG{n}{F}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{];}
+\PYG{+w}{  }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{longitud}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
