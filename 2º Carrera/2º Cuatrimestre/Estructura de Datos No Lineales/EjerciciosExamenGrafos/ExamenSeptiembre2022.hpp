@@ -19,57 +19,74 @@
 #include <cmath>
 #include <algorithm>
 #include "alg_grafoPMC.h"
-
 //Definimos los tipos de datos a usar
-struct Casilla{
-    size_t x_, y_, z_;
-};
 
 typedef std::pair<vector<size_t>,size_t> Camino_Coste;
+typedef struct Casilla{
+  size_t x, y, z;
+};
 
-//Función que nos convierte una casilla en un vértice del grafo
-size_t CasillatoVertice(size_t i, size_t j, size_t k, size_t N){
-    return (i* (N*N) + j*N + k);
-}
-
-Camino_Coste Laberinto3D(size_t N, vector<Casilla> &paredes, Casilla Origen, Casilla Destino){
-  //Creamos el grafo para poder calcular el coste
-  GrafoP<size_t>Laberinto(N*N*N);
-  //Vamos a rellenar el grafo con los movimientos que podemos realizar
-  for(size_t i = 0; i < N; i++)
-    for(size_t j = 0; j < N; j++)
+Camino_Coste Laberinto3D(size_t N, vector<Casilla> &paredes, Casilla Entrada, Casilla Salida){
+  //Primero de todo creamos el grafo no dirigido.
+  GrafoP<size_t> GLaberinto(N*N*N);
+  //Rellenamos el laberinto con los movimientos
+  for(size_t i = 0; i < N; i++){
+    for(size_t j = 0; j < N; j++){
       for(size_t k = 0; k < N; k++){
-        //Primero almacenamos la casilla actual
-        size_t actual = CasillatoVertice(i,j,k,N);
-        //Ahora vamos a rellenar con los posible movimientos
-        if(i+1 < N)
-          Laberinto[actual][CasillatoVertice(i+1,j,k,N)] = 1;
-        if(i-1 >= 0)
-          Laberinto[actual][CasillatoVertice(i-1,j,k,N)] = 1;
-        if(j+1 < N)
-          Laberinto[actual][CasillatoVertice(i,j+1,k,N)] = 1;
-        if(j-1 >= 0)
-          Laberinto[actual][CasillatoVertice(i,j-1,k,N)] = 1;
-        if(k+1 < N)
-          Laberinto[actual][CasillatoVertice(i,j,k+1,N)] = 1;
-        if(k-1 >= 0)
-          Laberinto[actual][CasillatoVertice(i,j,k-1,N)] = 1;
+        //Nos quedamos con la casilla actual
+        size_t casilla_actual = CasillaToVertice(i,j,k,N);
+        if(i+1 < N){ //Derecha
+          GLaberinto[casilla_actual][CasillaToVertice(i+1,j,k,N)] = GLaberinto[CasillaToVertice(i+1,j,k,N)][casilla_actual] = 1;
+        }
+        if(i-1 >= 0){ //Izquierda
+          GLaberinto[casilla_actual][CasillaToVertice(i-1,j,k,N)] = GLaberinto[CasillaToVertice(i-1,j,k,N)][casilla_actual] = 1;
+        }
+        if(j+1 < N){ //Abajo
+          GLaberinto[casilla_actual][CasillaToVertice(i,j+1,k,N)] = GLaberinto[CasillaToVertice(i,j+1,k,N)][casilla_actual] = 1;
+        }
+        if(j-1 >= 0){//Arriba
+          GLaberinto[casilla_actual][CasillaToVertice(i,j-1,k,N)] = GLaberinto[CasillaToVertice(i,j-1,k,N)][casilla_actual] = 1;
+        }
+        if(k+1 < N){ //Atrás
+          GLaberinto[casilla_actual][CasillaToVertice(i,j,k+1,N)] = GLaberinto[CasillaToVertice(i,j,k+1,N)][casilla_actual] = 1; 
+        }
+        if(k-1 >= 0){ //Delante
+          GLaberinto[casilla_actual][CasillaToVertice(i,j,k-1,N)] = GLaberinto[CasillaToVertice(i,j,k-1,N)][casilla_actual] = 1;
+        }
       }
-  //ahora vamos a colocar las paredes, la ponemos a infinito porque no se puede acceder
-  for(auto& p : paredes){
-    for(size_t i = 0; i < Laberinto.numVert(); i++){
-      Laberinto[i][CasillatoVertice(p.x_,p.y_,p.z_,N)] = Laberinto[CasillatoVertice(p.x_,p.y_,p.z_,N)][i] = GrafoP<size_t>::INFINITO;
     }
   }
-  //Ahora teniendo nuestro grafo con las casillas que podemos acceder y las paredes del mismo, vamos a calcular el coste mínimo de ir desde la casilla origen, a la casilla destino.
-  size_t casilla_origen = CasillatoVertice(Origen.x_,Origen.y_,Origen.z_,N);
-  size_t casilla_destino = CasillatoVertice(Destino.x_,Destino.y_,Destino.z_,N);
-  //Declaramos los vectores de vértices y costesminimos para poder hacer uso de Dijkstra
-  vector<size_t>Vertices(Laberinto.numVert()),CostesMinimos(Laberinto.numVert());
-  CostesMinimos = Dijkstra(Laberinto,casilla_origen,Vertices);
+  //Ahora rellenamos el grafo con las piedras
+  for(Casilla &pared : paredes){
+    for(size_t i = 0; i < GLaberinto.numVert(); i++){
+      GLaberinto[i][CasillaToVertice(pared.x,pared.y,pared.z,N)] = GLaberinto[CasillaToVertice(pared.x,pared.y,pared.z,N)][i] = GrafoP<size_t>::INFINITO;
+    }
+  }
 
-  //Vamos a obtener el camino y el coste minimo de ir desde el origen al destino
-  return Camino_Coste{Vertices,CostesMinimos[casilla_destino]};
+  //Ya tenemos el grafo con las casillas accesibles y no accesibles, por lo que vamos a proceder a obtener el camino y coste mínimo de ir desde la entrada hacia la salida.
+  size_t CEntrada = CasillaToVertice(Entrada.x,Entrada.y,Entrada.z, N);
+  size_t CSalida = CasillaToVertice(Salida.x, Salida.y, Salida.z, N);
+  
+  vector<size_t>Vertices(GLaberinto.numVert()),CostesMinimos(GLaberinto.numVert());
+  CostesMinimos = Dijkstra(GLaberinto,CEntrada,Vertices);
+  size_t Coste = CostesMinimos[CSalida]; //Coste del camino
+
+  //Ahora vamos a obtener el camino 
+  vector<size_t>Camino; //Camino Salida-Entrada
+  size_t actual = CSalida;
+  while(actual != CEntrada){
+    Camino.push_back(actual);
+    actual = Vertices[actual];
+  }
+  Camino.push_back(CEntrada);
+  std::reverse(Camino.begin(), Camino.end()); //Camino Entrada-Salida.
+
+  return {Camino, Coste}; //Devolvemos el camino y su coste mínimo.
+}
+
+//Función que dada una casilla nos devuelve un vértice
+size_t CasillaToVertice(size_t i, size_t j, size_t k, size_t N){
+  return (i*(N*N) + j*N + k);
 }
 #endif // !Laberinto3D_HPP
 
