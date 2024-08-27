@@ -53,7 +53,7 @@ size_t DistanciaRepartidor(GrafoP<size_t> &G, size_t CapacidadMax, size_t Almace
 
   //Vamos a ir recorriendo nuestro grafo (hasta que el vector de bool esté entero a true) y calculando el coste
   while(!visitados(ClientesAbastecidos)){
-    VerticeActual = VerticeMasCercano(CostesMinimos,VerticeActual); //conseguimos el vértice más cercano
+    VerticeAux = VerticeMasCercano(CostesMinimos,VerticeActual); //conseguimos el vértice más cercano
     DistanciaTotal += CostesMinimos[VerticeActual][VerticeAux]; //Sumamos el coste de ir a dicho vertice
     if(CajasCamion <= Pedido(VerticeActual)){ //Al abastecer al cliente  nos quedamos sin cajas:
       Pedido(VerticeActual) -= CajasCamion; //Abastecemos (no del todo) --> volvemos al alamcen --> terminamos de abastecer

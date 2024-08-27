@@ -25,13 +25,13 @@ typedef matriz<size_t> CostesViajes;
 
 CostesViajes ZuelandiaRebelde(GrafoP<size_t> &G, vector<size_t> &CiudadesRebeldes, vector<Carretera> &CarreterasRebeldes, size_t Capital){
   //Como no podemos acceder a las ciudades rebeldes, vamosa cortarlas
-  for(auto &ciudad : CiudadesRebeldes){
+  for(size_t &ciudad : CiudadesRebeldes){
     for(size_t i = 0; i < G.numVert(); i++){
       G[i][ciudad] = GrafoP<size_t>::INFINITO;
     }
   }
   //Ahora vamos a cortar las carreteras que están tomadas por los rebeldes
-  for(const auto &carretera : CarreterasRebeldes){
+  for(const Carretera &carretera : CarreterasRebeldes){
     G[carretera.first][carretera.second] = G[carretera.second][carretera.first] = GrafoP<size_t>::INFINITO;
   }
   

@@ -44,7 +44,7 @@ size_t DistanciaEuclidea(ciudad a, ciudad b){
   return sqrt(pow(a.first-b.first,2) + pow(a.second-b.second,2));
 }
 
-size_t Grecoland(vector<ciudad> &ciudadesFobos, vector<ciudad> &ciudadesDeimos, vector<ciudad> &costerasFobos, vector<ciudad> &costerasDeimos, size_t Origen, size_t Destino){
+size_t Grecoland(vector<ciudad> &ciudadesFobos, vector<ciudad> &ciudadesDeimos, vector<size_t> &costerasFobos, vector<size_t> &costerasDeimos, size_t Origen, size_t Destino){
   //Vamos a crearnos los 2 grafos para luego crearnos el supergrafo
   GrafoP<size_t> GrafoFobos(ciudadesFobos.size()), GrafoDeimos(ciudadesDeimos.size());
   //Vamos rellenar el Grafo de Fobos con sus carreteras
@@ -73,15 +73,11 @@ size_t Grecoland(vector<ciudad> &ciudadesFobos, vector<ciudad> &ciudadesDeimos, 
       GrafoGrecoland[i+ciudadesFobos.size()][j+ciudadesFobos.size()] = GrafoDeimos[i][j]; 
 
   //Tenemos el supegrafo (Grecoland) relleno, ahora vamos a obtener los puentes con menor coste
-  for(size_t i = 0; i < ciudadesFobos.size(); i++)
-    for(size_t j = 0; j < ciudadesDeimos.size(); j++){
-      //vamos a quedarnos con las ciudades que son costeras para poder crear los puentes
-      if(find(costerasFobos.begin(),costerasFobos.end(),ciudadesFobos[i]) != costerasFobos.end() &&
-         find(costerasDeimos.begin(),costerasDeimos.end(),ciudadesDeimos[j]) != costerasDeimos.end()){
-          //Si ambas son costeras, las unimos con un puente que también es la distancia euclidea
-          size_t CostePuente = DistanciaEuclidea(ciudadesFobos[i],ciudadesFobos[j]);
-          GrafoGrecoland[i][j+ciudadesFobos.size()] = GrafoGrecoland[j+ciudadesFobos.size()][i] = CostePuente;
-        }
+  for(size_t i : costerasFobos){
+      for(size_t j : costerasDeimos){
+        size_t CostePuente = DistanciaEuclidea(ciudadesFobos[i], ciudadesDeimos[j]);
+        GrafoGrecoland[i][j+ciudadesFobos.size()] = GrafoGrecoland[j+ciudadesFobos.size()][i] = CostePuente;
+      }
     }
   //Tenemos los puentes, vamos a quedarnos con los de menor coste con Kruskall
   GrafoGrecoland = Kruskall(GrafoGrecoland);
@@ -90,5 +86,3 @@ size_t Grecoland(vector<ciudad> &ciudadesFobos, vector<ciudad> &ciudadesDeimos, 
   vector<size_t>CosteMinimo = Dijkstra(GrafoGrecoland,Origen,vertices);
   return CosteMinimo[Destino];
 }
-
-
