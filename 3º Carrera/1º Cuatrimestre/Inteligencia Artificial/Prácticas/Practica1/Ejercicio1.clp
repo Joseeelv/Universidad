@@ -1,0 +1,12 @@
+(deffacts ubicaciones
+  (ubicacion A norte D)
+  (ubicacion A oeste B)
+  (ubicacion B norte E)
+  (ubicacion C norte F)
+  (ubicacion D norte G)
+  (ubicacion D oeste E)
+  (ubicacion E norte H)
+  (ubicacion F norte I)
+  (ubicacion G oeste H)
+  (ubicacion H oeste I)
+)
