@@ -4,7 +4,6 @@ import copy
 
 operadores = {"8": "ARRIBA", "2": "ABAJO", "4": "IZQUIERDA", "6": "DERECHA"}
 
-
 @dataclass
 class tEstado:
     tablero: np.ndarray
@@ -15,10 +14,11 @@ class tEstado:
         self.tablero = tablero
         self.N = self.tablero.shape[0]
         self.fila, self.col = np.where(self.tablero == 0)
+        self.fila = self.fila[0]
+        self.col = self.col[0]
 
-    def __repr__(self) -> str: # Permite representar el objeto como cadena
+    def __repr__(self) -> str:
         return f"{self.tablero}\n Fila: {self.fila}\n Col: {self.col}\n"
-
 
 def estadoInicial() -> tEstado:
     puzle_inicial = np.array(
@@ -29,36 +29,27 @@ def estadoInicial() -> tEstado:
     ])
     return tEstado(puzle_inicial)
 
-
 def estadoObjetivo() -> tEstado:
     puzle_final = np.array(
     [
         [1, 2, 3], 
-        [0, 4, 5], 
-        [8, 7, 6]
+        [4, 5, 6], 
+        [7, 8, 0]
     ])
     return tEstado(puzle_final)
-
 
 def coste(operador: str, estado: tEstado) -> int:
     return 1
 
-
 def dispOperador(operador: str) -> None:
     print(f"Operador: {operadores[operador]}")
 
-
 def iguales(actual: tEstado, objetivo: tEstado) -> bool:
-    iguales = False
-    # Completar
-
-    return iguales
-
+    return np.array_equal(actual.tablero, objetivo.tablero)
 
 def testObjetivo(actual: tEstado) -> bool:
     objetivo = estadoObjetivo()
     return iguales(actual, objetivo)
-
 
 def esValido(operador: str, estado: tEstado) -> bool:
     valido = False
@@ -66,27 +57,25 @@ def esValido(operador: str, estado: tEstado) -> bool:
         case "ARRIBA":
             valido = estado.fila > 0
         case "ABAJO":
-            valido = estado.fila < estado.N-1
+            valido = estado.fila < estado.N - 1
         case "IZQUIERDA":
             valido = estado.col > 0
         case "DERECHA":
-            valido = estado.col < estado.N-1
+            valido = estado.col < estado.N - 1
     return valido
 
 def aplicaOperador(operador: str, estado: tEstado) -> tEstado:
-    nuevo = copy.deepcopy(estado)  # Se hace la copia completa del estado anterior
-    ficha = 0  # ficha vacía
+    nuevo = copy.deepcopy(estado)
     match operadores[operador]:
         case "ARRIBA":
-            nuevo.fila = nuevo.fila - 1
+            nuevo.fila -= 1
         case "ABAJO":
-            nuevo.fila = nuevo.fila + 1
+            nuevo.fila += 1
         case "IZQUIERDA":
-            nuevo.col = nuevo.col - 1
+            nuevo.col -= 1
         case "DERECHA":
-            nuevo.col = nuevo.col + 1
+            nuevo.col += 1
     
-    # Intercambio del hueco por la posición de la ficha
     ficha = nuevo.tablero[nuevo.fila, nuevo.col]
     nuevo.tablero[nuevo.fila, nuevo.col] = 0
     nuevo.tablero[estado.fila, estado.col] = ficha
