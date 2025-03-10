@@ -1,0 +1,30 @@
+{
+  "cSpell.words": [
+    "euclídea",
+    "Fobos",
+    "Grecoland",
+    "Isadore",
+    "Minimos",
+    "subprograma",
+    "vertice",
+    "zuelandesas",
+    "Zuelandia"
+  ],
+  "files.associations": {
+    "*.hpp": "cpp",
+    "iostream": "cpp",
+    "__hash_table": "cpp",
+    "__split_buffer": "cpp",
+    "array": "cpp",
+    "bitset": "cpp",
+    "deque": "cpp",
+    "initializer_list": "cpp",
+    "queue": "cpp",
+    "stack": "cpp",
+    "string": "cpp",
+    "string_view": "cpp",
+    "unordered_map": "cpp",
+    "vector": "cpp",
+    "iosfwd": "cpp"
+  }
+}
