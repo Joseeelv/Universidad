@@ -25,6 +25,9 @@ Sabiendo esto, haré uso de los siguiente algoritmos:
 
 #include <iostream>
 #include "Materiales/alg_grafoPMC.h"
+#include "Materiales/matriz.h"
+#include <vector>
+#include <utility> // Para std::pair
 
 //Definimos los tipos de datos a usar, representaremos una ciudad como un entero sin signo.
 typedef std::pair<size_t,size_t> Carretera;
@@ -32,31 +35,34 @@ typedef matriz<size_t>CostesViajes;
 
 CostesViajes ZuelandiaRebeldes(GrafoP<size_t> &G, const vector<size_t> &CiudadesRebeldes, const vector<Carretera> &CarreterasRebeldes, size_t Capital){
   //Como tenemos ciudades que no pueden ser accesibles, vamos a modificar el grafo, haciendo que el coste de estas sea infinito.
-  for(size_t &ciudadrebelde : CiudadesRebeldes)
-    for(size_t i = 0; i < G.numVert(); i++)
+  for(size_t &ciudadrebelde : CiudadesRebeldes){
+    for(size_t i = 0; i < G.numVert(); i++){
       G[i][ciudadrebelde] = GrafoP<size_t>::INFINITO;
+    }
+  }
 
   //Ahora vamos a hacer inaccesibles dichas carreteras
   for(Carretera &carreterarebelde : CarreterasRebeldes)
     G[carreterarebelde.first][carreterarebelde.second] = GrafoP<size_t>::INFINITO;
 
   //Ahora vamos a obligar que todos los viajes se lleven a cabo por la Capital
-  vector<size_t>VerticesD(G.numVert()),VerticesDI(G.numVert()),CostesMinimosD(G.numVert()),CostesMinimosI(G.numVert());
-  CostesMinimosD = Dijkstra(G,Capital,VerticesD);
-  CostesMinimosDI = DijkstraInv(G,Capital,VerticesDI); 
+  vector<size_t>VerticesD(G.numVert()),VerticesDI(G.numVert()),CostesMinimosD = Dijkstra(G,Capital,VerticesD),CostesMinimosDI = DijkstraInv(G,Capital,VerticesDI);
 
   //Ya teniendo tanto las ciuades rebeldes como la carreteras rebeldes indicadas en el grafo, y todos los viajes cruzan la capital, vamos a poder calcular los costes mínimos de los caminos entre cada par de vértices del grafo,es decir floyd, para ello, creamos las matrices de costes mínimos y vértices.
-  matriz<size_t>Vertices(G.numVert()),CosteMinimos(G.numVert());
-  CostesMinimos = Floyd(G,Vertices);
+  matriz<size_t>Vertices(G.numVert()),CosteMinimosF = Floyd(G,Vertices);
 
   for(size_t i = 0; i < G.numVert(); i++){
     for(size_t j = 0; j < G.numVert(); j++){
-      CostesMinimos[i][j] = CostesMinimosD[i][j];
-      CostesMinimos[j][i] = CostesMinimosDI[i][j];
-    }
+      if(i==j){
+        CosteMinimosF[i][j] = 0; // El coste de ir a la misma ciudad es 0
+      }
+      else if(CostesMinimosDI[i] != GrafoP<size_t>::INFINITO && CostesMinimosD[j] != GrafoP<size_t>::INFINITO){
+        // Si el coste de ir a la capital desde i y el coste de ir a j desde la capital es finito, entonces podemos calcular el coste mínimo
+        CosteMinimosF[i][j] = CostesMinimosDI[i] + CostesMinimosD[j];
+      }
   }
-  
-  return CosteMinimos;
+}
+  return CosteMinimosF;
 }
 
 /*
