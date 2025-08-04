@@ -38,71 +38,70 @@ Tenemos que realizar un programa donde dadas las ciudades de Origen y Destino, l
 Por tanto, para poder reconstruir la carreteras de las islas haré uso de un algoritmo que me devuelva un árbol generador de coste mínimo, en este caso Kruskal.
 También haré uso de Dijkstra para calcular el coste mínimo de ir desde esa ciudad Origen a cualquier Destino.
 */
+
 #include <iostream>
-#include "Materiales/alg_grafoPMC.h"
+#include <cmath>
+#include "materiales/alg_grafoPMC.h"
 
-typedef std::pair<size_t,size_t> Ciudad; //Ciudad con coordenadas x, y
+typedef std::pair<size_t, size_t> Ciudad;
+typedef double tCoste;
 
-//Método que calcula la distancia euclidea entre dos ciudades
-size_t DistanciaEuclidea(Ciudad Origen, Ciudad Destino){
-  return sqrt(pow(Origen.first - Destino.first,2) + pow(Origen.second - Destino.second,2));
+// Distancia euclídea entre dos ciudades
+tCoste DistanciaEuclidea(Ciudad Origen, Ciudad Destino) {
+    return sqrt(pow((double)Origen.first - Destino.first, 2) + pow((double)Origen.second - Destino.second, 2));
 }
 
-size_t PuentesGrecoland(const vector<size_t> &CiudadesCosterasFobos, const vector<size_t> &CiudadesCosterasDeimos, const vector<Ciudad> &CiudadesFobos, const vector<Ciudad> &CiudadesDeimos, size_t Origen, size_t Destino){
+tCoste PuentesGrecoland(
+    const std::vector<size_t> &CiudadesCosterasFobos,
+    const std::vector<size_t> &CiudadesCosterasDeimos,
+    const std::vector<Ciudad> &CiudadesFobos,
+    const std::vector<Ciudad> &CiudadesDeimos,
+    size_t Origen, size_t Destino)
+{
+    using namespace std;
+    size_t N1 = CiudadesFobos.size(), N2 = CiudadesDeimos.size();
+    GrafoP<tCoste> Fobos(N1), Deimos(N2);
 
-  //Primero de todo, vamos a crear las Islas Fobos y Deimos
-  GrafoP<size_t>Fobos(CiudadesFobos.size()), Deimos(CiudadesDeimos.size());
+    // Carreteras internas
+    for (size_t i = 0; i < N1; i++)
+        for (size_t j = i + 1; j < N1; j++)
+            Fobos[i][j] = Fobos[j][i] = DistanciaEuclidea(CiudadesFobos[i], CiudadesFobos[j]);
 
-  //Rellenamos la isla Fobos (Grafo) con sus ciudades
-  for (size_t i = 0; i < CiudadesFobos.size(); i++){
-    for (size_t j = i+1; j < CiudadesFobos.size(); j++){
-      Fobos[i][j] = Fobos[j][i] = DistanciaEuclidea(CiudadesFobos[i],CiudadesFobos[j]);
-    }
-  }
+    for (size_t i = 0; i < N2; i++)
+        for (size_t j = i + 1; j < N2; j++)
+            Deimos[i][j] = Deimos[j][i] = DistanciaEuclidea(CiudadesDeimos[i], CiudadesDeimos[j]);
 
-  //Rellenamos ahora la isla Deimos
-  for (size_t i = 0; i < CiudadesDeimos.size(); i++){
-    for(size_t j = i+1; j < CiudadesDeimos.size(); j++){
-      Deimos[i][j] = Deimos[j][i] = DistanciaEuclidea(CiudadesDeimos[i], CiudadesDeimos[j]);
-    }
-  }
+    Fobos = Kruskall(Fobos);
+    Deimos = Kruskall(Deimos);
 
-  //Ahora, que tenemos las islas con sus ciudades, vamos a conectarlas entre sí, mediante el uso de un árbol generador de coste mínimo, es decir, aplicando Kruskal
-  Fobos = Kruskall(Fobos);
-  Deimos = Kruskall(Deimos);
+    // Unimos ambas islas en Grecoland
+    GrafoP<tCoste> Grecoland(N1 + N2);
 
-  //Cramos el archipiélago Grecoland como resultado de la unión de las islas
-  GrafoP<size_t>Grecoland(CiudadesFobos.size() + CiudadesDeimos.size());
-  //Rellenamos el grafo Grecoland
-  for(size_t i = 0; i < CiudadesFobos.size(); i++){
-    for(size_t j = i+1; j < CiudadesFobos.size(); j++){
-      Grecoland[i][j] = Fobos[i][j];
-    }
-  }
-  for(size_t i = 0; i < CiudadesDeimos.size(); i++){
-    for(size_t j = i+1; j < CiudadesDeimos.size(); j++){
-      Grecoland[i+CiudadesFobos.size()][j.CiudadesFobos.size()] = Deimos[i][j];
-    }
-  }
+    for (size_t i = 0; i < N1; i++)
+        for (size_t j = 0; j < N1; j++)
+            Grecoland[i][j] = Fobos[i][j];
 
-  //Ya que tenemos el supergrafo Grecoland (Archipielago) relleno con las ciudades normales, vamos a insertar la ciudades costeras de ambas islas
-  size_t factorpuente = 4; //Los puentes son más caros que las carreteras
-  for(size_t i: CiudadesCosterasFobos){
-    for(size_t j: CiudadesCosterasDeimos){
-      size_t CostePuente = DistanciaEuclidea(CiudadesFobos[i],CiudadesDeimos[j]) * factorpuente;
-      Grecoland[i][j+CiudadesFobos.size()] = Grecoland[j+CiudadesFobos.size()][i] = CostePuente;
-    }
-  }
-  //Ya tenemos todos los puentes instalados en nuestro grafo (todas las ciudades costeras conectadas).
-  //Ahora, vamos a quedarnos con los puentes de menor coste
-  Grecoland = Kruskall(Grecoland);
+    for (size_t i = 0; i < N2; i++)
+        for (size_t j = 0; j < N2; j++)
+            Grecoland[i + N1][j + N1] = Deimos[i][j];
 
-  //Finalmente, haré uso de Dijsktra para poder obtener el camino de coste mínimo de ir desde el Origen hasta el Destino indicado
+    // Añadimos los puentes entre costeras
+    const tCoste factorPuente = 4.0;
+    for (size_t i : CiudadesCosterasFobos)
+        for (size_t j : CiudadesCosterasDeimos) {
+            tCoste puente = factorPuente * DistanciaEuclidea(CiudadesFobos[i], CiudadesDeimos[j]);
+            Grecoland[i][j + N1] = Grecoland[j + N1][i] = puente;
+        }
 
-  vector<size_t>Vertices(Grecoland.numVert()),CostesMinimos(Grecoland.numVert());
-  CostesMinimos = Dijkstra(Grecoland,Origen,Vertices);
-  return CostesMinimos[Destino];
-}
+    // Reconstruimos puentes mínimos
+    Grecoland = Kruskall(Grecoland);
+
+    vector<tCoste> costes;
+    vector<size_t> vertices;
+    costes = Dijkstra(Grecoland, Origen, vertices);
+    return costes[Destino];
+} 
+
 
 /*
 Para llevar a cabo este ejercicio he hecho uso de los siguientes métodos de los grafos
