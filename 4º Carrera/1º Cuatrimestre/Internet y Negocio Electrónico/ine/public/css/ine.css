@@ -1,0 +1,121 @@
+body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+
+header {    
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+}
+
+header #header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header #breadcrumbs {
+    margin-top: 10px;
+    font-size: 80%;
+    color: yellow;   
+}
+
+header #breadcrumbs a {
+    color: yellow;
+    text-decoration: underline;   
+}
+
+.logo       { height: 50px; }
+.cart-ico   { width: 60px;  }
+
+.form-search                    { display: flex; }
+.form-search input[type="text"] { padding: 5px; font-size: 16px; }
+.form-search button             {
+    padding: 5px 10px;
+    font-size: 16px;
+    background-color: #555;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.button-links a { color: #fff; margin-left: 20px; text-decoration: none; }
+.button-links a:hover { text-decoration: underline; }
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: #eee;
+}
+.product-list .product {
+    width: 30%;
+}
+
+.product {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    background-color: #fff;
+}
+.product img {
+    width: 128px;
+    height: auto;
+    border: none;
+}
+.button {
+    text-decoration: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+.button:hover { background-color: #555; }
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    bottom: 0;
+}
+
+.ordering      { text-align: center; }
+.ordering span { margin:     10px; }
+.ordering img  { width:      20px; }
+
+main form { display: flex; flex-direction: column; align-items: left; background-color: #eee; padding: 10px; }
+.input { margin-bottom: 15px; }
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+    text-align: left;
+}
+input[type="text"], select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+input[type="text"]:focus { border-color: yellow; outline: none; box-shadow: 0 0 8px rgba(102, 175, 233, 0.6); }
+
+.status {
+    background-color: #ffb;
+    margin: 3px 0 3px 0;
+    padding: 3px 0 3px 0;
+}
+
+.fielderror {
+    background-color: #ffb;
+    color: red;
+    margin: 3px 0 3px 0;
+    padding: 3px 0 3px 0;
+}

@@ -1,0 +1,50 @@
+# Laravel & PHP
+/vendor/
+/node_modules/
+/public/storage
+/storage/*.key
+.env
+.env.*.php
+.phpunit.result.cache
+Homestead.yaml
+Homestead.json
+/.idea
+/.vscode
+/.phpunit.cache
+
+# OS generated
+.DS_Store
+Thumbs.db
+
+# Composer
+composer.lock
+
+# NPM/Yarn
+yarn.lock
+npm-debug.log*
+yarn-error.log*
+
+# Laravel Telescope
+storage/telescope
+
+# Laravel Horizon
+storage/horizon
+
+# Laravel Mix
+/public/hot
+/public/mix-manifest.json
+
+# Logs
+/storage/logs/*.log
+
+# Cache
+/storage/framework/cache/data
+/storage/framework/sessions
+/storage/framework/views
+
+# Misc
+*.sublime-workspace
+*.sublime-project
+*.swp
+*.bak
+*.tmp
